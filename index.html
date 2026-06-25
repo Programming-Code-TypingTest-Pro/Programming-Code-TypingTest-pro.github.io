@@ -293,6 +293,83 @@ font-size: 30px;
 .blog-section p {
   color: #555;
 }
+
+  /* 🔥 GET FREE BUTTON */
+.get-free-btn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  padding: 10px 18px;
+
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+
+  text-decoration: none;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #ffd700, #ffb300, #fff8dc);
+  backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(255,255,255,0.4);
+
+  box-shadow: 
+    0 0 15px rgba(255,215,0,0.6),
+    inset 0 0 10px rgba(255,255,255,0.5);
+
+  overflow: hidden;
+  z-index: 9999;
+
+  transition: 0.3s;
+}
+
+.get-free-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 
+    0 0 25px gold,
+    inset 0 0 15px white;
+}
+
+/* ✨ SHINE EFFECT */
+.get-free-btn span {
+  position: absolute;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.8),
+    transparent
+  );
+  transform: skewX(-20deg);
+  text-shadow: 
+  0 0 5px orange,
+  0 0 10px orange,
+  0 0 20px #ff8c00,
+  0 0 30px #ee0404;
+}
+
+/* LEFT TO RIGHT */
+.shine1 {
+  left: -60%;
+}
+
+/* RIGHT TO LEFT */
+.shine2 {
+  right: -60%;
+}
+
+@keyframes shineMove1 {
+  0% { left: -60%; }
+  100% { left: 120%; }
+}
+
+@keyframes shineMove2 {
+  0% { right: -60%; }
+  100% { right: 120%; }
+}
+
 </style>
 </head>
 
@@ -302,6 +379,12 @@ font-size: 30px;
 <div id="page1" class="page active">
   
   <div class="header">👑Programming Language  Coding, Typing Test👑</div>
+  <!-- 🔥 GET FREE BUTTON -->
+<a href="https://panduranggarad922-cell.github.io/Code-Typing-Speed-Test-App/" target="_blank" class="get-free-btn">
+  👑Get Free
+  <span class="shine1"></span>
+  <span class="shine2"></span>
+</a>
 <style>.header {
 
     background: linear-gradient(90deg, red,red, gold, yellow);
@@ -1109,7 +1192,41 @@ document.addEventListener("keydown", function(e) {
 </script>
 
 <script src="script.js"></script>
+<script>
+// 🔥 JS Shine Effect Controller
 
+const btn = document.querySelector(".get-free-btn");
+const shine1 = btn.querySelector(".shine1");
+const shine2 = btn.querySelector(".shine2");
+
+function startShine() {
+
+  // LEFT ➡️ RIGHT
+  shine1.style.transition = "none";
+  shine1.style.left = "-60%";
+
+  setTimeout(() => {
+    shine1.style.transition = "left 1.2s linear";
+    shine1.style.left = "120%";
+  }, 50);
+
+
+  // RIGHT ➡️ LEFT
+  shine2.style.transition = "none";
+  shine2.style.right = "-60%";
+
+  setTimeout(() => {
+    shine2.style.transition = "right 1.2s linear";
+    shine2.style.right = "120%";
+  }, 50);
+}
+
+// 🔁 Repeat animation every 3 sec
+setInterval(startShine, 3000);
+
+// 🚀 First time start
+startShine();
+</script>
 </body>
 
 </html>
