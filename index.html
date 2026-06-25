@@ -1,0 +1,1115 @@
+<!DOCTYPE html <html lang="en">
+<head>
+
+<title>Programming Typing Speed Test</title>
+
+<!-- Canonical URL -->
+
+<!-- Robots -->
+
+<style>
+  /* KEYBOARD POSITION */
+  .key {
+  position: relative;
+  font-size: 12px;
+}
+
+.key .top {
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  font-size: 9px;
+  opacity: 0.7;
+}
+.row {
+  display: flex;
+  gap: 6px;
+}
+.key .bottom {
+  position: absolute;
+  bottom: 2px;
+  right: 5px;
+  font-size: 12px;
+}
+#keyboardBox {
+  position: fixed;   /* absolute ❌ */
+  top: 120px;
+  right: 65px;
+
+  width: 530px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  padding: 15px;
+  border-radius: 15px;
+
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+
+  box-shadow: 0 0 25px rgba(0,255,255,0.3);
+  z-index: 9999;
+
+  transform: scale(0.65);
+  transform-origin: top right;
+}
+.key[data-key="backspace"] { grid-column: span 2; }
+.key[data-key="tab"] { grid-column: span 2; }
+.key[data-key="caps"] { grid-column: span 2; }
+.key[data-key="enter"] { grid-column: span 2; }
+.key[data-key="shift"] { grid-column: span 2; }
+.key[data-key="ctrl"] { grid-column: span 2; }
+.key[data-key="alt"] { grid-column: span 2; }
+.key[data-key="space"] { grid-column: span 6; }
+
+.key {
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: wight;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: inset 0 0 8px rgba(241, 43, 43, 0.3);
+  transition: 0.15s;
+  backdrop-filter: blur(10px);
+  background: rgba(0,255,255,0.08);
+  box-shadow: 0 0 10px rgba(222, 50, 50, 0.3),
+              inset 0 0 8px rgba(234, 77, 77, 0.3);
+}
+
+.key.active {
+  background: #ef2a2a;
+  color: black;
+  box-shadow: 0 0 20px #4fe0e0;
+  transform: scale(1.15);
+}
+
+.key.next {
+  background: red;
+  color: white;
+  box-shadow: 0 0 20px red;
+}
+
+.key[data-key="space"] { grid-column: span 5; }
+.key[data-key="enter"] { grid-column: span 2; }
+.key[data-key="backspace"] { grid-column: span 2; }
+.cursor {
+  display: inline-block;
+  width: 4px;
+  background: white;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,50%,100% {opacity:1;}
+  25%,75% {opacity:0;}
+}
+
+.glass {
+  background: rgba(255,255,255,0.08);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  color: white;
+}
+
+/* Background */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url('bgnm.jpeg') no-repeat center/cover;
+  filter: blur(0px) brightness(0.3);
+  z-index: -1;
+}
+body.no-bg {
+  background: black;
+}
+
+body.no-bg::before {
+  display: none;
+}
+/* Header */
+.header {
+  text-align: center;
+  font-size: 28px;
+  padding: 15px;
+  font-weight: bold;
+}
+
+/* Pages */
+.page {
+  display: none;
+  padding: 20px;
+}
+
+.active {
+  display: block;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Buttons */
+button {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(45deg,hsl(0, 97%, 49%) ,#010101);
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+button {
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 15px rgba(255,100,200,0.6);
+}
+/* Code */
+.code-box {
+  background: transparent;
+  padding: 15px;
+  margin: 10px 0;
+  height: auto;           /* ✅ fixed height (box bada nahi hoga) */
+  overflow-y: auto;        /* ✅ andar scroll hoga */
+  white-space: pre-wrap;   /* ✅ line break properly */
+  word-break: break-word;  /* ✅ mobile overflow fix */
+  border-radius: 10px;
+  border: 1px solid white;
+}
+#inputBox {
+  position: fixed;
+  top: -100px;
+  left: -100px;
+  opacity: 0;
+}
+/* Typing */
+#typingBox {
+  width: 95%;
+  height: auto;
+  background: transparent;
+  color: rgb(103, 105, 103);
+  padding: 10px;
+  border-radius: 10px;
+font-size: 30px;
+  font-weight: 1000;
+  font-family: monospace;
+  line-height: 1.6; /* 👈 line spacing better */
+  letter-spacing: 1px; /* 👈 letters thode spread */
+  overflow-y: auto;
+  z-index: 1;
+  position: relative;
+}
+
+/* Timer */
+.timer {
+  float: right;
+  background: red;
+  top: 90px;   /* 👈 jitna chaho upar niche adjust karo */
+  right: 5px; /* 👈 right side control */
+  padding: 8px;
+  border-radius: 5px;
+}
+
+/* Bars */
+.bar {
+  background: #333;
+  margin: 5px 0;
+}
+
+.fill {
+  height: 20px;
+  background: lime;
+}
+.mistake {
+  background: red;
+}
+#menuBtn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  font-size: 28px;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#menuBox {
+  position: fixed;
+  top: 60px;
+  right: 15px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+#menuBox button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(45deg, rgb(236, 9, 24), pink);
+  color: white;
+  cursor: pointer;
+}
+.blog-section {
+  max-width: 800px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+.blog-section h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.blog-section h2 {
+  color: #333;
+  margin-top: 20px;
+}
+
+.blog-section p {
+  color: #555;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div id="page1" class="page active">
+  
+  <div class="header">👑Programming Language  Coding, Typing Test👑</div>
+<style>.header {
+
+    background: linear-gradient(90deg, red,red, gold, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    text-shadow: 2px 2px 8px rgba(255,0,0,0.4);
+}</style>
+  <!-- ☰ Menu Button -->
+<div id="menuBtn" onclick="toggleMenu()">☰</div>
+
+<!-- Dropdown Menu -->
+<div id="menuBox">
+  <button onclick="openAbout()">About</button>
+  <button onclick="openBlog()">Articles & Blogs</button>
+  <button onclick="toggleDarkMode()" id="darkBtn">Dark Mode</button>
+  <button onclick="toggleTimer()" id="timerBtn">Timer Off</button>
+  <button onclick="toggleKeyboard()" id="keyboardBtn">Keyboard Off</button>
+</div>
+<h3>Select Language</h3>
+<div style="text-align:center; margin-top:40px;">  <!-- 🔧 yaha se pura block move hoga -->
+</div>
+
+<div class="grid" id="languages"></div>
+  <div style="text-align:center; font-size:12px; margin-top:80px;">
+  <!-- 🔧 yahi value change karke niche le ja sakte ho -->
+     <a href="terms.html" style="color:white; margin:0 10px; opacity:0.7; text-decoration:none;">Terms & Conditions</a>
+     <a href="privacy.html" style="color:white; margin:0 10px; opacity:0.7; text-decoration:none;">Privacy Policy</a>
+     <a href="contact.html" style="color:white; margin:0 10px; opacity:0.7; text-decoration:none;">Contact</a>
+  </div>
+<section class="first-page">
+  <h2 id="firstTitle">Welcome to Coding Typing Speed Test</h2>
+  <div id="firstPageTyping"></div>
+</section>
+<script>
+
+const firstPageContent = [
+
+  { type: "h2", text: "1. 🌐 How to use in this website " },
+
+  { type: "p", text: " Welcome to the Programming Typing Speed Test website. This platform is designed to help you improve your coding typing speed and accuracy using real programming language examples. Simply choose your preferred programming language to begin your practice session. Each typing test is created to simulate real coding environments for a better learning experience. Beginners and experienced developers can both benefit from regular practice on this website. The clean interface makes it easy to focus on typing without distractions. Start your journey today and build faster coding skills with daily practice. " },
+  { type: "p", text: " To use this website, first open the home page and select your favorite programming language from the available list. After choosing a language, you will see different coding projects that you can practice. Select any project to start the typing test instantly. Every project contains real code snippets that help you become familiar with programming syntax. This makes the practice session more useful than normal typing exercises. You can repeat the same project as many times as you want. Regular practice will improve both speed and confidence. "
+ },
+  { type: "p", text: "When the typing test begins, the coding text will appear inside the code box. Your task is to type the displayed code exactly as shown on the screen. Correct characters are highlighted differently from incorrect ones to help you identify mistakes immediately. The blinking cursor shows your current typing position throughout the test. Stay focused and type carefully to achieve higher accuracy. Avoid rushing because accuracy is more important than speed. Consistent practice will naturally increase your typing performance. " },
+  { type: "p", text: "The website includes a virtual keyboard that highlights the next key you need to press. This feature is especially useful for beginners who are still learning keyboard layouts. Watching the highlighted keys helps improve finger placement and typing habits. You can also turn the virtual keyboard on or off using the menu settings. Practicing with the keyboard guide develops muscle memory over time. This leads to faster and more accurate coding. It is one of the most useful learning features on the website. " },
+  { type: "p", text: "A built-in timer is available to make every typing session more challenging and realistic. You can enable or disable the timer from the menu before starting your practice. When the timer is active, you must complete the coding exercise within the given time limit. This helps improve typing speed under pressure. Time-based practice also prepares you for coding interviews and programming competitions. Beginners can switch the timer off for relaxed practice sessions. Choose the mode that best matches your learning goals. " },
+  { type: "p", text: "After completing the typing test, the website automatically generates your performance report. You can view your typing speed, WPM, accuracy, and total mistakes on the result page. These statistics help you understand your current skill level. Reviewing your performance after every test makes it easier to identify weak areas. Try to improve your results with every new practice session. Small improvements each day lead to significant progress over time. Tracking your progress keeps you motivated to continue practicing. " },
+  { type: "p", text: "The Dark Mode feature allows you to change the appearance of the website according to your preference. If you practice for long periods, dark mode can reduce eye strain in low-light environments. You can switch between dark mode and the normal background at any time. The feature provides a comfortable typing experience for both day and night usage. It does not affect your typing performance or test results. Choose the display mode that feels most comfortable for you. A better viewing experience helps maintain focus during practice. " },
+  { type: "p", text: "The website also includes helpful articles and learning resources for improving typing skills. These articles provide useful tips, practice methods, and coding advice for learners of all levels. Reading educational content alongside regular practice can speed up your improvement. Beginners can learn proper typing techniques while experienced users can discover advanced productivity tips. New content may be added regularly to support continuous learning. Spend a few minutes reading before starting your practice. Knowledge combined with practice produces the best results. " },
+  { type: "p", text: "For the best typing experience, use a desktop or laptop with a full-size keyboard whenever possible. Sit comfortably with both hands placed correctly on the keyboard. Avoid looking at the keys while typing because touch typing develops much faster without visual dependence. Focus on maintaining consistent accuracy before trying to increase speed. Take short breaks during long practice sessions to avoid fatigue. Daily practice is more effective than occasional long sessions. Good typing habits produce long-term improvements. " },
+  { type: "p", text: "This website is suitable for students, programming beginners, software developers, and anyone interested in improving coding typing skills. Every practice session helps increase speed, reduce mistakes, and build confidence while writing code. The interactive features create an engaging learning environment for users of all experience levels. Continue practicing regularly to achieve better typing performance over time. Challenge yourself with different programming languages and projects. Consistency is the key to mastering coding speed. Enjoy learning and keep improving every day. " },
+  { type: "p", text: "... " },
+
+  { type: "h2", text: "2. ⌨️ Screen Keyboard " },
+  { type: "p", text: "Go Home = Menu Button / Setting Tab = Click Keybord OFF / ON " },
+  { type: "p", text: "The Virtual Keyboard is one of the most useful features of this Programming Typing Speed Test website. It displays an on-screen keyboard that guides users while typing coding exercises. Every key is designed to match a real keyboard layout for a familiar experience. This feature helps beginners understand the position of letters, numbers, and special programming symbols. It creates a more interactive and engaging typing environment. Users can practice confidently without feeling confused. Regular use improves typing accuracy and confidence. " },
+  { type: "p", text: "The virtual keyboard highlights the next key that should be pressed during the typing test. This real-time guidance helps users type the displayed code correctly without guessing the next character. It reduces typing errors and makes coding practice easier for beginners. The highlighted keys also improve finger movement across the keyboard. This feature is especially helpful when typing complex programming syntax. Users can quickly learn the correct key positions through continuous practice. It supports faster learning and better performance. " },
+  { type: "p", text: " Programming languages contain many special characters such as brackets, braces, quotation marks, semicolons, and symbols. The virtual keyboard clearly displays these keys so users can locate them easily. This makes coding practice more realistic than ordinary typing lessons. Learning the position of programming symbols helps developers write code more efficiently. The feature is suitable for both beginners and experienced programmers. It builds confidence while working with real coding projects. Mastering these keys saves time during programming." },
+  { type: "p", text: "The keyboard follows a standard QWERTY layout similar to most physical keyboards. Users can practice with the same arrangement they use every day on their computers. This consistency improves muscle memory and develops proper touch typing skills. The familiar layout reduces confusion during long practice sessions. It also prepares users for real coding environments. Practicing on a realistic keyboard makes the learning process much easier. Over time, users become faster and more accurate. " },
+  { type: "p", text: "The website allows users to enable or disable the virtual keyboard whenever they want. Beginners can keep it visible for guidance, while advanced users can hide it for a more challenging experience. This flexibility makes the website suitable for different skill levels. The keyboard option can be changed from the menu with a single click. Users can customize their practice according to their learning needs. This simple feature improves the overall user experience. Everyone can practice in their preferred way. " },
+  { type: "p", text: "The keyboard responds instantly as users type each character in the coding test. It updates automatically to highlight the next required key without delay. This smooth interaction helps users maintain a steady typing rhythm. Fast visual feedback also keeps learners focused throughout the test. Real-time updates make the typing experience more enjoyable and productive. Continuous guidance encourages users to complete coding exercises with fewer mistakes. The feature supports efficient learning every day. " },
+  { type: "p", text: "Using the virtual keyboard regularly helps users improve finger placement and typing technique. Instead of searching for keys, users gradually learn their positions naturally. This develops muscle memory, which is essential for fast and accurate typing. Better finger movement also reduces typing fatigue during long coding sessions. Practicing with correct technique increases productivity in real programming work. The keyboard feature encourages healthy typing habits. Consistent practice leads to noticeable improvement over time. " },
+  { type: "p", text: " The virtual keyboard is useful for students, coding beginners, software developers, and anyone learning programming. It provides clear visual guidance that makes coding practice easier and more effective. Whether you are learning HTML, Python, JavaScript, Java, or C++, the keyboard supports every practice session. It helps reduce mistakes while increasing speed and confidence. The interactive design keeps users motivated to continue practicing. Better keyboard skills lead to better programming performance. This feature makes learning coding more enjoyable." },
+  { type: "p", text: " The keyboard has a clean and modern design that matches the overall appearance of the website. Glass-style effects, highlighted keys, and smooth animations create an attractive user interface. The responsive layout works well on different screen sizes and devices. Every key is clearly visible for comfortable typing practice. A simple design helps users focus on learning instead of distractions. Visual effects improve the overall experience without affecting performance. The keyboard combines functionality with an attractive look." },
+  { type: "p", text: "Regular practice with the virtual keyboard can significantly improve coding speed and typing accuracy. Every completed typing session helps users become more familiar with programming symbols and keyboard shortcuts. Small improvements made each day lead to better long-term results. The keyboard feature encourages users to practice consistently and build confidence. It is an important tool for anyone who wants to become a faster programmer. Continuous learning produces lasting typing skills. Keep practicing to achieve your coding goals. " },
+  { type: "p", text: " ..." },
+  
+  { type: "h2", text: "3. 📝 Code Box / Typing Box " },
+
+  { type: "p", text: " The Code Box is the main area where programming code is displayed for typing practice. It shows real coding examples from different programming languages in a clean and organized format. Users simply read the code and type it exactly as displayed. The design helps learners stay focused without unnecessary distractions. Every coding exercise begins inside this section of the website. It provides a realistic coding environment for practice. Regular use improves both typing speed and coding accuracy." },
+  { type: "p", text: " The code inside the Code Box is displayed with proper spacing and formatting to make it easy to read. Line breaks, indentation, and programming symbols are clearly visible during the typing test. This helps users understand the structure of real programming code while practicing. Good formatting reduces confusion and improves readability. Beginners can easily follow each line without difficulty. A clean layout creates a better learning experience. Proper formatting is essential for effective coding practice." },
+  { type: "p", text: "As users type, the Code Box highlights correct and incorrect characters in real time. Correctly typed characters appear with one color, while mistakes are displayed using another color. This instant feedback helps users identify typing errors immediately. Real-time highlighting improves both speed and accuracy during practice. Users can learn from their mistakes without waiting for the final result. Continuous feedback keeps the typing session interactive. It encourages better typing habits over time. " },
+  { type: "p", text: " A blinking cursor inside the Code Box shows the current typing position throughout the test. The cursor moves automatically as users continue typing each character. This makes it easy to track progress without losing focus. The cursor provides a smooth and familiar typing experience similar to professional code editors. Users always know where they are in the code. This small feature improves navigation and concentration. It makes the typing test feel more realistic." },
+  { type: "p", text: "The Code Box supports multiple programming languages such as HTML, CSS, JavaScript, Python, Java, C++, and many more. Each coding exercise contains real programming syntax to help users become familiar with different languages. Practicing actual code is more useful than typing random text. It prepares users for real software development work. Every language provides a unique typing experience. Users can improve both coding knowledge and typing skills together. This makes practice more meaningful. " },
+  { type: "p", text: " The Code Box is designed with a responsive layout that works smoothly on different screen sizes. Whether using a desktop, laptop, or mobile device, the code remains readable and properly formatted. The scrolling feature allows users to view long code snippets without affecting the layout. This ensures a comfortable typing experience on every device. Responsive design improves accessibility for all users. It keeps the website easy to use everywhere. Good responsiveness increases overall usability." },
+  { type: "p", text: "The transparent background and modern glass-style design give the Code Box a professional appearance. Rounded corners, smooth borders, and clean typography create an attractive coding environment. The visual design helps users stay engaged during practice sessions. A modern interface also improves readability and reduces distractions. Comfortable design encourages longer practice sessions. Users enjoy learning in a visually appealing environment. Good design supports better productivity. " },
+  { type: "p", text: "The Code Box automatically updates as users continue typing during the test. Every typed character is compared with the original code to measure accuracy. This real-time processing makes the typing test interactive and efficient. Users receive immediate visual feedback while progressing through the exercise. Automatic updates eliminate the need for manual checking. The feature works smoothly throughout the entire test. It provides a seamless typing experience. " },
+  { type: "p", text: "Practicing regularly with the Code Box helps users become faster and more accurate when writing programming code. It improves familiarity with programming syntax, symbols, and indentation. Daily practice builds confidence and strengthens typing habits. Better typing skills increase productivity during real coding projects. Students and developers can both benefit from continuous practice. Small improvements lead to long-term success. Consistency is the key to mastering coding speed. " },
+  { type: "p", text: "The Code Box is an essential feature of the Programming Typing Speed Test website. It combines real coding examples, instant feedback, and an easy-to-read layout into one interactive practice area. Users can improve speed, reduce mistakes, and build confidence through regular use. The feature supports learners of every experience level. It creates a realistic programming environment for effective learning. Continuous practice leads to better coding performance. The Code Box makes programming practice simple and enjoyable. " },
+  { type: "p", text: " ..." },
+  
+  { type: "h2", text: "4. ⏱️ Timer " },
+
+  { type: "p", text: "Go Home = Menu Button / Setting Tab = Click Timer OFF / ON " },
+  { type: "p", text: " The Timer feature helps you practice coding with better speed and time management. For the best learning experience, we recommend keeping the timer enabled while practicing Projects 1 to 5. These projects contain shorter coding exercises that are designed to be completed within the default 2-minute time limit. Projects 6 to 10 contain much larger code samples intended for practice rather than speed testing. For these longer projects, it is recommended to turn the timer off before you begin. This allows you to focus on accuracy, code structure, and typing technique without feeling rushed. Following this recommendation will help you improve both speed and confidence more effectively." },
+  { type: "p", text: " The Timer adds a real typing challenge by giving users a limited amount of time to complete each coding exercise. It encourages faster thinking, quicker typing, and better concentration throughout the test. Practicing with a timer also helps users become comfortable working under time pressure. This feature is useful for students, programmers, and coding interview preparation. Time-based practice improves overall productivity. It also makes each typing session more engaging. Regular use helps build consistent typing speed." },
+  { type: "p", text: " The default timer is set to two minutes, which is ideal for short coding exercises. During the test, the countdown is displayed on the screen so users can easily monitor the remaining time. This helps users manage their typing speed while maintaining good accuracy. Watching the timer encourages better focus throughout the session. The countdown creates a realistic testing environment. It motivates users to finish the exercise before time runs out. This improves both speed and discipline." },
+  { type: "p", text: " If the timer reaches zero before the code is completed, the typing test ends automatically and the result is generated. The website then calculates your typing performance based on the work completed within the available time. This helps users understand how well they perform under timed conditions. Every completed test provides valuable performance feedback. Users can compare results after each practice session. Continuous improvement becomes easier with regular timed practice. This feature supports measurable progress." },
+  { type: "p", text: " The Timer can be turned on or off directly from the website menu. This gives users complete control over how they want to practice. Beginners may prefer untimed sessions to focus on learning the keyboard and programming syntax. More experienced users can enable the timer to challenge themselves. The flexible settings make the website suitable for every skill level. Users can choose the practice mode that matches their goals. This improves the overall learning experience." },
+  { type: "p", text: " Timed typing sessions help improve decision-making and typing rhythm during programming tasks. Instead of stopping frequently to think about each key, users gradually develop smooth and natural typing habits. Better rhythm leads to higher typing speed and fewer mistakes. Practicing regularly with the timer builds confidence over time. It also prepares users for real coding environments. Small improvements become noticeable after consistent practice. Daily sessions produce the best results." },
+  { type: "p", text: " The Timer works together with the virtual keyboard and Code Box to create a complete typing practice environment. Users can monitor the remaining time while following the highlighted keys and typing the displayed code. These features work together to improve both speed and accuracy. The combination creates an interactive and enjoyable learning experience. Every typing session becomes more productive. Users receive instant feedback while working against the clock. This encourages continuous improvement." },
+  { type: "p", text: "Using the Timer regularly helps users prepare for coding interviews, programming contests, and technical assessments. Many real-world coding situations require developers to work efficiently within limited time. Timed practice builds the confidence needed for these situations. Users become more comfortable typing accurately under pressure. This skill is valuable for both students and professional developers. Better time management leads to better performance. Practice today to become faster tomorrow. " },
+  { type: "p", text: " The Timer is designed with a simple and easy-to-read display that remains visible throughout the typing test. Users can quickly check the remaining time without losing focus on the code. The clean interface minimizes distractions while maintaining awareness of the countdown. A clear timer improves concentration during practice. Simple design also enhances the overall user experience. Every second is displayed accurately. This makes the feature reliable and user-friendly." },
+  { type: "p", text: " The Timer is an important feature for anyone who wants to improve coding speed and typing accuracy. Whether you choose timed practice or untimed learning, the website provides the flexibility to match your skill level. Beginners can practice comfortably, while advanced users can challenge themselves with time limits. Consistent use of the Timer leads to better typing performance and greater confidence. Keep practicing regularly to achieve your coding goals. Every session brings you one step closer to becoming a faster programmer. Learning with the right strategy always produces better results." },
+  { type: "p", text: " ..." },
+  
+  { type: "h2", text: "5. 📋 Typing Test " },
+
+  { type: "p", text: " The Typing Test is the core feature of this Programming Typing Speed Test website. It allows users to practice typing real programming code instead of plain text. Each test is designed to improve coding speed, typing accuracy, and keyboard familiarity. By working with actual programming syntax, users gain practical typing experience. The exercises are suitable for beginners, students, and professional developers alike. Every completed test helps build confidence while writing code. Regular practice leads to noticeable improvement over time." },
+  { type: "p", text: " To begin the Typing Test, first select your preferred programming language from the home page. Next, choose one of the available coding projects to start practicing. The selected code will appear inside the Code Box, ready for typing. Simply type the code exactly as it is displayed on the screen. Every character, symbol, and space is important for achieving high accuracy. Careful typing produces better results. Following the displayed code helps improve programming habits." },
+  { type: "p", text: "During the Typing Test, every typed character is compared with the original code in real time. Correct characters are highlighted differently from incorrect ones, allowing users to identify mistakes immediately. This instant feedback helps improve typing accuracy without waiting for the final result. Users can quickly recognize errors and continue typing. Real-time highlighting creates a more interactive learning experience. It also motivates users to focus on accuracy. Small improvements become visible after every session. " },
+  { type: "p", text: "The Typing Test includes real programming code from different languages such as HTML, CSS, JavaScript, Python, Java, C++, and many others. Practicing with actual source code is much more effective than typing random words or sentences. Users become familiar with programming syntax, brackets, symbols, and indentation. This practical experience prepares them for real coding tasks. Every language offers a unique typing challenge. Regular practice improves both coding and typing skills together. It is an excellent way to learn efficiently. " },
+  { type: "p", text: "The virtual keyboard works together with the Typing Test by highlighting the next key that should be pressed. This feature is especially useful for beginners who are still learning keyboard positions. Watching the highlighted keys helps users develop proper finger placement and muscle memory. As typing skills improve, users can disable the keyboard for a greater challenge. The feature supports learners at every experience level. It makes coding practice easier and more enjoyable. Consistent use produces better results. " },
+  { type: "p", text: "Users can choose to practice with or without the Timer depending on their learning goals. Short coding projects are ideal for timed typing tests, while longer projects are better suited for untimed practice. This flexibility allows users to improve both speed and accuracy at their own pace. Beginners can focus on learning, while advanced users can challenge themselves under time pressure. Different practice modes support continuous improvement. Every session helps build stronger typing skills. Learning becomes more effective with regular practice. " },
+  { type: "p", text: "At the end of every Typing Test, the website automatically generates a detailed performance report. Users can view their typing speed, WPM, accuracy, and total mistakes in a clear format. These statistics make it easy to monitor progress after every practice session. Reviewing results helps users identify areas that need improvement. Tracking performance also increases motivation. Every completed test becomes a learning opportunity. Continuous progress leads to greater typing confidence. " },
+  { type: "p", text: "The Typing Test encourages users to maintain both speed and accuracy while typing programming code. Typing too quickly may increase mistakes, while typing carefully improves overall performance. Finding the right balance between speed and precision is essential for becoming an efficient programmer. Daily practice helps users achieve this balance naturally. Better typing habits increase productivity during real coding work. Small improvements add up over time. Consistency is the key to success. " },
+  { type: "p", text: "The responsive design of the Typing Test provides a smooth experience across desktops, laptops, and supported mobile devices. The clean layout, readable code, and simple interface allow users to focus entirely on the exercise. The website is designed to minimize distractions and maximize learning. Every feature works together to create a comfortable practice environment. Users can enjoy uninterrupted coding sessions. A well-designed interface improves the overall experience. Better usability leads to better learning outcomes. " },
+  { type: "p", text: "The Typing Test is suitable for anyone who wants to improve coding typing skills through regular practice. Whether you are a student, a beginner, or an experienced software developer, each practice session helps you type faster and more accurately. Real programming exercises, instant feedback, and detailed performance reports make learning both effective and enjoyable. Keep practicing consistently to achieve higher typing speed and better coding confidence. Every test brings you closer to becoming a skilled programmer. Success comes through patience and regular practice. " },
+  { type: "p", text: " ..." },
+  
+  { type: "h2", text: "6. 📊 Result " },
+
+  { type: "p", text: "The Result page displays a complete summary of your typing performance after every coding test. Once the test is finished, the website automatically calculates your typing statistics and presents them in an easy-to-read format. This allows users to quickly understand how well they performed during the session. The result is generated instantly without any manual action. It provides valuable feedback for both beginners and experienced programmers. Reviewing your results after every test helps measure your overall progress. Regular analysis leads to continuous improvement. " },
+  { type: "p", text: " Your typing Speed is shown as a percentage based on how much of the coding exercise you completed. A higher speed percentage means you finished more of the code within the available time. This helps users measure their typing performance during each session. Improving speed requires regular practice and consistent effort. Faster typing allows programmers to work more efficiently. However, speed should always be balanced with accuracy. Both are equally important for successful coding." },
+  { type: "p", text: " The Result page also displays your WPM (Words Per Minute), which is one of the most common typing performance measurements. WPM indicates how quickly you typed throughout the coding test. A higher WPM reflects better typing efficiency and stronger keyboard skills. Beginners may start with a lower score and gradually improve through daily practice. Tracking your WPM over time helps you see your progress clearly. Every practice session contributes to better results. Consistency is the key to improvement." },
+  { type: "p", text: "Accuracy is another important statistic shown on the Result page. It represents how many characters you typed correctly compared to the original programming code. Higher accuracy means fewer typing mistakes and better coding quality. Focusing on correct typing before increasing speed produces better long-term results. Accurate typing also reduces the time spent correcting errors during real programming work. Every successful practice session improves overall precision. Better accuracy builds greater confidence while coding. " },
+  { type: "p", text: " The website also counts the total number of typing mistakes made during the test. Mistakes are calculated by comparing your typed characters with the original code. This helps users identify areas that need more attention and practice. Reducing mistakes should always be one of the main learning goals. Careful typing produces cleaner and more reliable code. Reviewing your mistakes after every test helps improve future performance. Learning from errors is an important part of progress." },
+  { type: "p", text: "Performance bars on the Result page provide a visual representation of your Speed, WPM, Accuracy, and Mistakes. These progress bars make it easier to understand your performance at a glance. Visual feedback allows users to compare different practice sessions quickly. Watching the bars improve over time can be highly motivating. They provide a simple way to track long-term progress. Clear visuals enhance the overall user experience. They make performance analysis easier for everyone. " },
+  { type: "p", text: " Based on your typing performance, the website displays a motivational result message such as Excellent, Pass, or Try Again. These messages encourage users to continue practicing regardless of their current skill level. Beginners should not be discouraged by lower scores because improvement comes with regular practice. Positive feedback keeps users motivated to learn. Every completed test is another opportunity to become better. Small improvements eventually lead to outstanding results. Consistency always produces success." },
+  { type: "p", text: " If you are not satisfied with your performance, you can use the Restart button to take the same typing test again. Repeating the same coding exercise helps improve familiarity with programming syntax and keyboard positions. Each new attempt gives users another chance to increase speed and accuracy. Comparing results between attempts shows measurable improvement. Regular repetition builds confidence and muscle memory. Practice is the fastest path to better typing skills. Never stop learning and improving." },
+  { type: "p", text: "The Result page also includes additional typing tips and learning content to help users improve their coding skills. Reading these suggestions alongside regular practice can increase typing efficiency more quickly. Educational guidance supports users at every experience level. Combining theory with practical typing exercises produces the best results. Continuous learning is essential for long-term success. Every tip helps users become more productive programmers. Knowledge and practice work together. " },
+  { type: "p", text: " The Result page is an important part of the Programming Typing Speed Test website because it helps users evaluate their progress after every session. Speed, WPM, Accuracy, and Mistakes are presented together to provide a complete performance overview. By reviewing these statistics regularly, users can set goals and monitor their improvement over time. Consistent practice leads to higher scores and stronger coding skills. Every completed test is a step toward becoming a faster and more accurate programmer. Keep practicing and enjoy your learning journey." },
+  { type: "p", text: " ..." },
+  
+  { type: "h2", text: " 7.🎯 Accuracy" },
+
+  { type: "p", text: "Accuracy is one of the most important performance measurements in the Programming Typing Speed Test. It shows how correctly you typed the programming code compared to the original text displayed in the Code Box. A higher accuracy score means you made fewer typing mistakes during the test. Accurate typing is essential for writing clean and error-free code. Even a small typing mistake can change the behavior of a program. Therefore, improving accuracy should always be a top priority. Better accuracy leads to better coding performance. " },
+  { type: "p", text: " The website calculates your Accuracy automatically after every typing test. Each typed character is compared with the original programming code to determine whether it is correct or incorrect. The final percentage reflects your overall typing precision. This automatic calculation provides reliable and instant feedback. Users do not need to check their mistakes manually. The system handles everything in real time. This makes the learning process simple and efficient." },
+  { type: "p", text: "Maintaining high accuracy is more important than typing at maximum speed. Typing too quickly without paying attention often increases mistakes and lowers your final score. It is always better to type slowly and correctly before trying to increase your speed. As your typing habits improve, your speed will naturally become faster. Focusing on accuracy builds a strong foundation for future improvement. Good habits create long-term success. Quality should always come before speed. " },
+  { type: "p", text: " Real-time character highlighting helps users improve their accuracy throughout the typing test. Correct characters are displayed differently from incorrect ones, making mistakes easy to identify immediately. This instant feedback allows users to understand their typing errors while continuing the exercise. Learning from mistakes during practice improves future performance. Visual guidance makes the typing session more interactive and educational. Continuous feedback supports better learning. Every practice session becomes more effective." },
+  { type: "p", text: "Programming languages contain many symbols, brackets, quotation marks, and special characters that require careful typing. High accuracy ensures these important characters are entered correctly without errors. This is especially important because programming code must follow strict syntax rules. Practicing accurate typing helps users become more comfortable with complex coding structures. Better precision also improves confidence while writing real programs. Small improvements make a significant difference. Accuracy supports professional coding habits. " },
+  { type: "p", text: " The Accuracy score helps users monitor their progress after every typing session. By comparing results over time, users can identify areas that need additional practice. Tracking improvements keeps learners motivated and focused on their goals. Even small increases in accuracy represent meaningful progress. Consistent practice produces noticeable improvements over time. Regular evaluation encourages continuous learning. Every session contributes to better typing skills." },
+  { type: "p", text: " Reducing typing mistakes is one of the easiest ways to increase your Accuracy score. Before pressing each key, take a moment to ensure you are typing the correct character. Avoid rushing through the coding exercise, especially when typing programming symbols. Careful typing produces cleaner and more reliable code. Fewer mistakes also improve your overall typing confidence. Patience during practice leads to better long-term results. Accuracy grows through consistent effort." },
+  { type: "p", text: " Daily practice is the most effective way to improve typing accuracy. Spending a few minutes each day on coding exercises helps develop stronger finger memory and better keyboard control. As users become familiar with programming syntax, typing becomes more natural and precise. Small daily improvements accumulate into significant long-term progress. Consistency is more valuable than occasional long practice sessions. Regular learning builds lasting skills. Practice every day for the best results." },
+  { type: "p", text: " High Accuracy is beneficial for students, beginners, software developers, and professional programmers. Writing error-free code saves time by reducing debugging and correction work. Better typing precision also increases productivity during real programming projects. Users who consistently maintain high accuracy become more confident in their coding abilities. Strong typing skills support faster software development. Accurate programmers work more efficiently. Precision is a valuable professional skill." },
+  { type: "p", text: " The Accuracy feature is an essential part of the Programming Typing Speed Test because it measures the quality of your typing rather than just the speed. A high Accuracy score reflects careful typing, strong keyboard control, and good programming habits. By focusing on accuracy during every practice session, users can gradually improve both speed and confidence. Keep practicing regularly to reduce mistakes and achieve higher scores. Better accuracy always leads to better coding performance and long-term success." },
+  { type: "p", text: " ..." },
+  
+  { type: "h2", text: " 8. </> Programming Language" },
+
+  { type: "p", text: " The Programming Language section allows users to choose the language they want to practice before starting a typing test. This feature makes the website suitable for learners with different interests and skill levels. Whether you are a beginner or an experienced programmer, you can select the language that matches your learning goals. Each language contains real coding examples instead of random text. Practicing with actual source code improves both typing skills and programming knowledge. It creates a more practical learning experience. Every session helps build confidence while writing code." },
+  { type: "p", text: " The website supports multiple popular programming languages, including HTML, CSS, JavaScript, Python, Java, C++, TypeScript, Kotlin, Swift, Node.js, Dart, Rust, C#, and R. This wide selection allows users to practice with the technologies they use most often. Every language offers unique coding syntax and typing challenges. Learning different programming languages also improves keyboard familiarity. Users can switch between languages at any time. This flexibility makes the platform useful for all types of programmers. It supports continuous learning and practice." },
+  { type: "p", text: " Each programming language includes multiple coding projects with different levels of difficulty. Beginners can start with smaller projects to build confidence and improve accuracy. As typing skills improve, users can move on to larger and more advanced coding exercises. This gradual learning approach makes practice more effective. Every completed project strengthens typing speed and programming familiarity. Step-by-step improvement helps users stay motivated. Consistent practice leads to better long-term results." },
+  { type: "p", text: " The coding exercises are based on real programming syntax rather than ordinary words or sentences. Users practice typing variables, functions, loops, conditions, classes, HTML tags, CSS properties, and many other programming elements. This realistic approach prepares learners for actual software development work. It also helps users become comfortable with programming symbols and special characters. Practical exercises are more valuable than traditional typing lessons. Real code builds real skills. Learning becomes more meaningful and productive." },
+  { type: "p", text: " Selecting a programming language is simple and takes only a single click from the home page. After choosing a language, the website displays all available coding projects for that language. Users can then select any project and begin typing immediately. The easy navigation makes the platform beginner-friendly. No complicated setup or installation is required. Everything is available directly on the website. This allows users to start practicing within seconds." },
+  { type: "p", text: " Different programming languages contain different keywords, symbols, and coding styles. Practicing multiple languages helps users become familiar with a variety of programming environments. This improves keyboard control and reduces hesitation when typing unfamiliar syntax. Learning to type different coding styles also increases overall programming confidence. Every language introduces new typing challenges. These challenges strengthen typing skills over time. Variety makes practice more interesting and effective." },
+  { type: "p", text: " Students can use the Programming Language section to improve classroom assignments, coding projects, and exam preparation. Software developers can practice writing code faster while maintaining high accuracy. Beginners can develop strong typing habits before working on larger programming projects. The platform is suitable for learners at every experience level. Daily practice helps improve both coding speed and productivity. Better typing skills save valuable development time. Everyone benefits from regular coding practice." },
+  { type: "p", text: " The Programming Language section works together with the Code Box, Virtual Keyboard, Timer, and Result page to create a complete learning experience. After selecting a language, users receive interactive typing guidance, real-time feedback, and detailed performance reports. These connected features help improve speed, accuracy, and confidence simultaneously. Every practice session becomes more productive. The website is designed to support continuous improvement. Learning feels simple and enjoyable. Each feature contributes to better coding skills." },
+  { type: "p", text: " Regular practice with different programming languages improves muscle memory and keyboard familiarity. Users gradually become faster at typing programming keywords, brackets, symbols, and common coding patterns. This reduces typing mistakes during real software development work. Better familiarity also increases confidence while writing code. Small improvements made each day produce significant long-term results. Consistency is the foundation of success. Daily practice creates lasting typing skills." },
+  { type: "p", text: " The Programming Language feature is one of the most valuable parts of the Programming Typing Speed Test website. It provides users with a wide variety of coding exercises across modern programming languages. Whether you want to learn web development, software development, or general programming, this feature supports your learning journey. Real coding practice improves typing speed, accuracy, and programming confidence at the same time. Keep exploring different languages and continue practicing regularly to become a faster and more efficient programmer." },
+  { type: "p", text: " ..." },
+];
+let firstIndex = 0;
+let firstChar = 0;
+
+function typeFirstPage() {
+
+  let container = document.getElementById("firstPageTyping");
+
+  if (firstIndex >= firstPageContent.length) return;
+
+  let item = firstPageContent[firstIndex];
+
+  if (item.type === "img") {
+
+    let img = document.createElement("img");
+    img.src = item.src;
+    img.style.width = "100%";
+    img.style.margin = "20px 0";
+    img.style.borderRadius = "10px";
+
+    container.appendChild(img);
+
+    firstIndex++;
+    setTimeout(typeFirstPage, 300);
+    return;
+  }
+
+  let element = document.createElement(item.type);
+
+  container.appendChild(element);
+
+  let i = 0;
+
+  function typeChar() {
+
+    if (i < item.text.length) {
+
+      element.innerHTML += item.text.charAt(i);
+
+      i++;
+
+      setTimeout(typeChar, 2);
+
+    } else {
+
+      firstIndex++;
+
+      setTimeout(typeFirstPage, 400);
+
+    }
+
+  }
+
+  typeChar();
+
+}
+
+function startFirstPageTyping() {
+  let container = document.getElementById("firstPageTyping");
+  container.innerHTML = "";
+  firstIndex = 0;
+  firstChar = 0;
+  typeFirstPage();
+}
+</script>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="page">
+  <div class="header">👑Select Once Project👑 </div>
+<style>.header {
+
+    background: linear-gradient(90deg, red,red, gold, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    text-shadow: 2px 2px 8px rgba(255,0,0,0.4);
+}</style>
+<span id="langTitle"></span>
+<div class="grid" id="projects"></div>
+<button onclick="goBack(1)" class="back-btn">
+  Back
+</button>
+
+<style>
+.back-btn {
+  position: absolute;
+  top: 50px;
+  left: 5px;
+
+  padding: 8px 13px;
+  font-size: 13px;
+  color: white;
+
+  background: rgba(255, 255, 255, 0.1); /* transparent */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  border-radius: 12px;
+  backdrop-filter: none; 
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background: none;
+}
+</style>
+<h1>Recommended Settings</h1>
+<h2>1. ⏱️ Timer OFF / ON</h2>
+<p> 💡 Working on 6 to 10 long typing projects? Turn Off the Timer and type at your own pace. </p>
+<p> Go Home = Menu Button / Setting Tab = Click Timer OFF </p>
+<p>... </p>
+<h2>2. ⌨️ Screen Keybord OFF / ON</h2>
+<p>💡 Pro user? Turn Off the On-Screen Keyboard for a better experience. </p>
+<p> Go Home = Menu Button / Setting Tab = Click Keybord OFF  </p>
+</div>
+
+<!-- PAGE 3 -->
+<div id="page3" class="page">
+  <div class="header">👍Best Of Luck💯</div>
+<style>.header {
+
+    background: linear-gradient(90deg, red,red, gold, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    text-shadow: 2px 2px 8px rgba(255,0,0,0.4);
+}</style>
+<div class="timer" id="timer">2:00</div>
+<div id="keyboardBox"></div>
+<!-- 🔴 End Exam -->
+<button onclick="endExam()" 
+style="position:absolute; top:55px; right:5px; background:red; padding:5px 10px; font-size:10px; border-radius:3px;">
+End Exam
+</button>
+<span id="testTitle"></span>
+<button onclick="goBack(2)" class="back-btn">
+  Back
+</button>
+
+<style>
+.back-btn {
+  position: absolute;
+  top: 50px;
+  left: 5px;
+  padding: 7px 13px;
+  font-size: 13px;
+  color: white;
+  background: rgba(255, 255, 255, 0.1); /* transparent */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  backdrop-filter: none; 
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background: none;
+}
+.correct { color: lightgreen; }
+.incorrect { color: red; }
+.pending { color: gray; }
+</style>
+<div class="code-box glass" id="typingBox"></div>
+<textarea id="inputBox"></textarea>
+</div>
+
+<!-- PAGE 4 -->
+<div id="page4" class="page">
+   <div class="header">🎉Test Results🎉</div>
+<style>.header {
+
+    background: linear-gradient(90deg, red,red, gold, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    text-shadow: 2px 2px 8px rgba(255,0,0,0.4);
+}</style>
+<h2 id="resultText"></h2>
+
+<div>Speed</div>
+<div class="bar"><div id="speedBar" class="fill"></div></div>
+
+<div>WPM</div>
+<div class="bar"><div id="wpmBar" class="fill"></div></div>
+
+<div>Accuracy</div>
+<div class="bar"><div id="accBar" class="fill"></div></div>
+
+<div>Mistakes</div>
+<div class="bar"><div id="mistakeBar" class="fill mistake"></div></div>
+
+<h3 id="score"></h3>
+
+<button onclick="restart()">Restart</button>
+<button onclick="goBack(2)">Back</button>
+  
+<section class="typing-guide">
+ <h1 id="typingTitle">See This</h1>
+ <h2> 🧠 Challenge Yourself Daily </h2>
+<p>🔥 Try this challenge: </p>
+<p> Day 1: Beat your current WPM</p>
+<p> Day 3: Reduce mistakes</p>
+<p>Day 7: Become 2x faster 🚀 </p>
+<p>👉 “Consistency is the real hack!” </p>
+<p> ...</p>
+  <h2> 🏆 Your Goal </h2>
+  <p> 👉 40+ WPM = Beginner</p>
+<p>👉 60+ WPM = Good Developer</p>
+<p>👉 80+ WPM = Pro Level 🔥</p>
+<p>👉 100+ WPM = Coding Machine 💀⚡</p>
+<p>... </p>
+
+<h2>⚡ Pro Tips (Secret Tricks)  </h2>
+<p> 💡 Code ko dekh ke type karo, yaad mat karo</p>
+<p> 💡 Accuracy pe focus karo, speed automatic aayegi</p>
+<p>💡 Daily 5–10 min practice = Huge improvement </p>
+<p>💡 Keyboard dekhe bina type karna start karo </p>
+<p> </p>
+  <div id="typingGuide"></div>
+</section>
+  <script>
+const paragraphs = [
+"Coding typing speed is an important skill for every developer who wants to work efficiently and save time during programming tasks."
+];
+let container = document.getElementById("typingGuide");
+let paraIndex = 0;
+let charIndex = 0;
+function typeParagraph() {
+  if (paraIndex >= paragraphs.length) return;
+  let text = paragraphs[paraIndex];
+
+  // ✅ Har paragraph ke liye naya <p>
+  let p = document.createElement("p");
+  container.appendChild(p);
+
+  function typeChar() {
+    if (charIndex < text.length) {
+      p.innerHTML += text.charAt(charIndex);
+      charIndex++;
+      setTimeout(typeChar, 2);
+    } else {
+      paraIndex++;
+      charIndex = 0;
+      setTimeout(typeParagraph, 400); // next paragraph
+    }
+  }
+  typeChar();
+}
+
+// 🔥 Start typing when result page open
+function startTypingEffect(){
+  let container = document.getElementById("typingGuide");
+
+  container.innerHTML = ""; // sirf paragraphs clear honge
+  paraIndex = 0;
+  charIndex = 0;
+
+  typeParagraph();
+}
+</script>
+</div>
+
+<script>
+// Languages
+const languages = ["Python","Java","C++","HTML","CSS","JavaScript","TypeScript","Kotlin","Swift","Node.js","Dart","Rust","C#","R"];
+
+function showPage(p){
+  document.querySelectorAll(".page").forEach(el=>el.classList.remove("active"));
+  document.getElementById("page"+p).classList.add("active");
+}
+
+startFirstPageTyping();
+const langDiv = document.getElementById("languages");
+languages.forEach(lang=>{
+  let btn = document.createElement("button");
+  btn.innerText = lang;
+  btn.onclick = ()=>selectLang(lang);
+  langDiv.appendChild(btn);
+});
+let selectedProjects = [];
+let selectedCode = "";
+let time = 120;
+let timerInterval;
+let currentLang = "";
+let currentProject = "";
+
+// Select Language
+function selectLang(lang){
+  currentLang = lang;
+  document.getElementById("langTitle").innerText = lang;
+  selectedProjects = generateProjects(lang);
+  let projDiv = document.getElementById("projects");
+  projDiv.innerHTML = "";
+  selectedProjects.forEach(p=>{
+    let btn = document.createElement("button");
+    btn.innerText = p.name;
+    btn.onclick = ()=>startTest(p);
+    projDiv.appendChild(btn);
+  });
+  showPage(2);
+}
+
+// Start Test
+function startTest(p){
+  createKeyboard();
+  if (!keyboardEnabled) {
+  document.getElementById("keyboardBox").style.display = "none";
+}
+  currentProject = p.name;
+  selectedCode = p.code;
+  document.getElementById("testTitle").innerText = currentLang + " - " + currentProject;
+  time = 120;
+  updateTimer();
+  showPage(3);
+initTypingBox();
+renderText("");
+  clearInterval(timerInterval);
+timerInterval = setInterval(()=>{
+  if (timerEnabled) {
+    time--;
+    updateTimer();
+
+    if(time <= 0){
+      clearInterval(timerInterval);
+      finishTest();
+    }
+  }
+},1000);
+}
+
+function createKeyboard() {
+  const keyboard = document.getElementById("keyboardBox");
+  keyboard.innerHTML = "";
+
+ const layout = [
+  ["esc","f1","f2","f3","f4","f5","f6","f7","f8","f9","f10","f11",],
+
+  [
+    {main:"`",shift:"~"},
+    {main:"1",shift:"!"},
+    {main:"2",shift:"@"},
+    {main:"3",shift:"#"},
+    {main:"4",shift:"$"},
+    {main:"5",shift:"%"},
+    {main:"6",shift:"^"},
+    {main:"7",shift:"&"},
+    {main:"8",shift:"*"},
+    {main:"9",shift:"("},
+    {main:"0",shift:")"},
+    {main:"-",shift:"_"},
+    {main:"=",shift:"+"},
+    "backspace"
+  ],
+
+  [
+    "tab","q","w","e","r","t","y","u","i","o","p",
+    {main:"[",shift:"{"},
+    {main:"]",shift:"}"},
+    {main:"\\",shift:"|"}
+  ],
+
+  [
+    "caps","a","s","d","f","g","h","j","k","l",
+    {main:";",shift:":"},
+    {main:"'",shift:'"'},
+    "enter"
+  ],
+
+  [
+    "shift","z","x","c","v","b","n","m",
+    {main:",",shift:"<"},
+    {main:".",shift:">"},
+    {main:"/",shift:"?"},
+    "shift"
+  ],
+
+  ["ctrl","fn","win","alt","space","alt","ctrl"]
+];
+
+layout.forEach(row => {
+  let rowDiv = document.createElement("div");
+  rowDiv.className = "row";
+
+  row.forEach(key => {
+    let div = document.createElement("div");
+    div.className = "key";
+
+    if (typeof key === "object") {
+  div.innerHTML = `
+    <span class="top">${key.shift}</span><br>
+    <span class="bottom">${key.main}</span>
+  `;
+
+  // 🔥 IMPORTANT
+  div.setAttribute("data-key", key.main);
+  div.setAttribute("data-shift", key.shift);
+
+} else {
+  div.innerText = key;
+
+  // 🔥 IMPORTANT
+  div.setAttribute("data-key", key);
+}
+
+    rowDiv.appendChild(div);
+  });
+
+  keyboard.appendChild(rowDiv);
+});
+}
+
+// 🔴 End Exam
+function endExam(){
+  clearInterval(timerInterval);
+  let typed = document.getElementById("inputBox").value;
+
+  if(typed.length < selectedCode.length){
+    document.getElementById("resultText").innerHTML =
+      "⚠️ Exam Not Complete";
+  } else {
+    document.getElementById("resultText").innerHTML = "";
+  }
+  finishTest();
+}
+
+// Highlight
+let typingBox;
+let inputBox = document.getElementById("inputBox");
+function initTypingBox() {
+  typingBox = document.getElementById("typingBox");
+  inputBox = document.getElementById("inputBox");
+  inputBox.value = "";
+  inputBox.focus();
+  // click anywhere on box = focus
+  typingBox.onclick = () => inputBox.focus();
+
+  inputBox.addEventListener("input", () => {
+    renderText(inputBox.value);
+  });
+}
+function renderText(userInput) {
+
+  let result = "";
+
+  for (let i = 0; i < selectedCode.length; i++) {
+
+    let originalChar = selectedCode[i];
+    let typedChar = userInput[i];
+
+    // 🔥 Normalize (important fix)
+    if (typedChar === "\r") typedChar = "\n";
+
+    if (i < userInput.length) {
+
+      // 🔥 CASE INSENSITIVE COMPARISON
+      if (
+  typedChar &&
+  typedChar.toLowerCase() === originalChar.toLowerCase()
+) {
+  result += '<span class="correct">' + originalChar + '</span>';
+} else {
+  result += '<span class="incorrect">' + originalChar + '</span>';
+}
+
+    } else {
+      result += '<span class="pending">' + originalChar + '</span>';
+    }
+  }
+
+  typingBox.innerHTML = result + '<span class="cursor"></span>';
+
+  highlightNextKey(userInput);
+}
+
+// Timer
+function updateTimer(){
+  let min = Math.floor(time / 60);
+  let sec = time % 60;
+  document.getElementById("timer").innerText =
+    `${min}:${sec < 10 ? "0"+sec : sec}`;
+}
+
+// 🔥 FINAL RESULT LOGIC
+function finishTest(){
+let typed = document.getElementById("inputBox").value;
+  let correct = 0;
+
+   for(let i=0;i<typed.length;i++){
+    if (
+  typed[i] &&
+  typed[i].toLowerCase() === selectedCode[i].toLowerCase()
+) {
+  correct++;
+}
+  }
+
+  let accuracy = Math.round((correct/selectedCode.length)*100);
+
+  let progress = Math.round((typed.length / selectedCode.length) * 100);
+  if(progress > 100) progress = 100;
+
+let chars = typed.length;
+
+// total time = 120 sec hai (tumhare code me)
+let timeTaken = (120 - time) / 60; // minutes me convert
+
+if(timeTaken <= 0) timeTaken = 1/60; // error avoid
+
+let wpm = Math.round((chars / 5) / timeTaken);
+
+// 🔥 WPM = Speed - 12
+let displayWPM = Math.max(0, progress - 12);
+
+let mistakes = typed.length - correct;
+if(mistakes < 0) mistakes = 0;
+
+let wpmPercent = Math.min(displayWPM, 100);
+let mistakePercent = Math.min(mistakes,100);
+
+document.getElementById("wpmBar").style.width = wpmPercent + "%";
+document.getElementById("accBar").style.width = accuracy + "%";
+document.getElementById("mistakeBar").style.width = mistakePercent + "%";
+document.getElementById("speedBar").style.width = progress + "%";
+
+document.getElementById("score").innerText =
+"Speed: " + progress + "% | WPM: " + displayWPM + "% | Accuracy: " + accuracy + "% | Mistakes: " + mistakePercent + "%"
+if(accuracy >= 80){
+  resultText.innerHTML = "🏆 Excellent!";
+} else if(accuracy >= 50){
+  resultText.innerHTML = "👍 Pass!";
+} else {
+  resultText.innerHTML = "❌ Try Again";
+}
+  showPage(4);
+  startTypingEffect();
+}
+
+// Restart
+function restart(){
+  startTest({name: currentProject, code: selectedCode});
+}
+
+// Back
+function goBack(p){
+  showPage(p);
+}
+function toggleMenu() {
+  let menu = document.getElementById("menuBox");
+  menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+}
+function openBlog() {
+  window.location.href = "blog.html";
+}
+function openAbout() {
+  window.location.href = "about.html";
+}
+
+function toggleDarkMode() {
+  let body = document.body;
+  let btn = document.getElementById("darkBtn");
+
+  body.classList.toggle("no-bg");
+
+  // Button text change
+  if (body.classList.contains("no-bg")) {
+    btn.innerText = "Light Mode";
+  } else {
+    btn.innerText = "Dark Mode";
+  }
+}
+
+let timerEnabled = true;
+
+function toggleTimer() {
+  let btn = document.getElementById("timerBtn");
+
+  timerEnabled = !timerEnabled;
+
+  if (timerEnabled) {
+    btn.innerText = "Timer Off";
+  } else {
+    btn.innerText = "Timer On";
+  }
+}
+let keyboardEnabled = true;
+
+function toggleKeyboard() {
+
+  const keyboard = document.getElementById("keyboardBox");
+  const btn = document.getElementById("keyboardBtn");
+
+  keyboardEnabled = !keyboardEnabled;
+
+  if (keyboardEnabled) {
+    keyboard.style.display = "flex";
+    btn.innerText = "Keyboard Off";
+  } else {
+    keyboard.style.display = "none";
+    btn.innerText = "Keyboard On";
+  }
+
+}
+
+document.getElementById("inputBox")
+  .addEventListener("input", function() {
+    highlightNextKey(this.value);
+  });
+
+// ✅ YAHAN ADD KARO (OUTSIDE)
+function highlightNextKey(userInput) {
+
+  const text = selectedCode;
+  const nextChar = text[userInput.length];
+
+  let next = nextChar;
+
+  if (next === " ") next = "space";
+  if (next === "\n") next = "enter";
+
+  document.querySelectorAll(".key").forEach(key => {
+    key.classList.remove("active");
+
+    const main = key.getAttribute("data-key");
+
+const shift =
+
+key.getAttribute("data-shift");
+
+if (next === main || next === shift) {
+
+key.classList.add("active");
+}
+});
+}
+// Shift + Enter = end exam
+document.addEventListener("keydown", function(e) {
+
+  if (
+    document.getElementById("page3").classList.contains("active") &&
+    e.shiftKey &&
+    e.key === "Enter"
+  ) {
+    e.preventDefault();
+    endExam();
+  }
+
+});
+</script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
