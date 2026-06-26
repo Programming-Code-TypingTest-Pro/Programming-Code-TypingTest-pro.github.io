@@ -232,17 +232,77 @@ font-size: 30px;
 }
 
 /* Bars */
-.bar {
-  background: #333;
-  margin: 5px 0;
+.bar{
+    width:100%;
+    height:25px;
+    background:#333;
+    border-radius:0px;
+    overflow:hidden;
+    margin:10px 0;
+    position:relative;
 }
 
-.fill {
-  height: 20px;
-  background: lime;
+.fill{
+    width:0%;
+    height:100%;
+    background:linear-gradient(90deg,#00ff00,#8fff00);
+    border-radius:30px;
+    position:relative;
+    overflow:hidden;
 }
-.mistake {
-  background: red;
+
+.mistake{
+    background:linear-gradient(90deg,#ff0000,#ff5555);
+}
+
+.percent{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    font-weight:bold;
+    color:white;
+    text-shadow:0 0 5px black;
+    z-index:5;
+}
+
+.fill::before,
+.fill::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-60%;
+    width:25%;
+    height:100%;
+    background:rgba(255,255,255,.35);
+    transform:skewX(-25deg);
+    animation:shine1 2s linear infinite;
+}
+
+.fill::after{
+    animation-delay:.7s;
+}
+
+.fill span::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-70%;
+    width:20%;
+    height:100%;
+    background:rgba(255,255,255,.25);
+    transform:skewX(-25deg);
+    animation:shine2 2s linear infinite;
+}
+
+@keyframes shine1{
+    from{left:-60%;}
+    to{left:130%;}
+}
+
+@keyframes shine2{
+    from{left:130%;}
+    to{left:-60%;}
 }
 #menuBtn {
   position: fixed;
@@ -723,16 +783,32 @@ End Exam
 <h2 id="resultText"></h2>
 
 <div>Speed</div>
-<div class="bar"><div id="speedBar" class="fill"></div></div>
+<div class="bar">
+    <div id="speedBar" class="fill">
+        <span class="percent">0%</span>
+    </div>
+</div>
 
 <div>WPM</div>
-<div class="bar"><div id="wpmBar" class="fill"></div></div>
+<div class="bar">
+    <div id="wpmBar" class="fill">
+        <span class="percent">0%</span>
+    </div>
+</div>
 
 <div>Accuracy</div>
-<div class="bar"><div id="accBar" class="fill"></div></div>
+<div class="bar">
+    <div id="accBar" class="fill">
+        <span class="percent">0%</span>
+    </div>
+</div>
 
 <div>Mistakes</div>
-<div class="bar"><div id="mistakeBar" class="fill mistake"></div></div>
+<div class="bar">
+    <div id="mistakeBar" class="fill mistake">
+        <span class="percent">0%</span>
+    </div>
+</div>
 
 <h3 id="score"></h3>
 
@@ -1025,6 +1101,34 @@ function updateTimer(){
     `${min}:${sec < 10 ? "0"+sec : sec}`;
 }
 
+  function animateBar(id,target){
+
+    let bar=document.getElementById(id);
+
+    let txt=bar.querySelector(".percent");
+
+    let value=0;
+
+    let timer=setInterval(()=>{
+
+        if(value>=target){
+
+            clearInterval(timer);
+
+        }else{
+
+            value++;
+
+            bar.style.width=value+"%";
+
+            txt.innerText=value+"%";
+
+        }
+
+    },8);
+
+}
+
 // 🔥 FINAL RESULT LOGIC
 function finishTest(){
 let typed = document.getElementById("inputBox").value;
@@ -1062,10 +1166,17 @@ if(mistakes < 0) mistakes = 0;
 let wpmPercent = Math.min(displayWPM, 100);
 let mistakePercent = Math.min(mistakes,100);
 
-document.getElementById("wpmBar").style.width = wpmPercent + "%";
-document.getElementById("accBar").style.width = accuracy + "%";
-document.getElementById("mistakeBar").style.width = mistakePercent + "%";
-document.getElementById("speedBar").style.width = progress + "%";
+setTimeout(()=>{
+
+animateBar("speedBar",progress);
+
+animateBar("wpmBar",wpmPercent);
+
+animateBar("accBar",accuracy);
+
+animateBar("mistakeBar",mistakePercent);
+
+},300);
 
 document.getElementById("score").innerText =
 "Speed: " + progress + "% | WPM: " + displayWPM + "% | Accuracy: " + accuracy + "% | Mistakes: " + mistakePercent + "%"
