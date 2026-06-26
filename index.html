@@ -705,6 +705,7 @@ End Exam
 </style>
 <div class="code-box glass" id="typingBox"></div>
 <textarea id="inputBox"></textarea>
+  <h6> 🟥 Shift + Enter To End Exam</h6>
 </div>
 
 <!-- PAGE 4 -->
@@ -851,7 +852,7 @@ function startTest(p){
   document.getElementById("keyboardBox").style.display = "none";
 }
   currentProject = p.name;
-  selectedCode = p.code;
+  selectedCode = cleanCode(p.code);
   document.getElementById("testTitle").innerText = currentLang + " - " + currentProject;
   time = 120;
   updateTimer();
@@ -1189,6 +1190,15 @@ document.addEventListener("keydown", function(e) {
   }
 
 });
+
+  function cleanCode(code) {
+  return code
+    .replace(/\r/g, "")                 // Windows line break fix
+    .split("\n")
+    .map(line => line.trimStart())      // left spaces remove
+    .filter(line => line.trim() !== "") // ❌ blank lines remove
+    .join("\n");
+}
 </script>
 
 <script src="script.js"></script>
