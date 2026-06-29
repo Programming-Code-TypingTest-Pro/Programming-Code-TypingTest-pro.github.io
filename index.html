@@ -1491,6 +1491,17 @@ document.addEventListener("keydown", function(e) {
     .filter(line => line.trim() !== "") // ❌ blank lines remove
     .join("\n");
 }
+
+// Close menu when clicking outside
+document.addEventListener("click", function(e) {
+  let menu = document.getElementById("menuBox");
+  let menuBtn = document.getElementById("menuBtn");
+
+  // agar click menu ya button ke bahar hua
+  if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
+    menu.style.display = "none";
+  }
+});
 </script>
 
 <script src="script.js"></script>
