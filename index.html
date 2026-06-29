@@ -547,7 +547,7 @@ left:-150px;
   <button onclick="openAbout()">About</button>
   <button onclick="openBlog()">Articles & Blogs</button>
   <button onclick="toggleDarkMode()" id="darkBtn">Dark Mode</button>
-  <button onclick="toggleTimer()" id="timerBtn">Timer Off</button>
+  <button onclick="toggleTimer()" id="timerBtn">Timer ON</button>
   <button onclick="toggleKeyboard()" id="keyboardBtn">Keyboard Off</button>
 </div>
 <h3>Select Language</h3>
@@ -1414,9 +1414,9 @@ function toggleTimer() {
   timerEnabled = !timerEnabled;
 
   if (timerEnabled) {
-    btn.innerText = "Timer Off";
+    btn.innerText = "Timer ON";
   } else {
-    btn.innerText = "Timer On";
+    btn.innerText = "Timer OFF";
   }
 }
 let keyboardEnabled = true;
