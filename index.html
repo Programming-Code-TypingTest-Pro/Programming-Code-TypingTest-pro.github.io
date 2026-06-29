@@ -160,7 +160,7 @@ body.no-bg::before {
 /* Grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
@@ -548,7 +548,7 @@ left:-150px;
   <button onclick="openBlog()">Articles & Blogs</button>
   <button onclick="toggleDarkMode()" id="darkBtn">Dark Mode</button>
   <button onclick="toggleTimer()" id="timerBtn">Timer ON</button>
-  <button onclick="toggleKeyboard()" id="keyboardBtn">Keyboard Off</button>
+  <button onclick="toggleKeyboard()" id="keyboardBtn">Keyboard ON</button>
 </div>
 <h3>Select Language</h3>
 <div style="text-align:center; margin-top:40px;">  <!-- 🔧 yaha se pura block move hoga -->
@@ -1430,10 +1430,10 @@ function toggleKeyboard() {
 
   if (keyboardEnabled) {
     keyboard.style.display = "flex";
-    btn.innerText = "Keyboard Off";
+    btn.innerText = "Keyboard ON";
   } else {
     keyboard.style.display = "none";
-    btn.innerText = "Keyboard On";
+    btn.innerText = "Keyboard OFF";
   }
 
 }
