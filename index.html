@@ -862,6 +862,10 @@ function startFirstPageTyping() {
 <!-- PAGE 2 -->
 <div id="page2" class="page">
   <div class="header">👑Select Once Project👑 </div>
+  <div class="search-container">
+  <input type="text" id="projectSearch" placeholder="Search Project..." oninput="filterProjects()" />
+  <div id="projectSuggestions"></div>
+</div>
 <style>.header {
 
     background: linear-gradient(90deg, red,red, gold, yellow);
@@ -1669,6 +1673,39 @@ function highlightLanguage(lang){
 function removeHighlight(){
   let buttons = document.querySelectorAll("#languages button");
   buttons.forEach(btn => btn.classList.remove("highlight"));
+}
+  function filterProjects() {
+  let input = document.getElementById("projectSearch").value.toLowerCase();
+  let buttons = document.querySelectorAll("#projects button");
+  let suggestionsBox = document.getElementById("projectSuggestions");
+
+  suggestionsBox.innerHTML = "";
+  suggestionsBox.style.display = "none";
+
+  buttons.forEach(btn => {
+    let text = btn.innerText.toLowerCase();
+
+    if (text.includes(input)) {
+      btn.style.display = "block";
+
+      // 🔥 suggestion show
+      if (input.length > 0) {
+        let div = document.createElement("div");
+        div.className = "suggestion-item";
+        div.innerText = btn.innerText;
+
+        div.onclick = () => {
+          btn.click(); // direct open project
+        };
+
+        suggestionsBox.appendChild(div);
+        suggestionsBox.style.display = "block";
+      }
+
+    } else {
+      btn.style.display = "none";
+    }
+  });
 }
 </script>
 
