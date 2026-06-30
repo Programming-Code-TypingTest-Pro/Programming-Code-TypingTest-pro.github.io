@@ -511,10 +511,54 @@ left:120%;
 
 100%{
 left:-150px;
+}}
+
+  .search-container{
+  text-align:center;
+  margin:20px auto;
+  width:90%;
+  max-width:400px;
+  position:relative;
 }
 
+#searchBox{
+  width:100%;
+  padding:12px;
+  border-radius:5px;
+  border:5px red;
+  outline:none;
+  font-size:16px;
+  box-shadow:0 0 10px red;
 }
-  
+
+#suggestions{
+  position:absolute;
+  width:100%;
+  top:50px;
+  left:0;
+  background:rgba(253, 251, 251, 0.9);
+  color: #010101;
+  border-radius:10px;
+  max-height:100px;
+  overflow-y:auto;
+  display:none;
+}
+
+.suggestion-item{
+  padding:10px;
+  cursor:pointer;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.suggestion-item:hover{
+  background:rgba(255,255,255,0.1);
+}
+
+/* 🔥 Highlight button */
+.highlight{
+  border:2px solid gold !important;
+  box-shadow:0 0 15px gold !important;
+}
 </style>
 </head>
 
@@ -551,9 +595,13 @@ left:-150px;
   <button onclick="toggleKeyboard()" id="keyboardBtn">Keyboard ON</button>
 </div>
 <h3>Select Language</h3>
+<div class="search-container">
+  <input type="text" id="searchBox" placeholder="Search Language..." oninput="filterLanguages()" />
+  <div id="suggestions"></div>
+</div>
 <div style="text-align:center; margin-top:40px;">  <!-- 🔧 yaha se pura block move hoga -->
 </div>
-
+<div><p>Premium</p>  </div> 
 <div class="grid" id="languages"></div>
   <div style="text-align:center; font-size:12px; margin-top:80px;">
   <!-- 🔧 yahi value change karke niche le ja sakte ho -->
@@ -1502,6 +1550,67 @@ document.addEventListener("click", function(e) {
     menu.style.display = "none";
   }
 });
+
+  function filterLanguages(){
+  let input = document.getElementById("searchBox").value.toLowerCase();
+  let suggestionsBox = document.getElementById("suggestions");
+
+  suggestionsBox.innerHTML = "";
+
+  if(input === ""){
+    suggestionsBox.style.display = "none";
+    removeHighlight();
+    return;
+  }
+
+  let filtered = languages.filter(lang =>
+    lang.toLowerCase().includes(input)
+  );
+
+  if(filtered.length === 0){
+    suggestionsBox.style.display = "none";
+    removeHighlight();
+    return;
+  }
+
+  suggestionsBox.style.display = "block";
+
+  filtered.forEach(lang => {
+    let div = document.createElement("div");
+    div.className = "suggestion-item";
+    div.innerText = lang;
+
+    div.onclick = () => {
+      document.getElementById("searchBox").value = lang;
+      suggestionsBox.style.display = "none";
+      highlightLanguage(lang);
+    };
+
+    suggestionsBox.appendChild(div);
+  });
+
+  // 🔥 Auto highlight first match
+  highlightLanguage(filtered[0]);
+}
+
+// 🔥 Highlight buttons
+function highlightLanguage(lang){
+  let buttons = document.querySelectorAll("#languages button");
+
+  buttons.forEach(btn => {
+    btn.classList.remove("highlight");
+
+    if(btn.innerText.toLowerCase() === lang.toLowerCase()){
+      btn.classList.add("highlight");
+    }
+  });
+}
+
+// 🔥 Remove highlight
+function removeHighlight(){
+  let buttons = document.querySelectorAll("#languages button");
+  buttons.forEach(btn => btn.classList.remove("highlight"));
+}
 </script>
 
 <script src="script.js"></script>
