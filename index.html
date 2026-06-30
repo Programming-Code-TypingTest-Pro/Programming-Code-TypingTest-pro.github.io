@@ -168,6 +168,9 @@ body.no-bg::before {
 button{
     position:relative;
     overflow:hidden;
+  font-size:16px;
+    font-weight:800;
+    letter-spacing:0.5px;
 
     border-radius:10px;
 
@@ -1128,56 +1131,60 @@ projDiv.appendChild(p1);
 
 // Projects
 selectedProjects.forEach((p,index)=>{
-  if (p.section === "functions") {
 
-    let h3 = document.createElement("div");
-    h3.className = "sectionTitle";
-    h3.innerHTML = `
-<div class="line line1"></div>
-<div class="line line2"></div>
-<div class="line line3"></div>
-<div class="line line4"></div>
+  // ✅ SECTION HEADING (dynamic)
+  if (p.section) {
 
-<h2>📂 Programming Language Functions</h2>
-`;
+    let h = document.createElement("div");
+    h.className = "sectionTitle";
+    h.innerHTML = `
+      <div class="line line1"></div>
+      <div class="line line2"></div>
+      <div class="line line3"></div>
+      <div class="line line4"></div>
 
-    projDiv.appendChild(h3);
+      <h2>📂 ${p.section.toUpperCase()}</h2>
+    `;
 
-    let p3 = document.createElement("p");
-    p3.innerText = "...";
-    p3.style.gridColumn = "1 / -1";
-    projDiv.appendChild(p3);
+    projDiv.appendChild(h);
 
-    return; // Marker ka button nahi banega
-}
+    // 👉 optional paragraph
+    let para = document.createElement("p");
+    para.innerText = "Yaha apna paragraph likho...";
+    para.style.gridColumn = "1 / -1";
+    projDiv.appendChild(para);
 
-    // 👉 Project 6 se pehle
-    if(index===5){
+    return; // 🔥 bas yahi ek return rahega
+  }
 
-        let h2 = document.createElement("div");
-h2.className = "sectionTitle";
-h2.innerHTML = `
-<div class="line line1"></div>
-<div class="line line2"></div>
-<div class="line line3"></div>
-<div class="line line4"></div>
+  // 👉 Project 6 se pehle
+  if(index===5){
 
-<h2>🚀 Big Projects (Timer OFF To Use)</h2>
-`;
+    let h2 = document.createElement("div");
+    h2.className = "sectionTitle";
+    h2.innerHTML = `
+      <div class="line line1"></div>
+      <div class="line line2"></div>
+      <div class="line line3"></div>
+      <div class="line line4"></div>
 
-projDiv.appendChild(h2);
+      <h2>🚀 Big Projects (Timer OFF To Use)</h2>
+    `;
 
-        let p2=document.createElement("p");
-        p2.innerText="⏱️ Timer OFF / ON : It is recommended to turn off the timer when working on Projects 6 to 10. Go Home Page = Menu Tab / Setting Button = Timer Off / On.";
-        p2.style.gridColumn="1 / -1";
-        projDiv.appendChild(p2);
+    projDiv.appendChild(h2);
 
-    }
+    let p2=document.createElement("p");
+    p2.innerText="Yaha apna paragraph likho...";
+    p2.style.gridColumn="1 / -1";
+    projDiv.appendChild(p2);
+  }
 
-    let btn=document.createElement("button");
-    btn.innerText=p.name;
-    btn.onclick=()=>startTest(p);
-    projDiv.appendChild(btn);
+  // ✅ NORMAL BUTTON
+  let btn=document.createElement("button");
+  btn.innerText=p.name;
+  btn.onclick=()=>startTest(p);
+
+  projDiv.appendChild(btn);
 
 });
 
