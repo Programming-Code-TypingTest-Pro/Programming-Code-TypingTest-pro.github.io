@@ -165,25 +165,84 @@ body.no-bg::before {
 }
 
 /* Buttons */
-button {
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-  background: linear-gradient(45deg,hsl(0, 97%, 49%) ,#010101);
-  color: white;
-  cursor: pointer;
+button{
+    position:relative;
+    overflow:hidden;
+
+    border-radius:10px;
+
+    padding:12px;
+    color:white;
+    border:none;
+
+    cursor:pointer;
+
+    background:linear-gradient(45deg,#ff0000,#111);
+
+    transition:.3s;
+
+    box-shadow:0 0 10px rgba(255,0,0,.4);
 }
 
-button:hover {
-  transform: scale(1.05);
-}
-button {
-  transition: 0.3s;
+/* Hover */
+button:hover{
+
+    transform:translateY(-4px) scale(1.05);
+
+    box-shadow:
+    0 0 15px red,
+    0 0 25px orange;
 }
 
-button:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 0 15px rgba(255,100,200,0.6);
+/* Glass Lines */
+
+button::before,
+button::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-40%;
+
+    width:20%;
+
+    height:100%;
+
+    background:rgba(255,255,255,.35);
+
+    transform:skewX(-25deg);
+
+}
+
+button::before{
+    animation:shine1 1.8s linear infinite;
+}
+
+button::after{
+    animation:shine2 1.8s linear infinite;
+}
+
+@keyframes shine1{
+
+0%{left:-40%;}
+
+100%{left:140%;}
+
+}
+
+@keyframes shine2{
+
+0%{left:140%;}
+
+100%{left:-40%;}
+}
+button span{
+    position:relative;
+
+    z-index:2;
 }
 /* Code */
 .code-box {
