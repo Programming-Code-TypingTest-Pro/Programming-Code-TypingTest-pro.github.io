@@ -39,7 +39,46 @@ print("Total items:\n", len(items))` },
 print("Name:\n", user["name"])
 user["city"] = "Pune"
 print("City:\n", user["city"])
-print("Full data:\n", user)` }
+print("Full data:\n", user)` },
+    { section: "if-Elif-Else" },
+      { name: "if = Project (Simple Login Check)", code: `username = "admin"
+entered = input("Enter username: ")
+
+if entered == username:
+    print("Access Granted\nWelcome Admin\nSystem Loading...\nPlease wait...\nDashboard Opening...\nDone")` },
+      { name: "if = Project (Temperature Warning)", code: `temp = int(input("Enter temperature: "))
+
+if temp > 40:
+    print("High Temperature Alert!\nStay Hydrated\nAvoid Sunlight\nUse AC or Fan\nTake Rest\nWarning Active")` },
+      { name: "if-else = Project (Even Odd Checker)", code: `num = int(input("Enter number: "))
+
+if num % 2 == 0:
+    print("Even Number\nDivisible by 2\nBalanced Value\nSafe Calculation\nProcessing Done\nResult OK")
+else:
+    print("Odd Number\nNot Divisible by 2\nUnbalanced Value\nCheck Again\nProcessing Done\nResult OK")` },
+      { name: "if-else = Project (Password Check)", code: `password = input("Enter password: ")
+
+if password == "1234":
+    print("Login Success\nWelcome User\nLoading Profile\nAccess Granted\nSystem Ready\nEnjoy")
+else:
+    print("Wrong Password\nTry Again\nAccess Denied\nSecurity Alert\nReset Password\nBlocked")` },
+      { name: "if-elif-else = Project (Marks Grading System)", code: `marks = int(input("Enter marks: "))
+
+if marks >= 90:
+    print("Grade A\nExcellent Work\nTop Performance\nKeep It Up\nSuccess Level High\nApproved")
+elif marks >= 60:
+    print("Grade B\nGood Job\nCan Improve\nFocus More\nKeep Practicing\nApproved")
+else:
+    print("Grade C\nNeed Improvement\nStudy More\nPractice Daily\nDon't Give Up\nTry Again")` },
+      { name: "if-elif-else = Project (ATM Withdraw System)", code: `balance = 5000
+withdraw = int(input("Enter amount: "))
+
+if withdraw <= balance:
+    print("Transaction Success\nCollect Cash\nBalance Updated\nThank You\nVisit Again\nDone")
+elif withdraw > balance:
+    print("Insufficient Balance\nTry Smaller Amount\nTransaction Failed\nCheck Balance\nError\nDenied")
+else:
+    print("Invalid Input\nEnter Correct Value\nSystem Error\nTry Again\nCancelled\nExit")` }
     ];
   }
 
