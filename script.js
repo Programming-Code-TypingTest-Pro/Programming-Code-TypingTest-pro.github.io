@@ -78,7 +78,41 @@ if withdraw <= balance:
 elif withdraw > balance:
     print("Insufficient Balance\nTry Smaller Amount\nTransaction Failed\nCheck Balance\nError\nDenied")
 else:
-    print("Invalid Input\nEnter Correct Value\nSystem Error\nTry Again\nCancelled\nExit")` }
+    print("Invalid Input\nEnter Correct Value\nSystem Error\nTry Again\nCancelled\nExit")` },
+          { section: "Loops in Python" },
+      { name: "For loop = Student List Display", code: `students = ["Rahul", "Aman", "Neha", "Priya", "Karan"]
+
+for s in students:
+    print("Student Name:", s, "\nAttendance Marked\nClass Active\nSession Running\nStatus OK\nDone")` },
+      { name: "While loop = Password Retry System", code: `password = ""
+correct = "admin123"
+
+while password != correct:
+    password = input("Enter password: ")
+    print("Checking...\nPlease Wait\nVerifying...\nProcessing\nHold On\nDone")
+
+print("Login Success\nWelcome User\nAccess Granted\nSystem Ready\nEnjoy\nDone")` },
+      { name: "Nested loop = Class Seating System", code: `for row in range(1, 4):
+    for col in range(1, 4):
+        print("Seat:", row, col, "\nAssigning...\nStudent Placed\nRow Active\nColumn Active\nDone")` },
+      { name: "Break = Search Stop System", code: `numbers = [5, 10, 15, 20, 25]
+
+for n in numbers:
+    print("Checking:", n, "\nScanning...\nProcessing\nWait\nSearching\nRunning")
+    
+    if n == 15:
+        print("Number Found!\nStopping Search\nSuccess\nTask Complete\nDone\nExit")
+        break` },
+      { name: "Continue = Skip Invalid Data", code: `data = [10, -5, 20, -2, 30]
+
+for d in data:
+    if d < 0:
+        print("Invalid Data\nSkipping Entry\nError Found\nMoving Ahead\nContinue\nNext")
+        continue
+
+    print("Valid Data:", d, "\nProcessing...\nAccepted\nStored\nUpdated\nDone")` },
+      { name: "Range loop = ID Generator", code: `for i in range(1, 6):
+    print("Generating ID:", i, "\nCreating...\nAssigning\nSaving\nRegistering\nDone")` }
     ];
   }
 
