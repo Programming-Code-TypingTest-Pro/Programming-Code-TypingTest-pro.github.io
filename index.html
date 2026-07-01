@@ -575,7 +575,7 @@ left:120%;
 left:-150px;
 }}
 
-  .search-container{
+.search-container{
   text-align:center;
   margin:20px auto;
   width:90%;
@@ -594,14 +594,13 @@ left:-150px;
 }
 
 #suggestions{
-  position:absolute;
+  position:static;
   width:100%;
   top:50px;
   left:0;
-  background:rgba(253, 251, 251, 0.9);
-  color: #010101;
+  background:rgba(0,0,0,0.9);
   border-radius:10px;
-  max-height:100px;
+  max-height:200px;
   overflow-y:auto;
   display:none;
 }
@@ -618,6 +617,58 @@ left:-150px;
 
 /* 🔥 Highlight button */
 .highlight{
+  border:2px solid gold !important;
+  box-shadow:0 0 15px gold !important;
+}
+/* 🔥 page2 search box */
+/* 🔍 Search Container (same) */
+.search-container{
+  text-align:center;
+  margin:20px auto;
+  width:90%;
+  max-width:400px;
+  position:relative;
+}
+
+/* 🔎 Page 2 Search Box */
+#projectSearch{
+  width:100%;
+  padding:12px;
+  border-radius:5px;
+  border:5px red;
+  outline:none;
+  font-size:16px;
+  box-shadow:0 0 10px red;
+}
+
+/* 📂 Suggestions dropdown */
+#projectSuggestions{
+  position:static;
+  width:100%;
+  top:50px;
+  left:0;
+  background:#010101;
+  color:white;
+  border-radius:10px;
+  max-height:150px;
+  overflow-y:auto;
+  display:none;
+}
+
+/* Each suggestion item */
+#projectSuggestions .suggestion-item{
+  padding:10px;
+  cursor:pointer;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+/* Hover effect */
+#projectSuggestions .suggestion-item:hover{
+  background:rgba(255,255,255,0.1);
+}
+
+/* 🔥 Highlight project button */
+#project-highlight{
   border:2px solid gold !important;
   box-shadow:0 0 15px gold !important;
 }
