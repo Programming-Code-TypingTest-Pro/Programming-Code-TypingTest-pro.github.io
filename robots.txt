@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://programming-code-typingtest-pro.github.io/sitemap.xml
