@@ -1145,7 +1145,14 @@ startFirstPageTyping();
 const langDiv = document.getElementById("languages");
 languages.forEach(lang=>{
   let btn = document.createElement("button");
-  btn.innerText = lang;
+
+  // ⭐ sirf select languages ke liye
+  if(lang === "Python" || lang === "Java" || lang === "C++" || lang === "JavaScript"){  
+    btn.innerText = "⭐ " + lang;
+  } else {
+    btn.innerText = lang;
+  }
+
   btn.onclick = ()=>selectLang(lang);
   langDiv.appendChild(btn);
 });
