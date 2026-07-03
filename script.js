@@ -1510,6 +1510,3350 @@ if (lang === "Node.js") {
     ];
   }
 
+  // 👉 PHP
+  if (lang === "PHP") {
+    return [
+      { name: "PHP Project 1", code: `<?php\n
+$item1 = 200;\n
+$item2 = 150;\n
+$item3 = 100;\n
+$total = $item1 + $item2 + $item3;\n
+$discount = 0;\n
+if($total > 400){\n
+  $discount = $total * 0.1;\n
+}\n
+$final = $total - $discount;\n
+echo "Total: $total\n";\n
+echo "Discount: $discount\n";\n
+echo "Final Amount: $final\n";\n
+?>` },
+      { name: "PHP Project 2", code: `<?php\n
+$name = "Rahul";\n
+$marks = [50, 60, 30, 80, 40];\n
+$total = array_sum($marks);\n
+$count = count($marks);\n
+$avg = $total / $count;\n
+echo "Name: $name\n";\n
+echo "Average: $avg\n";\n
+if($avg >= 40){\n
+  echo "Status: Pass\n";\n
+} else {\n
+  echo "Status: Fail\n";\n
+}\n
+?>` },
+      { name: "PHP Project 3", code: `<?php\n
+$units = 120;\n
+$bill = 0;\n
+if($units <= 50){\n
+  $bill = $units * 3;\n
+} elseif($units <= 100){\n
+  $bill = (50*3) + (($units-50)*5);\n
+} else {\n
+  $bill = (50*3) + (50*5) + (($units-100)*7);\n
+}\n
+echo "Units: $units\n";\n
+echo "Total Bill: $bill\n";\n
+?>` },
+      { name: "PHP Project 4", code: `<?php\n
+$username = "admin";\n
+$password = "1234";\n
+$inputUser = "admin";\n
+$inputPass = "1234";\n
+echo "Checking Login...\n";\n
+if($inputUser == $username && $inputPass == $password){\n
+  echo "Login Successful\n";\n
+} else {\n
+  echo "Invalid Credentials\n";\n
+}\n
+?>` },
+      { name: "PHP Project 5", code: `<?php\n
+echo "Enter Marks:\n";\n
+$m1 = 80;\n
+$m2 = 75;\n
+$m3 = 90;\n
+$total = $m1 + $m2 + $m3;\n
+$avg = $total / 3;\n
+echo "Total: $total\n";\n
+echo "Average: $avg\n";\n
+if($avg >= 80){\n
+  echo "Grade: A\n";\n
+} elseif($avg >= 60){\n
+  echo "Grade: B\n";\n
+} else {\n
+  echo "Grade: C\n";\n
+}\n
+?>` },
+      { name: "PHP Project 6", code: `<?php\n
+// Users Data\n
+$users = [\n
+ ["username"=>"rahul","password"=>"123","wallet"=>5000],\n
+ ["username"=>"amit","password"=>"456","wallet"=>2000]\n
+];\n
+\n
+// Login Input\n
+$inputUser = "rahul";\n
+$inputPass = "123";\n
+$loggedInUser = null;\n
+\n
+// Login System\n
+foreach($users as &$u){\n
+  if($u["username"] == $inputUser && $u["password"] == $inputPass){\n
+    $loggedInUser = &$u;\n
+    echo "Login Successful\n";\n
+  }\n
+}\n
+\n
+if($loggedInUser == null){\n
+  echo "Login Failed\n";\n
+  exit;\n
+}\n
+\n
+// Product List\n
+$products = [\n
+ ["name"=>"Laptop","price"=>30000,"stock"=>2],\n
+ ["name"=>"Phone","price"=>15000,"stock"=>5],\n
+ ["name"=>"Headphones","price"=>2000,"stock"=>10]\n
+];\n
+\n
+// Cart\n
+$cart = [\n
+ ["name"=>"Laptop","qty"=>1],\n
+ ["name"=>"Headphones","qty"=>2]\n
+];\n
+\n
+$total = 0;\n
+echo "---- CART DETAILS ----\n";\n
+\n
+// Process Cart\n
+foreach($cart as $c){\n
+  foreach($products as &$p){\n
+    if($p["name"] == $c["name"]){\n
+      if($p["stock"] >= $c["qty"]){\n
+        $cost = $p["price"] * $c["qty"];\n
+        $total += $cost;\n
+        $p["stock"] -= $c["qty"];\n
+        echo $c["name"]." x ".$c["qty"]." = ".$cost."\n";\n
+      } else {\n
+        echo $c["name"]." Out of Stock\n";\n
+      }\n
+    }\n
+  }\n
+}\n
+\n
+echo "Subtotal: $total\n";\n
+\n
+// Apply Discount\n
+$discount = 0;\n
+if($total > 20000){\n
+  $discount = $total * 0.1;\n
+  echo "Discount Applied: $discount\n";\n
+}\n
+\n
+// Tax Calculation\n
+$tax = $total * 0.05;\n
+echo "Tax: $tax\n";\n
+\n
+$finalAmount = $total + $tax - $discount;\n
+echo "Final Amount: $finalAmount\n";\n
+\n
+// Payment via Wallet\n
+echo "---- PAYMENT ----\n";\n
+if($loggedInUser["wallet"] >= $finalAmount){\n
+  $loggedInUser["wallet"] -= $finalAmount;\n
+  echo "Payment Successful\n";\n
+  echo "Remaining Wallet Balance: ".$loggedInUser["wallet"]."\n";\n
+} else {\n
+  echo "Insufficient Balance\n";\n
+}\n
+\n
+// Order Summary\n
+echo "---- ORDER SUMMARY ----\n";\n
+foreach($cart as $c){\n
+  echo $c["name"]." x ".$c["qty"]."\n";\n
+}\n
+echo "Paid: $finalAmount\n";\n
+\n
+// Final Stock Update\n
+echo "---- STOCK LEFT ----\n";\n
+foreach($products as $p){\n
+  echo $p["name"]." Remaining: ".$p["stock"]."\n";\n
+}\n
+\n
+?>` },
+      { name: "PHP Project 7", code: `<?php\n
+$patients = [\n
+ ["name"=>"Rahul","disease"=>"Fever","fees"=>500],\n
+ ["name"=>"Amit","disease"=>"Injury","fees"=>1500]\n
+];\n
+\n
+$medicines = [\n
+ ["name"=>"Paracetamol","price"=>50],\n
+ ["name"=>"Antibiotic","price"=>200]\n
+];\n
+\n
+echo "---- PATIENT DETAILS ----\n";\n
+$totalBill = 0;\n
+\n
+foreach($patients as $p){\n
+  echo "Name: ".$p["name"]."\n";\n
+  echo "Disease: ".$p["disease"]."\n";\n
+  echo "Doctor Fees: ".$p["fees"]."\n";\n
+  $totalBill += $p["fees"];\n
+\n
+  echo "Medicines:\n";\n
+  foreach($medicines as $m){\n
+    echo $m["name"]." - ".$m["price"]."\n";\n
+    $totalBill += $m["price"];\n
+  }\n
+  echo "------------------\n";\n
+}\n
+\n
+echo "Total Hospital Bill: $totalBill\n";\n
+if($totalBill > 2000){\n
+  echo "Insurance Applied\n";\n
+  $totalBill -= 500;\n
+}\n
+echo "Final Bill: $totalBill\n";\n
+?>,<?php\n
+$students = [\n
+ ["name"=>"Sneha","fees"=>3000,"lateDays"=>2],\n
+ ["name"=>"Ravi","fees"=>3000,"lateDays"=>0]\n
+];\n
+\n
+echo "---- FEE DETAILS ----\n";\n
+foreach($students as $s){\n
+  echo "Name: ".$s["name"]."\n";\n
+  $fine = 0;\n
+  if($s["lateDays"] > 0){\n
+    $fine = $s["lateDays"] * 50;\n
+  }\n
+  $total = $s["fees"] + $fine;\n
+  echo "Fees: ".$s["fees"]."\n";\n
+  echo "Fine: $fine\n";\n
+  echo "Total Pay: $total\n";\n
+\n
+  if($total > 3200){\n
+    echo "Warning: High Due\n";\n
+  }\n
+  echo "------------------\n";\n
+}\n
+?>, <?php\n
+$students = [\n
+  ["name"=>"Rahul","marks"=>[80,70,90]],\n
+  ["name"=>"Amit","marks"=>[60,65,55]],\n
+  ["name"=>"Sneha","marks"=>[90,95,92]]\n
+];\n
+foreach($students as $s){\n
+  $total = array_sum($s["marks"]);\n
+  $avg = $total / count($s["marks"]);\n
+  echo "Name: ".$s["name"]."\n";\n
+  echo "Total: $total\n";\n
+  echo "Average: $avg\n";\n
+  if($avg>=85){echo "Grade: A\n";}\n
+  elseif($avg>=60){echo "Grade: B\n";}\n
+  else{echo "Grade: C\n";}\n
+  echo "-----------------\n";\n
+}\n
+?>` },
+      { name: "PHP Project 8", code: `<?php\n
+$movies = [\n
+ ["name"=>"Avengers","price"=>300,"seats"=>5],\n
+ ["name"=>"Pushpa","price"=>200,"seats"=>2]\n
+];\n
+\n
+$booking = [\n
+ ["movie"=>"Avengers","qty"=>2],\n
+ ["movie"=>"Pushpa","qty"=>3]\n
+];\n
+\n
+$total = 0;\n
+echo "---- BOOKING ----\n";\n
+\n
+foreach($booking as $b){\n
+  foreach($movies as &$m){\n
+    if($m["name"] == $b["movie"]){\n
+      if($m["seats"] >= $b["qty"]){\n
+        $cost = $m["price"] * $b["qty"];\n
+        $total += $cost;\n
+        $m["seats"] -= $b["qty"];\n
+        echo $b["movie"]." x ".$b["qty"]." = $cost\n";\n
+      } else {\n
+        echo $b["movie"]." Seats Not Available\n";\n
+      }\n
+    }\n
+  }\n
+}\n
+\n
+echo "Total: $total\n";\n
+$tax = $total * 0.05;\n
+echo "Tax: $tax\n";\n
+$final = $total + $tax;\n
+echo "Final Payment: $final\n";\n
+?>, <?php\n
+$menu = [\n
+ ["name"=>"Pizza","price"=>400,"stock"=>3],\n
+ ["name"=>"Burger","price"=>150,"stock"=>5]\n
+];\n
+\n
+$order = [\n
+ ["item"=>"Pizza","qty"=>2],\n
+ ["item"=>"Burger","qty"=>3]\n
+];\n
+\n
+$total = 0;\n
+echo "---- ORDER ----\n";\n
+\n
+foreach($order as $o){\n
+  foreach($menu as &$m){\n
+    if($m["name"] == $o["item"]){\n
+      if($m["stock"] >= $o["qty"]){\n
+        $cost = $m["price"] * $o["qty"];\n
+        $total += $cost;\n
+        $m["stock"] -= $o["qty"];\n
+        echo $o["item"]." x ".$o["qty"]." = $cost\n";\n
+      } else {\n
+        echo $o["item"]." Out of Stock\n";\n
+      }\n
+    }\n
+  }\n
+}\n
+\n
+echo "Subtotal: $total\n";\n
+$delivery = 50;\n
+if($total > 500){ $delivery = 0; }\n
+echo "Delivery Charge: $delivery\n";\n
+$final = $total + $delivery;\n
+echo "Final Bill: $final\n";\n
+\n
+echo "---- DELIVERY STATUS ----\n";\n
+if($final > 0){\n
+  echo "Order Confirmed\n";\n
+  echo "Out for Delivery\n";\n
+}\n
+?>
+<?php\n
+$users = [\n
+  ["user"=>"admin","pass"=>"123","role"=>"admin"],\n
+  ["user"=>"teacher","pass"=>"456","role"=>"teacher"],\n
+  ["user"=>"student","pass"=>"789","role"=>"student"]\n
+];\n
+$inputUser="teacher";\n
+$inputPass="456";\n
+$login=false;\n
+foreach($users as $u){\n
+  if($u["user"]==$inputUser && $u["pass"]==$inputPass){\n
+    $login=true;\n
+    echo "Login Success\n";\n
+    if($u["role"]=="admin"){\n
+      echo "Welcome Admin Panel\n";\n
+    } elseif($u["role"]=="teacher"){\n
+      echo "Welcome Teacher Dashboard\n";\n
+    } else {\n
+      echo "Welcome Student Area\n";\n
+    }\n
+  }\n
+}\n
+if(!$login){echo "Login Failed\n";}\n
+?>` },
+      { name: "PHP Project 9", code: `<?php\n
+$products = [\n
+ ["name"=>"Pen","stock"=>10],\n
+ ["name"=>"Book","stock"=>0],\n
+ ["name"=>"Bag","stock"=>5]\n
+];\n
+foreach($products as $p){\n
+  echo "Product: ".$p["name"]."\n";\n
+  echo "Stock: ".$p["stock"]."\n";\n
+  if($p["stock"] > 0){\n
+    echo "In Stock\n";\n
+  } else {\n
+    echo "Out of Stock\n";\n
+    echo "Reorder Required\n";\n
+  }\n
+  if($p["stock"] < 5){\n
+    echo "Low Stock Warning\n";\n
+  }\n
+  echo "------------------\n";\n
+}\n
+?> <?php\n
+$seats = [\n
+ ["seat"=>1,"booked"=>false],\n
+ ["seat"=>2,"booked"=>true],\n
+ ["seat"=>3,"booked"=>false]\n
+];\n
+foreach($seats as $s){\n
+  echo "Seat No: ".$s["seat"]."\n";\n
+  if($s["booked"]){\n
+    echo "Status: Booked\n";\n
+  } else {\n
+    echo "Status: Available\n";\n
+    echo "Booking this seat...\n";\n
+  }\n
+  echo "------------------\n";\n
+}\n
+?>, <?php\n
+$students = [\n
+ ["name"=>"Rahul","marks"=>[40,50,60]],\n
+ ["name"=>"Amit","marks"=>[30,35,25]],\n
+ ["name"=>"Sneha","marks"=>[80,85,90]]\n
+];\n
+foreach($students as $s){\n
+  $total = array_sum($s["marks"]);\n
+  $avg = $total / count($s["marks"]);\n
+  echo "Name: ".$s["name"]."\n";\n
+  echo "Average: $avg\n";\n
+  if($avg >= 40){\n
+    echo "Result: Pass\n";\n
+  } else {\n
+    echo "Result: Fail\n";\n
+  }\n
+  if($avg >= 75){\n
+    echo "Distinction\n";\n
+  }\n
+  echo "------------------\n";\n
+}\n
+?><?php\n
+$cart = [\n
+  ["item"=>"Shirt","price"=>500,"qty"=>2],\n
+  ["item"=>"Shoes","price"=>1200,"qty"=>1],\n
+  ["item"=>"Cap","price"=>200,"qty"=>3]\n
+];\n
+$total=0;\n
+foreach($cart as $c){\n
+  $sub = $c["price"] * $c["qty"];\n
+  echo $c["item"]." = ".$sub."\n";\n
+  $total += $sub;\n
+}\n
+echo "Total: $total\n";\n
+$tax = $total * 0.05;\n
+echo "Tax: $tax\n";\n
+if($total>2000){\n
+  $discount = $total * 0.1;\n
+} else { $discount=0; }\n
+$final = $total + $tax - $discount;\n
+echo "Discount: $discount\n";\n
+echo "Final Amount: $final\n";\n
+?>` },
+      { name: "PHP Project 10", code: `<?php\n
+$employees = [\n
+ ["name"=>"Ravi","salary"=>20000],\n
+ ["name"=>"Neha","salary"=>30000],\n
+ ["name"=>"Aman","salary"=>25000]\n
+];\n
+foreach($employees as $e){\n
+  $bonus = 0;\n
+  if($e["salary"] >= 30000){\n
+    $bonus = 5000;\n
+  } elseif($e["salary"] >= 25000){\n
+    $bonus = 3000;\n
+  } else {\n
+    $bonus = 1000;\n
+  }\n
+  $total = $e["salary"] + $bonus;\n
+  echo "Name: ".$e["name"]."\n";\n
+  echo "Salary: ".$e["salary"]."\n";\n
+  echo "Bonus: $bonus\n";\n
+  echo "Total Pay: $total\n";\n
+  echo "------------------\n";\n
+}\n
+?>, <?php\n
+$books = [\n
+ ["name"=>"Math","available"=>true],\n
+ ["name"=>"Science","available"=>false],\n
+ ["name"=>"History","available"=>true]\n
+];\n
+foreach($books as $b){\n
+  echo "Book: ".$b["name"]."\n";\n
+  if($b["available"]){\n
+    echo "Status: Available\n";\n
+    echo "You can issue this book\n";\n
+  } else {\n
+    echo "Status: Not Available\n";\n
+    echo "Try later\n";\n
+  }\n
+  echo "------------------\n";\n
+}\n
+?>
+<?php\n
+$balance = 5000;\n
+$transactions = [\n
+  ["type"=>"deposit","amount"=>2000],\n
+  ["type"=>"withdraw","amount"=>1500],\n
+  ["type"=>"withdraw","amount"=>7000],\n
+  ["type"=>"deposit","amount"=>1000]\n
+];\n
+foreach($transactions as $t){\n
+  if($t["type"]=="deposit"){\n
+    $balance += $t["amount"];\n
+    echo "Deposited: ".$t["amount"]."\n";\n
+  } else {\n
+    if($balance >= $t["amount"]){\n
+      $balance -= $t["amount"];\n
+      echo "Withdraw: ".$t["amount"]."\n";\n
+    } else {\n
+      echo "Insufficient Balance\n";\n
+    }\n
+  }\n
+  echo "Balance: $balance\n";\n
+}\n
+?><?php\n
+$students = [\n
+ ["name"=>"Rahul","att"=>80],\n
+ ["name"=>"Amit","att"=>60],\n
+ ["name"=>"Sneha","att"=>95]\n
+];\n
+foreach($students as $s){\n
+  echo "Name: ".$s["name"]."\n";\n
+  echo "Attendance: ".$s["att"]."%\n";\n
+  if($s["att"]>=75){\n
+    echo "Allowed for Exam\n";\n
+  } else {\n
+    echo "Not Allowed\n";\n
+  }\n
+  if($s["att"]>=90){\n
+    echo "Bonus Marks Added\n";\n
+  }\n
+  echo "----------------\n";\n
+}\n
+?>` }
+    ];
+  }
+
+  // 👉 Go
+  if (lang === "Go (Golang)") {
+    return [
+      { name: "Go Project 1", code: `package main\n
+import "fmt"\n
+\n
+func main() {\n
+  students := []struct {\n
+    name  string\n
+    marks []int\n
+  }{\n
+    {"Rahul", []int{80, 70, 90}},\n
+    {"Amit", []int{60, 50, 55}},\n
+  }\n
+\n
+  for _, s := range students {\n
+    total := 0\n
+    for _, m := range s.marks {\n
+      total += m\n
+    }\n
+    avg := total / len(s.marks)\n
+    fmt.Println("Name:", s.name)\n
+    fmt.Println("Average:", avg)\n
+\n
+    if avg >= 75 {\n
+      fmt.Println("Grade: A")\n
+    } else if avg >= 50 {\n
+      fmt.Println("Grade: B")\n
+    } else {\n
+      fmt.Println("Grade: C")\n
+    }\n
+    fmt.Println("---------------")\n
+  }\n
+}\n` },
+      { name: "Go Project 2", code: `package main\n
+import "fmt"\n
+\n
+func main() {\n
+  balance := 5000\n
+  transactions := []struct {\n
+    ttype  string\n
+    amount int\n
+  }{\n
+    {"deposit", 2000},\n
+    {"withdraw", 1000},\n
+    {"withdraw", 7000},\n
+  }\n
+\n
+  for _, t := range transactions {\n
+    if t.ttype == "deposit" {\n
+      balance += t.amount\n
+      fmt.Println("Deposited:", t.amount)\n
+    } else {\n
+      if balance >= t.amount {\n
+        balance -= t.amount\n
+        fmt.Println("Withdraw:", t.amount)\n
+      } else {\n
+        fmt.Println("Insufficient Balance")\n
+      }\n
+    }\n
+    fmt.Println("Balance:", balance)\n
+  }\n
+}\n` },
+      { name: "Go Project 3", code: `package main\n
+import "fmt"\n
+\n
+func main() {\n
+  cart := []struct {\n
+    item  string\n
+    price int\n
+    qty   int\n
+  }{\n
+    {"Shirt", 500, 2},\n
+    {"Shoes", 1200, 1},\n
+  }\n
+\n
+  total := 0\n
+  for _, c := range cart {\n
+    sub := c.price * c.qty\n
+    fmt.Println(c.item, "=", sub)\n
+    total += sub\n
+  }\n
+\n
+  fmt.Println("Total:", total)\n
+\n
+  discount := 0\n
+  if total > 1500 {\n
+    discount = total / 10\n
+  }\n
+\n
+  final := total - discount\n
+  fmt.Println("Discount:", discount)\n
+  fmt.Println("Final:", final)\n
+}\n` },
+      { name: "Go Project 4", code: `package main\n
+import "fmt"\n
+\n
+func main() {\n
+  seats := []struct {\n
+    num    int\n
+    booked bool\n
+  }{\n
+    {1, false},\n
+    {2, true},\n
+    {3, false},\n
+  }\n
+\n
+  for i, s := range seats {\n
+    fmt.Println("Seat:", s.num)\n
+\n
+    if s.booked {\n
+      fmt.Println("Already Booked")\n
+    } else {\n
+      fmt.Println("Booking Seat...")\n
+      seats[i].booked = true\n
+    }\n
+\n
+    fmt.Println("-------------")\n
+  }\n
+}\n` },
+      { name: "Go Project 5", code: `package main\n
+import "fmt"\n
+\n
+func main() {\n
+  products := []struct {\n
+    name  string\n
+    price int\n
+    stock int\n
+  }{\n
+    {"Pen", 10, 5},\n
+    {"Book", 50, 2},\n
+  }\n
+\n
+  orders := []struct {\n
+    name string\n
+    qty  int\n
+  }{\n
+    {"Pen", 3},\n
+    {"Book", 5},\n
+  }\n
+\n
+  total := 0\n
+\n
+  for _, o := range orders {\n
+    for i, p := range products {\n
+      if p.name == o.name {\n
+        if p.stock >= o.qty {\n
+          cost := p.price * o.qty\n
+          total += cost\n
+          products[i].stock -= o.qty\n
+          fmt.Println(o.name, "=", cost)\n
+        } else {\n
+          fmt.Println(o.name, "Out of Stock")\n
+        }\n
+      }\n
+    }\n
+  }\n
+\n
+  fmt.Println("Total:", total)\n
+}\n` },
+      { name: "Go Project 6", code: `package main\n
+import "fmt"\n
+\n
+func main() {\n
+  users := []struct {\n
+    username string\n
+    password string\n
+    wallet   int\n
+  }{\n
+    {"rahul", "123", 5000},\n
+    {"amit", "456", 2000},\n
+  }\n
+\n
+  inputUser := "rahul"\n
+  inputPass := "123"\n
+  loggedIndex := -1\n
+\n
+  for i, u := range users {\n
+    if u.username == inputUser && u.password == inputPass {\n
+      loggedIndex = i\n
+      fmt.Println("Login Success")\n
+    }\n
+  }\n
+\n
+  if loggedIndex == -1 {\n
+    fmt.Println("Login Failed")\n
+    return\n
+  }\n
+\n
+  products := []struct {\n
+    name  string\n
+    price int\n
+    stock int\n
+  }{\n
+    {"Laptop", 30000, 2},\n
+    {"Phone", 15000, 3},\n
+  }\n
+\n
+  cart := []struct {\n
+    name string\n
+    qty  int\n
+  }{\n
+    {"Laptop", 1},\n
+    {"Phone", 1},\n
+  }\n
+\n
+  total := 0\n
+\n
+  for _, c := range cart {\n
+    for i, p := range products {\n
+      if p.name == c.name {\n
+        if p.stock >= c.qty {\n
+          cost := p.price * c.qty\n
+          total += cost\n
+          products[i].stock -= c.qty\n
+          fmt.Println(c.name, "=", cost)\n
+        } else {\n
+          fmt.Println(c.name, "Out of Stock")\n
+        }\n
+      }\n
+    }\n
+  }\n
+\n
+  fmt.Println("Subtotal:", total)\n
+\n
+  discount := 0\n
+  if total > 20000 {\n
+    discount = total / 10\n
+  }\n
+\n
+  tax := total * 5 / 100\n
+  final := total + tax - discount\n
+\n
+  fmt.Println("Discount:", discount)\n
+  fmt.Println("Tax:", tax)\n
+  fmt.Println("Final:", final)\n
+\n
+  if users[loggedIndex].wallet >= final {\n
+    users[loggedIndex].wallet -= final\n
+    fmt.Println("Payment Success")\n
+  } else {\n
+    fmt.Println("Insufficient Balance")\n
+  }\n
+\n
+  fmt.Println("Remaining Wallet:", users[loggedIndex].wallet)\n
+}\n` },
+      { name: "Go Project 7", code: `package main\n
+import "fmt"\n
+\n
+func main() {\n
+  patients := []struct {\n
+    name string\n
+    fee  int\n
+  }{\n
+    {"Rahul", 500},\n
+    {"Amit", 1000},\n
+  }\n
+\n
+  medicines := []struct {\n
+    name  string\n
+    price int\n
+  }{\n
+    {"Tablet", 100},\n
+    {"Syrup", 150},\n
+  }\n
+\n
+  total := 0\n
+\n
+  for _, p := range patients {\n
+    fmt.Println("Patient:", p.name)\n
+    total += p.fee\n
+\n
+    for _, m := range medicines {\n
+      fmt.Println("Medicine:", m.name, m.price)\n
+      total += m.price\n
+    }\n
+    fmt.Println("------------")\n
+  }\n
+\n
+  fmt.Println("Total Bill:", total)\n
+\n
+  if total > 2000 {\n
+    total -= 500\n
+    fmt.Println("Insurance Applied")\n
+  }\n
+\n
+  fmt.Println("Final Bill:", total)\n
+}\n` },
+      { name: "Go Project 8", code: `package main\n
+import "fmt"\n
+\n
+func main() {\n
+  students := []struct {\n
+    name  string\n
+    marks []int\n
+    att   int\n
+  }{\n
+    {"Sneha", []int{80, 85, 90}, 90},\n
+    {"Ravi", []int{40, 45, 50}, 60},\n
+  }\n
+\n
+  for _, s := range students {\n
+    total := 0\n
+    for _, m := range s.marks {\n
+      total += m\n
+    }\n
+\n
+    avg := total / len(s.marks)\n
+\n
+    fmt.Println("Name:", s.name)\n
+    fmt.Println("Average:", avg)\n
+    fmt.Println("Attendance:", s.att)\n
+\n
+    if avg >= 40 {\n
+      fmt.Println("Pass")\n
+    } else {\n
+      fmt.Println("Fail")\n
+    }\n
+\n
+    if s.att >= 75 {\n
+      fmt.Println("Allowed in Exam")\n
+    } else {\n
+      fmt.Println("Not Allowed")\n
+    }\n
+\n
+    fmt.Println("---------------")\n
+  }\n
+}\n` },
+      { name: "Go Project 9", code: `package main\n
+import "fmt"\n
+\n
+func main() {\n
+  menu := []struct {\n
+    name  string\n
+    price int\n
+    stock int\n
+  }{\n
+    {"Pizza", 400, 3},\n
+    {"Burger", 150, 5},\n
+  }\n
+\n
+  order := []struct {\n
+    name string\n
+    qty  int\n
+  }{\n
+    {"Pizza", 2},\n
+    {"Burger", 3},\n
+  }\n
+\n
+  total := 0\n
+\n
+  for _, o := range order {\n
+    for i, m := range menu {\n
+      if m.name == o.name {\n
+        if m.stock >= o.qty {\n
+          cost := m.price * o.qty\n
+          total += cost\n
+          menu[i].stock -= o.qty\n
+          fmt.Println(o.name, "=", cost)\n
+        } else {\n
+          fmt.Println(o.name, "Out of Stock")\n
+        }\n
+      }\n
+    }\n
+  }\n
+\n
+  delivery := 50\n
+  if total > 500 {\n
+    delivery = 0\n
+  }\n
+\n
+  final := total + delivery\n
+\n
+  fmt.Println("Subtotal:", total)\n
+  fmt.Println("Delivery:", delivery)\n
+  fmt.Println("Final:", final)\n
+\n
+  if final > 0 {\n
+    fmt.Println("Order Confirmed")\n
+    fmt.Println("Out for Delivery")\n
+  }\n
+}\n` },
+      { name: "Go Project 10", code: `package main\n
+import "fmt"\n
+\n
+func main() {\n
+  movies := []struct {\n
+    name  string\n
+    price int\n
+    seats int\n
+  }{\n
+    {"Avengers", 300, 5},\n
+    {"Pushpa", 200, 2},\n
+  }\n
+\n
+  booking := []struct {\n
+    name string\n
+    qty  int\n
+  }{\n
+    {"Avengers", 2},\n
+    {"Pushpa", 3},\n
+  }\n
+\n
+  total := 0\n
+\n
+  for _, b := range booking {\n
+    for i, m := range movies {\n
+      if m.name == b.name {\n
+        if m.seats >= b.qty {\n
+          cost := m.price * b.qty\n
+          total += cost\n
+          movies[i].seats -= b.qty\n
+          fmt.Println(b.name, "=", cost)\n
+        } else {\n
+          fmt.Println(b.name, "Seats Not Available")\n
+        }\n
+      }\n
+    }\n
+  }\n
+\n
+  tax := total * 5 / 100\n
+  final := total + tax\n
+\n
+  fmt.Println("Total:", total)\n
+  fmt.Println("Tax:", tax)\n
+  fmt.Println("Final:", final)\n
+}\n` }
+    ];
+  }
+
+  // 👉 Ruby
+  if (lang === "Ruby") {
+    return [
+      { name: "Ruby Project 1", code: `students = [\n
+  {name: "Rahul", marks: [80, 70, 90]},\n
+  {name: "Amit", marks: [60, 50, 55]}\n
+]\n
+\n
+students.each do |s|\n
+  total = s[:marks].sum\n
+  avg = total / s[:marks].length\n
+\n
+  puts "Name: #{s[:name]}"\n
+  puts "Average: #{avg}"\n
+\n
+  if avg >= 75\n
+    puts "Grade: A"\n
+  elsif avg >= 50\n
+    puts "Grade: B"\n
+  else\n
+    puts "Grade: C"\n
+  end\n
+\n
+  puts "----------------"\n
+end\n` },
+      { name: "Ruby Project 2", code: `balance = 5000\n
+transactions = [\n
+  {type: "deposit", amount: 2000},\n
+  {type: "withdraw", amount: 1000},\n
+  {type: "withdraw", amount: 7000}\n
+]\n
+\n
+transactions.each do |t|\n
+  if t[:type] == "deposit"\n
+    balance += t[:amount]\n
+    puts "Deposited: #{t[:amount]}"\n
+  else\n
+    if balance >= t[:amount]\n
+      balance -= t[:amount]\n
+      puts "Withdraw: #{t[:amount]}"\n
+    else\n
+      puts "Insufficient Balance"\n
+    end\n
+  end\n
+\n
+  puts "Balance: #{balance}"\n
+end\n` },
+      { name: "Ruby Project 3", code: `cart = [\n
+  {item: "Shirt", price: 500, qty: 2},\n
+  {item: "Shoes", price: 1200, qty: 1}\n
+]\n
+\n
+total = 0\n
+\n
+cart.each do |c|\n
+  sub = c[:price] * c[:qty]\n
+  puts "#{c[:item]} = #{sub}"\n
+  total += sub\n
+end\n
+\n
+puts "Total: #{total}"\n
+\n
+discount = 0\n
+if total > 1500\n
+  discount = total * 0.1\n
+end\n
+\n
+final = total - discount\n
+puts "Discount: #{discount}"\n
+puts "Final: #{final}"\n` },
+      { name: "Ruby Project 4", code: `seats = [\n
+  {num: 1, booked: false},\n
+  {num: 2, booked: true},\n
+  {num: 3, booked: false}\n
+]\n
+\n
+seats.each do |s|\n
+  puts "Seat: #{s[:num]}"\n
+\n
+  if s[:booked]\n
+    puts "Already Booked"\n
+  else\n
+    puts "Booking Seat..."\n
+    s[:booked] = true\n
+  end\n
+\n
+  puts "-------------"\n
+end\n` },
+      { name: "Ruby Project 5", code: `products = [\n
+  {name: "Pen", price: 10, stock: 5},\n
+  {name: "Book", price: 50, stock: 2}\n
+]\n
+\n
+orders = [\n
+  {name: "Pen", qty: 3},\n
+  {name: "Book", qty: 5}\n
+]\n
+\n
+total = 0\n
+\n
+orders.each do |o|\n
+  products.each do |p|\n
+    if p[:name] == o[:name]\n
+      if p[:stock] >= o[:qty]\n
+        cost = p[:price] * o[:qty]\n
+        total += cost\n
+        p[:stock] -= o[:qty]\n
+        puts "#{o[:name]} = #{cost}"\n
+      else\n
+        puts "#{o[:name]} Out of Stock"\n
+      end\n
+    end\n
+  end\n
+end\n
+\n
+puts "Total: #{total}"\n` },
+      { name: "Ruby Project 6", code: `users = [\n
+  {username: "rahul", password: "123", wallet: 5000},\n
+  {username: "amit", password: "456", wallet: 2000}\n
+]\n
+\n
+input_user = "rahul"\n
+input_pass = "123"\n
+logged_user = nil\n
+\n
+users.each do |u|\n
+  if u[:username] == input_user && u[:password] == input_pass\n
+    logged_user = u\n
+    puts "Login Success"\n
+  end\n
+end\n
+\n
+if logged_user.nil?\n
+  puts "Login Failed"\n
+  exit\n
+end\n
+\n
+products = [\n
+  {name: "Laptop", price: 30000, stock: 2},\n
+  {name: "Phone", price: 15000, stock: 3}\n
+]\n
+\n
+cart = [\n
+  {name: "Laptop", qty: 1},\n
+  {name: "Phone", qty: 1}\n
+]\n
+\n
+total = 0\n
+\n
+cart.each do |c|\n
+  products.each do |p|\n
+    if p[:name] == c[:name]\n
+      if p[:stock] >= c[:qty]\n
+        cost = p[:price] * c[:qty]\n
+        total += cost\n
+        p[:stock] -= c[:qty]\n
+        puts "#{c[:name]} = #{cost}"\n
+      else\n
+        puts "#{c[:name]} Out of Stock"\n
+      end\n
+    end\n
+  end\n
+end\n
+\n
+puts "Subtotal: #{total}"\n
+\n
+discount = total > 20000 ? total * 0.1 : 0\n
+tax = total * 0.05\n
+final = total + tax - discount\n
+\n
+puts "Discount: #{discount}"\n
+puts "Tax: #{tax}"\n
+puts "Final: #{final}"\n
+\n
+if logged_user[:wallet] >= final\n
+  logged_user[:wallet] -= final\n
+  puts "Payment Success"\n
+else\n
+  puts "Insufficient Balance"\n
+end\n
+\n
+puts "Remaining Wallet: #{logged_user[:wallet]}"\n` },
+      { name: "Ruby Project 7", code: `patients = [\n
+  {name: "Rahul", fee: 500},\n
+  {name: "Amit", fee: 1000}\n
+]\n
+\n
+medicines = [\n
+  {name: "Tablet", price: 100},\n
+  {name: "Syrup", price: 150}\n
+]\n
+\n
+total = 0\n
+\n
+patients.each do |p|\n
+  puts "Patient: #{p[:name]}"\n
+  total += p[:fee]\n
+\n
+  medicines.each do |m|\n
+    puts "Medicine: #{m[:name]} #{m[:price]}"\n
+    total += m[:price]\n
+  end\n
+\n
+  puts "-------------"\n
+end\n
+\n
+puts "Total Bill: #{total}"\n
+\n
+if total > 2000\n
+  total -= 500\n
+  puts "Insurance Applied"\n
+end\n
+\n
+puts "Final Bill: #{total}"\n` },
+      { name: "Ruby Project 8", code: `students = [\n
+  {name: "Sneha", marks: [80, 85, 90], att: 90},\n
+  {name: "Ravi", marks: [40, 45, 50], att: 60}\n
+]\n
+\n
+students.each do |s|\n
+  total = s[:marks].sum\n
+  avg = total / s[:marks].length\n
+\n
+  puts "Name: #{s[:name]}"\n
+  puts "Average: #{avg}"\n
+  puts "Attendance: #{s[:att]}"\n
+\n
+  if avg >= 40\n
+    puts "Pass"\n
+  else\n
+    puts "Fail"\n
+  end\n
+\n
+  if s[:att] >= 75\n
+    puts "Allowed in Exam"\n
+  else\n
+    puts "Not Allowed"\n
+  end\n
+\n
+  puts "----------------"\n
+end\n` },
+      { name: "Ruby Project 9", code: `movies = [\n
+  {name: "Avengers", price: 300, seats: 5},\n
+  {name: "Pushpa", price: 200, seats: 2}\n
+]\n
+\n
+booking = [\n
+  {name: "Avengers", qty: 2},\n
+  {name: "Pushpa", qty: 3}\n
+]\n
+\n
+total = 0\n
+\n
+booking.each do |b|\n
+  movies.each do |m|\n
+    if m[:name] == b[:name]\n
+      if m[:seats] >= b[:qty]\n
+        cost = m[:price] * b[:qty]\n
+        total += cost\n
+        m[:seats] -= b[:qty]\n
+        puts "#{b[:name]} = #{cost}"\n
+      else\n
+        puts "#{b[:name]} Seats Not Available"\n
+      end\n
+    end\n
+  end\n
+end\n
+\n
+tax = total * 0.05\n
+final = total + tax\n
+\n
+puts "Total: #{total}"\n
+puts "Tax: #{tax}"\n
+puts "Final: #{final}"\n` },
+      { name: "Ruby Project 10", code: `menu = [\n
+  {name: "Pizza", price: 400, stock: 3},\n
+  {name: "Burger", price: 150, stock: 5}\n
+]\n
+\n
+order = [\n
+  {name: "Pizza", qty: 2},\n
+  {name: "Burger", qty: 3}\n
+]\n
+\n
+total = 0\n
+\n
+order.each do |o|\n
+  menu.each do |m|\n
+    if m[:name] == o[:name]\n
+      if m[:stock] >= o[:qty]\n
+        cost = m[:price] * o[:qty]\n
+        total += cost\n
+        m[:stock] -= o[:qty]\n
+        puts "#{o[:name]} = #{cost}"\n
+      else\n
+        puts "#{o[:name]} Out of Stock"\n
+      end\n
+    end\n
+  end\n
+end\n
+\n
+delivery = total > 500 ? 0 : 50\n
+final = total + delivery\n
+\n
+puts "Subtotal: #{total}"\n
+puts "Delivery: #{delivery}"\n
+puts "Final: #{final}"\n
+\n
+if final > 0\n
+  puts "Order Confirmed"\n
+  puts "Out for Delivery"\n
+end\n` }
+    ];
+  }
+
+  // 👉 Scal
+  if (lang === "Scal") {
+    return [
+      { name: "Scal Project 1", code: `object SalarySystem {\n
+  def main(args: Array[String]): Unit = {\n
+    val employees = Array("Amit","Ravi","Neha")\n
+    val salary = Array(20000,30000,40000)\n
+    val bonus = Array(2000,3000,5000)\n
+    for(i <- employees.indices){\n
+      var finalSalary = salary(i) + bonus(i)\n
+      if(finalSalary > 40000) finalSalary -= 2000\n
+      println(employees(i) + " Final Salary: " + finalSalary)\n
+    }\n
+  }\n
+}\n` },
+      { name: "Scal Project 2", code: `object CartSystem {\n
+  def main(args: Array[String]): Unit = {\n
+    val items = Array("Shirt","Shoes","Watch")\n
+    val prices = Array(1000,2000,1500)\n
+    val quantity = Array(2,1,3)\n
+    var total = 0\n
+    for(i <- items.indices){\n
+      val cost = prices(i) * quantity(i)\n
+      total += cost\n
+      println(items(i) + " x" + quantity(i) + " = " + cost)\n
+    }\n
+    if(total > 5000) total *= 0.9\n
+    println("Final Bill: " + total)\n
+  }\n
+}\n` },
+      { name: "Scal Project 3", code: `object QuizSystem {\n
+  def main(args: Array[String]): Unit = {\n
+    val questions = Array("2+2?", "Capital of India?", "5*3?")\n
+    val answers = Array("4","Delhi","15")\n
+    val userAns = Array("4","Mumbai","15")\n
+    var score = 0\n
+    for(i <- questions.indices){\n
+      println("Q: " + questions(i))\n
+      if(userAns(i) == answers(i)){\n
+        score += 1\n
+        println("Correct")\n
+      } else println("Wrong")\n
+    }\n
+    println("Final Score: " + score)\n
+  }\n
+}\n` },
+      { name: "Scal Project 4", code: `object ATM {\n
+  def main(args: Array[String]): Unit = {\n
+    var balance = 5000\n
+    val actions = Array("withdraw","deposit","withdraw")\n
+    val amounts = Array(1000,2000,7000)\n
+    for(i <- actions.indices){\n
+      if(actions(i) == "withdraw"){\n
+        if(amounts(i) <= balance){\n
+          balance -= amounts(i)\n
+          println("Withdrawn: " + amounts(i))\n
+        } else println("Insufficient balance")\n
+      } else if(actions(i) == "deposit"){\n
+        balance += amounts(i)\n
+        println("Deposited: " + amounts(i))\n
+      }\n
+      println("Balance: " + balance)\n
+    }\n
+  }\n
+}\n` },
+      { name: "Scal Project 5", code: `object StudentResult {\n
+  def main(args: Array[String]): Unit = {\n
+    val students = Array("Amit", "Ravi", "Neha", "Sara")\n
+    val marks = Array(78, 45, 88, 92)\n
+    for(i <- students.indices){\n
+      val grade = if(marks(i) >= 75) "A"\n
+                  else if(marks(i) >= 50) "B"\n
+                  else "Fail"\n
+      println(students(i) + " Score: " + marks(i) + " Grade: " + grade)\n
+    }\n
+  }\n
+}\n` },
+      { name: "Scal Project 6", code: `object BankSystem {\n
+  def main(args: Array[String]): Unit = {\n
+    val users = Array("Amit","Ravi","Neha")\n
+    var balances = Array(10000,5000,8000)\n
+    val actions = Array("deposit","withdraw","transfer","withdraw")\n
+    val amounts = Array(2000,3000,1500,9000)\n
+    val targetIndex = 1\n
+\n
+    for(i <- actions.indices){\n
+      println("Processing: " + actions(i))\n
+\n
+      if(actions(i) == "deposit"){\n
+        balances(0) += amounts(i)\n
+        println("Deposited to Amit: " + amounts(i))\n
+\n
+      } else if(actions(i) == "withdraw"){\n
+        if(balances(0) >= amounts(i)){\n
+          balances(0) -= amounts(i)\n
+          println("Withdrawn from Amit: " + amounts(i))\n
+        } else {\n
+          println("Insufficient balance!")\n
+        }\n
+\n
+      } else if(actions(i) == "transfer"){\n
+        if(balances(0) >= amounts(i)){\n
+          balances(0) -= amounts(i)\n
+          balances(targetIndex) += amounts(i)\n
+          println("Transferred " + amounts(i) + " to " + users(targetIndex))\n
+        }\n
+      }\n
+\n
+      println("Current Balance Amit: " + balances(0))\n
+      println("---------------------")\n
+    }\n
+\n
+    println("Final Balances:")\n
+    for(i <- users.indices){\n
+      println(users(i) + " = " + balances(i))\n
+    }\n
+  }\n
+}\n` },
+      { name: "Scal Project 7", code: `object StudentPortal {\n
+  def main(args: Array[String]): Unit = {\n
+    val students = Array("Amit","Ravi","Neha","Sara")\n
+    val marks = Array(78,45,88,92)\n
+    val attendance = Array(85,60,95,70)\n
+\n
+    for(i <- students.indices){\n
+      var grade = ""\n
+      var status = ""\n
+\n
+      if(marks(i) >= 85) grade = "A"\n
+      else if(marks(i) >= 60) grade = "B"\n
+      else grade = "C"\n
+\n
+      if(attendance(i) < 75) status = "Detained"\n
+      else status = "Allowed"\n
+\n
+      println("Name: " + students(i))\n
+      println("Marks: " + marks(i))\n
+      println("Attendance: " + attendance(i))\n
+      println("Grade: " + grade)\n
+      println("Exam Status: " + status)\n
+      println("----------------")\n
+    }\n
+\n
+    var topper = 0\n
+    for(i <- marks.indices){\n
+      if(marks(i) > marks(topper)) topper = i\n
+    }\n
+\n
+    println("Topper: " + students(topper))\n
+  }\n
+}\n` },
+      { name: "Scal Project 8", code: `object InventorySystem {\n
+  def main(args: Array[String]): Unit = {\n
+    val products = Array("Pen","Book","Bag","Bottle")\n
+    var stock = Array(50,30,20,40)\n
+    val price = Array(10,50,500,100)\n
+\n
+    val cartIndex = Array(0,2,3)\n
+    val cartQty = Array(5,1,2)\n
+\n
+    var total = 0\n
+\n
+    for(i <- cartIndex.indices){\n
+      val idx = cartIndex(i)\n
+\n
+      if(stock(idx) >= cartQty(i)){\n
+        stock(idx) -= cartQty(i)\n
+        val cost = price(idx) * cartQty(i)\n
+        total += cost\n
+\n
+        println(products(idx) + " x" + cartQty(i) + " = " + cost)\n
+      } else {\n
+        println(products(idx) + " Out of stock!")\n
+      }\n
+    }\n
+\n
+    if(total > 1000) total *= 0.9\n
+\n
+    println("Final Bill: " + total)\n
+\n
+    println("Remaining Stock:")\n
+    for(i <- products.indices){\n
+      println(products(i) + " = " + stock(i))\n
+    }\n
+  }\n
+}\n` },
+      { name: "Scal Project 9", code: `object QuizApp {\n
+  def main(args: Array[String]): Unit = {\n
+    val users = Array("Amit","Ravi","Neha")\n
+    val scores = Array(0,0,0)\n
+\n
+    val answers = Array("A","B","C")\n
+    val userAns = Array(\n
+      Array("A","B","C"),\n
+      Array("A","C","C"),\n
+      Array("B","B","C")\n
+    )\n
+\n
+    for(i <- users.indices){\n
+      for(j <- answers.indices){\n
+        if(userAns(i)(j) == answers(j)){\n
+          scores(i) += 1\n
+        }\n
+      }\n
+    }\n
+\n
+    for(i <- users.indices){\n
+      println(users(i) + " Score: " + scores(i))\n
+    }\n
+\n
+    var winner = 0\n
+    for(i <- scores.indices){\n
+      if(scores(i) > scores(winner)) winner = i\n
+    }\n
+\n
+    println("Winner: " + users(winner))\n
+  }\n
+}\n` },
+      { name: "Scal Project 10", code: `object PayrollSystem {\n
+  def main(args: Array[String]): Unit = {\n
+    val employees = Array("Amit","Ravi","Neha","Sara")\n
+    val baseSalary = Array(20000,30000,40000,25000)\n
+    val bonus = Array(2000,3000,5000,2500)\n
+\n
+    for(i <- employees.indices){\n
+      var salary = baseSalary(i) + bonus(i)\n
+      var tax = 0\n
+\n
+      if(salary > 40000) tax = salary * 20 / 100\n
+      else if(salary > 25000) tax = salary * 10 / 100\n
+\n
+      val finalSalary = salary - tax\n
+\n
+      println("Employee: " + employees(i))\n
+      println("Base: " + baseSalary(i))\n
+      println("Bonus: " + bonus(i))\n
+      println("Tax: " + tax)\n
+      println("Final: " + finalSalary)\n
+      println("--------------------")\n
+    }\n
+  }\n
+}\n` }
+    ];
+  }
+
+  // 👉 Matlab
+  if (lang === "Matlab") {
+    return [
+      { name: "Matlab Project 1", code: `clc;\n
+clear;\n
+employees = ["Amit","Ravi","Neha","Sara"];\n
+salary = [20000,30000,40000,25000];\n
+bonus = [2000,3000,5000,2500];\n
+\n
+for i = 1:length(employees)\n
+    total = salary(i) + bonus(i);\n
+\n
+    if total > 40000\n
+        tax = total * 0.2;\n
+    elseif total > 25000\n
+        tax = total * 0.1;\n
+    else\n
+        tax = 0;\n
+    end\n
+\n
+    final = total - tax;\n
+\n
+    fprintf("Employee: %s\\n", employees(i));\n
+    fprintf("Salary: %d\\n", salary(i));\n
+    fprintf("Bonus: %d\\n", bonus(i));\n
+    fprintf("Tax: %.2f\\n", tax);\n
+    fprintf("Final Salary: %.2f\\n", final);\n
+    fprintf("----------------------\\n");\n
+end\n` },
+      { name: "Matlab Project 2", code: `clc;\n
+clear;\n
+users = ["Amit","Ravi","Neha"];\n
+answers = ["A","B","C"];\n
+userAns = ["A","C","C";\n
+           "A","B","C";\n
+           "B","B","C"];\n
+\n
+scores = [0,0,0];\n
+\n
+for i = 1:size(userAns,1)\n
+    for j = 1:size(userAns,2)\n
+        if userAns(i,j) == answers(j)\n
+            scores(i) = scores(i) + 1;\n
+        end\n
+    end\n
+end\n
+\n
+for i = 1:length(users)\n
+    fprintf("%s Score: %d\\n", users(i), scores(i));\n
+end\n` },
+      { name: "Matlab Project 3", code: `clc;\n
+clear;\n
+products = ["Pen","Book","Bag","Bottle"];\n
+price = [10,50,500,100];\n
+stock = [50,30,20,40];\n
+\n
+cart = [1,3,4];\n
+qty = [5,1,2];\n
+total = 0;\n
+\n
+for i = 1:length(cart)\n
+    idx = cart(i);\n
+    if stock(idx) >= qty(i)\n
+        stock(idx) = stock(idx) - qty(i);\n
+        cost = price(idx) * qty(i);\n
+        total = total + cost;\n
+        fprintf("%s x%d = %d\\n", products(idx), qty(i), cost);\n
+    else\n
+        fprintf("%s Out of stock\\n", products(idx));\n
+    end\n
+end\n
+\n
+if total > 1000\n
+    total = total * 0.9;\n
+end\n
+\n
+fprintf("Final Bill: %d\\n", total);\n` },
+      { name: "Matlab Project 4", code: `clc;\n
+clear;\n
+balance = 10000;\n
+actions = ["deposit","withdraw","withdraw","deposit"];\n
+amounts = [2000,3000,9000,1500];\n
+\n
+for i = 1:length(actions)\n
+    if actions(i) == "deposit"\n
+        balance = balance + amounts(i);\n
+        fprintf("Deposited: %d\\n", amounts(i));\n
+    elseif actions(i) == "withdraw"\n
+        if balance >= amounts(i)\n
+            balance = balance - amounts(i);\n
+            fprintf("Withdrawn: %d\\n", amounts(i));\n
+        else\n
+            fprintf("Insufficient Balance\\n");\n
+        end\n
+    end\n
+\n
+    fprintf("Current Balance: %d\\n", balance);\n
+    fprintf("-------------------\\n");\n
+end\n` },
+      { name: "Matlab Project 5", code: `clc;\n
+clear;\n
+students = ["Amit","Ravi","Neha","Sara"];\n
+marks = [78,45,88,92];\n
+attendance = [85,60,95,70];\n
+\n
+for i = 1:length(students)\n
+    if marks(i) >= 85\n
+        grade = "A";\n
+    elseif marks(i) >= 60\n
+        grade = "B";\n
+    else\n
+        grade = "C";\n
+    end\n
+\n
+    if attendance(i) < 75\n
+        status = "Detained";\n
+    else\n
+        status = "Allowed";\n
+    end\n
+\n
+    fprintf("Name: %s\\n", students(i));\n
+    fprintf("Marks: %d\\n", marks(i));\n
+    fprintf("Grade: %s\\n", grade);\n
+    fprintf("Status: %s\\n", status);\n
+    fprintf("--------------------\\n");\n
+end\n` },
+      { name: "Matlab Project 6", code: `clc;\n
+clear;\n
+users = ["Amit","Ravi","Neha"];\n
+balance = [10000,5000,8000];\n
+history = strings(3,10);\n
+hIndex = [1,1,1];\n
+\n
+actions = ["deposit","withdraw","transfer","withdraw","deposit"];\n
+amounts = [2000,3000,1500,9000,2500];\n
+target = 2;\n
+\n
+for i = 1:length(actions)\n
+    u = 1;\n
+    act = actions(i);\n
+    amt = amounts(i);\n
+\n
+    if act == "deposit"\n
+        balance(u) = balance(u) + amt;\n
+        history(u,hIndex(u)) = "Deposit " + amt;\n
+        hIndex(u) = hIndex(u) + 1;\n
+\n
+    elseif act == "withdraw"\n
+        if balance(u) >= amt\n
+            balance(u) = balance(u) - amt;\n
+            history(u,hIndex(u)) = "Withdraw " + amt;\n
+            hIndex(u) = hIndex(u) + 1;\n
+        else\n
+            history(u,hIndex(u)) = "Failed Withdraw";\n
+            hIndex(u) = hIndex(u) + 1;\n
+        end\n
+\n
+    elseif act == "transfer"\n
+        if balance(u) >= amt\n
+            balance(u) = balance(u) - amt;\n
+            balance(target) = balance(target) + amt;\n
+            history(u,hIndex(u)) = "Transfer to " + users(target);\n
+            hIndex(u) = hIndex(u) + 1;\n
+        end\n
+    end\n
+end\n
+\n
+for i = 1:length(users)\n
+    fprintf("User: %s Balance: %d\\n", users(i), balance(i));\n
+    for j = 1:hIndex(i)-1\n
+        fprintf("  %s\\n", history(i,j));\n
+    end\n
+    fprintf("-------------------\\n");\n
+end\n` },
+      { name: "Matlab Project 7", code: `clc;\n
+clear;\n
+students = ["A","B","C","D","E"];\n
+marks = [78,45,88,92,66];\n
+attendance = [85,60,95,70,80];\n
+avg = mean(marks);\n
+\n
+rank = zeros(1,length(marks));\n
+for i=1:length(marks)\n
+    r = 1;\n
+    for j=1:length(marks)\n
+        if marks(j) > marks(i)\n
+            r = r + 1;\n
+        end\n
+    end\n
+    rank(i) = r;\n
+end\n
+\n
+for i=1:length(students)\n
+    if marks(i)>=75\n
+        grade="A";\n
+    elseif marks(i)>=50\n
+        grade="B";\n
+    else\n
+        grade="C";\n
+    end\n
+\n
+    if attendance(i)<75\n
+        status="Detained";\n
+    else\n
+        status="Allowed";\n
+    end\n
+\n
+    fprintf("%s Marks:%d Rank:%d Grade:%s Status:%s\\n", students(i), marks(i), rank(i), grade, status);\n
+end\n
+\n
+fprintf("Average Marks: %.2f\\n", avg);\n` },
+      { name: "Matlab Project 8", code: `clc;\n
+clear;\n
+products = ["Pen","Book","Bag","Bottle"];\n
+stock = [10,5,2,8];\n
+price = [10,50,500,100];\n
+threshold = [20,10,5,15];\n
+supplierAdd = [50,30,10,40];\n
+\n
+for i=1:length(products)\n
+    if stock(i) < threshold(i)\n
+        fprintf("Restocking %s\\n", products(i));\n
+        stock(i) = stock(i) + supplierAdd(i);\n
+    end\n
+end\n
+\n
+cart = [1,3,4,2];\n
+qty = [5,1,2,3];\n
+total=0;\n
+\n
+for i=1:length(cart)\n
+    idx = cart(i);\n
+    if stock(idx)>=qty(i)\n
+        cost = price(idx)*qty(i);\n
+        total = total + cost;\n
+        stock(idx)=stock(idx)-qty(i);\n
+        fprintf("%s x%d = %d\\n", products(idx), qty(i), cost);\n
+    else\n
+        fprintf("%s Out of stock\\n", products(idx));\n
+    end\n
+end\n
+\n
+if total>1000\n
+    total=total*0.9;\n
+end\n
+\n
+fprintf("Final Bill: %d\\n", total);\n` },
+      { name: "Matlab Project 9", code: `clc;\n
+clear;\n
+users = ["A","B","C"];\n
+answers = ["A","B","C","D"];\n
+userAns = ["A","B","C","D";\n
+           "A","C","C","D";\n
+           "B","B","A","D"];\n
+scores = zeros(1,3);\n
+wrongCount = zeros(1,4);\n
+\n
+for i=1:3\n
+    for j=1:4\n
+        if userAns(i,j)==answers(j)\n
+            scores(i)=scores(i)+1;\n
+        else\n
+            wrongCount(j)=wrongCount(j)+1;\n
+        end\n
+    end\n
+end\n
+\n
+[~,winner]=max(scores);\n
+\n
+for i=1:3\n
+    fprintf("%s Score:%d\\n", users(i), scores(i));\n
+end\n
+\n
+fprintf("Winner:%s\\n", users(winner));\n
+\n
+[~,weak]=max(wrongCount);\n
+fprintf("Weak Topic Question No: %d\\n", weak);\n` },
+      { name: "Matlab Project 10", code: `clc;\n
+clear;\n
+employees = ["Amit","Ravi","Neha","Sara"];\n
+salary = [20000,30000,40000,25000];\n
+performance = [90,60,85,70];\n
+bonus = zeros(1,4);\n
+\n
+for i=1:length(employees)\n
+    if performance(i)>=85\n
+        bonus(i)=5000;\n
+    elseif performance(i)>=70\n
+        bonus(i)=3000;\n
+    else\n
+        bonus(i)=1000;\n
+    end\n
+end\n
+\n
+for i=1:length(employees)\n
+    total = salary(i)+bonus(i);\n
+\n
+    if total>40000\n
+        tax=total*0.2;\n
+    elseif total>25000\n
+        tax=total*0.1;\n
+    else\n
+        tax=0;\n
+    end\n
+\n
+    final = total-tax;\n
+\n
+    fprintf("%s Salary:%d Bonus:%d Tax:%.2f Final:%.2f\\n", employees(i), salary(i), bonus(i), tax, final);\n
+end\n` }
+    ];
+  }
+
+  // 👉 Julia
+  if (lang === "Julia") {
+    return [
+      { name: "Julia Project 1", code: `employees = ["Amit","Ravi","Neha","Sara"]\n
+salary = [20000,30000,40000,25000]\n
+bonus = [2000,3000,5000,2500]\n
+\n
+for i in 1:length(employees)\n
+    total = salary[i] + bonus[i]\n
+\n
+    if total > 40000\n
+        tax = total * 0.2\n
+    elseif total > 25000\n
+        tax = total * 0.1\n
+    else\n
+        tax = 0\n
+    end\n
+\n
+    final = total - tax\n
+\n
+    println("Employee: ", employees[i])\n
+    println("Salary: ", salary[i])\n
+    println("Bonus: ", bonus[i])\n
+    println("Tax: ", tax)\n
+    println("Final Salary: ", final)\n
+    println("----------------------")\n
+end\n` },
+      { name: "Julia Project 2", code: `users = ["Amit","Ravi","Neha"]\n
+answers = ["A","B","C"]\n
+userAns = [\n
+    ["A","B","C"],\n
+    ["A","C","C"],\n
+    ["B","B","C"]\n
+]\n
+\n
+scores = [0,0,0]\n
+\n
+for i in 1:length(users)\n
+    for j in 1:length(answers)\n
+        if userAns[i][j] == answers[j]\n
+            scores[i] += 1\n
+        end\n
+    end\n
+end\n
+\n
+for i in 1:length(users)\n
+    println(users[i], " Score: ", scores[i])\n
+end\n` },
+      { name: "Julia Project 3", code: `products = ["Pen","Book","Bag","Bottle"]\n
+price = [10,50,500,100]\n
+stock = [50,30,20,40]\n
+\n
+cart = [1,3,4]\n
+qty = [5,1,2]\n
+total = 0\n
+\n
+for i in 1:length(cart)\n
+    idx = cart[i]\n
+    if stock[idx] >= qty[i]\n
+        cost = price[idx] * qty[i]\n
+        total += cost\n
+        stock[idx] -= qty[i]\n
+        println(products[idx], " x", qty[i], " = ", cost)\n
+    else\n
+        println(products[idx], " Out of stock")\n
+    end\n
+end\n
+\n
+if total > 1000\n
+    total *= 0.9\n
+end\n
+\n
+println("Final Bill: ", total)\n` },
+      { name: "Julia Project 4", code: `balance = 10000\n
+actions = ["deposit","withdraw","withdraw","deposit"]\n
+amounts = [2000,3000,9000,1500]\n
+\n
+for i in 1:length(actions)\n
+    if actions[i] == "deposit"\n
+        global balance += amounts[i]\n
+        println("Deposited: ", amounts[i])\n
+\n
+    elseif actions[i] == "withdraw"\n
+        if balance >= amounts[i]\n
+            global balance -= amounts[i]\n
+            println("Withdrawn: ", amounts[i])\n
+        else\n
+            println("Insufficient Balance")\n
+        end\n
+    end\n
+\n
+    println("Current Balance: ", balance)\n
+    println("---------------------")\n
+end\n` },
+      { name: "Julia Project 5", code: `employees = ["Amit","Ravi","Neha","Sara"]\n
+salary = [20000,30000,40000,25000]\n
+performance = [90,60,85,70]\n
+bonus = zeros(Int,4)\n
+\n
+for i in 1:length(employees)\n
+    if performance[i] >= 85\n
+        bonus[i] = 5000\n
+    elseif performance[i] >= 70\n
+        bonus[i] = 3000\n
+    else\n
+        bonus[i] = 1000\n
+    end\n
+end\n
+\n
+for i in 1:length(employees)\n
+    total = salary[i] + bonus[i]\n
+\n
+    if total > 40000\n
+        tax = total * 0.2\n
+    elseif total > 25000\n
+        tax = total * 0.1\n
+    else\n
+        tax = 0\n
+    end\n
+\n
+    final = total - tax\n
+\n
+    println("Employee: ", employees[i])\n
+    println("Salary: ", salary[i])\n
+    println("Bonus: ", bonus[i])\n
+    println("Tax: ", tax)\n
+    println("Final Salary: ", final)\n
+    println("------------------------")\n
+end\n` },
+      { name: "Julia Project 6", code: `users = ["A","B","C"]\n
+answers = ["A","B","C","D"]\n
+userAns = [\n
+    ["A","B","C","D"],\n
+    ["A","C","C","D"],\n
+    ["B","B","A","D"]\n
+]\n
+\n
+scores = zeros(Int,3)\n
+wrong = zeros(Int,4)\n
+\n
+for i in 1:3\n
+    for j in 1:4\n
+        if userAns[i][j] == answers[j]\n
+            scores[i] += 1\n
+        else\n
+            wrong[j] += 1\n
+        end\n
+    end\n
+end\n
+\n
+winner = argmax(scores)\n
+\n
+for i in 1:length(users)\n
+    println(users[i], " Score:", scores[i])\n
+end\n
+\n
+println("Winner: ", users[winner])\n
+\n
+weak = argmax(wrong)\n
+println("Weak Topic Question: ", weak)\n` },
+      { name: "Julia Project 7", code: `products = ["Pen","Book","Bag","Bottle"]\n
+stock = [10,5,2,8]\n
+price = [10,50,500,100]\n
+threshold = [20,10,5,15]\n
+supplierAdd = [50,30,10,40]\n
+\n
+for i in 1:length(products)\n
+    if stock[i] < threshold[i]\n
+        println("Restocking ", products[i])\n
+        stock[i] += supplierAdd[i]\n
+    end\n
+end\n
+\n
+cart = [1,3,4,2]\n
+qty = [5,1,2,3]\n
+total = 0\n
+\n
+for i in 1:length(cart)\n
+    idx = cart[i]\n
+    if stock[idx] >= qty[i]\n
+        cost = price[idx] * qty[i]\n
+        total += cost\n
+        stock[idx] -= qty[i]\n
+        println(products[idx], " x", qty[i], " = ", cost)\n
+    else\n
+        println(products[idx], " Out of stock")\n
+    end\n
+end\n
+\n
+if total > 1000\n
+    total *= 0.9\n
+end\n
+\n
+println("Final Bill: ", total)\n` },
+      { name: "Julia Project 8", code: `products = ["Pen","Book","Bag","Bottle"]\n
+stock = [10,5,2,8]\n
+price = [10,50,500,100]\n
+threshold = [20,10,5,15]\n
+supplierAdd = [50,30,10,40]\n
+\n
+for i in 1:length(products)\n
+    if stock[i] < threshold[i]\n
+        println("Restocking ", products[i])\n
+        stock[i] += supplierAdd[i]\n
+    end\n
+end\n
+\n
+cart = [1,3,4,2]\n
+qty = [5,1,2,3]\n
+total = 0\n
+\n
+for i in 1:length(cart)\n
+    idx = cart[i]\n
+    if stock[idx] >= qty[i]\n
+        cost = price[idx] * qty[i]\n
+        total += cost\n
+        stock[idx] -= qty[i]\n
+        println(products[idx], " x", qty[i], " = ", cost)\n
+    else\n
+        println(products[idx], " Out of stock")\n
+    end\n
+end\n
+\n
+if total > 1000\n
+    total *= 0.9\n
+end\n
+\n
+println("Final Bill: ", total)\n` },
+      { name: "Julia Project 9", code: `students = ["A","B","C","D","E"]\n
+marks = [78,45,88,92,66]\n
+attendance = [85,60,95,70,80]\n
+\n
+rank = zeros(Int,length(marks))\n
+\n
+for i in 1:length(marks)\n
+    r = 1\n
+    for j in 1:length(marks)\n
+        if marks[j] > marks[i]\n
+            r += 1\n
+        end\n
+    end\n
+    rank[i] = r\n
+end\n
+\n
+avg = sum(marks)/length(marks)\n
+\n
+for i in 1:length(students)\n
+    if marks[i] >= 85\n
+        grade = "A"\n
+    elseif marks[i] >= 60\n
+        grade = "B"\n
+    else\n
+        grade = "C"\n
+    end\n
+\n
+    status = attendance[i] < 75 ? "Detained" : "Allowed"\n
+\n
+    println(students[i], " Marks:", marks[i], " Rank:", rank[i], " Grade:", grade, " Status:", status)\n
+end\n
+\n
+println("Average Marks: ", avg)\n` },
+      { name: "Julia Project 10", code: `employees = ["Amit","Ravi","Neha","Sara"]\n
+salary = [20000,30000,40000,25000]\n
+performance = [90,60,85,70]\n
+bonus = zeros(Int,4)\n
+\n
+for i in 1:length(employees)\n
+    if performance[i] >= 85\n
+        bonus[i] = 5000\n
+    elseif performance[i] >= 70\n
+        bonus[i] = 3000\n
+    else\n
+        bonus[i] = 1000\n
+    end\n
+end\n
+\n
+for i in 1:length(employees)\n
+    total = salary[i] + bonus[i]\n
+\n
+    if total > 40000\n
+        tax = total * 0.2\n
+    elseif total > 25000\n
+        tax = total * 0.1\n
+    else\n
+        tax = 0\n
+    end\n
+\n
+    final = total - tax\n
+\n
+    println("Employee: ", employees[i])\n
+    println("Salary: ", salary[i])\n
+    println("Bonus: ", bonus[i])\n
+    println("Tax: ", tax)\n
+    println("Final Salary: ", final)\n
+    println("------------------------")\n
+end\n` }
+    ];
+  }
+
+  // 👉 Lua
+  if (lang === "Lua") {
+    return [
+      { name: "Lua Project 1", code: `employees = {"Amit","Ravi","Neha","Sara"}\n
+salary = {20000,30000,40000,25000}\n
+bonus = {2000,3000,5000,2500}\n
+\n
+for i=1,#employees do\n
+    local total = salary[i] + bonus[i]\n
+    local tax = 0\n
+\n
+    if total > 40000 then\n
+        tax = total * 0.2\n
+    elseif total > 25000 then\n
+        tax = total * 0.1\n
+    end\n
+\n
+    local final = total - tax\n
+\n
+    print("Employee: "..employees[i])\n
+    print("Salary: "..salary[i])\n
+    print("Bonus: "..bonus[i])\n
+    print("Tax: "..tax)\n
+    print("Final Salary: "..final)\n
+    print("---------------------")\n
+end\n` },
+      { name: "Lua Project 2", code: `users = {"Amit","Ravi","Neha"}\n
+answers = {"A","B","C"}\n
+userAns = {\n
+    {"A","B","C"},\n
+    {"A","C","C"},\n
+    {"B","B","C"}\n
+}\n
+\n
+scores = {0,0,0}\n
+\n
+for i=1,#users do\n
+    for j=1,#answers do\n
+        if userAns[i][j] == answers[j] then\n
+            scores[i] = scores[i] + 1\n
+        end\n
+    end\n
+end\n
+\n
+for i=1,#users do\n
+    print(users[i].." Score: "..scores[i])\n
+end\n` },
+      { name: "Lua Project 3", code: `products = {"Pen","Book","Bag","Bottle"}\n
+price = {10,50,500,100}\n
+stock = {50,30,20,40}\n
+\n
+cart = {1,3,4}\n
+qty = {5,1,2}\n
+total = 0\n
+\n
+for i=1,#cart do\n
+    local idx = cart[i]\n
+    if stock[idx] >= qty[i] then\n
+        local cost = price[idx] * qty[i]\n
+        total = total + cost\n
+        stock[idx] = stock[idx] - qty[i]\n
+        print(products[idx].." x"..qty[i].." = "..cost)\n
+    else\n
+        print(products[idx].." Out of stock")\n
+    end\n
+end\n
+\n
+if total > 1000 then\n
+    total = total * 0.9\n
+end\n
+\n
+print("Final Bill: "..total)\n` },
+      { name: "Lua Project 4", code: `balance = 10000\n
+actions = {"deposit","withdraw","withdraw","deposit"}\n
+amounts = {2000,3000,9000,1500}\n
+\n
+for i=1,#actions do\n
+    if actions[i] == "deposit" then\n
+        balance = balance + amounts[i]\n
+        print("Deposited: "..amounts[i])\n
+\n
+    elseif actions[i] == "withdraw" then\n
+        if balance >= amounts[i] then\n
+            balance = balance - amounts[i]\n
+            print("Withdrawn: "..amounts[i])\n
+        else\n
+            print("Insufficient Balance")\n
+        end\n
+    end\n
+\n
+    print("Current Balance: "..balance)\n
+    print("-------------------")\n
+end\n` },
+      { name: "Lua Project 5", code: `students = {"Amit","Ravi","Neha","Sara"}\n
+marks = {78,45,88,92}\n
+attendance = {85,60,95,70}\n
+\n
+for i=1,#students do\n
+    local grade\n
+    if marks[i] >= 85 then\n
+        grade = "A"\n
+    elseif marks[i] >= 60 then\n
+        grade = "B"\n
+    else\n
+        grade = "C"\n
+    end\n
+\n
+    local status\n
+    if attendance[i] < 75 then\n
+        status = "Detained"\n
+    else\n
+        status = "Allowed"\n
+    end\n
+\n
+    print("Name: "..students[i])\n
+    print("Marks: "..marks[i])\n
+    print("Grade: "..grade)\n
+    print("Status: "..status)\n
+    print("--------------------")\n
+end\n` },
+      { name: "Lua Project 6", code: `questions = {
+ {q="2+2?", a="4"},
+ {q="5*2?", a="10"},
+ {q="10-3?", a="7"}
+}
+
+score = 0
+
+for i, q in ipairs(questions) do
+ print(q.q)
+ ans = io.read()
+ 
+ if ans == q.a then
+  score = score + 1
+  print("Correct\n")
+ else
+  print("Wrong\n")
+ end
+end
+
+print("Final Score: "..score)
+
+if score == #questions then
+ print("Excellent")
+elseif score > 1 then
+ print("Good")
+else
+ print("Try Again")
+end` },
+      { name: "Lua Project 7", code: `users = {
+ admin="1234",
+ user="abcd"
+}
+
+attempts = 3
+logged = false
+
+while attempts > 0 do
+ print("Username:")
+ u = io.read()
+ print("Password:")
+ p = io.read()
+ 
+ if users[u] == p then
+  print("Login Success")
+  logged = true
+  break
+ else
+  attempts = attempts - 1
+  print("Wrong! Attempts left: "..attempts)
+ end
+end
+
+if not logged then
+ print("Account Blocked")
+end` },
+      { name: "Lua Project 8", code: `items = {
+ {name="Pen", qty=10},
+ {name="Book", qty=5},
+ {name="Bag", qty=2}
+}
+
+while true do
+ print("\n1.View\n2.Add Stock\n3.Sell\n4.Exit")
+ ch = io.read("*n")
+ 
+ if ch == 1 then
+  for i,v in ipairs(items) do
+   print(v.name.." - "..v.qty)
+  end
+  
+ elseif ch == 2 then
+  print("Item index:")
+  idx = io.read("*n")
+  print("Qty add:")
+  q = io.read("*n")
+  
+  items[idx].qty = items[idx].qty + q
+  
+ elseif ch == 3 then
+  print("Item index:")
+  idx = io.read("*n")
+  print("Qty sell:")
+  q = io.read("*n")
+  
+  if items[idx].qty >= q then
+   items[idx].qty = items[idx].qty - q
+   print("Sold")
+  else
+   print("Out of stock")
+  end
+  
+ elseif ch == 4 then
+  break
+ end
+end` },
+      { name: "Lua Project 9", code: `balance = 5000
+
+while true do
+ print("\n1.Withdraw\n2.Deposit\n3.Check Balance\n4.Exit")
+ choice = io.read("*n")
+ 
+ if choice == 1 then
+  print("Enter amount:")
+  amt = io.read("*n")
+  
+  if amt <= balance then
+   balance = balance - amt
+   print("Withdraw Success")
+  else
+   print("Insufficient Balance")
+  end
+  
+ elseif choice == 2 then
+  print("Enter deposit:")
+  dep = io.read("*n")
+  balance = balance + dep
+  print("Deposited")
+  
+ elseif choice == 3 then
+  print("Balance: "..balance)
+  
+ elseif choice == 4 then
+  print("Exit")
+  break
+ end
+end` },
+      { name: "Lua Project 10", code: `students = {
+ {name="Aman", marks={70,80,90}},
+ {name="Ravi", marks={30,40,35}},
+ {name="Neha", marks={85,90,88}}
+}
+
+for i, s in ipairs(students) do
+ total = 0
+ for _, m in ipairs(s.marks) do
+  total = total + m
+ end
+ 
+ avg = total / #s.marks
+ result = "Pass"
+ 
+ for _, m in ipairs(s.marks) do
+  if m < 35 then
+   result = "Fail"
+  end
+ end
+ 
+ grade = "C"
+ if avg > 80 then grade = "A"
+ elseif avg > 60 then grade = "B"
+ end
+ 
+ print("Name: "..s.name.."\nAverage: "..avg.."\nResult: "..result.."\nGrade: "..grade.."\n-----")
+end` }
+    ];
+  }
+
+  // 👉 Objective-C
+  if (lang === "Objective-C") {
+    return [
+      { name: "Objective-C Project 1", code: `#import <Foundation/Foundation.h>
+
+int main() {
+ @autoreleasepool {
+  NSArray *questions = @[
+   @{@"q":@"2+2?", @"a":@"4"},
+   @{@"q":@"5*2?", @"a":@"10"},
+   @{@"q":@"10-3?", @"a":@"7"}
+  ];
+  
+  int score = 0;
+  char ans[50];
+  
+  for(NSDictionary *q in questions){
+   NSLog(@"%@", q[@"q"]);
+   scanf("%s", ans);
+   
+   NSString *input = [NSString stringWithUTF8String:ans];
+   
+   if([input isEqualToString:q[@"a"]]){
+    score++;
+    NSLog(@"Correct\n");
+   } else {
+    NSLog(@"Wrong\n");
+   }
+  }
+  
+  NSLog(@"Final Score: %d", score);
+  
+  if(score == [questions count]){
+   NSLog(@"Excellent");
+  } else if(score > 1){
+   NSLog(@"Good");
+  } else {
+   NSLog(@"Try Again");
+  }
+ }
+ return 0;
+}` },
+      { name: "Objective-C Project 2", code: `#import <Foundation/Foundation.h>
+
+int main() {
+ @autoreleasepool {
+  NSDictionary *users = @{
+   @"admin":@"1234",
+   @"user":@"abcd"
+  };
+  
+  int attempts = 3;
+  char uname[50], pass[50];
+  
+  while(attempts > 0){
+   NSLog(@"Username:");
+   scanf("%s", uname);
+   NSLog(@"Password:");
+   scanf("%s", pass);
+   
+   NSString *u = [NSString stringWithUTF8String:uname];
+   NSString *p = [NSString stringWithUTF8String:pass];
+   
+   if(users[u] && [users[u] isEqualToString:p]){
+    NSLog(@"Login Success");
+    break;
+   } else {
+    attempts--;
+    NSLog(@"Wrong! Attempts left: %d", attempts);
+   }
+  }
+  
+  if(attempts == 0){
+   NSLog(@"Account Blocked");
+  }
+ }
+ return 0;
+}` },
+      { name: "Objective-C Project 3", code: `#import <Foundation/Foundation.h>
+
+int main() {
+ @autoreleasepool {
+  NSMutableArray *items = [@[
+   [@{@"name":@"Pen", @"qty":@10} mutableCopy],
+   [@{@"name":@"Book", @"qty":@5} mutableCopy],
+   [@{@"name":@"Bag", @"qty":@2} mutableCopy]
+  ] mutableCopy];
+  
+  int ch;
+  
+  while(1){
+   NSLog(@"\n1.View\n2.Add Stock\n3.Sell\n4.Exit");
+   scanf("%d",&ch);
+   
+   if(ch == 1){
+    for(NSDictionary *i in items){
+     NSLog(@"%@ - %@", i[@"name"], i[@"qty"]);
+    }
+    
+   } else if(ch == 2){
+    int idx, q;
+    NSLog(@"Index:");
+    scanf("%d",&idx);
+    NSLog(@"Add qty:");
+    scanf("%d",&q);
+    
+    NSMutableDictionary *it = items[idx];
+    int newQty = [it[@"qty"] intValue] + q;
+    it[@"qty"] = @(newQty);
+    
+   } else if(ch == 3){
+    int idx, q;
+    NSLog(@"Index:");
+    scanf("%d",&idx);
+    NSLog(@"Sell qty:");
+    scanf("%d",&q);
+    
+    NSMutableDictionary *it = items[idx];
+    int cur = [it[@"qty"] intValue];
+    
+    if(cur >= q){
+     it[@"qty"] = @(cur - q);
+     NSLog(@"Sold");
+    } else {
+     NSLog(@"Out of stock");
+    }
+    
+   } else if(ch == 4){
+    break;
+   }
+  }
+ }
+ return 0;
+}` },
+      { name: "Objective-C Project 4", code: `#import <Foundation/Foundation.h>
+
+int main() {
+ @autoreleasepool {
+  int balance = 5000;
+  int choice;
+  
+  while(1){
+   NSLog(@"\n1.Withdraw\n2.Deposit\n3.Check Balance\n4.Exit");
+   scanf("%d",&choice);
+   
+   if(choice == 1){
+    int amt;
+    NSLog(@"Enter amount:");
+    scanf("%d",&amt);
+    
+    if(amt <= balance){
+     balance -= amt;
+     NSLog(@"Withdraw Success");
+    } else {
+     NSLog(@"Insufficient Balance");
+    }
+    
+   } else if(choice == 2){
+    int dep;
+    NSLog(@"Enter deposit:");
+    scanf("%d",&dep);
+    
+    balance += dep;
+    NSLog(@"Deposited");
+    
+   } else if(choice == 3){
+    NSLog(@"Balance: %d", balance);
+    
+   } else if(choice == 4){
+    break;
+   }
+  }
+ }
+ return 0;
+}` },
+      { name: "Objective-C Project 5", code: `#import <Foundation/Foundation.h>
+
+int main() {
+ @autoreleasepool {
+  NSArray *students = @[
+   @{@"name":@"Aman", @"marks":@[@70,@80,@90]},
+   @{@"name":@"Ravi", @"marks":@[@30,@40,@35]},
+   @{@"name":@"Neha", @"marks":@[@85,@90,@88]}
+  ];
+  
+  for(NSDictionary *s in students){
+   NSArray *marks = s[@"marks"];
+   int total = 0;
+   
+   for(NSNumber *m in marks){
+    total += [m intValue];
+   }
+   
+   float avg = total / (float)[marks count];
+   NSString *result = @"Pass";
+   
+   for(NSNumber *m in marks){
+    if([m intValue] < 35){
+     result = @"Fail";
+    }
+   }
+   
+   NSString *grade = @"C";
+   if(avg > 80) grade = @"A";
+   else if(avg > 60) grade = @"B";
+   
+   NSLog(@"Name: %@\nAverage: %.2f\nResult: %@\nGrade: %@\n-----",
+         s[@"name"], avg, result, grade);
+  }
+ }
+ return 0;
+}` },
+      { name: "Objective-C Project 6", code: `#import <Foundation/Foundation.h>
+
+int main() {
+ @autoreleasepool {
+  NSMutableArray *tasks = [NSMutableArray array];
+  
+  while(1){
+   int ch;
+   NSLog(@"\n1.Add Task\n2.View Tasks\n3.Complete Task\n4.Delete Task\n5.Exit");
+   scanf("%d",&ch);
+   
+   if(ch == 1){
+    char t[100];
+    NSLog(@"Enter task:");
+    scanf(" %[^\n]", t);
+    
+    NSDictionary *task = [@{@"name":[NSString stringWithUTF8String:t],
+                            @"done":@0} mutableCopy];
+    [tasks addObject:task];
+    
+   } else if(ch == 2){
+    for(int i=0;i<[tasks count];i++){
+     NSDictionary *task = tasks[i];
+     NSString *status = [task[@"done"] intValue] ? @"Done" : @"Pending";
+     NSLog(@"%d - %@ [%@]", i, task[@"name"], status);
+    }
+    
+   } else if(ch == 3){
+    int idx;
+    NSLog(@"Index:");
+    scanf("%d",&idx);
+    
+    if(idx < [tasks count]){
+     NSMutableDictionary *task = [tasks[idx] mutableCopy];
+     task[@"done"] = @1;
+     tasks[idx] = task;
+    }
+    
+   } else if(ch == 4){
+    int idx;
+    NSLog(@"Index:");
+    scanf("%d",&idx);
+    
+    if(idx < [tasks count]){
+     [tasks removeObjectAtIndex:idx];
+    }
+    
+   } else if(ch == 5){
+    break;
+   }
+  }
+ }
+ return 0;
+}` },
+      { name: "Objective-C Project 7", code: `#import <Foundation/Foundation.h>
+
+int main() {
+ @autoreleasepool {
+  NSString *file = @"logs.txt";
+  NSFileManager *fm = [NSFileManager defaultManager];
+  
+  if(![fm fileExistsAtPath:file]){
+   [@"" writeToFile:file atomically:YES encoding:NSUTF8StringEncoding error:nil];
+  }
+  
+  while(1){
+   int ch;
+   NSLog(@"\n1.Write Log\n2.Read Logs\n3.Exit");
+   scanf("%d",&ch);
+   
+   if(ch == 1){
+    char msg[200];
+    NSLog(@"Enter message:");
+    scanf(" %[^\n]", msg);
+    
+    NSString *text = [NSString stringWithFormat:@"%s\n", msg];
+    NSFileHandle *fh = [NSFileHandle fileHandleForWritingAtPath:file];
+    [fh seekToEndOfFile];
+    [fh writeData:[text dataUsingEncoding:NSUTF8StringEncoding]];
+    [fh closeFile];
+    
+    NSLog(@"Saved\n");
+    
+   } else if(ch == 2){
+    NSString *content = [NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:nil];
+    NSLog(@"\n%@", content);
+    
+   } else if(ch == 3){
+    break;
+   }
+  }
+ }
+ return 0;
+}` },
+      { name: "Objective-C Project 8", code: `#import <Foundation/Foundation.h>
+
+int main() {
+ @autoreleasepool {
+  NSArray *products = @[
+   @{@"name":@"Pen", @"price":@10},
+   @{@"name":@"Book", @"price":@50},
+   @{@"name":@"Bag", @"price":@300}
+  ];
+  
+  NSMutableArray *cart = [NSMutableArray array];
+  
+  while(1){
+   int ch;
+   NSLog(@"\n1.View Products\n2.Add to Cart\n3.Generate Bill\n4.Exit");
+   scanf("%d",&ch);
+   
+   if(ch == 1){
+    for(int i=0;i<[products count];i++){
+     NSLog(@"%d - %@ (%@)", i, products[i][@"name"], products[i][@"price"]);
+    }
+    
+   } else if(ch == 2){
+    int idx;
+    NSLog(@"Enter index:");
+    scanf("%d",&idx);
+    
+    if(idx < [products count]){
+     [cart addObject:products[idx]];
+     NSLog(@"Added\n");
+    }
+    
+   } else if(ch == 3){
+    int total = 0;
+    
+    for(NSDictionary *c in cart){
+     int price = [c[@"price"] intValue];
+     total += price;
+     NSLog(@"%@ - %d", c[@"name"], price);
+    }
+    
+    if(total > 500){
+     int disc = total * 0.1;
+     total -= disc;
+     NSLog(@"Discount Applied\n");
+    }
+    
+    NSLog(@"Total: %d\n", total);
+    
+   } else if(ch == 4){
+    break;
+   }
+  }
+ }
+ return 0;
+}` },
+      { name: "Objective-C Project 9", code: `#import <Foundation/Foundation.h>
+
+int main() {
+ @autoreleasepool {
+  NSMutableArray *students = [@[
+   [@{@"id":@1, @"name":@"Aman", @"marks":[@[@70,@80,@90] mutableCopy]} mutableCopy],
+   [@{@"id":@2, @"name":@"Ravi", @"marks":[@[@40,@35,@30] mutableCopy]} mutableCopy],
+   [@{@"id":@3, @"name":@"Neha", @"marks":[@[@90,@92,@88] mutableCopy]} mutableCopy]
+  ] mutableCopy];
+  
+  while(1){
+   int ch;
+   NSLog(@"\n1.View\n2.Search\n3.Update Marks\n4.Result\n5.Exit");
+   scanf("%d",&ch);
+   
+   if(ch == 1){
+    for(NSDictionary *s in students){
+     NSLog(@"%@ - %@", s[@"id"], s[@"name"]);
+    }
+    
+   } else if(ch == 2){
+    int id;
+    NSLog(@"Enter ID:");
+    scanf("%d",&id);
+    
+    for(NSDictionary *s in students){
+     if([s[@"id"] intValue] == id){
+      NSLog(@"Found: %@", s[@"name"]);
+     }
+    }
+    
+   } else if(ch == 3){
+    int id;
+    NSLog(@"Enter ID:");
+    scanf("%d",&id);
+    
+    for(NSMutableDictionary *s in students){
+     if([s[@"id"] intValue] == id){
+      NSMutableArray *marks = [NSMutableArray array];
+      
+      NSLog(@"Enter 3 marks:");
+      for(int i=0;i<3;i++){
+       int m;
+       scanf("%d",&m);
+       [marks addObject:@(m)];
+      }
+      
+      s[@"marks"] = marks;
+     }
+    }
+    
+   } else if(ch == 4){
+    for(NSDictionary *s in students){
+     int total = 0;
+     NSArray *marks = s[@"marks"];
+     
+     for(NSNumber *m in marks){
+      total += [m intValue];
+     }
+     
+     float avg = total / (float)[marks count];
+     NSLog(@"%@ Avg: %.2f", s[@"name"], avg);
+    }
+    
+   } else if(ch == 5){
+    break;
+   }
+  }
+ }
+ return 0;
+}` },
+      { name: "Objective-C Project 10", code: `#import <Foundation/Foundation.h>
+
+int main() {
+ @autoreleasepool {
+  NSMutableDictionary *users = [@{
+   @"aman":[@{@"pass":@"123", @"bal":@5000} mutableCopy],
+   @"ravi":[@{@"pass":@"111", @"bal":@3000} mutableCopy]
+  } mutableCopy];
+  
+  char uname[50], pass[50];
+  NSLog(@"Username:");
+  scanf("%s", uname);
+  NSLog(@"Password:");
+  scanf("%s", pass);
+  
+  NSString *u = [NSString stringWithUTF8String:uname];
+  NSString *p = [NSString stringWithUTF8String:pass];
+  
+  if(users[u] && [users[u][@"pass"] isEqualToString:p]){
+   NSLog(@"Login Success\n");
+   
+   while(1){
+    int ch;
+    NSLog(@"\n1.Balance\n2.Deposit\n3.Withdraw\n4.Transfer\n5.Exit");
+    scanf("%d",&ch);
+    
+    NSMutableDictionary *acc = users[u];
+    int bal = [acc[@"bal"] intValue];
+    
+    if(ch == 1){
+     NSLog(@"Balance: %d", bal);
+     
+    } else if(ch == 2){
+     int amt;
+     NSLog(@"Amount:");
+     scanf("%d",&amt);
+     
+     bal += amt;
+     acc[@"bal"] = @(bal);
+     NSLog(@"Deposited\n");
+     
+    } else if(ch == 3){
+     int amt;
+     NSLog(@"Amount:");
+     scanf("%d",&amt);
+     
+     if(amt <= bal){
+      bal -= amt;
+      acc[@"bal"] = @(bal);
+      NSLog(@"Withdrawn\n");
+     } else {
+      NSLog(@"Low Balance\n");
+     }
+     
+    } else if(ch == 4){
+     char toUser[50];
+     int amt;
+     
+     NSLog(@"Transfer to:");
+     scanf("%s", toUser);
+     NSLog(@"Amount:");
+     scanf("%d",&amt);
+     
+     NSString *to = [NSString stringWithUTF8String:toUser];
+     
+     if(users[to] && amt <= bal){
+      NSMutableDictionary *recv = users[to];
+      int rbal = [recv[@"bal"] intValue];
+      
+      bal -= amt;
+      rbal += amt;
+      
+      acc[@"bal"] = @(bal);
+      recv[@"bal"] = @(rbal);
+      
+      NSLog(@"Transfer Done\n");
+     } else {
+      NSLog(@"Transfer Failed\n");
+     }
+     
+    } else if(ch == 5){
+     break;
+    }
+   }
+  } else {
+   NSLog(@"Invalid Login");
+  }
+ }
+ return 0;
+}` }
+    ];
+  }
+
+  // 👉 VB.NET
+  if (lang === "VB.NET") {
+    return [
+      { name: "VB.NET Project 1", code: `Module Program
+    Sub Main()
+        Dim items = {
+            New With {.name = "Pen", .qty = 10},
+            New With {.name = "Book", .qty = 5},
+            New With {.name = "Bag", .qty = 2}
+        }.ToList()
+
+        While True
+            Console.WriteLine(vbCrLf & "1.View" & vbCrLf & "2.Add Stock" & vbCrLf & "3.Sell" & vbCrLf & "4.Exit")
+            Dim ch As Integer = Console.ReadLine()
+
+            If ch = 1 Then
+                For Each i In items
+                    Console.WriteLine(i.name & " - " & i.qty)
+                Next
+
+            ElseIf ch = 2 Then
+                Console.WriteLine("Index:")
+                Dim idx As Integer = Console.ReadLine()
+                Console.WriteLine("Add qty:")
+                Dim q As Integer = Console.ReadLine()
+
+                items(idx) = New With {.name = items(idx).name, .qty = items(idx).qty + q}
+
+            ElseIf ch = 3 Then
+                Console.WriteLine("Index:")
+                Dim idx As Integer = Console.ReadLine()
+                Console.WriteLine("Sell qty:")
+                Dim q As Integer = Console.ReadLine()
+
+                If items(idx).qty >= q Then
+                    items(idx) = New With {.name = items(idx).name, .qty = items(idx).qty - q}
+                    Console.WriteLine("Sold")
+                Else
+                    Console.WriteLine("Out of stock")
+                End If
+
+            ElseIf ch = 4 Then
+                Exit While
+            End If
+        End While
+    End Sub
+End Module` },
+      { name: "VB.NET Project 2", code: `Module Program
+    Sub Main()
+        Dim students = {
+            New With {.name = "Aman", .marks = {70, 80, 90}},
+            New With {.name = "Ravi", .marks = {30, 40, 35}},
+            New With {.name = "Neha", .marks = {85, 90, 88}}
+        }
+
+        For Each s In students
+            Dim total As Integer = 0
+
+            For Each m In s.marks
+                total += m
+            Next
+
+            Dim avg As Double = total / s.marks.Length
+            Dim result As String = "Pass"
+
+            For Each m In s.marks
+                If m < 35 Then result = "Fail"
+            Next
+
+            Dim grade As String = "C"
+            If avg > 80 Then
+                grade = "A"
+            ElseIf avg > 60 Then
+                grade = "B"
+            End If
+
+            Console.WriteLine("Name: " & s.name & vbCrLf &
+                              "Average: " & avg & vbCrLf &
+                              "Result: " & result & vbCrLf &
+                              "Grade: " & grade & vbCrLf &
+                              "-----")
+        Next
+    End Sub
+End Module` },
+      { name: "VB.NET Project 3", code: `Module Program
+    Sub Main()
+        Dim balance As Integer = 5000
+
+        While True
+            Console.WriteLine(vbCrLf & "1.Withdraw" & vbCrLf & "2.Deposit" & vbCrLf & "3.Check Balance" & vbCrLf & "4.Exit")
+            Dim choice As Integer = Console.ReadLine()
+
+            If choice = 1 Then
+                Console.WriteLine("Enter amount:")
+                Dim amt As Integer = Console.ReadLine()
+
+                If amt <= balance Then
+                    balance -= amt
+                    Console.WriteLine("Withdraw Success")
+                Else
+                    Console.WriteLine("Insufficient Balance")
+                End If
+
+            ElseIf choice = 2 Then
+                Console.WriteLine("Enter deposit:")
+                Dim dep As Integer = Console.ReadLine()
+                balance += dep
+                Console.WriteLine("Deposited")
+
+            ElseIf choice = 3 Then
+                Console.WriteLine("Balance: " & balance)
+
+            ElseIf choice = 4 Then
+                Exit While
+            End If
+        End While
+    End Sub
+End Module` },
+      { name: "VB.NET Project 4", code: `Module Program
+    Sub Main()
+        Dim users As New Dictionary(Of String, String) From {
+            {"admin", "1234"},
+            {"user", "abcd"}
+        }
+
+        Dim attempts As Integer = 3
+        Dim logged As Boolean = False
+
+        While attempts > 0
+            Console.WriteLine("Username:")
+            Dim u As String = Console.ReadLine()
+            Console.WriteLine("Password:")
+            Dim p As String = Console.ReadLine()
+
+            If users.ContainsKey(u) AndAlso users(u) = p Then
+                Console.WriteLine("Login Success")
+                logged = True
+                Exit While
+            Else
+                attempts -= 1
+                Console.WriteLine("Wrong! Attempts left: " & attempts)
+            End If
+        End While
+
+        If Not logged Then
+            Console.WriteLine("Account Blocked")
+        End If
+    End Sub
+End Module` },
+      { name: "VB.NET Project 5", code: `Module Program
+    Sub Main()
+        Dim questions = {
+            New With {.q = "2+2?", .a = "4"},
+            New With {.q = "5*2?", .a = "10"},
+            New With {.q = "10-3?", .a = "7"}
+        }
+
+        Dim score As Integer = 0
+
+        For Each q In questions
+            Console.WriteLine(q.q)
+            Dim ans As String = Console.ReadLine()
+
+            If ans = q.a Then
+                score += 1
+                Console.WriteLine("Correct" & vbCrLf)
+            Else
+                Console.WriteLine("Wrong" & vbCrLf)
+            End If
+        Next
+
+        Console.WriteLine("Final Score: " & score)
+
+        If score = questions.Length Then
+            Console.WriteLine("Excellent")
+        ElseIf score > 1 Then
+            Console.WriteLine("Good")
+        Else
+            Console.WriteLine("Try Again")
+        End If
+    End Sub
+End Module` },
+      { name: "VB.NET Project 6", code: `Module Program
+    Sub Main()
+        Dim tasks As New List(Of Dictionary(Of String, Object))
+
+        While True
+            Console.WriteLine(vbCrLf & "1.Add Task" & vbCrLf & "2.View Tasks" & vbCrLf & "3.Complete Task" & vbCrLf & "4.Delete Task" & vbCrLf & "5.Exit")
+            Dim ch As Integer = Console.ReadLine()
+
+            If ch = 1 Then
+                Console.WriteLine("Enter task:")
+                Dim t As String = Console.ReadLine()
+
+                tasks.Add(New Dictionary(Of String, Object) From {
+                    {"name", t},
+                    {"done", False}
+                })
+
+            ElseIf ch = 2 Then
+                For i = 0 To tasks.Count - 1
+                    Dim status = If(tasks(i)("done"), "Done", "Pending")
+                    Console.WriteLine(i & " - " & tasks(i)("name") & " [" & status & "]")
+                Next
+
+            ElseIf ch = 3 Then
+                Console.WriteLine("Index:")
+                Dim idx As Integer = Console.ReadLine()
+
+                If idx < tasks.Count Then
+                    tasks(idx)("done") = True
+                End If
+
+            ElseIf ch = 4 Then
+                Console.WriteLine("Index:")
+                Dim idx As Integer = Console.ReadLine()
+
+                If idx < tasks.Count Then
+                    tasks.RemoveAt(idx)
+                End If
+
+            ElseIf ch = 5 Then
+                Exit While
+            End If
+        End While
+    End Sub
+End Module` },
+      { name: "VB.NET Project 7", code: `Imports System.IO
+
+Module Program
+    Sub Main()
+        Dim file As String = "logs.txt"
+
+        If Not File.Exists(file) Then
+            File.WriteAllText(file, "")
+        End If
+
+        While True
+            Console.WriteLine(vbCrLf & "1.Write Log" & vbCrLf & "2.Read Logs" & vbCrLf & "3.Exit")
+            Dim ch As Integer = Console.ReadLine()
+
+            If ch = 1 Then
+                Console.WriteLine("Enter message:")
+                Dim msg As String = Console.ReadLine()
+                File.AppendAllText(file, msg & vbCrLf)
+                Console.WriteLine("Saved")
+
+            ElseIf ch = 2 Then
+                Dim content As String = File.ReadAllText(file)
+                Console.WriteLine(content)
+
+            ElseIf ch = 3 Then
+                Exit While
+            End If
+        End While
+    End Sub
+End Module` },
+      { name: "VB.NET Project 8", code: `Module Program
+    Sub Main()
+        Dim products = New List(Of Dictionary(Of String, Object)) From {
+            New Dictionary(Of String, Object) From {{"name", "Pen"}, {"price", 10}},
+            New Dictionary(Of String, Object) From {{"name", "Book"}, {"price", 50}},
+            New Dictionary(Of String, Object) From {{"name", "Bag"}, {"price", 300}}
+        }
+
+        Dim cart As New List(Of Dictionary(Of String, Object))
+
+        While True
+            Console.WriteLine(vbCrLf & "1.View Products" & vbCrLf & "2.Add to Cart" & vbCrLf & "3.Bill" & vbCrLf & "4.Exit")
+            Dim ch As Integer = Console.ReadLine()
+
+            If ch = 1 Then
+                For i = 0 To products.Count - 1
+                    Console.WriteLine(i & " - " & products(i)("name") & " (" & products(i)("price") & ")")
+                Next
+
+            ElseIf ch = 2 Then
+                Console.WriteLine("Enter index:")
+                Dim idx As Integer = Console.ReadLine()
+
+                If idx < products.Count Then
+                    cart.Add(products(idx))
+                    Console.WriteLine("Added")
+                End If
+
+            ElseIf ch = 3 Then
+                Dim total As Integer = 0
+
+                For Each c In cart
+                    total += c("price")
+                    Console.WriteLine(c("name") & " - " & c("price"))
+                Next
+
+                If total > 500 Then
+                    Dim disc = total * 0.1
+                    total -= disc
+                    Console.WriteLine("Discount Applied")
+                End If
+
+                Console.WriteLine("Total: " & total)
+
+            ElseIf ch = 4 Then
+                Exit While
+            End If
+        End While
+    End Sub
+End Module` },
+      { name: "VB.NET Project 9", code: `Module Program
+    Sub Main()
+        Dim students = New List(Of Dictionary(Of String, Object)) From {
+            New Dictionary(Of String, Object) From {{"id", 1}, {"name", "Aman"}, {"marks", New List(Of Integer) From {70, 80, 90}}},
+            New Dictionary(Of String, Object) From {{"id", 2}, {"name", "Ravi"}, {"marks", New List(Of Integer) From {40, 35, 30}}},
+            New Dictionary(Of String, Object) From {{"id", 3}, {"name", "Neha"}, {"marks", New List(Of Integer) From {90, 92, 88}}}
+        }
+
+        While True
+            Console.WriteLine(vbCrLf & "1.View" & vbCrLf & "2.Search" & vbCrLf & "3.Update Marks" & vbCrLf & "4.Result" & vbCrLf & "5.Exit")
+            Dim ch As Integer = Console.ReadLine()
+
+            If ch = 1 Then
+                For Each s In students
+                    Console.WriteLine(s("id") & " - " & s("name"))
+                Next
+
+            ElseIf ch = 2 Then
+                Console.WriteLine("Enter ID:")
+                Dim id As Integer = Console.ReadLine()
+
+                For Each s In students
+                    If s("id") = id Then
+                        Console.WriteLine("Found: " & s("name"))
+                    End If
+                Next
+
+            ElseIf ch = 3 Then
+                Console.WriteLine("Enter ID:")
+                Dim id As Integer = Console.ReadLine()
+
+                For Each s In students
+                    If s("id") = id Then
+                        Dim marks As New List(Of Integer)
+                        Console.WriteLine("Enter 3 marks:")
+                        For i = 1 To 3
+                            marks.Add(Console.ReadLine())
+                        Next
+                        s("marks") = marks
+                    End If
+                Next
+
+            ElseIf ch = 4 Then
+                For Each s In students
+                    Dim total As Integer = 0
+                    For Each m In CType(s("marks"), List(Of Integer))
+                        total += m
+                    Next
+                    Dim avg As Double = total / CType(s("marks"), List(Of Integer)).Count
+                    Console.WriteLine(s("name") & " Avg: " & avg)
+                Next
+
+            ElseIf ch = 5 Then
+                Exit While
+            End If
+        End While
+    End Sub
+End Module` },
+      { name: "VB.NET Project 10", code: `Module Program
+    Sub Main()
+        Dim users As New Dictionary(Of String, (pass As String, bal As Integer)) From {
+            {"aman", ("123", 5000)},
+            {"ravi", ("111", 3000)}
+        }
+
+        Console.WriteLine("Username:")
+        Dim u As String = Console.ReadLine()
+        Console.WriteLine("Password:")
+        Dim p As String = Console.ReadLine()
+
+        If users.ContainsKey(u) AndAlso users(u).pass = p Then
+            Console.WriteLine("Login Success" & vbCrLf)
+
+            While True
+                Console.WriteLine("1.Balance" & vbCrLf & "2.Deposit" & vbCrLf & "3.Withdraw" & vbCrLf & "4.Transfer" & vbCrLf & "5.Exit")
+                Dim ch As Integer = Console.ReadLine()
+
+                If ch = 1 Then
+                    Console.WriteLine("Balance: " & users(u).bal)
+
+                ElseIf ch = 2 Then
+                    Console.WriteLine("Amount:")
+                    Dim amt As Integer = Console.ReadLine()
+                    users(u) = (users(u).pass, users(u).bal + amt)
+                    Console.WriteLine("Deposited")
+
+                ElseIf ch = 3 Then
+                    Console.WriteLine("Amount:")
+                    Dim amt As Integer = Console.ReadLine()
+
+                    If amt <= users(u).bal Then
+                        users(u) = (users(u).pass, users(u).bal - amt)
+                        Console.WriteLine("Withdrawn")
+                    Else
+                        Console.WriteLine("Low Balance")
+                    End If
+
+                ElseIf ch = 4 Then
+                    Console.WriteLine("Transfer to:")
+                    Dim toUser As String = Console.ReadLine()
+                    Console.WriteLine("Amount:")
+                    Dim amt As Integer = Console.ReadLine()
+
+                    If users.ContainsKey(toUser) AndAlso amt <= users(u).bal Then
+                        users(u) = (users(u).pass, users(u).bal - amt)
+                        users(toUser) = (users(toUser).pass, users(toUser).bal + amt)
+                        Console.WriteLine("Transfer Done")
+                    Else
+                        Console.WriteLine("Transfer Failed")
+                    End If
+
+                ElseIf ch = 5 Then
+                    Exit While
+                End If
+            End While
+        Else
+            Console.WriteLine("Invalid Login")
+        End If
+    End Sub
+End Module` }
+    ];
+  }
+
   // 👉 DEFAULT
   return [
     { name: lang+" Project 1", code: `// code` },
