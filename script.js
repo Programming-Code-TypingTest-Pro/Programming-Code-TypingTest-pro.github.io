@@ -953,7 +953,7 @@ int main() {
 
     return 0;
 }` },
-      { name: "9. Function With Array", code: `#include <iostream>
+      { name: "10. Function With Array", code: `#include <iostream>
 using namespace std;
 
 // Sum function
