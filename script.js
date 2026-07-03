@@ -128,7 +128,363 @@ for d in data:
       { name: "Java Project 7", code:`import java.util.*;\n\npublic class HospitalPatientAnalytics {\n\n    public static void main(String[] args) {\n\n        String[] patients={\"Aman\",\"Ravi\",\"Neha\",\"Priya\",\"Arjun\",\"Sneha\",\"Meera\",\"Rohit\",\"Anjali\",\"Vikas\"};\n\n        int[] age={25,42,31,28,51,36,47,22,39,58};\n\n        int[] treatmentCost={12000,35000,18000,15000,42000,27000,39000,9000,24000,50000};\n\n        int[] stayDays={2,6,3,2,8,4,7,1,5,9};\n\n        String[] department={\"General\",\"Cardiology\",\"General\",\"ENT\",\"Cardiology\",\"Orthopedic\",\"Cardiology\",\"ENT\",\"Orthopedic\",\"Cardiology\"};\n\n        int totalCost=0;\n        int totalDays=0;\n        int totalAge=0;\n\n        int highestCost=treatmentCost[0];\n        int lowestCost=treatmentCost[0];\n\n        String highestCostPatient=patients[0];\n        String lowestCostPatient=patients[0];\n\n        ArrayList<String> criticalPatients=new ArrayList<>();\n        ArrayList<String> cardiologyPatients=new ArrayList<>();\n        ArrayList<String> orthopedicPatients=new ArrayList<>();\n        ArrayList<String> entPatients=new ArrayList<>();\n        ArrayList<String> generalPatients=new ArrayList<>();\n\n        for(int i=0;i<patients.length;i++){\n\n            totalCost+=treatmentCost[i];\n            totalDays+=stayDays[i];\n            totalAge+=age[i];\n\n            if(stayDays[i]>=7){\n                criticalPatients.add(patients[i]);\n            }\n\n            if(department[i].equals(\"Cardiology\")){\n                cardiologyPatients.add(patients[i]);\n            }\n\n            if(department[i].equals(\"Orthopedic\")){\n                orthopedicPatients.add(patients[i]);\n            }\n\n            if(department[i].equals(\"ENT\")){\n                entPatients.add(patients[i]);\n            }\n\n            if(department[i].equals(\"General\")){\n                generalPatients.add(patients[i]);\n            }\n\n            if(treatmentCost[i]>highestCost){\n                highestCost=treatmentCost[i];\n                highestCostPatient=patients[i];\n            }\n\n            if(treatmentCost[i]<lowestCost){\n                lowestCost=treatmentCost[i];\n                lowestCostPatient=patients[i];\n            }\n        }\n\n        double averageCost=(double)totalCost/patients.length;\n        double averageStay=(double)totalDays/patients.length;\n        double averageAge=(double)totalAge/patients.length;\n\n        int costGap=highestCost-lowestCost;\n\n        System.out.println(\"===================================\");\n        System.out.println(\"HOSPITAL PATIENT ANALYTICS REPORT\");\n        System.out.println(\"===================================\");\n\n        System.out.println(\"Patients: \"+Arrays.toString(patients));\n        System.out.println(\"Departments: \"+Arrays.toString(department));\n\n        System.out.println(\"Critical Patients: \"+criticalPatients);\n        System.out.println(\"Cardiology Patients: \"+cardiologyPatients);\n        System.out.println(\"Orthopedic Patients: \"+orthopedicPatients);\n        System.out.println(\"ENT Patients: \"+entPatients);\n        System.out.println(\"General Patients: \"+generalPatients);\n\n        System.out.println(\"Total Treatment Cost: \"+totalCost);\n        System.out.println(\"Average Treatment Cost: \"+averageCost);\n\n        System.out.println(\"Total Stay Days: \"+totalDays);\n        System.out.println(\"Average Stay Days: \"+averageStay);\n\n        System.out.println(\"Average Age: \"+averageAge);\n\n        System.out.println(\"Highest Cost Patient: \"+highestCostPatient);\n        System.out.println(\"Highest Cost: \"+highestCost);\n\n        System.out.println(\"Lowest Cost Patient: \"+lowestCostPatient);\n        System.out.println(\"Lowest Cost: \"+lowestCost);\n\n        System.out.println(\"Treatment Cost Gap: \"+costGap);\n\n        System.out.println(\"Hospital Status: Operational\");\n        System.out.println(\"Patient Records Processed: \"+patients.length);\n        System.out.println(\"Report Generated Successfully\");\n    }\n}`  },
       { name: "Java Project 8", code:`import java.util.*;\n\npublic class CryptoMarketAnalytics {\n\n    public static void main(String[] args) {\n\n        String[] coins={\"Bitcoin\",\"Ethereum\",\"Solana\",\"Cardano\",\"Avalanche\",\"Polkadot\",\"Chainlink\",\"Litecoin\",\"Polygon\",\"Stellar\"};\n\n        double[] price={108500.50,6200.75,245.40,1.35,68.20,12.45,24.80,135.60,1.12,0.42};\n\n        double[] change={4.2,-1.5,7.8,2.1,-3.4,1.9,5.6,-0.8,3.7,0.5};\n\n        long[] volume={52000000,41000000,28000000,19000000,15000000,12000000,17000000,9000000,11000000,7000000};\n\n        double totalPrice=0;\n        double totalChange=0;\n        long totalVolume=0;\n\n        double highestPrice=price[0];\n        double lowestPrice=price[0];\n\n        String highestCoin=coins[0];\n        String lowestCoin=coins[0];\n\n        ArrayList<String> gainers=new ArrayList<>();\n        ArrayList<String> losers=new ArrayList<>();\n        ArrayList<String> highVolumeCoins=new ArrayList<>();\n        ArrayList<String> premiumCoins=new ArrayList<>();\n\n        for(int i=0;i<coins.length;i++){\n\n            totalPrice+=price[i];\n            totalChange+=change[i];\n            totalVolume+=volume[i];\n\n            if(change[i]>0){\n                gainers.add(coins[i]);\n            }\n\n            if(change[i]<0){\n                losers.add(coins[i]);\n            }\n\n            if(volume[i]>=20000000){\n                highVolumeCoins.add(coins[i]);\n            }\n\n            if(price[i]>=100){\n                premiumCoins.add(coins[i]);\n            }\n\n            if(price[i]>highestPrice){\n                highestPrice=price[i];\n                highestCoin=coins[i];\n            }\n\n            if(price[i]<lowestPrice){\n                lowestPrice=price[i];\n                lowestCoin=coins[i];\n            }\n        }\n\n        double averagePrice=totalPrice/coins.length;\n        double averageChange=totalChange/coins.length;\n        long averageVolume=totalVolume/coins.length;\n\n        double priceGap=highestPrice-lowestPrice;\n\n        System.out.println(\"====================================\");\n        System.out.println(\"CRYPTO MARKET ANALYTICS DASHBOARD\");\n        System.out.println(\"====================================\");\n\n        System.out.println(\"Coins: \"+Arrays.toString(coins));\n\n        System.out.println(\"Top Gainers: \"+gainers);\n        System.out.println(\"Top Losers: \"+losers);\n\n        System.out.println(\"High Volume Coins: \"+highVolumeCoins);\n        System.out.println(\"Premium Coins: \"+premiumCoins);\n\n        System.out.println(\"Total Market Price Value: \"+totalPrice);\n        System.out.println(\"Average Coin Price: \"+averagePrice);\n\n        System.out.println(\"Average Daily Change: \"+averageChange);\n        System.out.println(\"Average Trading Volume: \"+averageVolume);\n\n        System.out.println(\"Highest Value Coin: \"+highestCoin);\n        System.out.println(\"Highest Price: \"+highestPrice);\n\n        System.out.println(\"Lowest Value Coin: \"+lowestCoin);\n        System.out.println(\"Lowest Price: \"+lowestPrice);\n\n        System.out.println(\"Price Gap: \"+priceGap);\n\n        System.out.println(\"Total Market Volume: \"+totalVolume);\n        System.out.println(\"Market Status: Active\");\n        System.out.println(\"Assets Tracked: \"+coins.length);\n        System.out.println(\"Analytics Completed Successfully\");\n    }\n}`  },
       { name: "Java Project 9", code:`import java.util.*;\n\npublic class CricketTournamentAnalytics {\n\n    public static void main(String[] args) {\n\n        String[] teams={\"Mumbai Tigers\",\"Delhi Warriors\",\"Chennai Kings\",\"Pune Strikers\",\"Hyderabad Hawks\",\"Kolkata Riders\",\"Bangalore Royals\",\"Jaipur Lions\",\"Goa Sharks\",\"Lucknow Falcons\"};\n\n        int[] matchesPlayed={12,12,12,12,12,12,12,12,12,12};\n\n        int[] matchesWon={9,8,10,6,7,5,8,4,3,6};\n\n        int[] runsScored={2450,2310,2685,2140,2260,2050,2395,1980,1845,2215};\n\n        int[] wicketsTaken={96,91,108,82,88,79,93,74,69,84};\n\n        int totalRuns=0;\n        int totalWickets=0;\n        int totalWins=0;\n\n        int highestRuns=runsScored[0];\n        int lowestRuns=runsScored[0];\n\n        int highestWickets=wicketsTaken[0];\n        int lowestWickets=wicketsTaken[0];\n\n        String bestBattingTeam=teams[0];\n        String lowestBattingTeam=teams[0];\n\n        String bestBowlingTeam=teams[0];\n        String lowestBowlingTeam=teams[0];\n\n        ArrayList<String> playoffTeams=new ArrayList<>();\n        ArrayList<String> strongBattingTeams=new ArrayList<>();\n        ArrayList<String> strongBowlingTeams=new ArrayList<>();\n        ArrayList<String> balancedTeams=new ArrayList<>();\n\n        for(int i=0;i<teams.length;i++){\n\n            totalRuns+=runsScored[i];\n            totalWickets+=wicketsTaken[i];\n            totalWins+=matchesWon[i];\n\n            if(matchesWon[i]>=8){\n                playoffTeams.add(teams[i]);\n            }\n\n            if(runsScored[i]>=2350){\n                strongBattingTeams.add(teams[i]);\n            }\n\n            if(wicketsTaken[i]>=90){\n                strongBowlingTeams.add(teams[i]);\n            }\n\n            if(runsScored[i]>=2200 && wicketsTaken[i]>=85){\n                balancedTeams.add(teams[i]);\n            }\n\n            if(runsScored[i]>highestRuns){\n                highestRuns=runsScored[i];\n                bestBattingTeam=teams[i];\n            }\n\n            if(runsScored[i]<lowestRuns){\n                lowestRuns=runsScored[i];\n                lowestBattingTeam=teams[i];\n            }\n\n            if(wicketsTaken[i]>highestWickets){\n                highestWickets=wicketsTaken[i];\n                bestBowlingTeam=teams[i];\n            }\n\n            if(wicketsTaken[i]<lowestWickets){\n                lowestWickets=wicketsTaken[i];\n                lowestBowlingTeam=teams[i];\n            }\n        }\n\n        double averageRuns=(double)totalRuns/teams.length;\n        double averageWickets=(double)totalWickets/teams.length;\n        double averageWins=(double)totalWins/teams.length;\n\n        int runsGap=highestRuns-lowestRuns;\n        int wicketsGap=highestWickets-lowestWickets;\n\n        System.out.println(\"=======================================\");\n        System.out.println(\"CRICKET TOURNAMENT ANALYTICS DASHBOARD\");\n        System.out.println(\"=======================================\");\n\n        System.out.println(\"Teams: \"+Arrays.toString(teams));\n\n        System.out.println(\"Playoff Teams: \"+playoffTeams);\n        System.out.println(\"Strong Batting Teams: \"+strongBattingTeams);\n        System.out.println(\"Strong Bowling Teams: \"+strongBowlingTeams);\n        System.out.println(\"Balanced Teams: \"+balancedTeams);\n\n        System.out.println(\"Total Tournament Runs: \"+totalRuns);\n        System.out.println(\"Average Team Runs: \"+averageRuns);\n\n        System.out.println(\"Total Tournament Wickets: \"+totalWickets);\n        System.out.println(\"Average Team Wickets: \"+averageWickets);\n\n        System.out.println(\"Average Team Wins: \"+averageWins);\n\n        System.out.println(\"Best Batting Team: \"+bestBattingTeam);\n        System.out.println(\"Highest Runs: \"+highestRuns);\n\n        System.out.println(\"Lowest Batting Team: \"+lowestBattingTeam);\n        System.out.println(\"Lowest Runs: \"+lowestRuns);\n\n        System.out.println(\"Best Bowling Team: \"+bestBowlingTeam);\n        System.out.println(\"Highest Wickets: \"+highestWickets);\n\n        System.out.println(\"Lowest Bowling Team: \"+lowestBowlingTeam);\n        System.out.println(\"Lowest Wickets: \"+lowestWickets);\n\n        System.out.println(\"Runs Gap: \"+runsGap);\n        System.out.println(\"Wickets Gap: \"+wicketsGap);\n\n        System.out.println(\"Tournament Status: Active\");\n        System.out.println(\"Teams Analyzed: \"+teams.length);\n        System.out.println(\"Data Processing Complete\");\n        System.out.println(\"Performance Report Generated Successfully\");\n    }\n}`  },
-      { name: "Java Project 10", code: `import java.util.*;\n\npublic class EmployeeManagementDashboard {\n\n    public static void main(String[] args) {\n\n        String[] names={\"Aman\",\"Ravi\",\"Neha\",\"Priya\",\"Arjun\",\"Sneha\",\"Meera\",\"Rohit\",\"Anjali\",\"Vikas\",\"Pooja\",\"Deepak\"};\n\n        int[] salaries={45000,52000,61000,48000,72000,55000,68000,47000,76000,58000,63000,51000};\n\n        int[] experience={3,5,7,4,8,6,9,2,10,5,7,4};\n\n        String[] departments={\"IT\",\"HR\",\"IT\",\"Finance\",\"IT\",\"Finance\",\"HR\",\"Support\",\"IT\",\"Sales\",\"Sales\",\"Finance\"};\n\n        int totalSalary=0;\n        int totalExperience=0;\n\n        int highestSalary=salaries[0];\n        int lowestSalary=salaries[0];\n\n        int highestExperience=experience[0];\n        int lowestExperience=experience[0];\n\n        String highestPaidEmployee=names[0];\n        String lowestPaidEmployee=names[0];\n\n        String mostExperiencedEmployee=names[0];\n        String leastExperiencedEmployee=names[0];\n\n        ArrayList<String> highSalaryEmployees=new ArrayList<>();\n        ArrayList<String> experiencedEmployees=new ArrayList<>();\n        ArrayList<String> itDepartment=new ArrayList<>();\n        ArrayList<String> hrDepartment=new ArrayList<>();\n        ArrayList<String> financeDepartment=new ArrayList<>();\n        ArrayList<String> salesDepartment=new ArrayList<>();\n\n        for(int i=0;i<names.length;i++){\n\n            totalSalary+=salaries[i];\n            totalExperience+=experience[i];\n\n            if(salaries[i]>=60000){\n                highSalaryEmployees.add(names[i]);\n            }\n\n            if(experience[i]>=7){\n                experiencedEmployees.add(names[i]);\n            }\n\n            if(departments[i].equals(\"IT\")){\n                itDepartment.add(names[i]);\n            }\n\n            if(departments[i].equals(\"HR\")){\n                hrDepartment.add(names[i]);\n            }\n\n            if(departments[i].equals(\"Finance\")){\n                financeDepartment.add(names[i]);\n            }\n\n            if(departments[i].equals(\"Sales\")){\n                salesDepartment.add(names[i]);\n            }\n\n            if(salaries[i]>highestSalary){\n                highestSalary=salaries[i];\n                highestPaidEmployee=names[i];\n            }\n\n            if(salaries[i]<lowestSalary){\n                lowestSalary=salaries[i];\n                lowestPaidEmployee=names[i];\n            }\n\n            if(experience[i]>highestExperience){\n                highestExperience=experience[i];\n                mostExperiencedEmployee=names[i];\n            }\n\n            if(experience[i]<lowestExperience){\n                lowestExperience=experience[i];\n                leastExperiencedEmployee=names[i];\n            }\n        }\n\n        double averageSalary=(double)totalSalary/names.length;\n        double averageExperience=(double)totalExperience/names.length;\n\n        int salaryGap=highestSalary-lowestSalary;\n        int experienceGap=highestExperience-lowestExperience;\n\n        System.out.println(\"==============================\");\n        System.out.println(\"EMPLOYEE MANAGEMENT DASHBOARD\");\n        System.out.println(\"==============================\");\n\n        System.out.println(\"Employee Names: \"+Arrays.toString(names));\n        System.out.println(\"Departments: \"+Arrays.toString(departments));\n\n        System.out.println(\"High Salary Employees: \"+highSalaryEmployees);\n        System.out.println(\"Experienced Employees: \"+experiencedEmployees);\n\n        System.out.println(\"IT Department: \"+itDepartment);\n        System.out.println(\"HR Department: \"+hrDepartment);\n        System.out.println(\"Finance Department: \"+financeDepartment);\n        System.out.println(\"Sales Department: \"+salesDepartment);\n\n        System.out.println(\"Total Salary: \"+totalSalary);\n        System.out.println(\"Average Salary: \"+averageSalary);\n\n        System.out.println(\"Total Experience: \"+totalExperience);\n        System.out.println(\"Average Experience: \"+averageExperience);\n\n        System.out.println(\"Highest Paid Employee: \"+highestPaidEmployee);\n        System.out.println(\"Highest Salary: \"+highestSalary);\n\n        System.out.println(\"Lowest Paid Employee: \"+lowestPaidEmployee);\n        System.out.println(\"Lowest Salary: \"+lowestSalary);\n\n        System.out.println(\"Most Experienced Employee: \"+mostExperiencedEmployee);\n        System.out.println(\"Highest Experience: \"+highestExperience);\n\n        System.out.println(\"Least Experienced Employee: \"+leastExperiencedEmployee);\n        System.out.println(\"Lowest Experience: \"+lowestExperience);\n\n        System.out.println(\"Salary Gap: \"+salaryGap);\n        System.out.println(\"Experience Gap: \"+experienceGap);\n\n        System.out.println(\"Dashboard Status: Active\");\n        System.out.println(\"Records Processed: \"+names.length);\n    }\n}` }
+      { name: "Java Project 10", code: `import java.util.*;\n\npublic class EmployeeManagementDashboard {\n\n    public static void main(String[] args) {\n\n        String[] names={\"Aman\",\"Ravi\",\"Neha\",\"Priya\",\"Arjun\",\"Sneha\",\"Meera\",\"Rohit\",\"Anjali\",\"Vikas\",\"Pooja\",\"Deepak\"};\n\n        int[] salaries={45000,52000,61000,48000,72000,55000,68000,47000,76000,58000,63000,51000};\n\n        int[] experience={3,5,7,4,8,6,9,2,10,5,7,4};\n\n        String[] departments={\"IT\",\"HR\",\"IT\",\"Finance\",\"IT\",\"Finance\",\"HR\",\"Support\",\"IT\",\"Sales\",\"Sales\",\"Finance\"};\n\n        int totalSalary=0;\n        int totalExperience=0;\n\n        int highestSalary=salaries[0];\n        int lowestSalary=salaries[0];\n\n        int highestExperience=experience[0];\n        int lowestExperience=experience[0];\n\n        String highestPaidEmployee=names[0];\n        String lowestPaidEmployee=names[0];\n\n        String mostExperiencedEmployee=names[0];\n        String leastExperiencedEmployee=names[0];\n\n        ArrayList<String> highSalaryEmployees=new ArrayList<>();\n        ArrayList<String> experiencedEmployees=new ArrayList<>();\n        ArrayList<String> itDepartment=new ArrayList<>();\n        ArrayList<String> hrDepartment=new ArrayList<>();\n        ArrayList<String> financeDepartment=new ArrayList<>();\n        ArrayList<String> salesDepartment=new ArrayList<>();\n\n        for(int i=0;i<names.length;i++){\n\n            totalSalary+=salaries[i];\n            totalExperience+=experience[i];\n\n            if(salaries[i]>=60000){\n                highSalaryEmployees.add(names[i]);\n            }\n\n            if(experience[i]>=7){\n                experiencedEmployees.add(names[i]);\n            }\n\n            if(departments[i].equals(\"IT\")){\n                itDepartment.add(names[i]);\n            }\n\n            if(departments[i].equals(\"HR\")){\n                hrDepartment.add(names[i]);\n            }\n\n            if(departments[i].equals(\"Finance\")){\n                financeDepartment.add(names[i]);\n            }\n\n            if(departments[i].equals(\"Sales\")){\n                salesDepartment.add(names[i]);\n            }\n\n            if(salaries[i]>highestSalary){\n                highestSalary=salaries[i];\n                highestPaidEmployee=names[i];\n            }\n\n            if(salaries[i]<lowestSalary){\n                lowestSalary=salaries[i];\n                lowestPaidEmployee=names[i];\n            }\n\n            if(experience[i]>highestExperience){\n                highestExperience=experience[i];\n                mostExperiencedEmployee=names[i];\n            }\n\n            if(experience[i]<lowestExperience){\n                lowestExperience=experience[i];\n                leastExperiencedEmployee=names[i];\n            }\n        }\n\n        double averageSalary=(double)totalSalary/names.length;\n        double averageExperience=(double)totalExperience/names.length;\n\n        int salaryGap=highestSalary-lowestSalary;\n        int experienceGap=highestExperience-lowestExperience;\n\n        System.out.println(\"==============================\");\n        System.out.println(\"EMPLOYEE MANAGEMENT DASHBOARD\");\n        System.out.println(\"==============================\");\n\n        System.out.println(\"Employee Names: \"+Arrays.toString(names));\n        System.out.println(\"Departments: \"+Arrays.toString(departments));\n\n        System.out.println(\"High Salary Employees: \"+highSalaryEmployees);\n        System.out.println(\"Experienced Employees: \"+experiencedEmployees);\n\n        System.out.println(\"IT Department: \"+itDepartment);\n        System.out.println(\"HR Department: \"+hrDepartment);\n        System.out.println(\"Finance Department: \"+financeDepartment);\n        System.out.println(\"Sales Department: \"+salesDepartment);\n\n        System.out.println(\"Total Salary: \"+totalSalary);\n        System.out.println(\"Average Salary: \"+averageSalary);\n\n        System.out.println(\"Total Experience: \"+totalExperience);\n        System.out.println(\"Average Experience: \"+averageExperience);\n\n        System.out.println(\"Highest Paid Employee: \"+highestPaidEmployee);\n        System.out.println(\"Highest Salary: \"+highestSalary);\n\n        System.out.println(\"Lowest Paid Employee: \"+lowestPaidEmployee);\n        System.out.println(\"Lowest Salary: \"+lowestSalary);\n\n        System.out.println(\"Most Experienced Employee: \"+mostExperiencedEmployee);\n        System.out.println(\"Highest Experience: \"+highestExperience);\n\n        System.out.println(\"Least Experienced Employee: \"+leastExperiencedEmployee);\n        System.out.println(\"Lowest Experience: \"+lowestExperience);\n\n        System.out.println(\"Salary Gap: \"+salaryGap);\n        System.out.println(\"Experience Gap: \"+experienceGap);\n\n        System.out.println(\"Dashboard Status: Active\");\n        System.out.println(\"Records Processed: \"+names.length);\n    }\n}` },
+      { section: "Basic Java" },
+      { name: "1. Print (Output)", code: `public class Main {
+    public static void main(String[] args) {
+        System.out.println("Welcome to Java\n");
+        System.out.println("System Starting...\nLoading...\nProcessing...\nDone\n");
+    }
+}` },
+      { name: "2. int (Integer)", code: `public class Main {
+    public static void main(String[] args) {
+        int marks = 85;
+        System.out.println("Marks: " + marks + "\n");
+        System.out.println("Checking Result...\nProcessing...\nDone\n");
+    }
+}` },
+      { name: "3. float (Decimal Number)", code: `public class Main {
+    public static void main(String[] args) {
+        float price = 99.99f;
+        System.out.println("Price: " + price + "\n");
+        System.out.println("Calculating Tax...\nProcessing...\nDone\n");
+    }
+}` },
+      { name: "4. String (Text)", code: `public class Main {
+    public static void main(String[] args) {
+        String name = "Krishna";
+        System.out.println("User: " + name + "\n");
+        System.out.println("Loading Profile...\nConnecting...\nDone\n");
+    }
+}` },
+      { name: "5. Array (List type)", code: `public class Main {
+    public static void main(String[] args) {
+        String[] items = {"Shoes", "Bag", "Watch"};
+        System.out.println("Cart Items:\n");
+
+        for(String i : items){
+            System.out.println(i + "\nAdded\nDone\n");
+        }
+    }
+}` },
+      { name: "6. HashMap (Dict type)", code: `import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+        HashMap<String, Integer> marks = new HashMap<>();
+
+        marks.put("Math", 90);
+        marks.put("Science", 85);
+
+        System.out.println("Student Marks:\n" + marks + "\nLoaded\nDone\n");
+    }
+}` },
+      { name: "7. boolean", code: `public class Main {
+    public static void main(String[] args) {
+        boolean isLogin = true;
+
+        System.out.println("Login Status: " + isLogin + "\n");
+        System.out.println("Checking Access...\nVerified\nDone\n");
+    }
+}` },
+      { name: "8. double (Advanced Decimal)", code: `public class Main {
+    public static void main(String[] args) {
+        double salary = 45678.75;
+        System.out.println("Salary: " + salary + "\n");
+        System.out.println("Processing Data...\nCalculating...\nDone\n");
+    }
+}` },
+      { name: "10. Type Casting", code: `public class Main {
+    public static void main(String[] args) {
+        double d = 9.78;
+        int num = (int) d;
+
+        System.out.println("Converted Value: " + num + "\n");
+        System.out.println("Casting Done\nProcessing Complete\nSuccess\n");
+    }
+}` },
+      { name: "11. Operators", code: `public class Main {
+    public static void main(String[] args) {
+        int a = 10, b = 5;
+
+        System.out.println("Sum: " + (a+b) + "\n");
+        System.out.println("Multiply: " + (a*b) + "\nProcessing...\nDone\n");
+    }
+}` },
+      { name: "9. User Input (Scanner)", code: `import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Name: ");
+        String name = sc.nextLine();
+
+        System.out.println("Hello " + name + "\nWelcome\nProcessing\nDone\n");
+    }
+}` },
+
+           { section: "if - else if - else" },
+      { name: "1. if", code: `public class Main {
+    public static void main(String[] args) {
+        int num = 10;
+
+        if(num > 5){
+            System.out.println("Number is greater than 5\n");
+            System.out.println("Condition True\nProcessing Done\n");
+        }
+    }
+}` },
+      { name: "2. if + else if", code: `public class Main {
+    public static void main(String[] args) {
+        int num = 10;
+
+        if(num > 10){
+            System.out.println("Greater than 10\n");
+        }
+        else if(num == 10){
+            System.out.println("Equal to 10\n");
+            System.out.println("Condition Matched\nDone\n");
+        }
+    }
+}` },
+      { name: "3. if + else", code: `public class Main {
+    public static void main(String[] args) {
+        int num = 3;
+
+        if(num > 5){
+            System.out.println("Greater than 5\n");
+        }
+        else{
+            System.out.println("Less or equal to 5\n");
+            System.out.println("Else Block Executed\nCompleted\n");
+        }
+    }
+}` },
+      { section: "Loops in Java" },
+      { name: "1. For loop", code: `import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter limit: ");
+        int n = sc.nextInt();
+
+        int sum = 0;
+        int even = 0, odd = 0;
+
+        for(int i = 1; i <= n; i++){
+            sum += i;
+
+            if(i % 2 == 0){
+                even++;
+            } else {
+                odd++;
+            }
+        }
+
+        System.out.println("Sum: " + sum + "\n");
+        System.out.println("Even count: " + even + "\n");
+        System.out.println("Odd count: " + odd + "\n");
+    }
+}` },
+      { name: "2. While loop", code: `import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number: ");
+        int num = sc.nextInt();
+
+        int rev = 0;
+
+        while(num != 0){
+            int digit = num % 10;
+            rev = rev * 10 + digit;
+            num = num / 10;
+        }
+
+        System.out.println("Reversed Number: " + rev + "\n");
+    }
+}` },
+      { name: "3. Do-While loop", code: `import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int password;
+
+        do{
+            System.out.print("Enter password (1234): ");
+            password = sc.nextInt();
+
+            if(password != 1234){
+                System.out.println("Wrong Password\nTry Again\n");
+            }
+
+        }while(password != 1234);
+
+        System.out.println("Access Granted\nWelcome!\n");
+    }
+}` },
+      { name: "4. For-Each loop", code: `public class Main {
+    public static void main(String[] args) {
+
+        int[] arr = {12, 45, 7, 89, 23};
+
+        int max = arr[0];
+
+        for(int num : arr){
+            if(num > max){
+                max = num;
+            }
+        }
+
+        System.out.println("Maximum Number: " + max + "\n");
+    }
+}` },
+      { section: "Functions in java" },
+      { name: "1. Simple Function (Return Type)", code: `public class Main {
+
+    static int add(int a, int b){
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+
+        int result = add(10, 20);
+
+        System.out.println("Sum: " + result + "\n");
+    }
+}` },
+      { name: "2. Void Function (No Return)", code: `public class Main {
+
+    static void greet(String name){
+        System.out.println("Hello " + name + "\nWelcome!\n");
+    }
+
+    public static void main(String[] args) {
+
+        greet("Rahul");
+    }
+}` },
+      { name: "3. User Input", code: `import java.util.Scanner;
+
+public class Main {
+
+    static int square(int num){
+        return num * num;
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number: ");
+        int n = sc.nextInt();
+
+        int result = square(n);
+
+        System.out.println("Square: " + result + "\n");
+    }
+}` },
+      { name: "4. Condition Logic", code: `public class Main {
+
+    static void checkEvenOdd(int num){
+
+        if(num % 2 == 0){
+            System.out.println("Even Number\n");
+        } else {
+            System.out.println("Odd Number\n");
+        }
+    }
+
+    public static void main(String[] args) {
+
+        checkEvenOdd(7);
+    }
+}` },
+      { name: "5. Overloading", code: `public class Main {
+
+    static int multiply(int a, int b){
+        return a * b;
+    }
+
+    static double multiply(double a, double b){
+        return a * b;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println("Int Multiply: " + multiply(5, 4) + "\n");
+        System.out.println("Double Multiply: " + multiply(2.5, 3.5) + "\n");
+    }
+}` },
+      { name: "6. Recursive", code: `public class Main {
+
+    static int factorial(int n){
+
+        if(n == 1){
+            return 1;
+        }
+
+        return n * factorial(n - 1);
+    }
+
+    public static void main(String[] args) {
+
+        int result = factorial(5);
+
+        System.out.println("Factorial: " + result + "\n");
+    }
+}` },
+      { name: "7. Array", code: `public class Main {
+
+    static int findMax(int[] arr){
+
+        int max = arr[0];
+
+        for(int num : arr){
+            if(num > max){
+                max = num;
+            }
+        }
+
+        return max;
+    }
+
+    public static void main(String[] args) {
+
+        int[] numbers = {10, 25, 5, 80, 30};
+
+        int result = findMax(numbers);
+
+        System.out.println("Max Number: " + result + "\n");
+    }
+}` },
+      { name: "8. Returning Multiple Values (Using Array)", code: `public class Main {
+
+    static int[] calculate(int a, int b){
+
+        int sum = a + b;
+        int diff = a - b;
+
+        return new int[]{sum, diff};
+    }
+
+    public static void main(String[] args) {
+
+        int[] result = calculate(10, 5);
+
+        System.out.println("Sum: " + result[0] + "\n");
+        System.out.println("Difference: " + result[1] + "\n");
+    }
+}` }
     ];
   }
 
@@ -144,7 +500,507 @@ for d in data:
       { name: "C++ Project 7", code:`#include<iostream>\n#include<vector>\nusing namespace std;\n\nint main(){\nstring flight[]={\"AI101\",\"AI102\",\"AI103\",\"AI104\",\"AI105\",\"AI106\",\"AI107\",\"AI108\",\"AI109\",\"AI110\",\"AI111\",\"AI112\",\"AI113\",\"AI114\",\"AI115\"};\nstring city[]={\"Mumbai\",\"Delhi\",\"Pune\",\"Bengaluru\",\"Hyderabad\",\"Chennai\",\"Kolkata\",\"Jaipur\",\"Goa\",\"Ahmedabad\",\"Lucknow\",\"Nagpur\",\"Indore\",\"Surat\",\"Patna\"};\nint passengers[]={182,210,145,198,176,223,189,134,201,167,156,142,175,161,149};\nint delay[]={12,5,0,18,7,25,9,0,15,4,2,0,6,3,1};\nint fuel[]={5400,6200,4100,5900,5000,6800,5600,3900,6100,4700,4300,4000,5100,4500,4200};\n\nint totalPassengers=0,totalDelay=0,totalFuel=0;\nint highPassengers=passengers[0],lowPassengers=passengers[0];\nint highDelay=delay[0],lowDelay=delay[0];\nint highFuel=fuel[0],lowFuel=fuel[0];\n\nstring busyFlight=flight[0];\nstring lightFlight=flight[0];\nstring delayedFlight=flight[0];\nstring fastFlight=flight[0];\n\nvector<string>onTime;\nvector<string>majorDelay;\nvector<string>highTraffic;\nvector<string>highFuel;\nvector<string>efficient;\n\nfor(int i=0;i<15;i++){\n\ntotalPassengers+=passengers[i];\ntotalDelay+=delay[i];\ntotalFuel+=fuel[i];\n\nif(delay[i]==0)\nonTime.push_back(flight[i]);\n\nif(delay[i]>=10)\nmajorDelay.push_back(flight[i]);\n\nif(passengers[i]>=190)\nhighTraffic.push_back(flight[i]);\n\nif(fuel[i]>=6000)\nhighFuel.push_back(flight[i]);\n\nif(delay[i]<=5&&passengers[i]>=160)\nefficient.push_back(flight[i]);\n\nif(passengers[i]>highPassengers){\nhighPassengers=passengers[i];\nbusyFlight=flight[i];\n}\n\nif(passengers[i]<lowPassengers){\nlowPassengers=passengers[i];\nlightFlight=flight[i];\n}\n\nif(delay[i]>highDelay){\nhighDelay=delay[i];\ndelayedFlight=flight[i];\n}\n\nif(delay[i]<lowDelay){\nlowDelay=delay[i];\nfastFlight=flight[i];\n}\n\nif(fuel[i]>highFuel)\nhighFuel=fuel[i];\n\nif(fuel[i]<lowFuel)\nlowFuel=fuel[i];\n}\n\ndouble avgPassengers=(double)totalPassengers/15;\ndouble avgDelay=(double)totalDelay/15;\ndouble avgFuel=(double)totalFuel/15;\n\ncout<<\"==============================\"<<endl;\ncout<<\"AIRPORT ANALYTICS DASHBOARD\"<<endl;\ncout<<\"==============================\"<<endl;\n\ncout<<\"Total Flights:15\"<<endl;\ncout<<\"Total Passengers:\"<<totalPassengers<<endl;\ncout<<\"Average Passengers:\"<<avgPassengers<<endl;\n\ncout<<\"Total Delay:\"<<totalDelay<<endl;\ncout<<\"Average Delay:\"<<avgDelay<<endl;\n\ncout<<\"Total Fuel:\"<<totalFuel<<endl;\ncout<<\"Average Fuel:\"<<avgFuel<<endl;\n\ncout<<\"Busiest Flight:\"<<busyFlight<<endl;\ncout<<\"Highest Passengers:\"<<highPassengers<<endl;\n\ncout<<\"Lightest Flight:\"<<lightFlight<<endl;\ncout<<\"Lowest Passengers:\"<<lowPassengers<<endl;\n\ncout<<\"Most Delayed Flight:\"<<delayedFlight<<endl;\ncout<<\"Highest Delay:\"<<highDelay<<endl;\n\ncout<<\"Fastest Flight:\"<<fastFlight<<endl;\ncout<<\"Lowest Delay:\"<<lowDelay<<endl;\n\ncout<<\"Highest Fuel:\"<<highFuel<<endl;\ncout<<\"Lowest Fuel:\"<<lowFuel<<endl;\n\ncout<<\"On Time Flights\"<<endl;\nfor(string x:onTime)\ncout<<x<<endl;\n\ncout<<\"Major Delay Flights\"<<endl;\nfor(string x:majorDelay)\ncout<<x<<endl;\n\ncout<<\"High Traffic Flights\"<<endl;\nfor(string x:highTraffic)\ncout<<x<<endl;\n\ncout<<\"High Fuel Flights\"<<endl;\nfor(string x:highFuel)\ncout<<x<<endl;\n\ncout<<\"Efficient Flights\"<<endl;\nfor(string x:efficient)\ncout<<x<<endl;\n\ncout<<\"Airport Status:Active\"<<endl;\ncout<<\"Report Generated\"<<endl;\ncout<<\"Analytics Complete\"<<endl;\n\nreturn 0;\n}`  },
       { name: "C++ Project 8", code:`#include<iostream>\n#include<vector>\nusing namespace std;\n\nint main(){\nstring movie[]={\"ShadowCity\",\"GalaxyRun\",\"OceanDreams\",\"DarkEcho\",\"FutureSignal\",\"HiddenTruth\",\"GoldenPath\",\"SilentNight\",\"LastHorizon\",\"CrystalLake\",\"SkyBreaker\",\"NightCode\",\"FireStorm\",\"BlueMoon\",\"IronGate\"};\nstring genre[]={\"Action\",\"SciFi\",\"Drama\",\"Thriller\",\"SciFi\",\"Drama\",\"Adventure\",\"Thriller\",\"Action\",\"Mystery\",\"Action\",\"SciFi\",\"Adventure\",\"Drama\",\"Action\"};\nint views[]={125000,156000,98000,135000,168000,92000,112000,87000,143000,76000,149000,158000,119000,101000,166000};\nint likes[]={9200,11500,7300,9800,12800,6900,8100,6200,10400,5800,11000,11900,8500,7600,12300};\nint duration[]={132,145,118,141,151,116,126,104,138,109,144,148,129,121,153};\n\nint totalViews=0,totalLikes=0,totalDuration=0;\nint highViews=views[0],lowViews=views[0];\nint highLikes=likes[0],lowLikes=likes[0];\n\nstring topMovie=movie[0];\nstring lowMovie=movie[0];\nstring topLiked=movie[0];\nstring lowLiked=movie[0];\n\nvector<string>blockbuster;\nvector<string>popular;\nvector<string>action;\nvector<string>drama;\nvector<string>scifi;\nvector<string>thriller;\nvector<string>longMovies;\n\nfor(int i=0;i<15;i++){\n\ntotalViews+=views[i];\ntotalLikes+=likes[i];\ntotalDuration+=duration[i];\n\nif(views[i]>=140000)\nblockbuster.push_back(movie[i]);\n\nif(likes[i]>=10000)\npopular.push_back(movie[i]);\n\nif(duration[i]>=140)\nlongMovies.push_back(movie[i]);\n\nif(genre[i]==\"Action\")\naction.push_back(movie[i]);\n\nif(genre[i]==\"Drama\")\ndrama.push_back(movie[i]);\n\nif(genre[i]==\"SciFi\")\nscifi.push_back(movie[i]);\n\nif(genre[i]==\"Thriller\")\nthriller.push_back(movie[i]);\n\nif(views[i]>highViews){\nhighViews=views[i];\ntopMovie=movie[i];\n}\n\nif(views[i]<lowViews){\nlowViews=views[i];\nlowMovie=movie[i];\n}\n\nif(likes[i]>highLikes){\nhighLikes=likes[i];\ntopLiked=movie[i];\n}\n\nif(likes[i]<lowLikes){\nlowLikes=likes[i];\nlowLiked=movie[i];\n}\n}\n\ndouble avgViews=(double)totalViews/15;\ndouble avgLikes=(double)totalLikes/15;\ndouble avgDuration=(double)totalDuration/15;\n\ncout<<\"==============================\"<<endl;\ncout<<\"MOVIE ANALYTICS DASHBOARD\"<<endl;\ncout<<\"==============================\"<<endl;\n\ncout<<\"Movies Processed:15\"<<endl;\ncout<<\"Total Views:\"<<totalViews<<endl;\ncout<<\"Average Views:\"<<avgViews<<endl;\n\ncout<<\"Total Likes:\"<<totalLikes<<endl;\ncout<<\"Average Likes:\"<<avgLikes<<endl;\n\ncout<<\"Average Duration:\"<<avgDuration<<endl;\n\ncout<<\"Top Viewed Movie:\"<<topMovie<<endl;\ncout<<\"Highest Views:\"<<highViews<<endl;\n\ncout<<\"Lowest Viewed Movie:\"<<lowMovie<<endl;\ncout<<\"Lowest Views:\"<<lowViews<<endl;\n\ncout<<\"Most Liked Movie:\"<<topLiked<<endl;\ncout<<\"Highest Likes:\"<<highLikes<<endl;\n\ncout<<\"Least Liked Movie:\"<<lowLiked<<endl;\ncout<<\"Lowest Likes:\"<<lowLikes<<endl;\n\ncout<<\"Blockbuster Movies\"<<endl;\nfor(string x:blockbuster)\ncout<<x<<endl;\n\ncout<<\"Popular Movies\"<<endl;\nfor(string x:popular)\ncout<<x<<endl;\n\ncout<<\"Long Duration Movies\"<<endl;\nfor(string x:longMovies)\ncout<<x<<endl;\n\ncout<<\"Action Movies\"<<endl;\nfor(string x:action)\ncout<<x<<endl;\n\ncout<<\"Drama Movies\"<<endl;\nfor(string x:drama)\ncout<<x<<endl;\n\ncout<<\"SciFi Movies\"<<endl;\nfor(string x:scifi)\ncout<<x<<endl;\n\ncout<<\"Thriller Movies\"<<endl;\nfor(string x:thriller)\ncout<<x<<endl;\n\ncout<<\"Platform Status:Online\"<<endl;\ncout<<\"Streaming Active\"<<endl;\ncout<<\"Analytics Complete\"<<endl;\ncout<<\"Report Generated Successfully\"<<endl;\n\nreturn 0;\n}`  },
       { name: "C++ Project 9", code:`#include<iostream>\n#include<vector>\nusing namespace std;\n\nint main(){\nstring users[]={\"Aman\",\"Ravi\",\"Neha\",\"Priya\",\"Arjun\",\"Sneha\",\"Meera\",\"Rohit\",\"Anjali\",\"Vikas\",\"Pooja\",\"Deepak\",\"Karan\",\"Nisha\",\"Aryan\"};\nint messages[]={245,198,321,167,412,286,301,144,355,220,278,190,163,234,342};\nint onlineTime[]={120,95,180,88,240,165,175,72,210,130,155,98,81,116,205};\nint followers[]={520,410,880,305,1200,690,770,260,980,540,610,390,330,470,910};\n\nint totalMessages=0,totalTime=0,totalFollowers=0;\nint highestMessages=messages[0],lowestMessages=messages[0];\nint highestFollowers=followers[0],lowestFollowers=followers[0];\n\nstring topMessenger=users[0];\nstring lowMessenger=users[0];\nstring topCreator=users[0];\nstring newCreator=users[0];\n\nvector<string>activeUsers;\nvector<string>popularUsers;\nvector<string>powerUsers;\nvector<string>newUsers;\n\nfor(int i=0;i<15;i++){\n\ntotalMessages+=messages[i];\ntotalTime+=onlineTime[i];\ntotalFollowers+=followers[i];\n\nif(messages[i]>=300)\nactiveUsers.push_back(users[i]);\n\nif(followers[i]>=800)\npopularUsers.push_back(users[i]);\n\nif(messages[i]>=250&&onlineTime[i]>=150)\npowerUsers.push_back(users[i]);\n\nif(followers[i]<=350)\nnewUsers.push_back(users[i]);\n\nif(messages[i]>highestMessages){\nhighestMessages=messages[i];\ntopMessenger=users[i];\n}\n\nif(messages[i]<lowestMessages){\nlowestMessages=messages[i];\nlowMessenger=users[i];\n}\n\nif(followers[i]>highestFollowers){\nhighestFollowers=followers[i];\ntopCreator=users[i];\n}\n\nif(followers[i]<lowestFollowers){\nlowestFollowers=followers[i];\nnewCreator=users[i];\n}\n}\n\ndouble avgMessages=(double)totalMessages/15;\ndouble avgTime=(double)totalTime/15;\ndouble avgFollowers=(double)totalFollowers/15;\n\ncout<<\"==============================\"<<endl;\ncout<<\"CHAT APP ANALYTICS PANEL\"<<endl;\ncout<<\"==============================\"<<endl;\n\ncout<<\"Users Registered:15\"<<endl;\ncout<<\"Total Messages:\"<<totalMessages<<endl;\ncout<<\"Average Messages:\"<<avgMessages<<endl;\n\ncout<<\"Total Online Time:\"<<totalTime<<endl;\ncout<<\"Average Online Time:\"<<avgTime<<endl;\n\ncout<<\"Total Followers:\"<<totalFollowers<<endl;\ncout<<\"Average Followers:\"<<avgFollowers<<endl;\n\ncout<<\"Top Messenger:\"<<topMessenger<<endl;\ncout<<\"Highest Messages:\"<<highestMessages<<endl;\n\ncout<<\"Lowest Messenger:\"<<lowMessenger<<endl;\ncout<<\"Lowest Messages:\"<<lowestMessages<<endl;\n\ncout<<\"Top Creator:\"<<topCreator<<endl;\ncout<<\"Highest Followers:\"<<highestFollowers<<endl;\n\ncout<<\"New Creator:\"<<newCreator<<endl;\ncout<<\"Lowest Followers:\"<<lowestFollowers<<endl;\n\ncout<<\"Active Users\"<<endl;\nfor(string x:activeUsers)\ncout<<x<<endl;\n\ncout<<\"Popular Users\"<<endl;\nfor(string x:popularUsers)\ncout<<x<<endl;\n\ncout<<\"Power Users\"<<endl;\nfor(string x:powerUsers)\ncout<<x<<endl;\n\ncout<<\"New Users\"<<endl;\nfor(string x:newUsers)\ncout<<x<<endl;\n\ncout<<\"Server Status:Online\"<<endl;\ncout<<\"Database Connected\"<<endl;\ncout<<\"Notifications Running\"<<endl;\ncout<<\"User Sync Complete\"<<endl;\ncout<<\"Analytics Generated\"<<endl;\n\nreturn 0;\n}`  },
-      { name: "C++ Project 10", code:`#include<iostream>\n#include<vector>\nusing namespace std;\n\nint main(){\nstring restaurants[]={\"BurgerHub\",\"PizzaZone\",\"SpiceKitchen\",\"FoodExpress\",\"TastyBites\",\"RoyalMeals\",\"StreetCafe\",\"UrbanFoods\",\"QuickEat\",\"GreenBowl\",\"HotGrill\",\"MealBox\"};\nint orders[]={245,312,198,421,286,175,154,338,267,143,291,224};\nint deliveryTime[]={28,35,24,31,27,42,22,29,26,20,33,25};\nint ratings[]={5,4,4,5,5,3,4,5,4,4,5,4};\n\nint totalOrders=0,totalTime=0,totalRatings=0;\nint highestOrders=orders[0],lowestOrders=orders[0];\nint fastestTime=deliveryTime[0],slowestTime=deliveryTime[0];\n\nstring topRestaurant=restaurants[0];\nstring lowRestaurant=restaurants[0];\nstring fastestRestaurant=restaurants[0];\nstring slowestRestaurant=restaurants[0];\n\nvector<string>popularRestaurants;\nvector<string>fastDelivery;\nvector<string>topRated;\nvector<string>needsAttention;\n\nfor(int i=0;i<12;i++){\n\ntotalOrders+=orders[i];\ntotalTime+=deliveryTime[i];\ntotalRatings+=ratings[i];\n\nif(orders[i]>=300)\npopularRestaurants.push_back(restaurants[i]);\n\nif(deliveryTime[i]<=25)\nfastDelivery.push_back(restaurants[i]);\n\nif(ratings[i]==5)\ntopRated.push_back(restaurants[i]);\n\nif(ratings[i]<=3)\nneedsAttention.push_back(restaurants[i]);\n\nif(orders[i]>highestOrders){\nhighestOrders=orders[i];\ntopRestaurant=restaurants[i];\n}\n\nif(orders[i]<lowestOrders){\nlowestOrders=orders[i];\nlowRestaurant=restaurants[i];\n}\n\nif(deliveryTime[i]<fastestTime){\nfastestTime=deliveryTime[i];\nfastestRestaurant=restaurants[i];\n}\n\nif(deliveryTime[i]>slowestTime){\nslowestTime=deliveryTime[i];\nslowestRestaurant=restaurants[i];\n}\n}\n\ndouble avgOrders=(double)totalOrders/12;\ndouble avgTime=(double)totalTime/12;\ndouble avgRating=(double)totalRatings/12;\n\ncout<<\"==============================\"<<endl;\ncout<<\"FOOD DELIVERY APP DASHBOARD\"<<endl;\ncout<<\"==============================\"<<endl;\n\ncout<<\"Restaurants Onboarded:12\"<<endl;\ncout<<\"Total Orders:\"<<totalOrders<<endl;\ncout<<\"Average Orders:\"<<avgOrders<<endl;\n\ncout<<\"Average Delivery Time:\"<<avgTime<<endl;\ncout<<\"Average Rating:\"<<avgRating<<endl;\n\ncout<<\"Top Restaurant:\"<<topRestaurant<<endl;\ncout<<\"Highest Orders:\"<<highestOrders<<endl;\n\ncout<<\"Lowest Restaurant:\"<<lowRestaurant<<endl;\ncout<<\"Lowest Orders:\"<<lowestOrders<<endl;\n\ncout<<\"Fastest Delivery Partner:\"<<fastestRestaurant<<endl;\ncout<<\"Fastest Time:\"<<fastestTime<<endl;\n\ncout<<\"Slowest Delivery Partner:\"<<slowestRestaurant<<endl;\ncout<<\"Slowest Time:\"<<slowestTime<<endl;\n\ncout<<\"Popular Restaurants\"<<endl;\nfor(string x:popularRestaurants)\ncout<<x<<endl;\n\ncout<<\"Fast Delivery Restaurants\"<<endl;\nfor(string x:fastDelivery)\ncout<<x<<endl;\n\ncout<<\"Top Rated Restaurants\"<<endl;\nfor(string x:topRated)\ncout<<x<<endl;\n\ncout<<\"Needs Attention\"<<endl;\nfor(string x:needsAttention)\ncout<<x<<endl;\n\ncout<<\"App Status:Online\"<<endl;\ncout<<\"Payment Gateway:Connected\"<<endl;\ncout<<\"Orders Sync:Completed\"<<endl;\ncout<<\"Notifications:Active\"<<endl;\ncout<<\"Analytics Report:Generated\"<<endl;\n\nreturn 0;\n}`}
+      { name: "C++ Project 10", code:`#include<iostream>\n#include<vector>\nusing namespace std;\n\nint main(){\nstring restaurants[]={\"BurgerHub\",\"PizzaZone\",\"SpiceKitchen\",\"FoodExpress\",\"TastyBites\",\"RoyalMeals\",\"StreetCafe\",\"UrbanFoods\",\"QuickEat\",\"GreenBowl\",\"HotGrill\",\"MealBox\"};\nint orders[]={245,312,198,421,286,175,154,338,267,143,291,224};\nint deliveryTime[]={28,35,24,31,27,42,22,29,26,20,33,25};\nint ratings[]={5,4,4,5,5,3,4,5,4,4,5,4};\n\nint totalOrders=0,totalTime=0,totalRatings=0;\nint highestOrders=orders[0],lowestOrders=orders[0];\nint fastestTime=deliveryTime[0],slowestTime=deliveryTime[0];\n\nstring topRestaurant=restaurants[0];\nstring lowRestaurant=restaurants[0];\nstring fastestRestaurant=restaurants[0];\nstring slowestRestaurant=restaurants[0];\n\nvector<string>popularRestaurants;\nvector<string>fastDelivery;\nvector<string>topRated;\nvector<string>needsAttention;\n\nfor(int i=0;i<12;i++){\n\ntotalOrders+=orders[i];\ntotalTime+=deliveryTime[i];\ntotalRatings+=ratings[i];\n\nif(orders[i]>=300)\npopularRestaurants.push_back(restaurants[i]);\n\nif(deliveryTime[i]<=25)\nfastDelivery.push_back(restaurants[i]);\n\nif(ratings[i]==5)\ntopRated.push_back(restaurants[i]);\n\nif(ratings[i]<=3)\nneedsAttention.push_back(restaurants[i]);\n\nif(orders[i]>highestOrders){\nhighestOrders=orders[i];\ntopRestaurant=restaurants[i];\n}\n\nif(orders[i]<lowestOrders){\nlowestOrders=orders[i];\nlowRestaurant=restaurants[i];\n}\n\nif(deliveryTime[i]<fastestTime){\nfastestTime=deliveryTime[i];\nfastestRestaurant=restaurants[i];\n}\n\nif(deliveryTime[i]>slowestTime){\nslowestTime=deliveryTime[i];\nslowestRestaurant=restaurants[i];\n}\n}\n\ndouble avgOrders=(double)totalOrders/12;\ndouble avgTime=(double)totalTime/12;\ndouble avgRating=(double)totalRatings/12;\n\ncout<<\"==============================\"<<endl;\ncout<<\"FOOD DELIVERY APP DASHBOARD\"<<endl;\ncout<<\"==============================\"<<endl;\n\ncout<<\"Restaurants Onboarded:12\"<<endl;\ncout<<\"Total Orders:\"<<totalOrders<<endl;\ncout<<\"Average Orders:\"<<avgOrders<<endl;\n\ncout<<\"Average Delivery Time:\"<<avgTime<<endl;\ncout<<\"Average Rating:\"<<avgRating<<endl;\n\ncout<<\"Top Restaurant:\"<<topRestaurant<<endl;\ncout<<\"Highest Orders:\"<<highestOrders<<endl;\n\ncout<<\"Lowest Restaurant:\"<<lowRestaurant<<endl;\ncout<<\"Lowest Orders:\"<<lowestOrders<<endl;\n\ncout<<\"Fastest Delivery Partner:\"<<fastestRestaurant<<endl;\ncout<<\"Fastest Time:\"<<fastestTime<<endl;\n\ncout<<\"Slowest Delivery Partner:\"<<slowestRestaurant<<endl;\ncout<<\"Slowest Time:\"<<slowestTime<<endl;\n\ncout<<\"Popular Restaurants\"<<endl;\nfor(string x:popularRestaurants)\ncout<<x<<endl;\n\ncout<<\"Fast Delivery Restaurants\"<<endl;\nfor(string x:fastDelivery)\ncout<<x<<endl;\n\ncout<<\"Top Rated Restaurants\"<<endl;\nfor(string x:topRated)\ncout<<x<<endl;\n\ncout<<\"Needs Attention\"<<endl;\nfor(string x:needsAttention)\ncout<<x<<endl;\n\ncout<<\"App Status:Online\"<<endl;\ncout<<\"Payment Gateway:Connected\"<<endl;\ncout<<\"Orders Sync:Completed\"<<endl;\ncout<<\"Notifications:Active\"<<endl;\ncout<<\"Analytics Report:Generated\"<<endl;\n\nreturn 0;\n}`},
+      { section: "basic C++" },
+      { name: "1. Print (Output)", code: `#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello World\n";
+    return 0;
+}` },
+      { name: "2. int", code: `#include <iostream>
+using namespace std;
+
+int main() {
+    int num = 10;
+    cout << "Number: " << num << "\n";
+    return 0;
+}` },
+      { name: "3. float", code: `#include <iostream>
+using namespace std;
+
+int main() {
+    float num = 5.5;
+    cout << "Float: " << num << "\n";
+    return 0;
+}` },
+      { name: "4. string", code: `#include <iostream>
+using namespace std;
+
+int main() {
+    string name = "Krishna";
+    cout << "Name: " << name << "\n";
+    return 0;
+}` },
+      { name: "5. Array (List Type)", code: `#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[] = {1, 2, 3, 4};
+
+    cout << arr[0] << "\n";
+    return 0;
+}` },
+      { name: "6. Vector (Dynamic List)", code: `#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v = {10, 20, 30};
+
+    v.push_back(40);
+
+    for(int num : v){
+        cout << num << " ";
+    }
+
+    cout << "\n";
+    return 0;
+}` },
+      { name: "7. Map (Dictionary Type)", code: `#include <iostream>
+#include <map>
+using namespace std;
+
+int main() {
+    map<string, int> m;
+
+    m["A"] = 10;
+    m["B"] = 20;
+
+    for(auto x : m){
+        cout << x.first << " : " << x.second << "\n";
+    }
+
+    return 0;
+}` },
+      { name: "8. Basic Math", code: `#include <iostream>
+using namespace std;
+
+int main() {
+    int a = 10, b = 5;
+
+    cout << "Sum: " << (a + b) << "\n";
+    cout << "Multiply: " << (a * b) << "\n";
+
+    return 0;
+}` },
+      { name: "9. User Input", code: `#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+
+    cout << "Enter number: ";
+    cin >> num;
+
+    cout << "You entered: " << num << "\n";
+
+    return 0;
+}` },
+      { section: "IF - ELSE IF - ELSE" },
+      { name: "1. if", code: `#include <iostream>
+using namespace std;
+
+int main() {
+    int num = 10;
+
+    if(num > 5){
+        cout << "Number is greater than 5\n";
+        cout << "Condition True\nDone\n";
+    }
+
+    return 0;
+}` },
+      { name: "2. if + else if", code: `#include <iostream>
+using namespace std;
+
+int main() {
+    int num = 10;
+
+    if(num > 10){
+        cout << "Greater than 10\n";
+    }
+    else if(num == 10){
+        cout << "Equal to 10\n";
+        cout << "Matched Condition\nCompleted\n";
+    }
+
+    return 0;
+}` },
+      { name: "3. if + else", code: `#include <iostream>
+using namespace std;
+
+int main() {
+    int num = 3;
+
+    if(num > 5){
+        cout << "Greater than 5\n";
+    }
+    else{
+        cout << "Less or equal to 5\n";
+        cout << "Else Block Executed\nFinished\n";
+    }
+
+    return 0;
+}` },
+      { name: "4. if + else if + else", code: `#include <iostream>
+using namespace std;
+
+int main() {
+    int marks;
+
+    cout << "Enter marks: ";
+    cin >> marks;
+
+    if(marks >= 90){
+        cout << "Grade A\nExcellent\n";
+    }
+    else if(marks >= 75){
+        cout << "Grade B\nVery Good\n";
+    }
+    else if(marks >= 50){
+        cout << "Grade C\nGood\n";
+    }
+    else if(marks >= 35){
+        cout << "Pass\nNeeds Improvement\n";
+    }
+    else{
+        cout << "Fail\nTry Again\n";
+    }
+
+    cout << "Program Finished\n";
+    return 0;
+}` },
+      { section: "loops" },
+      { name: "1. for loop", code: `#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Enter limit: ";
+    cin >> n;
+
+    int sum = 0, even = 0, odd = 0;
+
+    for(int i = 1; i <= n; i++){
+        sum += i;
+
+        if(i % 2 == 0){
+            even++;
+        } else {
+            odd++;
+        }
+    }
+
+    cout << "Sum: " << sum << "\n";
+    cout << "Even count: " << even << "\n";
+    cout << "Odd count: " << odd << "\n";
+
+    return 0;
+}` },
+      { name: "2. while loop", code: `#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+
+    cout << "Enter number: ";
+    cin >> num;
+
+    int rev = 0;
+
+    while(num != 0){
+        int digit = num % 10;
+        rev = rev * 10 + digit;
+        num = num / 10;
+    }
+
+    cout << "Reversed Number: " << rev << "\n";
+
+    return 0;
+}` },
+      { name: "3. do-while loop", code: `#include <iostream>
+using namespace std;
+
+int main() {
+    int password;
+
+    do{
+        cout << "Enter password (1234): ";
+        cin >> password;
+
+        if(password != 1234){
+            cout << "Wrong Password\nTry Again\n";
+        }
+
+    }while(password != 1234);
+
+    cout << "Access Granted\nWelcome\n";
+
+    return 0;
+}` },
+      { name: "4. Range-based for (for-each)", code: `#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[] = {12, 45, 7, 89, 23};
+
+    int max = arr[0];
+
+    for(int num : arr){
+        if(num > max){
+            max = num;
+        }
+    }
+
+    cout << "Maximum: " << max << "\n";
+
+    return 0;
+}` },
+      { name: "5. Nested Loop", code: `#include <iostream>
+using namespace std;
+
+int main() {
+
+    int n;
+    cout << "Enter rows: ";
+    cin >> n;
+
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= i; j++){
+            cout << "* ";
+        }
+        cout << "\n";
+    }
+
+    return 0;
+}` },
+      { section: "Functions" },
+      { name: "1. Simple Function (No Return)", code: `#include <iostream>
+using namespace std;
+
+void greet() {
+    cout << "Hello World";
+}
+
+int main() {
+    greet();
+}` },
+      { name: "2.Return Value", code: `#include <iostream>
+using namespace std;
+
+int add() {
+    return 5 + 3;
+}
+
+int main() {
+    cout << add();
+}` },
+      { name: "3. Parameters", code: `#include <iostream>
+using namespace std;
+
+void show(int a) {
+    cout << a;
+}
+
+int main() {
+    show(10);
+}` },
+      { name: "4. Parameters + Return", code: `#include <iostream>
+using namespace std;
+
+int sum(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    cout << sum(5, 7);
+}` },
+      { name: "5. Parameter & Return Value ", code: `#include <iostream>
+using namespace std;
+
+// Function to calculate total
+int getTotal(int m1, int m2, int m3) {
+    return m1 + m2 + m3;
+}
+
+// Function to calculate percentage
+float getPercentage(int total) {
+    return total / 3.0;
+}
+
+// Function to calculate grade
+char getGrade(float per) {
+    if(per >= 90) return 'A';
+    else if(per >= 75) return 'B';
+    else if(per >= 50) return 'C';
+    else return 'F';
+}
+
+int main() {
+    int m1, m2, m3;
+
+    cout << "Enter 3 subject marks: ";
+    cin >> m1 >> m2 >> m3;
+
+    int total = getTotal(m1, m2, m3);
+    float per = getPercentage(total);
+    char grade = getGrade(per);
+
+    cout << "\nTotal: " << total;
+    cout << "\nPercentage: " << per;
+    cout << "\nGrade: " << grade;
+
+    return 0;
+}` },
+      { name: "6. Overloading", code: `#include <iostream>
+using namespace std;
+
+int add(int a, int b) {
+    return a + b;
+}
+
+float add(float a, float b) {
+    return a + b;
+}
+
+int main() {
+    cout << add(2, 3) << endl;
+    cout << add(2.5f, 3.5f);
+}` },
+      { name: "7. Function Overloading", code: `#include <iostream>
+using namespace std;
+
+// Area of square
+int area(int side) {
+    return side * side;
+}
+
+// Area of rectangle
+int area(int length, int breadth) {
+    return length * breadth;
+}
+
+// Area of circle
+float area(float radius) {
+    return 3.14 * radius * radius;
+}
+
+// Volume (overloading + different purpose)
+int area(int l, int b, int h) {
+    return l * b * h; // cuboid volume
+}
+
+int main() {
+    cout << "Square area: " << area(5) << endl;
+    cout << "Rectangle area: " << area(5, 4) << endl;
+    cout << "Circle area: " << area(2.5f) << endl;
+    cout << "Cuboid volume: " << area(2, 3, 4) << endl;
+
+    return 0;
+}` },
+      { name: "8. Inline Function", code: `#include <iostream>
+using namespace std;
+
+inline int square(int x) {
+    return x * x;
+}
+
+inline int cube(int x) {
+    return x * x * x;
+}
+
+int main() {
+    int num;
+
+    cout << "Enter number: ";
+    cin >> num;
+
+    cout << "Square: " << square(num) << endl;
+    cout << "Cube: " << cube(num) << endl;
+
+    // Multiple use
+    cout << "Square of 2: " << square(2) << endl;
+    cout << "Cube of 3: " << cube(3) << endl;
+
+    return 0;
+}` },
+      { name: "9. Function Returning Pointer", code: `#include <iostream>
+using namespace std;
+
+// Function that returns pointer of largest element
+int* findMax(int arr[], int size) {
+    int* maxPtr = &arr[0];
+
+    for(int i = 1; i < size; i++) {
+        if(arr[i] > *maxPtr) {
+            maxPtr = &arr[i];
+        }
+    }
+
+    return maxPtr;
+}
+
+int main() {
+    int arr[5] = {5, 25, 15, 40, 10};
+
+    int* result = findMax(arr, 5);
+
+    cout << "Max value: " << *result << endl;
+    cout << "Address: " << result << endl;
+
+    return 0;
+}` },
+      { name: "9. Function With Array", code: `#include <iostream>
+using namespace std;
+
+// Sum function
+int getSum(int arr[], int size) {
+    int sum = 0;
+    for(int i = 0; i < size; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+// Max function
+int getMax(int arr[], int size) {
+    int max = arr[0];
+    for(int i = 1; i < size; i++) {
+        if(arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+// Search function
+bool search(int arr[], int size, int key) {
+    for(int i = 0; i < size; i++) {
+        if(arr[i] == key) {
+            return true;
+        }
+    }
+    return false;
+}
+
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+
+    cout << "Sum = " << getSum(arr, 5) << endl;
+    cout << "Max = " << getMax(arr, 5) << endl;
+
+    int key = 30;
+    if(search(arr, 5, key)) {
+        cout << "Found";
+    } else {
+        cout << "Not Found";
+    }
+
+    return 0;
+}` }
     ];
   }
 
@@ -191,7 +1047,340 @@ for d in data:
       { name: "JS Project 7", code:`const restaurants=[\n{name:"BurgerHub",orders:245,rating:4.8,delivery:25,revenue:125000},\n{name:"PizzaZone",orders:312,rating:4.7,delivery:30,revenue:168000},\n{name:"SpiceKitchen",orders:198,rating:4.9,delivery:20,revenue:98000},\n{name:"FoodExpress",orders:421,rating:4.6,delivery:28,revenue:215000},\n{name:"TastyBites",orders:286,rating:4.8,delivery:22,revenue:145000},\n{name:"RoyalMeals",orders:174,rating:4.5,delivery:35,revenue:86000},\n{name:"QuickEat",orders:337,rating:4.7,delivery:24,revenue:182000},\n{name:"GreenBowl",orders:154,rating:4.4,delivery:18,revenue:72000}\n];\n\nconst popularRestaurants=restaurants.filter(item=>item.orders>250);\nconst fastDelivery=restaurants.filter(item=>item.delivery<=25);\nconst topRated=restaurants.filter(item=>item.rating>=4.8);\n\nconst totalOrders=restaurants.reduce((sum,item)=>sum+item.orders,0);\nconst totalRevenue=restaurants.reduce((sum,item)=>sum+item.revenue,0);\nconst totalDelivery=restaurants.reduce((sum,item)=>sum+item.delivery,0);\n\nconst averageOrders=Math.floor(totalOrders/restaurants.length);\nconst averageRevenue=Math.floor(totalRevenue/restaurants.length);\nconst averageDelivery=(totalDelivery/restaurants.length).toFixed(1);\n\nconst highestRevenue=restaurants.reduce((a,b)=>a.revenue>b.revenue?a:b);\nconst highestOrders=restaurants.reduce((a,b)=>a.orders>b.orders?a:b);\nconst fastestRestaurant=restaurants.reduce((a,b)=>a.delivery<b.delivery?a:b);\n\nconsole.log(\"==============================\");\nconsole.log(\"FOOD DELIVERY APP DASHBOARD\");\nconsole.log(\"==============================\");\n\nconsole.log(\"Restaurants:\",restaurants.length);\nconsole.log(\"Total Orders:\",totalOrders);\nconsole.log(\"Average Orders:\",averageOrders);\n\nconsole.log(\"Total Revenue:\",totalRevenue);\nconsole.log(\"Average Revenue:\",averageRevenue);\n\nconsole.log(\"Average Delivery Time:\",averageDelivery);\n\nconsole.log(\"Top Revenue Restaurant:\",highestRevenue);\nconsole.log(\"Most Orders Restaurant:\",highestOrders);\nconsole.log(\"Fastest Delivery Partner:\",fastestRestaurant);\n\nconsole.log(\"===== POPULAR RESTAURANTS =====\");\npopularRestaurants.forEach(item=>{\nconsole.log(item.name,item.orders);\n});\n\nconsole.log(\"===== FAST DELIVERY =====\");\nfastDelivery.forEach(item=>{\nconsole.log(item.name,item.delivery+\" min\");\n});\n\nconsole.log(\"===== TOP RATED =====\");\ntopRated.forEach(item=>{\nconsole.log(item.name,item.rating);\n});\n\nconst revenueReport=restaurants.map(item=>({\nrestaurant:item.name,\nmonthlyRevenue:item.revenue,\nperformance:item.revenue>150000?\"Excellent\":\"Good\"\n}));\n\nconsole.log(\"===== REVENUE REPORT =====\");\nrevenueReport.forEach(item=>{\nconsole.log(item.restaurant,item.monthlyRevenue,item.performance);\n});\n\nconst appStatus={\nserver:\"Online\",\npayments:\"Connected\",\norders:\"Processing\",\ndrivers:\"Active\",\nnotifications:\"Running\",\nanalytics:\"Generated\"\n};\n\nconsole.log(\"===== SYSTEM STATUS =====\");\nconsole.log(appStatus);\n\nconsole.log(\"Orders Synced Successfully\");\nconsole.log(\"Restaurant Data Updated\");\nconsole.log(\"Dashboard Ready\");`  },
       { name: "JS Project 8", code:`const website={\nname:"CreativeStudio",\ndomain:"creativestudio.com",\npages:["Home","About","Services","Portfolio","Blog","Contact"],\nvisitors:24580,\nsubscribers:1840,\nprojects:126\n};\n\nconst services=[\n{name:"Web Design",price:15000,status:"Active"},\n{name:"Frontend Development",price:25000,status:"Active"},\n{name:"Backend Development",price:35000,status:"Active"},\n{name:"SEO Optimization",price:12000,status:"Active"},\n{name:"UI UX Design",price:18000,status:"Active"},\n{name:"Website Maintenance",price:10000,status:"Active"}\n];\n\nconst team=[\n{name:"Aman",role:"Designer",experience:4},\n{name:"Neha",role:"Frontend Developer",experience:5},\n{name:"Ravi",role:"Backend Developer",experience:6},\n{name:"Priya",role:"SEO Specialist",experience:3},\n{name:"Arjun",role:"Project Manager",experience:7}\n];\n\nconst clients=[\n{name:"TechNova",budget:85000},\n{name:"SkySoft",budget:120000},\n{name:"DigitalFlow",budget:95000},\n{name:"VisionLabs",budget:140000}\n];\n\nconst totalBudget=clients.reduce((sum,client)=>sum+client.budget,0);\nconst activeServices=services.filter(service=>service.status===\"Active\");\nconst seniorMembers=team.filter(member=>member.experience>=5);\n\nconsole.log(\"===============================\");\nconsole.log(\"CREATIVE STUDIO WEBSITE PANEL\");\nconsole.log(\"===============================\");\n\nconsole.log(\"Website Name:\",website.name);\nconsole.log(\"Domain:\",website.domain);\nconsole.log(\"Total Visitors:\",website.visitors);\nconsole.log(\"Subscribers:\",website.subscribers);\nconsole.log(\"Projects Completed:\",website.projects);\n\nconsole.log(\"===== WEBSITE PAGES =====\");\nwebsite.pages.forEach(page=>{\nconsole.log(\"Page:\",page);\n});\n\nconsole.log(\"===== SERVICES =====\");\nactiveServices.forEach(service=>{\nconsole.log(service.name,\"₹\"+service.price);\n});\n\nconsole.log(\"===== TEAM MEMBERS =====\");\nteam.forEach(member=>{\nconsole.log(member.name,member.role,member.experience+\" Years\");\n});\n\nconsole.log(\"===== SENIOR MEMBERS =====\");\nseniorMembers.forEach(member=>{\nconsole.log(member.name,member.role);\n});\n\nconsole.log(\"===== CLIENT PROJECTS =====\");\nclients.forEach(client=>{\nconsole.log(client.name,\"Budget:\",client.budget);\n});\n\nconsole.log(\"Total Client Revenue:\",totalBudget);\n\nconst statistics={\npageViews:98500,\ncontactRequests:1240,\nblogPosts:85,\nportfolioItems:126,\nconversionRate:\"5.8%\"\n};\n\nconsole.log(\"===== WEBSITE ANALYTICS =====\");\nconsole.log(statistics);\n\nconst websiteStatus={\nserver:\"Online\",\nhosting:\"Connected\",\nssl:\"Active\",\ndatabase:\"Connected\",\nbackup:\"Completed\",\nsecurity:\"Protected\"\n};\n\nconsole.log(\"===== WEBSITE STATUS =====\");\nconsole.log(websiteStatus);\n\nconsole.log(\"Homepage Loaded Successfully\");\nconsole.log(\"Portfolio Section Ready\");\nconsole.log(\"Contact Form Connected\");\nconsole.log(\"Website Published Successfully\");`  },
       { name: "JS Project 9", code:`const store={\nname:"ShopSphere",\ndomain:"shopsphere.com",\ncustomers:18450,\norders:12680,\nproducts:850,\ncategories:24\n};\n\nconst products=[\n{name:"Laptop Pro",price:65000,stock:45,sold:320},\n{name:"Wireless Headphones",price:3500,stock:120,sold:580},\n{name:"Smart Watch",price:5500,stock:85,sold:410},\n{name:"Gaming Mouse",price:1800,stock:150,sold:690},\n{name:"Mechanical Keyboard",price:4200,stock:90,sold:360},\n{name:"Tablet X",price:28000,stock:40,sold:210},\n{name:"Bluetooth Speaker",price:2500,stock:130,sold:520},\n{name:"Monitor HD",price:12000,stock:55,sold:275}\n];\n\nconst customers=[\n{name:"Aman",orders:12,spent:45000},\n{name:"Neha",orders:18,spent:72000},\n{name:"Ravi",orders:9,spent:28000},\n{name:"Priya",orders:21,spent:94000},\n{name:"Arjun",orders:15,spent:61000}\n];\n\nconst bestSellers=products.filter(product=>product.sold>400);\nconst lowStock=products.filter(product=>product.stock<60);\n\nconst totalRevenue=products.reduce((sum,product)=>sum+(product.price*product.sold),0);\nconst totalStock=products.reduce((sum,product)=>sum+product.stock,0);\nconst totalSold=products.reduce((sum,product)=>sum+product.sold,0);\n\nconst topProduct=products.reduce((a,b)=>a.sold>b.sold?a:b);\nconst premiumProduct=products.reduce((a,b)=>a.price>b.price?a:b);\nconst topCustomer=customers.reduce((a,b)=>a.spent>b.spent?a:b);\n\nconsole.log(\"====================================\");\nconsole.log(\"SHOPSPHERE E-COMMERCE CONTROL PANEL\");\nconsole.log(\"====================================\");\n\nconsole.log(\"Store:\",store.name);\nconsole.log(\"Domain:\",store.domain);\nconsole.log(\"Registered Customers:\",store.customers);\nconsole.log(\"Total Orders:\",store.orders);\nconsole.log(\"Products Available:\",store.products);\nconsole.log(\"Categories:\",store.categories);\n\nconsole.log(\"===== SALES REPORT =====\");\nconsole.log(\"Total Revenue:\",totalRevenue);\nconsole.log(\"Units Sold:\",totalSold);\nconsole.log(\"Inventory Stock:\",totalStock);\n\nconsole.log(\"Top Selling Product:\",topProduct);\nconsole.log(\"Premium Product:\",premiumProduct);\nconsole.log(\"Top Customer:\",topCustomer);\n\nconsole.log(\"===== BEST SELLERS =====\");\nbestSellers.forEach(product=>{\nconsole.log(product.name,product.sold);\n});\n\nconsole.log(\"===== LOW STOCK ALERT =====\");\nlowStock.forEach(product=>{\nconsole.log(product.name,\"Remaining:\",product.stock);\n});\n\nconsole.log(\"===== PRODUCT CATALOG =====\");\nproducts.forEach(product=>{\nconsole.log(product.name,\"₹\"+product.price,\"Stock:\",product.stock);\n});\n\nconsole.log(\"===== CUSTOMER ACTIVITY =====\");\ncustomers.forEach(customer=>{\nconsole.log(customer.name,\"Orders:\",customer.orders,\"Spent:\",customer.spent);\n});\n\nconst websiteModules={\nhomepage:\"Active\",\nshoppingCart:\"Running\",\npaymentGateway:\"Connected\",\norderTracking:\"Enabled\",\nuserAccounts:\"Online\",\nemailService:\"Connected\",\ninventorySystem:\"Updated\"\n};\n\nconsole.log(\"===== WEBSITE MODULES =====\");\nconsole.log(websiteModules);\n\nconst analytics={\npageViews:245000,\nproductViews:820000,\nconversionRate:\"6.4%\",\ncartAdditions:15400,\ncompletedOrders:12680,\nreturnCustomers:8200\n};\n\nconsole.log(\"===== STORE ANALYTICS =====\");\nconsole.log(analytics);\n\nconsole.log(\"Server Status: Online\");\nconsole.log(\"Database Connected\");\nconsole.log(\"Orders Synced Successfully\");\nconsole.log(\"Payment Verification Complete\");\nconsole.log(\"Website Running Smoothly\");`  },
-      { name: "JS Project 10", code:`const courses=[\n{name:"Python Mastery",students:1250,completed:980,rating:4.9,hours:42,revenue:285000},\n{name:"Java Development",students:980,completed:720,rating:4.8,hours:38,revenue:210000},\n{name:"Web Design",students:1450,completed:1180,rating:4.7,hours:30,revenue:325000},\n{name:"Data Science",students:860,completed:640,rating:4.9,hours:55,revenue:265000},\n{name:"Cyber Security",students:730,completed:510,rating:4.8,hours:48,revenue:195000},\n{name:"Cloud Computing",students:690,completed:470,rating:4.6,hours:44,revenue:172000},\n{name:"UI UX Design",students:1180,completed:920,rating:4.7,hours:28,revenue:248000},\n{name:"AI Fundamentals",students:1520,completed:1210,rating:5.0,hours:60,revenue:410000}\n];\n\nconst premiumCourses=courses.filter(course=>course.rating>=4.8);\nconst popularCourses=courses.filter(course=>course.students>=1000);\nconst longCourses=courses.filter(course=>course.hours>=45);\n\nconst totalStudents=courses.reduce((sum,course)=>sum+course.students,0);\nconst totalCompleted=courses.reduce((sum,course)=>sum+course.completed,0);\nconst totalRevenue=courses.reduce((sum,course)=>sum+course.revenue,0);\nconst totalHours=courses.reduce((sum,course)=>sum+course.hours,0);\n\nconst averageStudents=Math.floor(totalStudents/courses.length);\nconst averageRevenue=Math.floor(totalRevenue/courses.length);\nconst averageHours=Math.floor(totalHours/courses.length);\n\nconst bestCourse=courses.reduce((a,b)=>a.students>b.students?a:b);\nconst highestRevenue=courses.reduce((a,b)=>a.revenue>b.revenue?a:b);\nconst topRated=courses.reduce((a,b)=>a.rating>b.rating?a:b);\n\nconsole.log(\"================================\");\nconsole.log(\"LEARNING PLATFORM ANALYTICS\");\nconsole.log(\"================================\");\n\nconsole.log(\"Courses Available:\",courses.length);\nconsole.log(\"Total Students:\",totalStudents);\nconsole.log(\"Average Students:\",averageStudents);\n\nconsole.log(\"Course Completions:\",totalCompleted);\nconsole.log(\"Total Revenue:\",totalRevenue);\nconsole.log(\"Average Revenue:\",averageRevenue);\n\nconsole.log(\"Average Learning Hours:\",averageHours);\n\nconsole.log(\"Best Selling Course:\",bestCourse);\nconsole.log(\"Highest Revenue Course:\",highestRevenue);\nconsole.log(\"Top Rated Course:\",topRated);\n\nconsole.log(\"===== PREMIUM COURSES =====\");\npremiumCourses.forEach(course=>{\nconsole.log(course.name,course.rating);\n});\n\nconsole.log(\"===== POPULAR COURSES =====\");\npopularCourses.forEach(course=>{\nconsole.log(course.name,course.students);\n});\n\nconsole.log(\"===== LONG DURATION COURSES =====\");\nlongCourses.forEach(course=>{\nconsole.log(course.name,course.hours+\" Hours\");\n});\n\nconst certificates=courses.map(course=>({\ncourse:course.name,\ncertificatesIssued:course.completed,\nstatus:course.completed>1000?\"Outstanding\":\"Active\"\n}));\n\nconsole.log(\"===== CERTIFICATE REPORT =====\");\ncertificates.forEach(item=>{\nconsole.log(item.course,item.certificatesIssued,item.status);\n});\n\nconst studentProgress=[\n{name:\"Aman\",progress:82},\n{name:\"Neha\",progress:94},\n{name:\"Ravi\",progress:67},\n{name:\"Priya\",progress:88},\n{name:\"Arjun\",progress:97}\n];\n\nconsole.log(\"===== STUDENT PROGRESS =====\");\nstudentProgress.forEach(student=>{\nconsole.log(student.name,student.progress+\"%\");\n});\n\nconst platformStatus={\nvideoServer:\"Online\",\nliveClasses:\"Running\",\ncertificates:\"Available\",\nassignments:\"Active\",\ncommunity:\"Connected\",\nbackup:\"Completed\"\n};\n\nconsole.log(\"===== PLATFORM STATUS =====\");\nconsole.log(platformStatus);\n\nconsole.log(\"Learning Report Generated\");\nconsole.log(\"Student Data Synced\");\nconsole.log(\"Dashboard Ready For Admin\");`  }
+      { name: "JS Project 10", code:`const courses=[\n{name:"Python Mastery",students:1250,completed:980,rating:4.9,hours:42,revenue:285000},\n{name:"Java Development",students:980,completed:720,rating:4.8,hours:38,revenue:210000},\n{name:"Web Design",students:1450,completed:1180,rating:4.7,hours:30,revenue:325000},\n{name:"Data Science",students:860,completed:640,rating:4.9,hours:55,revenue:265000},\n{name:"Cyber Security",students:730,completed:510,rating:4.8,hours:48,revenue:195000},\n{name:"Cloud Computing",students:690,completed:470,rating:4.6,hours:44,revenue:172000},\n{name:"UI UX Design",students:1180,completed:920,rating:4.7,hours:28,revenue:248000},\n{name:"AI Fundamentals",students:1520,completed:1210,rating:5.0,hours:60,revenue:410000}\n];\n\nconst premiumCourses=courses.filter(course=>course.rating>=4.8);\nconst popularCourses=courses.filter(course=>course.students>=1000);\nconst longCourses=courses.filter(course=>course.hours>=45);\n\nconst totalStudents=courses.reduce((sum,course)=>sum+course.students,0);\nconst totalCompleted=courses.reduce((sum,course)=>sum+course.completed,0);\nconst totalRevenue=courses.reduce((sum,course)=>sum+course.revenue,0);\nconst totalHours=courses.reduce((sum,course)=>sum+course.hours,0);\n\nconst averageStudents=Math.floor(totalStudents/courses.length);\nconst averageRevenue=Math.floor(totalRevenue/courses.length);\nconst averageHours=Math.floor(totalHours/courses.length);\n\nconst bestCourse=courses.reduce((a,b)=>a.students>b.students?a:b);\nconst highestRevenue=courses.reduce((a,b)=>a.revenue>b.revenue?a:b);\nconst topRated=courses.reduce((a,b)=>a.rating>b.rating?a:b);\n\nconsole.log(\"================================\");\nconsole.log(\"LEARNING PLATFORM ANALYTICS\");\nconsole.log(\"================================\");\n\nconsole.log(\"Courses Available:\",courses.length);\nconsole.log(\"Total Students:\",totalStudents);\nconsole.log(\"Average Students:\",averageStudents);\n\nconsole.log(\"Course Completions:\",totalCompleted);\nconsole.log(\"Total Revenue:\",totalRevenue);\nconsole.log(\"Average Revenue:\",averageRevenue);\n\nconsole.log(\"Average Learning Hours:\",averageHours);\n\nconsole.log(\"Best Selling Course:\",bestCourse);\nconsole.log(\"Highest Revenue Course:\",highestRevenue);\nconsole.log(\"Top Rated Course:\",topRated);\n\nconsole.log(\"===== PREMIUM COURSES =====\");\npremiumCourses.forEach(course=>{\nconsole.log(course.name,course.rating);\n});\n\nconsole.log(\"===== POPULAR COURSES =====\");\npopularCourses.forEach(course=>{\nconsole.log(course.name,course.students);\n});\n\nconsole.log(\"===== LONG DURATION COURSES =====\");\nlongCourses.forEach(course=>{\nconsole.log(course.name,course.hours+\" Hours\");\n});\n\nconst certificates=courses.map(course=>({\ncourse:course.name,\ncertificatesIssued:course.completed,\nstatus:course.completed>1000?\"Outstanding\":\"Active\"\n}));\n\nconsole.log(\"===== CERTIFICATE REPORT =====\");\ncertificates.forEach(item=>{\nconsole.log(item.course,item.certificatesIssued,item.status);\n});\n\nconst studentProgress=[\n{name:\"Aman\",progress:82},\n{name:\"Neha\",progress:94},\n{name:\"Ravi\",progress:67},\n{name:\"Priya\",progress:88},\n{name:\"Arjun\",progress:97}\n];\n\nconsole.log(\"===== STUDENT PROGRESS =====\");\nstudentProgress.forEach(student=>{\nconsole.log(student.name,student.progress+\"%\");\n});\n\nconst platformStatus={\nvideoServer:\"Online\",\nliveClasses:\"Running\",\ncertificates:\"Available\",\nassignments:\"Active\",\ncommunity:\"Connected\",\nbackup:\"Completed\"\n};\n\nconsole.log(\"===== PLATFORM STATUS =====\");\nconsole.log(platformStatus);\n\nconsole.log(\"Learning Report Generated\");\nconsole.log(\"Student Data Synced\");\nconsole.log(\"Dashboard Ready For Admin\");`  },
+      { section: "Basic JavaScript" },
+      { name: "1. Print", code: `console.log("Hello World");` },
+      { name: "2. Integer", code: `let num = 10;
+console.log("Integer:", num);` },
+      { name: "3. Float", code: `let price = 99.99;
+console.log("Float:", price);` },
+      { name: "4. String", code: `let name = "Krishna";
+console.log("String:", name);` },
+      { name: "5. Boolean (True/False)", code: `let isStudent = true;
+console.log("Boolean:", isStudent);` },
+      { name: "6. List", code: `let numbers = [10, 20, 30, 40];
+console.log("Array:", numbers);
+console.log("First value:", numbers[0]);` },
+      { name: "7. Dictionary", code: `let student = {
+    name: "Krishna",
+    age: 18,
+    marks: 90
+};
+
+console.log("Object:", student);
+console.log("Name:", student.name);` },
+      { name: "8. Undefined", code: `let x;
+console.log(x); // undefined` },
+      { name: "9. Null", code: `let data = null;
+console.log(data);` },
+      { name: "10. Type Check", code: `let value = 100;
+
+console.log(typeof value);   // number
+console.log(typeof "Hello"); // string
+console.log(typeof true);    // boolean
+console.log(typeof [1,2]);   // object` },
+      { name: "Mix Example", code: `let name = "Krishna";
+let age = 18;
+let marks = [80, 90, 100];
+
+let student = {
+    name: name,
+    age: age,
+    marks: marks
+};
+
+console.log(student);` },
+
+      { section: "IF - ELSE IF - ELSE" },
+      { name: "1. IF" , code: `let age = 22;
+
+if (age >= 18) {
+    console.log("Eligible to vote");
+}
+
+if (age >= 21) {
+    console.log("Eligible for driving license");
+}` },
+      { name: "2. IF + ELSE IF", code: `let marks = 82;
+
+if (marks >= 90) {
+    console.log("Grade A");
+}
+else if (marks >= 75) {
+    console.log("Grade B");
+}
+else if (marks >= 60) {
+    console.log("Grade C");
+}` },
+      { name: "3. IF + ELSE", code: `let isLoggedIn = false;
+
+if (isLoggedIn) {
+    console.log("Welcome User");
+}
+else {
+    console.log("Please Login First");
+}` },
+      { name: "4. IF + ELSE IF + ELSE", code: `let balance = 1200;
+
+if (balance >= 2000) {
+    console.log("Premium User");
+}
+else if (balance >= 1000) {
+    console.log("Gold User");
+}
+else if (balance >= 500) {
+    console.log("Silver User");
+}
+else {
+    console.log("Basic User");
+}` },
+      { section: "looos in javascript" },
+      { name: "1. FOR Loop", code: `let sum = 0;
+
+for (let i = 1; i <= 10; i++) {
+    console.log("Number:", i);
+
+    sum += i;
+
+    if (i % 2 === 0) {
+        console.log("Even:", i);
+    }
+}
+
+console.log("Total Sum:", sum);` },
+      { name: "2. WHILE Loop", code: `let i = 5;
+
+while (i > 0) {
+    console.log("Count:", i);
+
+    if (i === 3) {
+        console.log("Middle number reached");
+    }
+
+    i--;
+}
+
+console.log("Loop Ended");` },
+      { name: "3. DO WHILE Loop", code: `let attempt = 1;
+
+do {
+    console.log("Attempt:", attempt);
+
+    if (attempt === 2) {
+        console.log("Second try");
+    }
+
+    attempt++;
+} while (attempt <= 3);
+
+console.log("All attempts done");` },
+      { name: "4. FOR...OF Loop", code: `let marks = [50, 80, 30, 90];
+let total = 0;
+
+for (let m of marks) {
+    console.log("Marks:", m);
+
+    total += m;
+
+    if (m >= 50) {
+        console.log("Pass");
+    }
+}
+
+console.log("Total:", total);` },
+      { name: "5. FOR...IN Loop", code: `let student = {
+    name: "Krishna",
+    age: 18,
+    marks: 85
+};
+
+for (let key in student) {
+    console.log("Key:", key);
+
+    console.log("Value:", student[key]);
+
+    if (key === "marks") {
+        console.log("Marks Found");
+    }
+}` },
+      { name: "6. forEach Loop", code: `let nums = [1, 2, 3, 4];
+let square = [];
+
+nums.forEach(function(n) {
+    console.log("Number:", n);
+
+    square.push(n * n);
+
+    if (n % 2 === 0) {
+        console.log("Even:", n);
+    }
+});
+
+console.log("Squares:", square);` },
+      { name: "7. BREAK", code: `for (let i = 1; i <= 10; i++) {
+    console.log("Value:", i);
+
+    if (i === 6) {
+        console.log("Stopping loop...");
+        break;
+    }
+
+    console.log("Running...");
+}
+
+console.log("Loop Finished");` },
+      { name: "8. CONTINUE", code: `for (let i = 1; i <= 5; i++) {
+    if (i === 3) {
+        console.log("Skipping 3");
+        continue;
+    }
+
+    console.log("Value:", i);
+
+    console.log("Processed");
+}
+
+console.log("Loop Done");` },
+
+      { section: "Functions in javascript" },
+      { name: "1. Simple Function", code: `function greet() {
+    console.log("Hello User");
+    console.log("Welcome to JavaScript");
+    console.log("Have a nice day");
+}
+
+greet();` },
+      { name: "2. Function with Array", code: `function processArray(arr) {
+    let sum = 0;
+
+    for (let num of arr) {
+        console.log("Value:", num);
+        sum += num;
+    }
+
+    return sum;
+}
+
+console.log("Total:", processArray([10, 20, 30]));` },
+      { name: "3. Function with Object", code: `function showStudent(student) {
+    console.log("Name:", student.name);
+    console.log("Age:", student.age);
+
+    if (student.marks >= 50) {
+        console.log("Pass");
+    } else {
+        console.log("Fail");
+    }
+}
+
+showStudent({name: "Krishna", age: 18, marks: 80});` },
+      { name: "4. Callback Function", code: `function process(num, callback) {
+    console.log("Processing:", num);
+
+    let result = num * 2;
+
+    callback(result);
+}
+
+process(5, function(res) {
+    console.log("Result:", res);
+});` },
+      { name: "5. Recursive Function", code: `function factorial(n) {
+    if (n === 1) {
+        return 1;
+    }
+
+    return n * factorial(n - 1);
+}
+
+console.log("Factorial:", factorial(5));` },
+      { name: "6. Function with Parameters", code: `function showUser(name, age, city) {
+    console.log("Name:", name);
+    console.log("Age:", age);
+    console.log("City:", city);
+
+    if (age >= 18) {
+        console.log("Adult User");
+    } else {
+        console.log("Minor User");
+    }
+
+    if (city === "Mumbai") {
+        console.log("From Metro City");
+    }
+}
+
+showUser("Krishna", 18, "Mumbai");` },
+      { name: "7. Return Value", code: `function calculate(a, b) {
+    let sum = a + b;
+    let multiply = a * b;
+
+    console.log("Numbers:", a, b);
+    console.log("Sum:", sum);
+    console.log("Multiply:", multiply);
+
+    if (sum > 20) {
+        console.log("Big Sum");
+    }
+
+    return sum;
+}
+
+let result = calculate(10, 15);
+console.log("Final Result:", result);` },
+      { name: "8. Expression", code: `let checkNumber = function(num) {
+    console.log("Number:", num);
+
+    if (num > 0) {
+        console.log("Positive");
+    } else if (num < 0) {
+        console.log("Negative");
+    } else {
+        console.log("Zero");
+    }
+
+    return num * num;
+};
+
+console.log("Square:", checkNumber(5));` },
+      { name: "9. Arrow", code: `let processNumber = (num) => {
+    console.log("Input:", num);
+
+    let square = num * num;
+    let cube = num * num * num;
+
+    console.log("Square:", square);
+    console.log("Cube:", cube);
+
+    if (num % 2 === 0) {
+        console.log("Even Number");
+    } else {
+        console.log("Odd Number");
+    }
+
+    return cube;
+};
+
+console.log("Final:", processNumber(4));` },
+      { name: "10. Default Parameter", code: `function createUser(name = "Guest", age = 0) {
+    console.log("Name:", name);
+    console.log("Age:", age);
+
+    if (name === "Guest") {
+        console.log("Default User Used");
+    }
+
+    if (age >= 18) {
+        console.log("Eligible");
+    } else {
+        console.log("Not Eligible");
+    }
+
+    return name + " - " + age;
+}
+
+console.log(createUser());
+console.log(createUser("Krishna", 18));` }
     ];
   }
 
