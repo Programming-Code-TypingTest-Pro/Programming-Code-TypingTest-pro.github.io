@@ -1510,7 +1510,7 @@ if (lang === "Node.js") {
     ];
   }
 
-  // 👉 PHP
+   // 👉 PHP
   if (lang === "PHP") {
     return [
       { name: "PHP Project 1", code: `<?php\n
@@ -2018,9 +2018,9 @@ foreach($students as $s){\n
 ?>` }
     ];
   }
-
-  // 👉 Go
-  if (lang === "Go (Golang)") {
+  
+      // 👉 Go
+  if (lang === "Go") {
     return [
       { name: "Go Project 1", code: `package main\n
 import "fmt"\n
@@ -2448,8 +2448,8 @@ func main() {\n
 }\n` }
     ];
   }
-
-  // 👉 Ruby
+  
+        // 👉 Ruby
   if (lang === "Ruby") {
     return [
       { name: "Ruby Project 1", code: `students = [\n
@@ -2763,8 +2763,8 @@ if final > 0\n
 end\n` }
     ];
   }
-
-  // 👉 Scal
+  
+        // 👉 Scal
   if (lang === "Scal") {
     return [
       { name: "Scal Project 1", code: `object SalarySystem {\n
@@ -3008,8 +3008,8 @@ end\n` }
 }\n` }
     ];
   }
-
-  // 👉 Matlab
+  
+        // 👉 Matlab
   if (lang === "Matlab") {
     return [
       { name: "Matlab Project 1", code: `clc;\n
@@ -3320,8 +3320,8 @@ for i=1:length(employees)\n
 end\n` }
     ];
   }
-
-  // 👉 Julia
+  
+        // 👉 Julia
   if (lang === "Julia") {
     return [
       { name: "Julia Project 1", code: `employees = ["Amit","Ravi","Neha","Sara"]\n
@@ -3619,8 +3619,8 @@ for i in 1:length(employees)\n
 end\n` }
     ];
   }
-
-  // 👉 Lua
+  
+        // 👉 Lua
   if (lang === "Lua") {
     return [
       { name: "Lua Project 1", code: `employees = {"Amit","Ravi","Neha","Sara"}\n
@@ -3897,8 +3897,387 @@ for i, s in ipairs(students) do
 end` }
     ];
   }
+  
+        // 👉 Perl
+  if (lang === "Perl") {
+    return [
+      { name: "Perl Project 1", code: `@questions = (
+ {q=>"2+2?", a=>"4"},
+ {q=>"5*2?", a=>"10"},
+ {q=>"10-3?", a=>"7"}
+);
 
-  // 👉 Objective-C
+$score = 0;
+
+foreach $q (@questions){
+ print "$q->{q}\n";
+ chomp($ans = <>);
+ 
+ if($ans eq $q->{a}){
+  $score++;
+  print "Correct\n\n";
+ } else {
+  print "Wrong\n\n";
+ }
+}
+
+print "Final Score: $score\n";
+
+if($score == scalar(@questions)){
+ print "Excellent\n";
+} elsif($score > 1){
+ print "Good\n";
+} else {
+ print "Try Again\n";
+}` },
+      { name: "Perl Project 2", code: `%users = (
+ admin => "1234",
+ user  => "abcd"
+);
+
+$attempts = 3;
+$logged = 0;
+
+while($attempts > 0){
+ print "Username:\n";
+ chomp($u = <>);
+ print "Password:\n";
+ chomp($p = <>);
+ 
+ if(exists $users{$u} && $users{$u} eq $p){
+  print "Login Success\n";
+  $logged = 1;
+  last;
+ } else {
+  $attempts--;
+  print "Wrong! Attempts left: $attempts\n";
+ }
+}
+
+if(!$logged){
+ print "Account Blocked\n";
+}` },
+      { name: "Perl Project 3", code: `@items = (
+ {name=>"Pen", qty=>10},
+ {name=>"Book", qty=>5},
+ {name=>"Bag", qty=>2}
+);
+
+while(1){
+ print "\n1.View\n2.Add Stock\n3.Sell\n4.Exit\n";
+ chomp($ch = <>);
+ 
+ if($ch == 1){
+  foreach $i (@items){
+   print "$i->{name} - $i->{qty}\n";
+  }
+  
+ } elsif($ch == 2){
+  print "Index:\n";
+  chomp($idx = <>);
+  print "Add qty:\n";
+  chomp($q = <>);
+  
+  $items[$idx]{qty} += $q;
+  
+ } elsif($ch == 3){
+  print "Index:\n";
+  chomp($idx = <>);
+  print "Sell qty:\n";
+  chomp($q = <>);
+  
+  if($items[$idx]{qty} >= $q){
+   $items[$idx]{qty} -= $q;
+   print "Sold\n";
+  } else {
+   print "Out of stock\n";
+  }
+  
+ } elsif($ch == 4){
+  last;
+ }
+}` },
+      { name: "Perl Project 4", code: `$balance = 5000;
+
+while(1){
+ print "\n1.Withdraw\n2.Deposit\n3.Check Balance\n4.Exit\n";
+ chomp($choice = <>);
+ 
+ if($choice == 1){
+  print "Enter amount:\n";
+  chomp($amt = <>);
+  
+  if($amt <= $balance){
+   $balance -= $amt;
+   print "Withdraw Success\n";
+  } else {
+   print "Insufficient Balance\n";
+  }
+  
+ } elsif($choice == 2){
+  print "Enter deposit:\n";
+  chomp($dep = <>);
+  $balance += $dep;
+  print "Deposited\n";
+  
+ } elsif($choice == 3){
+  print "Balance: $balance\n";
+  
+ } elsif($choice == 4){
+  print "Exit\n";
+  last;
+ }
+}` },
+      { name: "Perl Project 5", code: `@students = (
+ {name=>"Aman", marks=>[70,80,90]},
+ {name=>"Ravi", marks=>[30,40,35]},
+ {name=>"Neha", marks=>[85,90,88]}
+);
+
+foreach $s (@students){
+ $total = 0;
+ foreach $m (@{$s->{marks}}){
+  $total += $m;
+ }
+ 
+ $avg = $total / scalar(@{$s->{marks}});
+ $result = "Pass";
+ 
+ foreach $m (@{$s->{marks}}){
+  if($m < 35){
+   $result = "Fail";
+  }
+ }
+ 
+ $grade = "C";
+ if($avg > 80){ $grade="A"; }
+ elsif($avg > 60){ $grade="B"; }
+ 
+ print "Name: $s->{name}\nAverage: $avg\nResult: $result\nGrade: $grade\n-----\n";
+}` },
+      { name: "Perl Project 6", code: `@tasks = ();
+
+while(1){
+ print "\n1.Add Task\n2.View Tasks\n3.Complete Task\n4.Delete Task\n5.Exit\n";
+ chomp($ch = <>);
+ 
+ if($ch == 1){
+  print "Enter task:\n";
+  chomp($t = <>);
+  
+  push(@tasks, {name=>$t, done=>0});
+  
+ } elsif($ch == 2){
+  for($i=0;$i<@tasks;$i++){
+   $status = $tasks[$i]{done} ? "Done" : "Pending";
+   print "$i - $tasks[$i]{name} [$status]\n";
+  }
+  
+ } elsif($ch == 3){
+  print "Index:\n";
+  chomp($idx = <>);
+  
+  $tasks[$idx]{done} = 1;
+  
+ } elsif($ch == 4){
+  print "Index:\n";
+  chomp($idx = <>);
+  
+  splice(@tasks, $idx, 1);
+  
+ } elsif($ch == 5){
+  last;
+ }
+}` },
+      { name: "Perl Project 7", code: `$file = "logs.txt";
+
+while(1){
+ print "\n1.Write Log\n2.Read Logs\n3.Exit\n";
+ chomp($ch = <>);
+ 
+ if($ch == 1){
+  print "Enter message:\n";
+  chomp($msg = <>);
+  
+  open(F, ">>$file");
+  print F "$msg\n";
+  close(F);
+  
+  print "Saved\n";
+  
+ } elsif($ch == 2){
+  open(F, "$file");
+  while($line = <F>){
+   print $line;
+  }
+  close(F);
+  
+ } elsif($ch == 3){
+  last;
+ }
+}` },
+      { name: "Perl Project 8", code: `@products = (
+ {name=>"Pen", price=>10},
+ {name=>"Book", price=>50},
+ {name=>"Bag", price=>300}
+);
+
+@cart = ();
+$total = 0;
+
+while(1){
+ print "\n1.View Products\n2.Add to Cart\n3.Bill\n4.Exit\n";
+ chomp($ch = <>);
+ 
+ if($ch == 1){
+  for($i=0;$i<@products;$i++){
+   print "$i - $products[$i]{name} ($products[$i]{price})\n";
+  }
+  
+ } elsif($ch == 2){
+  print "Enter index:\n";
+  chomp($idx = <>);
+  
+  push(@cart, $products[$idx]);
+  print "Added\n";
+  
+ } elsif($ch == 3){
+  $total = 0;
+  
+  foreach $c (@cart){
+   $total += $c->{price};
+   print "$c->{name} - $c->{price}\n";
+  }
+  
+  if($total > 500){
+   $disc = $total * 0.1;
+   $total -= $disc;
+   print "Discount applied\n";
+  }
+  
+  print "Total: $total\n";
+  
+ } elsif($ch == 4){
+  last;
+ }
+}` },
+      { name: "Perl Project 9", code: `@students = (
+ {id=>1, name=>"Aman", marks=>[70,80,90]},
+ {id=>2, name=>"Ravi", marks=>[40,35,30]},
+ {id=>3, name=>"Neha", marks=>[90,92,88]}
+);
+
+while(1){
+ print "\n1.View\n2.Search\n3.Update Marks\n4.Result\n5.Exit\n";
+ chomp($ch = <>);
+ 
+ if($ch == 1){
+  foreach $s (@students){
+   print "$s->{id} - $s->{name}\n";
+  }
+  
+ } elsif($ch == 2){
+  print "Enter ID:\n";
+  chomp($id = <>);
+  
+  foreach $s (@students){
+   if($s->{id} == $id){
+    print "Found: $s->{name}\n";
+   }
+  }
+  
+ } elsif($ch == 3){
+  print "ID:\n";
+  chomp($id = <>);
+  
+  foreach $s (@students){
+   if($s->{id} == $id){
+    print "Enter 3 marks:\n";
+    @m = ();
+    for($i=0;$i<3;$i++){
+     chomp($val = <>);
+     push(@m,$val);
+    }
+    $s->{marks} = \@m;
+   }
+  }
+  
+ } elsif($ch == 4){
+  foreach $s (@students){
+   $total = 0;
+   foreach $m (@{$s->{marks}}){
+    $total += $m;
+   }
+   $avg = $total/3;
+   print "$s->{name} Avg: $avg\n";
+  }
+  
+ } elsif($ch == 5){
+  last;
+ }
+}` },
+      { name: "Perl Project 10", code: `%users = (
+ "aman" => {pass=>"123", bal=>5000},
+ "ravi" => {pass=>"111", bal=>3000}
+);
+
+print "Login Username:\n";
+chomp($u = <>);
+print "Password:\n";
+chomp($p = <>);
+
+if(exists $users{$u} && $users{$u}{pass} eq $p){
+ print "Login Success\n";
+ 
+ while(1){
+  print "\n1.Balance\n2.Deposit\n3.Withdraw\n4.Transfer\n5.Exit\n";
+  chomp($ch = <>);
+  
+  if($ch == 1){
+   print "Balance: $users{$u}{bal}\n";
+   
+  } elsif($ch == 2){
+   print "Amount:\n";
+   chomp($amt = <>);
+   $users{$u}{bal} += $amt;
+   print "Deposited\n";
+   
+  } elsif($ch == 3){
+   print "Amount:\n";
+   chomp($amt = <>);
+   
+   if($amt <= $users{$u}{bal}){
+    $users{$u}{bal} -= $amt;
+    print "Withdrawn\n";
+   } else {
+    print "Low Balance\n";
+   }
+   
+  } elsif($ch == 4){
+   print "Transfer to user:\n";
+   chomp($to = <>);
+   print "Amount:\n";
+   chomp($amt = <>);
+   
+   if(exists $users{$to} && $amt <= $users{$u}{bal}){
+    $users{$u}{bal} -= $amt;
+    $users{$to}{bal} += $amt;
+    print "Transfer Done\n";
+   } else {
+    print "Failed\n";
+   }
+   
+  } elsif($ch == 5){
+   last;
+  }
+ }
+}else{
+ print "Invalid Login\n";
+}` }
+    ];
+  }
+  
+        // 👉 Objective-C
   if (lang === "Objective-C") {
     return [
       { name: "Objective-C Project 1", code: `#import <Foundation/Foundation.h>
@@ -4423,8 +4802,8 @@ int main() {
 }` }
     ];
   }
-
-  // 👉 VB.NET
+  
+        // 👉 VB.NET
   if (lang === "VB.NET") {
     return [
       { name: "VB.NET Project 1", code: `Module Program
