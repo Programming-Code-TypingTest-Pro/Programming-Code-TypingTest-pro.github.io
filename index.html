@@ -1620,7 +1620,7 @@ function toggleTimer() {
     btn.innerText = "Timer OFF";
   }
 }
-let keyboardEnabled = true;
+let keyboardEnabled = window.innerWidth > 768;
 
 function toggleKeyboard() {
 
