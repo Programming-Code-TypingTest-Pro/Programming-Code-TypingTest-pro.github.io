@@ -112,7 +112,103 @@ for d in data:
 
     print("Valid Data:", d, "\nProcessing...\nAccepted\nStored\nUpdated\nDone")` },
       { name: "Range loop = ID Generator", code: `for i in range(1, 6):
-    print("Generating ID:", i, "\nCreating...\nAssigning\nSaving\nRegistering\nDone")` }
+    print("Generating ID:", i, "\nCreating...\nAssigning\nSaving\nRegistering\nDone")` },
+               { section: "Functions in Python" },
+      { name: "1. Simple Function (No Parameter)", code: `def welcome():
+    print("Welcome to Coding Platform\n")
+    print("System Starting...\nLoading Modules\nPreparing Environment\nPlease Wait\nDone\n")
+    print("You can now start learning Python\nEnjoy Coding\nGood Luck\nSession Active\n")
+
+welcome()` },
+      { name: "2. Function with Parameter", code: `def greet_user(name):
+    print(f"Hello {name}\n")
+    print("Fetching Your Data\nConnecting Server\nLoading Profile\nPlease Wait\nDone\n")
+    print("Welcome Back\nDashboard Ready\nEnjoy Session\n")
+
+greet_user("Krishna")` },
+      { name: "3. Function with Return Value", code: `def calculate_total(m1, m2, m3):
+    print("Calculating Marks...\nProcessing Data\nApplying Formula\nPlease Wait\nDone\n")
+    total = m1 + m2 + m3
+    return total
+
+result = calculate_total(85, 90, 80)
+print(f"Total Marks: {result}\nResult Generated\nSuccess\nDone\n")` },
+      { name: "4. Default Parameter Function", code: `def create_user(name, role="User"):
+    print("Creating Account...\nSaving Data\nAssigning Role\nProcessing\nDone\n")
+    print(f"Name: {name}\nRole: {role}\nAccount Created\nStatus Active\nDone\n")
+
+create_user("Krishna")
+create_user("AdminUser", "Admin")` },
+      { name: "5. Keyword Arguments", code: `def order_details(item, price, quantity):
+    print("Generating Order...\nProcessing\nChecking Stock\nPreparing Bill\nDone\n")
+    print(f"Item: {item}\nPrice: {price}\nQuantity: {quantity}\nOrder Confirmed\nDone\n")
+
+order_details(price=500, item="Shoes", quantity=2)` },
+      { name: "6. *args Function", code: `def total_expense(*amounts):
+    print("Calculating Expenses...\nAdding Items\nProcessing Data\nPlease Wait\nDone\n")
+    total = sum(amounts)
+    print(f"Total Expense: {total}\nBudget Updated\nAnalysis Complete\nDone\n")
+
+total_expense(200, 400, 150, 250)` },
+      { name: "7. **kwargs Function", code: `def student_profile(**data):
+    print("Loading Profile...\nFetching Data\nProcessing\nPlease Wait\nDone\n")
+    
+    for key, value in data.items():
+        print(f"{key}: {value}\nSaved\nVerified\nDone\n")
+
+student_profile(name="Krishna", age=18, course="Python", city="Delhi")` },
+      { name: "8. Lambda Function", code: `square = lambda x: x * x
+
+print("Calculating Square...\nProcessing Input\nApplying Formula\nDone\n")
+print(f"Result: {square(6)}\nCalculation Complete\nSuccess\nDone\n")` },
+      { name: "9. Recursive Function", code: `def factorial(n):
+    if n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+print("Calculating Factorial...\nProcessing\nApplying Recursion\nPlease Wait\nDone\n")
+print(f"Factorial Result: {factorial(5)}\nSuccess\nDone\n")` },
+      { name: "10. Nested Function", code: `def login_system(user):
+    
+    def verify():
+        print("Verifying User...\nChecking Credentials\nProcessing\nDone\n")
+        return "Access Granted\n"
+
+    print(f"User: {user}\n")
+    result = verify()
+    print(result)
+    print("Login Successful\nDashboard Loading\nReady\nDone\n")
+
+login_system("Krishna")` },
+      { name: "11. Function with List", code: `def check_results(marks):
+    print("Checking Results...\nProcessing Data\nAnalyzing Scores\nPlease Wait\nDone\n")
+    
+    for m in marks:
+        if m >= 40:
+            print(f"{m} -> Pass\nStatus OK\nContinue\nDone\n")
+        else:
+            print(f"{m} -> Fail\nNeed Improvement\nRetry\nDone\n")
+
+check_results([75, 30, 85, 20])` },
+      { name: "12. Multiple Return Values", code: `def calculator(a, b):
+    print("Performing Calculations...\nProcessing\nApplying Operations\nDone\n")
+    return a+b, a-b, a*b
+
+add, sub, mul = calculator(20, 10)
+
+print(f"Addition: {add}\nDone\n")
+print(f"Subtraction: {sub}\nDone\n")
+print(f"Multiplication: {mul}\nDone\n")` },
+      { name: "13. User Input Function", code: `def age_verification(age):
+    print("Verifying Age...\nChecking Criteria\nProcessing\nPlease Wait\nDone\n")
+    
+    if age >= 18:
+        print("Eligible\nYou Can Vote\nAccess Granted\nSuccess\nDone\n")
+    else:
+        print("Not Eligible\nTry Later\nAccess Denied\nWarning\nDone\n")
+
+age = int(input("Enter your age: "))
+age_verification(age)` }
     ];
   }
 
@@ -1396,7 +1492,789 @@ console.log(createUser("Krishna", 18));` }
       { name: "TS Project 7", code:`interface Product{\nid:number;\nname:string;\ncategory:string;\nprice:number;\nstock:number;\nsold:number;\nrating:number;\navailable:boolean;\n}\ninterface Customer{\nid:number;\nname:string;\norders:number;\nspent:number;\npremium:boolean;\n}\ninterface Order{\nid:number;\ncustomer:string;\nproduct:string;\nquantity:number;\namount:number;\nstatus:string;\n}\nconst products:Product[]=[\n{id:101,name:"Laptop Pro",category:"Laptop",price:65000,stock:24,sold:180,rating:4.9,available:true},\n{id:102,name:"Gaming Mouse",category:"Accessories",price:2200,stock:90,sold:420,rating:4.7,available:true},\n{id:103,name:"Mechanical Keyboard",category:"Accessories",price:4800,stock:45,sold:260,rating:4.8,available:true},\n{id:104,name:"Smart Watch",category:"Wearable",price:9800,stock:38,sold:310,rating:4.6,available:true},\n{id:105,name:"Bluetooth Speaker",category:"Audio",price:3600,stock:70,sold:290,rating:4.5,available:true},\n{id:106,name:"Monitor HD",category:"Monitor",price:14500,stock:18,sold:110,rating:4.8,available:false}\n];\nconst customers:Customer[]=[\n{id:1,name:"Aman",orders:14,spent:86000,premium:true},\n{id:2,name:"Neha",orders:9,spent:54000,premium:true},\n{id:3,name:"Ravi",orders:6,spent:26000,premium:false},\n{id:4,name:"Priya",orders:12,spent:72000,premium:true},\n{id:5,name:"Arjun",orders:5,spent:19000,premium:false}\n];\nconst orders:Order[]=[\n{id:1001,customer:"Aman",product:"Laptop Pro",quantity:1,amount:65000,status:"Delivered"},\n{id:1002,customer:"Neha",product:"Smart Watch",quantity:2,amount:19600,status:"Delivered"},\n{id:1003,customer:"Ravi",product:"Gaming Mouse",quantity:1,amount:2200,status:"Processing"},\n{id:1004,customer:"Priya",product:"Monitor HD",quantity:1,amount:14500,status:"Shipped"},\n{id:1005,customer:"Arjun",product:"Bluetooth Speaker",quantity:2,amount:7200,status:"Delivered"}\n];\nconst availableProducts=products.filter(product=>product.available);\nconst premiumCustomers=customers.filter(customer=>customer.premium);\nconst deliveredOrders=orders.filter(order=>order.status==="Delivered");\nconst totalRevenue=orders.reduce((sum,order)=>sum+order.amount,0);\nconst totalStock=products.reduce((sum,product)=>sum+product.stock,0);\nconst totalSold=products.reduce((sum,product)=>sum+product.sold,0);\nconst averageRating=(products.reduce((sum,product)=>sum+product.rating,0)/products.length).toFixed(2);\nconst topProduct=products.reduce((a,b)=>a.sold>b.sold?a:b);\nconsole.log("========== E-COMMERCE DASHBOARD ==========");\nconsole.log("Products:",products.length);\nconsole.log("Customers:",customers.length);\nconsole.log("Orders:",orders.length);\nconsole.log("Available Products:",availableProducts.length);\nconsole.log("Premium Customers:",premiumCustomers.length);\nconsole.log("Delivered Orders:",deliveredOrders.length);\nconsole.log("Revenue:",totalRevenue);\nconsole.log("Stock:",totalStock);\nconsole.log("Items Sold:",totalSold);\nconsole.log("Average Rating:",averageRating);\nconsole.log("Top Product:",topProduct);\nconsole.log("===== PRODUCTS =====");\nproducts.forEach(product=>console.log(product.id,product.name,product.price,product.stock));\nconsole.log("===== CUSTOMERS =====");\ncustomers.forEach(customer=>console.log(customer.name,customer.orders,customer.spent));\nconsole.log("===== ORDERS =====");\norders.forEach(order=>console.log(order.id,order.customer,order.product,order.status));\nconst analytics={visitors:25480,conversion:'5.4%',returns:12,payments:'Success',server:'Online',database:'Connected',backup:'Completed',security:'Protected'};\nconsole.log("===== ANALYTICS =====");\nObject.entries(analytics).forEach(entry=>console.log(entry[0],entry[1]));\nconst pages=['Dashboard','Products','Orders','Customers','Inventory','Reports','Payments','Analytics','Settings','Support'];\npages.forEach(page=>console.log(page));\nconsole.log("Store Dashboard Ready");`  },
       { name: "TS Project 8", code:`interface Movie{\nid:number;\ntitle:string;\ngenre:string;\nrating:number;\nduration:number;\nviews:number;\nfeatured:boolean;\n}\ninterface User{\nid:number;\nname:string;\nplan:string;\nwatchTime:number;\nactive:boolean;\n}\ninterface Playlist{\nid:number;\nname:string;\nitems:number;\npublicList:boolean;\n}\nconst movies:Movie[]=[\n{id:1,title:"Sky Mission",genre:"Action",rating:4.8,duration:142,views:98500,featured:true},\n{id:2,title:"Hidden Code",genre:"Sci-Fi",rating:4.7,duration:128,views:81200,featured:true},\n{id:3,title:"Silent Night",genre:"Drama",rating:4.5,duration:118,views:56300,featured:false},\n{id:4,title:"Ocean Storm",genre:"Adventure",rating:4.9,duration:154,views:126700,featured:true},\n{id:5,title:"Pixel World",genre:"Animation",rating:4.6,duration:101,views:73400,featured:false},\n{id:6,title:"Dark Signal",genre:"Thriller",rating:4.8,duration:136,views:91500,featured:true}\n];\nconst users:User[]=[\n{id:101,name:"Aman",plan:"Premium",watchTime:4820,active:true},\n{id:102,name:"Neha",plan:"Standard",watchTime:3150,active:true},\n{id:103,name:"Ravi",plan:"Premium",watchTime:5290,active:true},\n{id:104,name:"Priya",plan:"Basic",watchTime:1420,active:false},\n{id:105,name:"Arjun",plan:"Premium",watchTime:3980,active:true}\n];\nconst playlists:Playlist[]=[\n{id:1,name:"Weekend Movies",items:18,publicList:true},\n{id:2,name:"Sci-Fi Collection",items:12,publicList:true},\n{id:3,name:"Favorites",items:25,publicList:false},\n{id:4,name:"Action Pack",items:16,publicList:true}\n];\nconst featuredMovies=movies.filter(movie=>movie.featured);\nconst premiumUsers=users.filter(user=>user.plan==="Premium");\nconst activeUsers=users.filter(user=>user.active);\nconst publicPlaylists=playlists.filter(list=>list.publicList);\nconst totalViews=movies.reduce((sum,movie)=>sum+movie.views,0);\nconst totalWatchTime=users.reduce((sum,user)=>sum+user.watchTime,0);\nconst averageRating=(movies.reduce((sum,movie)=>sum+movie.rating,0)/movies.length).toFixed(2);\nconst mostViewed=movies.reduce((a,b)=>a.views>b.views?a:b);\nconsole.log("========== STREAMING PLATFORM ==========");\nconsole.log("Movies:",movies.length);\nconsole.log("Users:",users.length);\nconsole.log("Playlists:",playlists.length);\nconsole.log("Featured Movies:",featuredMovies.length);\nconsole.log("Premium Users:",premiumUsers.length);\nconsole.log("Active Users:",activeUsers.length);\nconsole.log("Total Views:",totalViews);\nconsole.log("Watch Time:",totalWatchTime);\nconsole.log("Average Rating:",averageRating);\nconsole.log("Most Viewed:",mostViewed.title);\nconsole.log("===== MOVIE LIBRARY =====");\nmovies.forEach(movie=>console.log(movie.id,movie.title,movie.genre,movie.rating,movie.views));\nconsole.log("===== USER LIST =====");\nusers.forEach(user=>console.log(user.name,user.plan,user.watchTime));\nconsole.log("===== PLAYLISTS =====");\nplaylists.forEach(list=>console.log(list.name,list.items,list.publicList));\nconst dashboard={server:'Online',streaming:'Stable',cdn:'Connected',subscribers:12450,newUsers:248,moviesAdded:36,revenue:985000,storage:'68%',backup:'Completed',notifications:'Enabled'};\nconsole.log("===== DASHBOARD =====");\nObject.entries(dashboard).forEach(item=>console.log(item[0],item[1]));\nconst menus=['Home','Movies','Series','Trending','Watchlist','Downloads','Live TV','Premium','Search','Settings','Support','Profile'];\nmenus.forEach(menu=>console.log(menu));\nconsole.log("Streaming Platform Ready Successfully");`  },
       { name: "TS Project 9", code:`interface Flight{\nid:number;\nflightNo:string;\nfrom:string;\nto:string;\nseats:number;\nbooked:number;\nstatus:string;\n}\ninterface Passenger{\nid:number;\nname:string;\nage:number;\nticketClass:string;\ncheckedIn:boolean;\n}\ninterface Airport{\ncode:string;\ncity:string;\ncountry:string;\nterminals:number;\n}\nconst flights:Flight[]=[\n{id:1,flightNo:"AI301",from:"Delhi",to:"Mumbai",seats:180,booked:165,status:"On Time"},\n{id:2,flightNo:"6E220",from:"Pune",to:"Bengaluru",seats:150,booked:121,status:"Boarding"},\n{id:3,flightNo:"UK450",from:"Hyderabad",to:"Chennai",seats:160,booked:143,status:"Delayed"},\n{id:4,flightNo:"AI712",from:"Mumbai",to:"Dubai",seats:220,booked:214,status:"On Time"},\n{id:5,flightNo:"SG118",from:"Jaipur",to:"Goa",seats:140,booked:108,status:"Scheduled"}\n];\nconst passengers:Passenger[]=[\n{id:101,name:"Aman",age:24,ticketClass:"Business",checkedIn:true},\n{id:102,name:"Neha",age:28,ticketClass:"Economy",checkedIn:true},\n{id:103,name:"Ravi",age:31,ticketClass:"Economy",checkedIn:false},\n{id:104,name:"Priya",age:26,ticketClass:"Premium",checkedIn:true},\n{id:105,name:"Arjun",age:34,ticketClass:"Business",checkedIn:false},\n{id:106,name:"Sneha",age:29,ticketClass:"Economy",checkedIn:true}\n];\nconst airports:Airport[]=[\n{code:"DEL",city:"Delhi",country:"India",terminals:3},\n{code:"BOM",city:"Mumbai",country:"India",terminals:2},\n{code:"BLR",city:"Bengaluru",country:"India",terminals:2},\n{code:"DXB",city:"Dubai",country:"UAE",terminals:3}\n];\nconst checkedIn=passengers.filter(passenger=>passenger.checkedIn);\nconst businessClass=passengers.filter(passenger=>passenger.ticketClass==="Business");\nconst delayedFlights=flights.filter(flight=>flight.status==="Delayed");\nconst totalSeats=flights.reduce((sum,flight)=>sum+flight.seats,0);\nconst totalBooked=flights.reduce((sum,flight)=>sum+flight.booked,0);\nconst occupancy=((totalBooked/totalSeats)*100).toFixed(1);\nconst busiestFlight=flights.reduce((a,b)=>a.booked>b.booked?a:b);\nconsole.log("========== AIRPORT MANAGEMENT SYSTEM ==========");\nconsole.log("Flights:",flights.length);\nconsole.log("Passengers:",passengers.length);\nconsole.log("Airports:",airports.length);\nconsole.log("Checked In:",checkedIn.length);\nconsole.log("Business Class:",businessClass.length);\nconsole.log("Delayed Flights:",delayedFlights.length);\nconsole.log("Total Seats:",totalSeats);\nconsole.log("Booked Seats:",totalBooked);\nconsole.log("Occupancy:",occupancy+"%");\nconsole.log("Busiest Flight:",busiestFlight.flightNo);\nconsole.log("===== FLIGHT SCHEDULE =====");\nflights.forEach(flight=>console.log(flight.flightNo,flight.from,flight.to,flight.status));\nconsole.log("===== PASSENGERS =====");\npassengers.forEach(passenger=>console.log(passenger.name,passenger.ticketClass,passenger.checkedIn));\nconsole.log("===== AIRPORTS =====");\nairports.forEach(airport=>console.log(airport.code,airport.city,airport.country));\nconst operations={runways:8,security:'Active',baggage:'Running',boarding:'Open',weather:'Clear',fuel:'Available',radar:'Online',controlTower:'Operational',parking:'68%',emergency:'Ready'};\nconsole.log("===== OPERATIONS =====");\nObject.entries(operations).forEach(item=>console.log(item[0],item[1]));\nconst services=['Flight Booking','Check-In','Boarding','Baggage','Security','Lounge','Immigration','Customs','Tracking','Support','Notifications','Reports'];\nservices.forEach(service=>console.log(service));\nconsole.log("Airport Management System Ready");`  },
-      { name: "TS Project 10", code:`interface Patient{\nid:number;\nname:string;\nage:number;\ndepartment:string;\nadmitted:boolean;\nbill:number;\n}\ninterface Doctor{\nid:number;\nname:string;\nspecialization:string;\nexperience:number;\navailable:boolean;\n}\ninterface Appointment{\nid:number;\npatient:string;\ndoctor:string;\ntime:string;\nstatus:string;\n}\nconst patients:Patient[]=[\n{id:1,name:"Aman",age:24,department:"Cardiology",admitted:true,bill:42000},\n{id:2,name:"Neha",age:31,department:"Neurology",admitted:false,bill:18500},\n{id:3,name:"Ravi",age:46,department:"Orthopedics",admitted:true,bill:56000},\n{id:4,name:"Priya",age:28,department:"Dermatology",admitted:false,bill:9200},\n{id:5,name:"Arjun",age:39,department:"General",admitted:true,bill:24800},\n{id:6,name:"Sneha",age:34,department:"Pediatrics",admitted:false,bill:11400}\n];\nconst doctors:Doctor[]=[\n{id:101,name:"Dr. Mehta",specialization:"Cardiology",experience:14,available:true},\n{id:102,name:"Dr. Sharma",specialization:"Neurology",experience:11,available:true},\n{id:103,name:"Dr. Khan",specialization:"Orthopedics",experience:16,available:false},\n{id:104,name:"Dr. Patel",specialization:"Dermatology",experience:8,available:true},\n{id:105,name:"Dr. Singh",specialization:"General",experience:18,available:true}\n];\nconst appointments:Appointment[]=[\n{id:1001,patient:"Aman",doctor:"Dr. Mehta",time:"09:00",status:"Completed"},\n{id:1002,patient:"Neha",doctor:"Dr. Sharma",time:"10:30",status:"Scheduled"},\n{id:1003,patient:"Ravi",doctor:"Dr. Khan",time:"11:45",status:"Completed"},\n{id:1004,patient:"Priya",doctor:"Dr. Patel",time:"01:15",status:"Cancelled"},\n{id:1005,patient:"Arjun",doctor:"Dr. Singh",time:"03:30",status:"Scheduled"}\n];\nconst admittedPatients=patients.filter(patient=>patient.admitted);\nconst availableDoctors=doctors.filter(doctor=>doctor.available);\nconst scheduledAppointments=appointments.filter(item=>item.status==="Scheduled");\nconst completedAppointments=appointments.filter(item=>item.status==="Completed");\nconst totalBills=patients.reduce((sum,patient)=>sum+patient.bill,0);\nconst averageBill=Math.floor(totalBills/patients.length);\nconst seniorDoctor=doctors.reduce((a,b)=>a.experience>b.experience?a:b);\nconst highestBill=patients.reduce((a,b)=>a.bill>b.bill?a:b);\nconsole.log("========== HOSPITAL MANAGEMENT SYSTEM ==========");\nconsole.log("Patients:",patients.length);\nconsole.log("Doctors:",doctors.length);\nconsole.log("Appointments:",appointments.length);\nconsole.log("Admitted Patients:",admittedPatients.length);\nconsole.log("Available Doctors:",availableDoctors.length);\nconsole.log("Scheduled Appointments:",scheduledAppointments.length);\nconsole.log("Completed Appointments:",completedAppointments.length);\nconsole.log("Total Bills:",totalBills);\nconsole.log("Average Bill:",averageBill);\nconsole.log("Senior Doctor:",seniorDoctor.name);\nconsole.log("Highest Bill:",highestBill.name);\nconsole.log("===== PATIENT RECORDS =====");\npatients.forEach(patient=>console.log(patient.id,patient.name,patient.department,patient.bill));\nconsole.log("===== DOCTOR DIRECTORY =====");\ndoctors.forEach(doctor=>console.log(doctor.name,doctor.specialization,doctor.experience));\nconsole.log("===== APPOINTMENTS =====");\nappointments.forEach(item=>console.log(item.patient,item.doctor,item.time,item.status));\nconst hospital={beds:220,occupied:176,icu:28,ambulances:6,pharmacy:'Open',laboratory:'Running',emergency:'Active',bloodBank:'Available',server:'Online',database:'Connected',backup:'Completed',security:'Protected'};\nconsole.log("===== HOSPITAL STATUS =====");\nObject.entries(hospital).forEach(entry=>console.log(entry[0],entry[1]));\nconst modules=['Dashboard','Patients','Doctors','Appointments','Billing','Laboratory','Pharmacy','Emergency','ICU','Reports','Analytics','Settings','Support','Notifications'];\nmodules.forEach(module=>console.log(module));\nconsole.log("Hospital Management System Ready Successfully");`  }
+      { name: "TS Project 10", code:`interface Patient{\nid:number;\nname:string;\nage:number;\ndepartment:string;\nadmitted:boolean;\nbill:number;\n}\ninterface Doctor{\nid:number;\nname:string;\nspecialization:string;\nexperience:number;\navailable:boolean;\n}\ninterface Appointment{\nid:number;\npatient:string;\ndoctor:string;\ntime:string;\nstatus:string;\n}\nconst patients:Patient[]=[\n{id:1,name:"Aman",age:24,department:"Cardiology",admitted:true,bill:42000},\n{id:2,name:"Neha",age:31,department:"Neurology",admitted:false,bill:18500},\n{id:3,name:"Ravi",age:46,department:"Orthopedics",admitted:true,bill:56000},\n{id:4,name:"Priya",age:28,department:"Dermatology",admitted:false,bill:9200},\n{id:5,name:"Arjun",age:39,department:"General",admitted:true,bill:24800},\n{id:6,name:"Sneha",age:34,department:"Pediatrics",admitted:false,bill:11400}\n];\nconst doctors:Doctor[]=[\n{id:101,name:"Dr. Mehta",specialization:"Cardiology",experience:14,available:true},\n{id:102,name:"Dr. Sharma",specialization:"Neurology",experience:11,available:true},\n{id:103,name:"Dr. Khan",specialization:"Orthopedics",experience:16,available:false},\n{id:104,name:"Dr. Patel",specialization:"Dermatology",experience:8,available:true},\n{id:105,name:"Dr. Singh",specialization:"General",experience:18,available:true}\n];\nconst appointments:Appointment[]=[\n{id:1001,patient:"Aman",doctor:"Dr. Mehta",time:"09:00",status:"Completed"},\n{id:1002,patient:"Neha",doctor:"Dr. Sharma",time:"10:30",status:"Scheduled"},\n{id:1003,patient:"Ravi",doctor:"Dr. Khan",time:"11:45",status:"Completed"},\n{id:1004,patient:"Priya",doctor:"Dr. Patel",time:"01:15",status:"Cancelled"},\n{id:1005,patient:"Arjun",doctor:"Dr. Singh",time:"03:30",status:"Scheduled"}\n];\nconst admittedPatients=patients.filter(patient=>patient.admitted);\nconst availableDoctors=doctors.filter(doctor=>doctor.available);\nconst scheduledAppointments=appointments.filter(item=>item.status==="Scheduled");\nconst completedAppointments=appointments.filter(item=>item.status==="Completed");\nconst totalBills=patients.reduce((sum,patient)=>sum+patient.bill,0);\nconst averageBill=Math.floor(totalBills/patients.length);\nconst seniorDoctor=doctors.reduce((a,b)=>a.experience>b.experience?a:b);\nconst highestBill=patients.reduce((a,b)=>a.bill>b.bill?a:b);\nconsole.log("========== HOSPITAL MANAGEMENT SYSTEM ==========");\nconsole.log("Patients:",patients.length);\nconsole.log("Doctors:",doctors.length);\nconsole.log("Appointments:",appointments.length);\nconsole.log("Admitted Patients:",admittedPatients.length);\nconsole.log("Available Doctors:",availableDoctors.length);\nconsole.log("Scheduled Appointments:",scheduledAppointments.length);\nconsole.log("Completed Appointments:",completedAppointments.length);\nconsole.log("Total Bills:",totalBills);\nconsole.log("Average Bill:",averageBill);\nconsole.log("Senior Doctor:",seniorDoctor.name);\nconsole.log("Highest Bill:",highestBill.name);\nconsole.log("===== PATIENT RECORDS =====");\npatients.forEach(patient=>console.log(patient.id,patient.name,patient.department,patient.bill));\nconsole.log("===== DOCTOR DIRECTORY =====");\ndoctors.forEach(doctor=>console.log(doctor.name,doctor.specialization,doctor.experience));\nconsole.log("===== APPOINTMENTS =====");\nappointments.forEach(item=>console.log(item.patient,item.doctor,item.time,item.status));\nconst hospital={beds:220,occupied:176,icu:28,ambulances:6,pharmacy:'Open',laboratory:'Running',emergency:'Active',bloodBank:'Available',server:'Online',database:'Connected',backup:'Completed',security:'Protected'};\nconsole.log("===== HOSPITAL STATUS =====");\nObject.entries(hospital).forEach(entry=>console.log(entry[0],entry[1]));\nconst modules=['Dashboard','Patients','Doctors','Appointments','Billing','Laboratory','Pharmacy','Emergency','ICU','Reports','Analytics','Settings','Support','Notifications'];\nmodules.forEach(module=>console.log(module));\nconsole.log("Hospital Management System Ready Successfully");`  },
+           { section: "Basic typescript" },
+      { name: "1. Print", code: `console.log("Hello World");` },
+      { name: "2. Integer", code: `let num: number = 10;
+console.log("Integer:", num);` },
+      { name: "3. Float (Decimal Number)", code: `let price: number = 99.99;
+console.log("Float:", price);` },
+      { name: "4. String", code: `let name: string = "Krishna";
+console.log("Name:", name);` },
+      { name: "5. Boolean", code: `let isActive: boolean = true;
+console.log("Active:", isActive);` },
+      { name: "6. Array (List)", code: `let numbers: number[] = [1, 2, 3, 4, 5];
+console.log("Array:", numbers);` },
+      { name: "7. String Array", code: `let fruits: string[] = ["Apple", "Banana", "Mango"];
+console.log("Fruits:", fruits);` },
+      { name: "8. Tuple", code: `let person: [string, number] = ["Krishna", 18];
+console.log("Tuple:", person);` },
+      { name: "9. Object (Dictionary type)", code: `let student: { name: string; marks: number } = {
+    name: "Krishna",
+    marks: 90
+};
+
+console.log("Student:", student);` },
+      { name: "10. Dictionary", code: `let marks: Record<string, number> = {
+    math: 90,
+    science: 85,
+    english: 88
+};
+
+console.log("Marks:", marks);` },
+      { name: "11. Any Type", code: `let data: any = "Hello";
+console.log(data);
+
+data = 100;
+console.log(data);` },
+      { name: "12. Unknown Type", code: `let value: unknown = "Test";
+
+if (typeof value === "string") {
+    console.log(value.toUpperCase());
+}` },
+      { name: "13. Null & Undefined", code: `let a: null = null;
+let b: undefined = undefined;
+
+console.log(a, b);` },
+      { name: "14. Function Basic", code: `function greet(name: string): string {
+    return "Hello " + name;
+}
+
+console.log(greet("Krishna"));` },
+      { name: "15. Arrow Function", code: `const add = (a: number, b: number): number => {
+    return a + b;
+};
+
+console.log("Sum:", add(5, 3));` },
+      { name: "16. Enum", code: `enum Color {
+    Red,
+    Green,
+    Blue
+}
+
+let c: Color = Color.Green;
+console.log("Color:", c);` },
+      { name: "17. Union Type", code: `let id: number | string;
+
+id = 101;
+console.log(id);
+
+id = "A101";
+console.log(id);` },
+      { name: "18. Type Alias", code: `type User = {
+    name: string;
+    age: number;
+};
+
+let user1: User = {
+    name: "Krishna",
+    age: 18
+};
+
+console.log(user1);` },
+      { name: "19. Interface", code: `interface Car {
+    brand: string;
+    price: number;
+}
+
+let car1: Car = {
+    brand: "Tesla",
+    price: 50000
+};
+
+console.log(car1);` },
+      { section: "IF - ELSE IF - ELSE" },
+      { name: "if", code: `let correctUser: string = "admin";
+let correctPass: string = "1234";
+
+let inputUser: string = "admin";
+let inputPass: string = "1234";
+
+let attempts: number = 1;
+let maxAttempts: number = 3;
+
+let accountActive: boolean = true;
+
+console.log("=== LOGIN SYSTEM ===");
+
+// Check account status
+if (accountActive === true) {
+
+    console.log("Account is Active ✅");
+
+    // Check attempts
+    if (attempts <= maxAttempts) {
+
+        console.log("Attempts Remaining:", maxAttempts - attempts);
+
+        // Check username
+        if (inputUser === correctUser) {
+
+            console.log("Username Correct ✅");
+
+            // Check password
+            if (inputPass === correctPass) {
+
+                console.log("Login Successful 🎉");
+
+                // Extra feature: welcome message
+                if (inputUser === "admin") {
+                    console.log("Welcome Admin 👑");
+                }
+
+                // Bonus: strong password check
+                if (correctPass.length >= 4) {
+                    console.log("Password Strength: Medium 🔐");
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+// Security Alerts (separate IFs)
+if (attempts > maxAttempts) {
+    console.log("Account Locked 🔒");
+}
+
+if (accountActive === false) {
+    console.log("Account Disabled ❌");
+}` },
+      { name: "2. IF + ELSE IF", code: `let marks: number = 75;
+
+if (marks >= 90) {
+    console.log("Grade A+");
+}
+else if (marks >= 75) {
+    console.log("Grade A");
+}
+else if (marks >= 60) {
+    console.log("Grade B");
+}
+else if (marks >= 40) {
+    console.log("Grade C");
+}` },
+      { name: "3. IF + ELSE", code: `let name: string = "Krishna";
+let marks: number = 72;
+let attendance: number = 80;
+
+console.log("Student Name:", name);
+console.log("Marks:", marks);
+console.log("Attendance:", attendance + "%");
+
+// Main Logic
+if (marks >= 40 && attendance >= 75) {
+
+    console.log("Result: PASS ✅");
+
+    // Extra performance check inside IF
+    if (marks >= 80) {
+        console.log("Performance: Excellent 🌟");
+    } else if (marks >= 60) {
+        console.log("Performance: Good 👍");
+    } else {
+        console.log("Performance: Average 🙂");
+    }
+
+} else {
+
+    console.log("Result: FAIL ❌");
+
+    // Reason for fail
+    if (marks < 40 && attendance < 75) {
+        console.log("Reason: Low Marks + Low Attendance");
+    } else if (marks < 40) {
+        console.log("Reason: Low Marks");
+    } else {
+        console.log("Reason: Low Attendance");
+    }
+}` },
+      { name: "4. IF + ELSE IF + ELSE", code: `let balance: number = 5000;
+let withdraw: number = 3000;
+
+if (withdraw <= 0) {
+    console.log("Invalid Amount ❌");
+}
+else if (withdraw > balance) {
+    console.log("Insufficient Balance ❌");
+}
+else if (withdraw >= 100 && withdraw <= balance) {
+    balance -= withdraw;
+    console.log("Withdrawal Successful ✅");
+    console.log("Remaining Balance:", balance);
+}
+else {
+    console.log("Transaction Failed ❌");
+}` },
+            { section: "loops in Typescript" },
+      { name: "1. FOR LOOP", code: `let students: string[] = ["Krishna", "Aman", "Riya", "Sita"];
+let marks: number[] = [85, 45, 72, 30];
+
+for (let i = 0; i < students.length; i++) {
+    console.log("Student:", students[i]);
+    console.log("Marks:", marks[i]);
+
+    if (marks[i] >= 40) {
+        console.log("Result: PASS ✅");
+    } else {
+        console.log("Result: FAIL ❌");
+    }
+
+    console.log("----------------------");
+}` },
+      { name: "2. WHILE LOOP ", code: `let correctPass: string = "1234";
+let attempts: number = 0;
+let maxAttempts: number = 3;
+
+while (attempts < maxAttempts) {
+    let inputPass: string = "1234"; // simulate input
+
+    console.log("Attempt:", attempts + 1);
+
+    if (inputPass === correctPass) {
+        console.log("Login Successful ✅");
+        break;
+    }
+
+    attempts++;
+}
+
+if (attempts === maxAttempts) {
+    console.log("Account Locked ❌");
+}` },
+      { name: "3. DO WHILE LOOP", code: `let balance: number = 5000;
+let withdraw: number = 1000;
+let count: number = 0;
+
+do {
+    console.log("Transaction Attempt:", count + 1);
+
+    if (withdraw <= balance) {
+        balance -= withdraw;
+        console.log("Withdraw Successful ✅");
+        console.log("Remaining Balance:", balance);
+    } else {
+        console.log("Insufficient Balance ❌");
+    }
+
+    count++;
+} while (count < 2);` },
+      { name: "4. FOR...OF LOOP", code: `let numbers: number[] = [10, 15, 20, 25, 30];
+
+for (let num of numbers) {
+    console.log("Number:", num);
+
+    if (num % 2 === 0) {
+        console.log("Even ✅");
+    } else {
+        console.log("Odd ❌");
+    }
+
+    console.log("Square:", num * num);
+    console.log("----------------");
+}` },
+      { name: "5. FOR...IN LOOP", code: `let marks: Record<string, number> = {
+    Krishna: 90,
+    Aman: 60,
+    Riya: 35
+};
+
+for (let key in marks) {
+    console.log("Name:", key);
+    console.log("Marks:", marks[key]);
+
+    if (marks[key] >= 40) {
+        console.log("PASS ✅");
+    } else {
+        console.log("FAIL ❌");
+    }
+
+    console.log("----------------");
+}` },
+      { name: "6. NESTED LOOP", code: `for (let i = 1; i <= 5; i++) {
+    let row: string = "";
+
+    for (let j = 1; j <= i; j++) {
+        row += j + " ";
+    }
+
+    console.log(row);
+}` },
+      { name: "7. BREAK & CONTINUE", code: `for (let i = 1; i <= 10; i++) {
+
+    if (i === 5) {
+        console.log("Skipping 5");
+        continue;
+    }
+
+    if (i === 9) {
+        console.log("Stopping at 9");
+        break;
+    }
+
+    console.log("Number:", i);
+}` },
+      { name: "Real Project", code: `let cart: string[] = ["Shirt", "Shoes", "Watch"];
+let prices: number[] = [1000, 2000, 1500];
+
+let total: number = 0;
+
+for (let i = 0; i < cart.length; i++) {
+
+    console.log("Item:", cart[i]);
+    console.log("Price:", prices[i]);
+
+    total += prices[i];
+
+    if (prices[i] > 1500) {
+        console.log("Premium Product ⭐");
+    }
+
+    console.log("----------------");
+}
+
+console.log("Total Price:", total);
+
+// Discount logic using loop
+let discount: number = 0;
+
+for (let i = 0; i < cart.length; i++) {
+    if (prices[i] > 1000) {
+        discount += 100;
+    }
+}
+
+console.log("Discount:", discount);
+console.log("Final Price:", total - discount);` },
+      { section: "FUNCTIONS in Typescript" },
+      { name: "1. Basic Function (Return + Parameter)", code: `function square(num: number): number {
+    return num * num;
+}
+
+console.log("Square:", square(5));` },
+      { name: "2. Multiple Parameters + Logic", code: `function maxNumber(a: number, b: number, c: number): number {
+    let max = a;
+
+    if (b > max) max = b;
+    if (c > max) max = c;
+
+    return max;
+}
+
+console.log("Max:", maxNumber(10, 25, 15));` },
+      { name: "3. Void Function (No Return)", code: `function printTable(num: number): void {
+    for (let i = 1; i <= 10; i++) {
+        console.log();
+    }
+}
+
+printTable(5);` },
+      { name: "4. Function with Array", code: `function sumArray(arr: number[]): number {
+    let sum = 0;
+
+    for (let num of arr) {
+        sum += num;
+    }
+
+    return sum;
+}
+
+console.log("Sum:", sumArray([10, 20, 30, 40]));` },
+      { name: "5. Function with Object (Dictionary)", code: `function printMarks(data: Record<string, number>): void {
+    for (let key in data) {
+        console.log(key, "=", data[key]);
+    }
+}
+
+printMarks({
+    Math: 90,
+    Science: 85,
+    English: 88
+});` },
+      { name: "6. Arrow Function", code: `const add = (a: number, b: number): number => {
+    return a + b;
+};
+
+console.log("Sum:", add(5, 3));` },
+      { name: "7. Default Parameter Function", code: `function greet(name: string = "Guest"): void {
+    console.log("Hello", name);
+}
+
+greet();
+greet("Krishna");` },
+      { name: "8. Optional Parameter", code: `function userInfo(name: string, age?: number): void {
+    console.log("Name:", name);
+
+    if (age !== undefined) {
+        console.log("Age:", age);
+    }
+}
+
+userInfo("Krishna");
+userInfo("Aman", 18);` },
+      { name: "9. Rest Parameters (Multiple Inputs)", code: `function totalSum(...numbers: number[]): number {
+    let sum = 0;
+
+    for (let num of numbers) {
+        sum += num;
+    }
+
+    return sum;
+}
+
+console.log("Total:", totalSum(10, 20, 30, 40));` },
+      { name: "10. Function Returning Object", code: `function createUser(name: string, age: number) {
+    return {
+        name: name,
+        age: age,
+        isActive: true
+    };
+}
+
+console.log(createUser("Krishna", 18));` },
+      { name: "11. Recursive Function (Factorial)", code: `function factorial(n: number): number {
+    if (n === 1) return 1;
+
+    return n * factorial(n - 1);
+}
+
+console.log("Factorial:", factorial(5));` },
+      { name: "12. Function Type (TypeScript Special)", code: `let multiply: (a: number, b: number) => number;
+
+multiply = function (x, y) {
+    return x * y;
+};
+
+console.log("Multiply:", multiply(4, 5));` },
+      { name: "13. Callback Function", code: `function process(num: number, callback: (n: number) => number): number {
+    return callback(num);
+}
+
+function double(n: number): number {
+    return n * 2;
+}
+
+console.log(process(5, double));` },
+      { name: "14. Async Function (Basic)", code: `async function fetchData(): Promise<string> {
+    return "Data Loaded ✅";
+}
+
+fetchData().then(res => console.log(res));` },
+      { section: "functions Big projects" },
+      { name: "Login + Cart System", code: `function login(username: string, password: string): boolean {
+    let correctUser = "admin";
+    let correctPass = "1234";
+
+    if (username === correctUser && password === correctPass) {
+        return true;
+    }
+
+    return false;
+}
+
+function calculateTotal(prices: number[]): number {
+    let total = 0;
+
+    for (let price of prices) {
+        total += price;
+    }
+
+    return total;
+}
+
+function applyDiscount(total: number): number {
+    if (total > 3000) {
+        return total - 500;
+    }
+    return total;
+}
+
+// Main
+let isLogin = login("admin", "1234");
+
+if (isLogin) {
+    console.log("Login Successful ✅");
+
+    let cart = [1000, 2000, 1500];
+    let total = calculateTotal(cart);
+
+    console.log("Total:", total);
+
+    let finalPrice = applyDiscount(total);
+    console.log("Final Price:", finalPrice);
+
+} else {
+    console.log("Login Failed ❌");
+}` },
+      { name: "Student Management System", code: `type Student = {
+    name: string;
+    marks: number;
+    attendance: number;
+};
+
+// Function 1: Add Student
+function addStudent(list: Student[], name: string, marks: number, attendance: number): void {
+    list.push({ name, marks, attendance });
+}
+
+// Function 2: Print All Students
+function printStudents(list: Student[]): void {
+    console.log("===== STUDENT LIST =====");
+
+    for (let i = 0; i < list.length; i++) {
+        console.log();
+        console.log();
+        console.log();
+        console.log("----------------------");
+    }
+}
+
+// Function 3: Calculate Grade
+function getGrade(marks: number): string {
+    if (marks >= 90) return "A+";
+    else if (marks >= 75) return "A";
+    else if (marks >= 60) return "B";
+    else if (marks >= 40) return "C";
+    else return "Fail";
+}
+
+// Function 4: Check Result
+function checkResult(student: Student): string {
+    if (student.marks >= 40 && student.attendance >= 75) {
+        return "PASS";
+    } else {
+        return "FAIL";
+    }
+}
+
+// Function 5: Show Report Card
+function showReport(list: Student[]): void {
+    console.log("===== REPORT CARD =====");
+
+    for (let student of list) {
+        console.log();
+
+        let result = checkResult(student);
+        let grade = getGrade(student.marks);
+
+        console.log();
+        console.log();
+        console.log();
+        console.log();
+
+        if (result === "FAIL") {
+            if (student.marks < 40 && student.attendance < 75) {
+                console.log("Reason: Low Marks + Low Attendance");
+            } else if (student.marks < 40) {
+                console.log("Reason: Low Marks");
+            } else {
+                console.log("Reason: Low Attendance");
+            }
+        }
+
+        console.log("----------------------");
+    }
+}
+
+// Function 6: Find Topper
+function findTopper(list: Student[]): void {
+    let topper = list[0];
+
+    for (let student of list) {
+        if (student.marks > topper.marks) {
+            topper = student;
+        }
+    }
+
+    console.log("🏆 Topper:", topper.name, "-", topper.marks);
+}
+
+// Function 7: Average Marks
+function averageMarks(list: Student[]): number {
+    let total = 0;
+
+    for (let student of list) {
+        total += student.marks;
+    }
+
+    return total / list.length;
+}
+
+// MAIN PROGRAM
+let students: Student[] = [];
+
+// Adding students
+addStudent(students, "Krishna", 85, 90);
+addStudent(students, "Aman", 45, 60);
+addStudent(students, "Riya", 72, 80);
+addStudent(students, "Sita", 30, 50);
+
+// Show data
+printStudents(students);
+
+// Show report
+showReport(students);
+
+// Topper
+findTopper(students);
+
+// Average
+console.log("📊 Average Marks:", averageMarks(students));` },
+      { name: "User Registration System", code: `function registerUsers(): void {
+
+    type User = {
+        username: string;
+        password: string;
+        age: number;
+        email: string;
+    };
+
+    let users: User[] = [];
+
+    function isValidEmail(email: string): boolean {
+        return email.includes("@") && email.includes(".");
+    }
+
+    function isStrongPassword(password: string): boolean {
+        let hasUpper = false;
+        let hasNumber = false;
+
+        for (let ch of password) {
+            if (ch >= "A" && ch <= "Z") hasUpper = true;
+            if (!isNaN(Number(ch))) hasNumber = true;
+        }
+
+        return password.length >= 6 && hasUpper && hasNumber;
+    }
+
+    function addUser(username: string, password: string, age: number, email: string): void {
+
+        if (username.length < 3) {
+            console.log("Username too short");
+        }
+        else if (!isStrongPassword(password)) {
+            console.log("Weak password");
+        }
+        else if (age < 13) {
+            console.log("Age must be 13+");
+        }
+        else if (!isValidEmail(email)) {
+            console.log("Invalid email");
+        }
+        else {
+
+            let exists = false;
+
+            for (let u of users) {
+                if (u.username === username) {
+                    exists = true;
+                    break;
+                }
+            }
+
+            if (exists) {
+                console.log("Username already exists");
+            } else {
+                users.push({ username, password, age, email });
+                console.log("User registered:", username);
+            }
+        }
+    }
+
+    function showUsers(): void {
+        console.log("===== USERS =====");
+
+        for (let i = 0; i < users.length; i++) {
+            console.log(users[i].username, users[i].email);
+
+            if (users[i].age < 18) {
+                console.log("Minor user");
+            } else {
+                console.log("Adult user");
+            }
+        }
+    }
+
+    addUser("Krishna", "Pass123", 18, "krishna@gmail.com");
+    addUser("Aman", "weak", 20, "aman@gmail.com");
+    addUser("Riya", "Strong1", 16, "riya@gmail.com");
+
+    showUsers();
+}` },
+      { name: "Shopping Cart Systum", code: `function shoppingCartSystem(): void {
+
+    type Item = {
+        name: string;
+        price: number;
+        qty: number;
+    };
+
+    let cart: Item[] = [];
+
+    function addItem(name: string, price: number, qty: number): void {
+
+        if (price <= 0 || qty <= 0) {
+            console.log("Invalid item");
+        } else {
+
+            let found = false;
+
+            for (let item of cart) {
+                if (item.name === name) {
+                    item.qty += qty;
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                cart.push({ name, price, qty });
+            }
+        }
+    }
+
+    function removeItem(name: string): void {
+        cart = cart.filter(item => item.name !== name);
+    }
+
+    function showCart(): void {
+
+        let total = 0;
+
+        for (let item of cart) {
+
+            let itemTotal = item.price * item.qty;
+            total += itemTotal;
+
+            console.log(item.name, item.qty, itemTotal);
+
+            if (item.qty > 5) {
+                console.log("Bulk item");
+            }
+        }
+
+        console.log("Total:", total);
+    }
+
+    function applyDiscount(): void {
+
+        for (let item of cart) {
+            if (item.qty >= 3) {
+                item.price *= 0.9;
+            }
+        }
+    }
+
+    addItem("Pen", 10, 5);
+    addItem("Book", 50, 2);
+    addItem("Pen", 10, 3);
+
+    applyDiscount();
+    showCart();
+}` }
     ];
   }
 
@@ -1412,7 +2290,798 @@ console.log(createUser("Krishna", 18));` }
       { name: "Kotlin Project 7", code:`data class Task(val id:Int,val title:String,val priority:String,val completed:Boolean,val hours:Int)\ndata class Member(val name:String,val role:String,val tasks:Int,val online:Boolean)\ndata class Sprint(val name:String,val progress:Int)\nval tasks=listOf(\nTask(1,"Login Screen","High",true,8),\nTask(2,"User Profile","Medium",false,6),\nTask(3,"Dashboard","High",true,10),\nTask(4,"API Integration","High",false,12),\nTask(5,"Notification","Low",true,4),\nTask(6,"Settings","Medium",false,5),\nTask(7,"Dark Mode","Low",true,3),\nTask(8,"Payment Module","High",false,14),\nTask(9,"Chat Feature","Medium",true,9),\nTask(10,"Security Update","High",false,11)\n)\nval members=listOf(\nMember("Aman","Android",5,true),\nMember("Neha","Backend",7,true),\nMember("Ravi","UI/UX",4,false),\nMember("Priya","Testing",6,true),\nMember("Arjun","Frontend",5,true)\n)\nval sprints=listOf(\nSprint("Sprint-1",100),\nSprint("Sprint-2",82),\nSprint("Sprint-3",61),\nSprint("Sprint-4",35)\n)\nval completed=tasks.filter{it.completed}\nval pending=tasks.filter{!it.completed}\nval highPriority=tasks.filter{it.priority=="High"}\nval totalHours=tasks.sumOf{it.hours}\nval averageHours=totalHours/tasks.size\nval longestTask=tasks.maxByOrNull{it.hours}\nval onlineMembers=members.filter{it.online}\nprintln("========== PROJECT TRACKER ==========")\nprintln("Tasks: ")\nprintln("Completed: ")\nprintln("Pending: ")\nprintln("High Priority: ")\nprintln("Total Hours: $totalHours")\nprintln("Average Hours: $averageHours")\nprintln("Longest Task: $longestTask")\nprintln("===== TASK LIST =====")\ntasks.forEach{println("h")}\nprintln("===== TEAM MEMBERS =====")\nmembers.forEach{println(" Tasks: Online:")}\nprintln("===== ONLINE MEMBERS =====")\nonlineMembers.forEach{println(it.name)}\nprintln("===== SPRINT STATUS =====")\nsprints.forEach{println("%")}\nval reports=mapOf("Bugs" to 23,"Resolved" to 19,"Open" to 4,"Build" to "Success","Server" to "Running","Database" to "Connected","Tests" to "Passed","Release" to "Ready")\nprintln("===== REPORT =====")\nreports.forEach{println("")}\nval modules=listOf("Authentication","Dashboard","Projects","Calendar","Messages","Reports","Settings","Backup","Analytics","Deployment")\nprintln("===== MODULES =====")\nmodules.forEach{println(it)}\nprintln("Sync Completed")\nprintln("Backup Successful")\nprintln("Deployment Ready")\nprintln("Project Tracker Loaded Successfully")` },
       { name: "Kotlin Project 8", code:`data class Employee(val id:Int,val name:String,val department:String,val salary:Int,val experience:Int,val active:Boolean)\ndata class Project(val id:Int,val title:String,val budget:Int,val progress:Int,val status:String)\ndata class Client(val id:Int,val name:String,val country:String,val premium:Boolean)\nval employees=listOf(\nEmployee(101,"Aman","Android",65000,4,true),\nEmployee(102,"Neha","Backend",78000,6,true),\nEmployee(103,"Ravi","Frontend",62000,3,true),\nEmployee(104,"Priya","Testing",56000,5,false),\nEmployee(105,"Arjun","UIUX",71000,7,true),\nEmployee(106,"Sneha","DevOps",84000,8,true),\nEmployee(107,"Rahul","Support",49000,2,true),\nEmployee(108,"Pooja","Security",92000,9,true)\n)\nval projects=listOf(\nProject(1,"E-Commerce",2400000,82,"Running"),\nProject(2,"Hospital ERP",1800000,65,"Running"),\nProject(3,"School Portal",900000,100,"Completed"),\nProject(4,"Travel App",1400000,48,"Running"),\nProject(5,"Finance Dashboard",2600000,91,"Testing"),\nProject(6,"CRM System",1950000,56,"Development")\n)\nval clients=listOf(\nClient(1,"Global Tech","India",true),\nClient(2,"Future Soft","USA",true),\nClient(3,"Nova Digital","Canada",false),\nClient(4,"Blue Network","Germany",true),\nClient(5,"Vision Labs","Australia",false)\n)\nval activeEmployees=employees.filter{it.active}\nval seniorEmployees=employees.filter{it.experience>=5}\nval highSalary=employees.filter{it.salary>70000}\nval runningProjects=projects.filter{it.status=="Running"}\nval completedProjects=projects.filter{it.progress==100}\nval premiumClients=clients.filter{it.premium}\nval totalSalary=employees.sumOf{it.salary}\nval averageSalary=totalSalary/employees.size\nval totalBudget=projects.sumOf{it.budget}\nval averageBudget=totalBudget/projects.size\nval highestSalary=employees.maxByOrNull{it.salary}\nval biggestProject=projects.maxByOrNull{it.budget}\nprintln("=========== COMPANY ERP DASHBOARD ===========")\nprintln("Employees : ")\nprintln("Projects : ")\nprintln("Clients : ")\nprintln("Total Salary : $totalSalary")\nprintln("Average Salary : $averageSalary")\nprintln("Total Budget : $totalBudget")\nprintln("Average Budget : $averageBudget")\nprintln("Highest Salary : $highestSalary")\nprintln("Biggest Project : $biggestProject")\nprintln("===== EMPLOYEE DIRECTORY =====")\nemployees.forEach{println("")}\nprintln("===== ACTIVE EMPLOYEES =====")\nactiveEmployees.forEach{println(it.name)}\nprintln("===== SENIOR EMPLOYEES =====")\nseniorEmployees.forEach{println(" Years")}\nprintln("===== HIGH SALARY =====")\nhighSalary.forEach{println("")}\nprintln("===== PROJECT STATUS =====")\nprojects.forEach{println(" Progress:% Status:")}\nprintln("===== RUNNING PROJECTS =====")\nrunningProjects.forEach{println(it.title)}\nprintln("===== COMPLETED PROJECTS =====")\ncompletedProjects.forEach{println(it.title)}\nprintln("===== CLIENT DIRECTORY =====")\nclients.forEach{println(" Premium:")}\nprintln("===== PREMIUM CLIENTS =====")\npremiumClients.forEach{println(it.name)}\nval reports=mapOf("Servers" to "Online","Database" to "Connected","API" to "Healthy","Payments" to "Success","Build" to "Stable","Security" to "Protected","Tickets" to 18,"Resolved" to 16,"Pending" to 2,"Storage" to "72%","CPU" to "41%","Memory" to "63%","Backups" to "Completed","Notifications" to "Enabled","Version" to "5.8.2")\nprintln("===== SYSTEM REPORT =====")\nreports.forEach{println("")}\nval modules=listOf("Dashboard","Employees","Projects","Clients","Finance","Inventory","Support","HR","Reports","Analytics","Settings","Backup","Notifications","Security","Logs")\nprintln("===== MODULES =====")\nmodules.forEach{println(it)}\nprintln("Employee Records Loaded")\nprintln("Projects Synced")\nprintln("Client Database Updated")\nprintln("Financial Report Generated")\nprintln("Analytics Ready")\nprintln("ERP Dashboard Started Successfully")` },
       { name: "Kotlin Project 9", code:`data class Course(val id:Int,val title:String,val instructor:String,val students:Int,val duration:Int,val rating:Double,val published:Boolean)\ndata class Student(val id:Int,val name:String,val course:String,val progress:Int,val certificate:Boolean)\ndata class Instructor(val id:Int,val name:String,val experience:Int,val active:Boolean)\nval courses=listOf(\nCourse(101,"Android Development","Aman",420,48,4.9,true),\nCourse(102,"Kotlin Masterclass","Neha",310,42,4.8,true),\nCourse(103,"Web Development","Ravi",590,60,4.7,true),\nCourse(104,"UI Design","Priya",240,28,4.6,true),\nCourse(105,"Cloud Computing","Arjun",190,54,4.9,false),\nCourse(106,"Cyber Security","Sneha",275,46,4.8,true),\nCourse(107,"Data Structures","Rahul",360,52,4.9,true),\nCourse(108,"Machine Learning","Pooja",180,65,4.7,true)\n)\nval students=listOf(\nStudent(1,"Akash","Android Development",100,true),\nStudent(2,"Rohan","Web Development",82,false),\nStudent(3,"Simran","Kotlin Masterclass",96,true),\nStudent(4,"Anjali","Cyber Security",58,false),\nStudent(5,"Vikas","Machine Learning",71,false),\nStudent(6,"Meera","Data Structures",100,true),\nStudent(7,"Nitin","UI Design",88,false),\nStudent(8,"Karan","Android Development",93,true)\n)\nval instructors=listOf(\nInstructor(1,"Aman",6,true),\nInstructor(2,"Neha",8,true),\nInstructor(3,"Ravi",5,true),\nInstructor(4,"Priya",7,false),\nInstructor(5,"Sneha",10,true)\n)\nval publishedCourses=courses.filter{it.published}\nval topCourses=courses.filter{it.rating>=4.8}\nval completedStudents=students.filter{it.certificate}\nval activeInstructors=instructors.filter{it.active}\nval totalStudents=courses.sumOf{it.students}\nval totalDuration=courses.sumOf{it.duration}\nval averageRating=courses.sumOf{(it.rating*10).toInt()}.toDouble()/10/courses.size\nval topCourse=courses.maxByOrNull{it.students}\nval longestCourse=courses.maxByOrNull{it.duration}\nprintln("=========== ONLINE LEARNING PLATFORM ===========")\nprintln("Courses : ")\nprintln("Published : ")\nprintln("Students : $totalStudents")\nprintln("Instructors : ")\nprintln("Total Hours : $totalDuration")\nprintln("Average Rating : $averageRating")\nprintln("Top Course : $topCourse")\nprintln("Longest Course : $longestCourse")\nprintln("===== COURSE CATALOG =====")\ncourses.forEach{println(" Trainer: Students:Rating:")}\nprintln("===== TOP RATED COURSES =====")\ntopCourses.forEach{println("")}\nprintln("===== STUDENT PROGRESS =====")\nstudents.forEach{println("")}\nprintln("===== CERTIFIED STUDENTS =====")\ncompletedStudents.forEach{println(it.name)}\nprintln("===== INSTRUCTORS =====")\ninstructors.forEach{println(" Experience: Active:")}\nprintln("===== ACTIVE INSTRUCTORS =====")\nactiveInstructors.forEach{println(it.name)}\nval analytics=mapOf("Live Classes" to 18,"Assignments" to 245,"Quizzes" to 126,"Certificates" to completedStudents.size,"Downloads" to 18420,"Revenue" to 845000,"Server" to "Online","Database" to "Connected","Streaming" to "Stable","Payments" to "Success","Backups" to "Completed","Notifications" to "Enabled","Version" to "4.2.1","Theme" to "Modern")\nprintln("===== PLATFORM ANALYTICS =====")\nanalytics.forEach{println("")}\nval sections=listOf("Dashboard","Courses","Students","Teachers","Assignments","Quizzes","Certificates","Payments","Reports","Analytics","Messages","Settings","Support","Profile","Notifications","Library")\nprintln("===== PLATFORM SECTIONS =====")\nsections.forEach{println(it)}\nprintln("Course Data Loaded")\nprintln("Student Records Synced")\nprintln("Certificates Verified")\nprintln("Analytics Generated")\nprintln("Server Status Healthy")\nprintln("Learning Platform Started Successfully")`  },
-      { name: "Kotlin Project 10", code:`data class Device(val id:Int,val name:String,val type:String,val status:String,val battery:Int,val online:Boolean)\ndata class Room(val id:Int,val name:String,val devices:Int,val temperature:Double)\ndata class Event(val id:Int,val title:String,val priority:String,val resolved:Boolean)\nval devices=listOf(\nDevice(1,"Living Light","Light","ON",92,true),\nDevice(2,"Kitchen Light","Light","OFF",85,true),\nDevice(3,"Main Door Lock","Security","LOCKED",100,true),\nDevice(4,"Garage Camera","Camera","ACTIVE",76,true),\nDevice(5,"Bedroom AC","Climate","ON",68,true),\nDevice(6,"Hall Speaker","Audio","OFF",94,false),\nDevice(7,"Garden Sensor","Sensor","ACTIVE",81,true),\nDevice(8,"Smoke Detector","Safety","ACTIVE",99,true),\nDevice(9,"Water Pump","Utility","OFF",73,false),\nDevice(10,"Smart TV","Entertainment","ON",88,true)\n)\nval rooms=listOf(\nRoom(101,"Living Room",4,24.5),\nRoom(102,"Kitchen",2,27.1),\nRoom(103,"Bedroom",3,23.8),\nRoom(104,"Garage",2,28.4),\nRoom(105,"Garden",2,30.1)\n)\nval events=listOf(\nEvent(1,"Motion Detected","High",true),\nEvent(2,"Door Opened","Medium",true),\nEvent(3,"Smoke Alert","Critical",false),\nEvent(4,"Power Restored","Low",true),\nEvent(5,"Water Leak","High",false),\nEvent(6,"Temperature High","Medium",true)\n)\nval onlineDevices=devices.filter{it.online}\nval offlineDevices=devices.filter{!it.online}\nval activeEvents=events.filter{!it.resolved}\nval resolvedEvents=events.filter{it.resolved}\nval lowBattery=devices.filter{it.battery<80}\nval averageBattery=devices.sumOf{it.battery}/devices.size\nval totalDevices=devices.size\nval totalRooms=rooms.size\nval totalEvents=events.size\nval bestBattery=devices.maxByOrNull{it.battery}\nval warmestRoom=rooms.maxByOrNull{it.temperature}\nprintln("=========== SMART HOME CONTROL CENTER ===========")\nprintln("Devices : $totalDevices")\nprintln("Rooms : $totalRooms")\nprintln("Events : $totalEvents")\nprintln("Online Devices : ")\nprintln("Offline Devices : ")\nprintln("Average Battery : $averageBattery%")\nprintln("Best Battery Device : $bestBattery")\nprintln("Warmest Room : $warmestRoom")\nprintln("===== DEVICE STATUS =====")\ndevices.forEach{println("")}\nprintln("===== ROOM DETAILS =====")\nrooms.forEach{println(" Devices:Temp:C")}\nprintln("===== ACTIVE ALERTS =====")\nactiveEvents.forEach{println(" Priority:")}\nprintln("===== RESOLVED EVENTS =====")\nresolvedEvents.forEach{println(it.title)}\nprintln("===== LOW BATTERY DEVICES =====")\nlowBattery.forEach{println("%")}\nval dashboard=mapOf("WiFi" to "Connected","Cloud" to "Online","Security" to "Enabled","Automation" to "Running","Voice Assistant" to "Active","Notifications" to "Enabled","Energy Usage" to "38kWh","Today's Events" to totalEvents,"Resolved Alerts" to resolvedEvents.size,"Pending Alerts" to activeEvents.size,"Firmware" to "Updated","Backup" to "Completed","Location" to "Home","Mode" to "Auto","Version" to "6.1.0")\nprintln("===== DASHBOARD =====")\ndashboard.forEach{println("")}\nval modules=listOf("Home","Devices","Rooms","Scenes","Automation","Security","Cameras","Energy","Schedules","Voice","Notifications","Reports","Settings","Logs","Users","Support")\nprintln("===== CONTROL MODULES =====")\nmodules.forEach{println(it)}\nprintln("System Check Completed")\nprintln("Device Synchronization Successful")\nprintln("Automation Rules Loaded")\nprintln("Security Monitoring Active")\nprintln("Cloud Backup Verified")\nprintln("Smart Home Dashboard Ready Successfully")` }
+      { name: "Kotlin Project 10", code:`data class Device(val id:Int,val name:String,val type:String,val status:String,val battery:Int,val online:Boolean)\ndata class Room(val id:Int,val name:String,val devices:Int,val temperature:Double)\ndata class Event(val id:Int,val title:String,val priority:String,val resolved:Boolean)\nval devices=listOf(\nDevice(1,"Living Light","Light","ON",92,true),\nDevice(2,"Kitchen Light","Light","OFF",85,true),\nDevice(3,"Main Door Lock","Security","LOCKED",100,true),\nDevice(4,"Garage Camera","Camera","ACTIVE",76,true),\nDevice(5,"Bedroom AC","Climate","ON",68,true),\nDevice(6,"Hall Speaker","Audio","OFF",94,false),\nDevice(7,"Garden Sensor","Sensor","ACTIVE",81,true),\nDevice(8,"Smoke Detector","Safety","ACTIVE",99,true),\nDevice(9,"Water Pump","Utility","OFF",73,false),\nDevice(10,"Smart TV","Entertainment","ON",88,true)\n)\nval rooms=listOf(\nRoom(101,"Living Room",4,24.5),\nRoom(102,"Kitchen",2,27.1),\nRoom(103,"Bedroom",3,23.8),\nRoom(104,"Garage",2,28.4),\nRoom(105,"Garden",2,30.1)\n)\nval events=listOf(\nEvent(1,"Motion Detected","High",true),\nEvent(2,"Door Opened","Medium",true),\nEvent(3,"Smoke Alert","Critical",false),\nEvent(4,"Power Restored","Low",true),\nEvent(5,"Water Leak","High",false),\nEvent(6,"Temperature High","Medium",true)\n)\nval onlineDevices=devices.filter{it.online}\nval offlineDevices=devices.filter{!it.online}\nval activeEvents=events.filter{!it.resolved}\nval resolvedEvents=events.filter{it.resolved}\nval lowBattery=devices.filter{it.battery<80}\nval averageBattery=devices.sumOf{it.battery}/devices.size\nval totalDevices=devices.size\nval totalRooms=rooms.size\nval totalEvents=events.size\nval bestBattery=devices.maxByOrNull{it.battery}\nval warmestRoom=rooms.maxByOrNull{it.temperature}\nprintln("=========== SMART HOME CONTROL CENTER ===========")\nprintln("Devices : $totalDevices")\nprintln("Rooms : $totalRooms")\nprintln("Events : $totalEvents")\nprintln("Online Devices : ")\nprintln("Offline Devices : ")\nprintln("Average Battery : $averageBattery%")\nprintln("Best Battery Device : $bestBattery")\nprintln("Warmest Room : $warmestRoom")\nprintln("===== DEVICE STATUS =====")\ndevices.forEach{println("")}\nprintln("===== ROOM DETAILS =====")\nrooms.forEach{println(" Devices:Temp:C")}\nprintln("===== ACTIVE ALERTS =====")\nactiveEvents.forEach{println(" Priority:")}\nprintln("===== RESOLVED EVENTS =====")\nresolvedEvents.forEach{println(it.title)}\nprintln("===== LOW BATTERY DEVICES =====")\nlowBattery.forEach{println("%")}\nval dashboard=mapOf("WiFi" to "Connected","Cloud" to "Online","Security" to "Enabled","Automation" to "Running","Voice Assistant" to "Active","Notifications" to "Enabled","Energy Usage" to "38kWh","Today's Events" to totalEvents,"Resolved Alerts" to resolvedEvents.size,"Pending Alerts" to activeEvents.size,"Firmware" to "Updated","Backup" to "Completed","Location" to "Home","Mode" to "Auto","Version" to "6.1.0")\nprintln("===== DASHBOARD =====")\ndashboard.forEach{println("")}\nval modules=listOf("Home","Devices","Rooms","Scenes","Automation","Security","Cameras","Energy","Schedules","Voice","Notifications","Reports","Settings","Logs","Users","Support")\nprintln("===== CONTROL MODULES =====")\nmodules.forEach{println(it)}\nprintln("System Check Completed")\nprintln("Device Synchronization Successful")\nprintln("Automation Rules Loaded")\nprintln("Security Monitoring Active")\nprintln("Cloud Backup Verified")\nprintln("Smart Home Dashboard Ready Successfully")` },
+            { section: "Basic KOTLIN" },
+      { name: "1. String", code: `fun main() {
+
+    println("===== STRING EXAMPLE =====")
+
+    val text: String = "Kotlin Language"
+
+    println("Original: $text")
+
+    // length
+    println("Length: {text.length}")
+
+    // uppercase & lowercase
+    println("Uppercase: {text.uppercase()}")
+    println("Lowercase: {text.lowercase()}")
+
+    // loop through characters
+    var vowelCount = 0
+
+    for (ch in text) {
+
+        if (ch in "aeiouAEIOU") {
+            println("Vowel Found: $ch")
+            vowelCount++
+        } else {
+            println("Consonant/Other: $ch")
+        }
+    }
+
+    println("Total Vowels: $vowelCount")
+
+    // split words
+    val words = text.split(" ")
+
+    for (word in words) {
+        println("Word: $word")
+    }
+}` },
+      { name: "2. int", code: `fun main() {
+
+    println("===== INT EXAMPLE =====")
+
+    val num: Int = 10
+
+    println("Number: $num")
+
+    // even/odd check
+    if (num % 2 == 0) {
+        println("$num is EVEN")
+    } else {
+        println("$num is ODD")
+    }
+
+    // factorial
+    var fact = 1
+
+    for (i in 1..num) {
+        fact *= i
+        println("Step $i -> $fact")
+    }
+
+    println("Factorial: $fact")
+
+    // sum
+    var sum = 0
+    for (i in 1..num) {
+        sum += i
+    }
+
+    println("Sum till $num = $sum")
+}` },
+      { name: "3. Float", code: `fun main() {
+
+    println("===== FLOAT EXAMPLE =====")
+
+    val num: Float = 5.5f
+
+    println("Value: $num")
+
+    // multiplication table
+    for (i in 1..5) {
+        val result = num * i
+        println("$num x $i = $result")
+    }
+
+    // comparison
+    if (num > 5.0) {
+        println("Greater than 5")
+    } else {
+        println("Less or equal to 5")
+    }
+
+    // sum of decimals
+    var total: Float = 0.0f
+
+    for (i in 1..5) {
+        total += num
+        println("Step $i total = $total")
+    }
+
+    println("Final Total: $total")
+}` },
+      { name: "4. Boolean", code: `fun main() {
+
+    println("===== BOOLEAN EXAMPLE =====")
+
+    val isLoggedIn: Boolean = true
+    val isPremium: Boolean = false
+
+    if (isLoggedIn && isPremium) {
+        println("Premium User Access")
+    } 
+    else if (isLoggedIn) {
+        println("Normal User Access")
+    } 
+    else {
+        println("Please Login")
+    }
+
+    // toggle logic
+    var status = false
+
+    for (i in 1..5) {
+        status = !status
+        println("Step $i Status: $status")
+    }
+}` },
+      { name: "5. LIST", code: `fun main() {
+
+    println("===== LIST EXAMPLE =====")
+
+    val numbers = mutableListOf<Int>()
+
+    for (i in 1..10) {
+        numbers.add(i)
+    }
+
+    println("List: $numbers")
+
+    var even = 0
+    var odd = 0
+
+    for (num in numbers) {
+
+        if (num % 2 == 0) {
+            even++
+            println("$num EVEN")
+        } else {
+            odd++
+            println("$num ODD")
+        }
+    }
+
+    println("Even Count: $even")
+    println("Odd Count: $odd")
+}` },
+      { name: "6. Map", code: `fun main() {
+
+    println("===== MAP EXAMPLE =====")
+
+    val data = mutableMapOf<String, Int>()
+
+    data["Krishna"] = 90
+    data["Aman"] = 70
+    data["Riya"] = 85
+
+    for ((name, marks) in data) {
+
+        println("$name -> $marks")
+
+        if (marks >= 80) {
+            println("Grade A")
+        } else {
+            println("Grade B")
+        }
+    }
+
+    println("Total Students: \${data.size}")
+}` },
+      { name: "7. Double", code: `fun main() {
+
+    println("===== DOUBLE EXAMPLE =====")
+
+    val price: Double = 99.99
+    val tax: Double = 0.18
+
+    val total = price + (price * tax)
+
+    println("Price: $price")
+    println("Tax: $tax")
+    println("Total: $total")
+
+    // rounding simulation
+    val rounded = total.toInt()
+
+    println("Rounded: $rounded")
+}` },
+       { section: "IF - ELSE IF - ELSE" },
+      { name: "IF", code: `fun main() {
+
+    println("===== ONLY IF PROJECT =====")
+
+    val num = 15
+
+    println("Number: $num")
+
+    if (num > 0) {
+        println("Positive Number")
+    }
+
+    if (num % 2 == 0) {
+        println("Even Number")
+    }
+
+    if (num % 2 != 0) {
+        println("Odd Number")
+    }
+
+    if (num > 10) {
+        println("Greater than 10")
+    }
+
+    // loop + if
+    for (i in 1..num) {
+
+        if (i % 3 == 0) {
+            println("$i divisible by 3")
+        }
+
+        if (i % 5 == 0) {
+            println("$i divisible by 5")
+        }
+    }
+
+    // factorial logic using if
+    var fact = 1
+
+    for (i in 1..num) {
+        fact *= i
+
+        if (i == num) {
+            println("Factorial of $num = $fact")
+        }
+    }
+}` },
+      { name: "IF + ELSE IF", code: `fun main() {
+
+    println("===== IF + ELSE IF PROJECT =====")
+
+    val marks = 76
+
+    println("Marks: $marks")
+
+    if (marks >= 90) {
+        println("Grade A+")
+    }
+    else if (marks >= 80) {
+        println("Grade A")
+    }
+    else if (marks >= 70) {
+        println("Grade B")
+    }
+    else if (marks >= 60) {
+        println("Grade C")
+    }
+    else if (marks >= 50) {
+        println("Grade D")
+    }
+    else {
+        println("Fail")
+    }
+
+    // loop with conditions
+    for (i in 50..marks step 5) {
+
+        if (i >= 90) {
+            println("$i -> A+")
+        }
+        else if (i >= 80) {
+            println("$i -> A")
+        }
+        else if (i >= 70) {
+            println("$i -> B")
+        }
+        else {
+            println("$i -> Below B")
+        }
+    }
+}` },
+      { name: "IF + ELSE", code: `fun main() {
+
+    println("===== IF + ELSE PROJECT =====")
+
+    val correctUser = "Krishna"
+    val correctPass = "1234"
+
+    val inputUser = "Krishna"
+    val inputPass = "1234"
+
+    if (inputUser == correctUser && inputPass == correctPass) {
+
+        println("Login Successful")
+
+        // extra logic
+        for (i in 1..3) {
+            println("Welcome $inputUser - Session $i")
+        }
+
+    } else {
+
+        println("Login Failed")
+
+        // retry simulation
+        for (i in 1..3) {
+            println("Attempt $i failed")
+        }
+    }
+}` },
+      { name: "IF - ELSE IF - ELSE", code: `fun main() {
+
+    println("===== FULL IF MIX PROJECT =====")
+
+    val amount = 750
+
+    println("Shopping Amount: ₹$amount")
+
+    var discount = 0
+
+    if (amount >= 1000) {
+        discount = 20
+        println("20% Discount Applied")
+    }
+    else if (amount >= 500) {
+        discount = 10
+        println("10% Discount Applied")
+    }
+    else if (amount >= 200) {
+        discount = 5
+        println("5% Discount Applied")
+    }
+    else {
+        println("No Discount")
+    }
+
+    val finalAmount = amount - (amount * discount / 100)
+
+    println("Final Amount: ₹$finalAmount")
+
+    // loop for multiple customers
+    for (i in 1..5) {
+
+        val tempAmount = i * 200
+
+        if (tempAmount >= 1000) {
+            println("Customer $i -> High Discount")
+        }
+        else if (tempAmount >= 500) {
+            println("Customer $i -> Medium Discount")
+        }
+        else {
+            println("Customer $i -> Low/No Discount")
+        }
+    }
+}` },
+      { section: "Loops in KOTLIN" },
+      { name: "1. For Loop", code: `fun main() {
+
+    println("===== FOR LOOP PROJECT =====")
+
+    val numbers = mutableListOf<Int>()
+
+    // add numbers
+    for (i in 1..20) {
+        numbers.add(i)
+    }
+
+    println("All Numbers: $numbers")
+
+    var even = 0
+    var odd = 0
+    var sum = 0
+
+    // analyze numbers
+    for (num in numbers) {
+
+        sum += num
+
+        if (num % 2 == 0) {
+            println("$num is EVEN")
+            even++
+        } else {
+            println("$num is ODD")
+            odd++
+        }
+
+        if (num % 5 == 0) {
+            println("$num divisible by 5")
+        }
+    }
+
+    println("Total Even: $even")
+    println("Total Odd: $odd")
+    println("Total Sum: $sum")
+
+    // reverse loop
+    for (i in 20 downTo 1) {
+        if (i % 4 == 0) {
+            println("Reverse Check: $i divisible by 4")
+        }
+    }
+}` },
+      { name: "While Loop", code: `fun main() {
+
+    println("===== WHILE LOOP PROJECT =====")
+
+    val correctUser = "admin"
+    val correctPass = "1234"
+
+    var attempts = 0
+    var isLoggedIn = false
+
+    while (attempts < 5 && !isLoggedIn) {
+
+        val inputUser = "admin"
+        val inputPass = "1234"
+
+        println("Attempt \${attempts + 1}")
+
+        if (inputUser == correctUser && inputPass == correctPass) {
+            println("Login Successful")
+            isLoggedIn = true
+        } else {
+            println("Wrong Credentials")
+        }
+
+        attempts++
+    }
+
+    if (!isLoggedIn) {
+        println("Account Locked")
+    }
+
+    // countdown
+    var count = 5
+
+    while (count > 0) {
+        println("Countdown: $count")
+        count--
+    }
+}` },
+      { name: "Do-While loop", code: `fun main() {
+
+    println("===== DO-WHILE PROJECT =====")
+
+    var choice: Int
+
+    do {
+
+        println("1. Show Numbers")
+        println("2. Show Even Numbers")
+        println("3. Exit")
+
+        choice = 1   // simulate input
+
+        if (choice == 1) {
+
+            for (i in 1..10) {
+                println("Number: $i")
+            }
+
+        } else if (choice == 2) {
+
+            for (i in 1..10) {
+                if (i % 2 == 0) {
+                    println("Even: $i")
+                }
+            }
+
+        } else if (choice == 3) {
+            println("Exiting...")
+        }
+
+    } while (choice != 3)
+}` },
+      { name: "Nested Loop", code: `fun main() {
+
+    println("===== NESTED LOOP PROJECT =====")
+
+    // pattern
+    for (i in 1..5) {
+
+        for (j in 1..i) {
+            print("* ")
+        }
+
+        println()
+    }
+
+    println("===== MULTIPLICATION TABLE =====")
+
+    for (i in 1..5) {
+
+        println("Table of $i")
+
+        for (j in 1..10) {
+            println("$i x $j = \${i * j}")
+        }
+
+        println("----------------")
+    }
+}` },
+      { name: "Break-Continue Loop", code: `fun main() {
+
+    println("===== BREAK & CONTINUE PROJECT =====")
+
+    val numbers = (1..20).toList()
+
+    for (num in numbers) {
+
+        if (num == 15) {
+            println("Stopping at $num")
+            break
+        }
+
+        if (num % 2 == 0) {
+            continue
+        }
+
+        println("Odd Number: $num")
+    }
+
+    println("Loop Ended")
+
+    // second logic
+    for (i in 1..10) {
+
+        if (i == 5) {
+            println("Skipping 5")
+            continue
+        }
+
+        println("Value: $i")
+    }
+}` },
+      { name: "Mix Project", code: `fun main() {
+
+    println("===== ALL LOOPS COMBINED =====")
+
+    // for loop
+    for (i in 1..5) {
+        println("FOR: $i")
+    }
+
+    // while loop
+    var w = 1
+    while (w <= 5) {
+        println("WHILE: $w")
+        w++
+    }
+
+    // do-while
+    var d = 1
+    do {
+        println("DO-WHILE: $d")
+        d++
+    } while (d <= 5)
+
+    // nested
+    for (i in 1..3) {
+        for (j in 1..3) {
+            println("i=$i j=$j")
+        }
+    }
+}` },
+      { section: "FUNCTIONS in Kotline" },
+      { name: "1. SIMPLE FUNCTION", code: `fun showWelcome() {
+
+    println("===== SIMPLE FUNCTION =====")
+
+    for (i in 1..3) {
+        println("Welcome User - Step $i")
+    }
+
+    println("This is a basic function")
+
+    for (i in 5 downTo 1) {
+        println("Countdown: $i")
+    }
+}
+
+fun main() {
+    showWelcome()
+}` },
+      { name: "2. FUNCTION WITH PARAMETERS", code: `fun greetUser(name: String, age: Int) {
+
+    println("===== PARAMETER FUNCTION =====")
+
+    println("Hello $name")
+    println("Age: $age")
+
+    if (age >= 18) {
+        println("$name is Adult")
+    } else {
+        println("$name is Minor")
+    }
+
+    for (i in 1..age step 5) {
+        println("Progress: $i")
+    }
+}
+
+fun main() {
+    greetUser("Krishna", 18)
+}` },
+      { name: "3. FUNCTION WITH RETURN VALUE", code: `fun calculateSum(n: Int): Int {
+
+    var sum = 0
+
+    for (i in 1..n) {
+        sum += i
+        println("Adding $i -> Total = $sum")
+    }
+
+    return sum
+}
+
+fun main() {
+
+    println("===== RETURN FUNCTION =====")
+
+    val result = calculateSum(10)
+
+    println("Final Sum = $result")
+}` },
+      { name: "4. FUNCTION WITH MULTIPLE RETURNS", code: `fun checkNumber(num: Int): String {
+
+    if (num > 0) {
+        return "Positive"
+    }
+
+    if (num < 0) {
+        return "Negative"
+    }
+
+    return "Zero"
+}
+
+fun main() {
+
+    println("===== MULTIPLE RETURN =====")
+
+    val numbers = listOf(10, -5, 0)
+
+    for (n in numbers) {
+        println("$n is \${checkNumber(n)}")
+    }
+}` },
+      { name: "5. RECURSIVE FUNCTION", code: `fun factorial(n: Int): Int {
+
+    if (n == 1) {
+        return 1
+    }
+
+    println("Calculating factorial of $n")
+
+    return n * factorial(n - 1)
+}
+
+fun main() {
+
+    println("===== RECURSIVE FUNCTION =====")
+
+    val num = 5
+
+    val result = factorial(num)
+
+    println("Factorial of $num = $result")
+}` },
+      { name: "6. LAMBDA FUNCTION", code: `fun main() {
+
+    println("===== LAMBDA FUNCTION =====")
+
+    val multiply = { a: Int, b: Int -> a * b }
+
+    val result = multiply(5, 3)
+
+    println("Multiplication Result: $result")
+
+    val numbers = listOf(1, 2, 3, 4, 5)
+
+    val squared = numbers.map { it * it }
+
+    for (num in squared) {
+        println("Square: $num")
+    }
+}` },
+      { name: "7. HIGHER-ORDER FUNCTION", code: `fun processNumbers(list: List<Int>, action: (Int) -> Unit) {
+
+    for (num in list) {
+
+        if (num % 2 == 0) {
+            action(num)
+        }
+    }
+}
+
+fun main() {
+
+    println("===== HIGHER ORDER FUNCTION =====")
+
+    val numbers = listOf(1, 2, 3, 4, 5, 6)
+
+    processNumbers(numbers) {
+        println("Even Number: $it")
+    }
+}` },
+      { name: "8. DEFAULT PARAMETER FUNCTION", code: `fun createUser(name: String, age: Int = 18) {
+
+    println("===== DEFAULT PARAMETER =====")
+
+    println("Name: $name")
+    println("Age: $age")
+
+    if (age >= 18) {
+        println("Adult User")
+    }
+}
+
+fun main() {
+
+    createUser("Krishna")
+    createUser("Aman", 25)
+}` },
+      { name: "9. NAMED ARGUMENT FUNCTION", code: `fun displayInfo(name: String, city: String, age: Int) {
+
+    println("===== NAMED ARGUMENT =====")
+
+    println("Name: $name")
+    println("City: $city")
+    println("Age: $age")
+}
+
+fun main() {
+
+    displayInfo(age = 20, name = "Krishna", city = "Pune")
+}` },
+      { name: "10. EXTENSION FUNCTION", code: `fun String.checkLength(): Int {
+
+    println("Checking length of string: $this")
+
+    return this.length
+}
+
+fun main() {
+
+    println("===== EXTENSION FUNCTION =====")
+
+    val text = "Kotlin"
+
+    val len = text.checkLength()
+
+    println("Length = $len")
+}` },
+      { name: "🔥BIG MIX FUNCTION SYSTEM", code: `fun analyzeList(numbers: List<Int>): Int {
+
+    var sum = 0
+
+    for (num in numbers) {
+
+        if (num % 2 == 0) {
+            println("$num EVEN")
+        } else {
+            println("$num ODD")
+        }
+
+        sum += num
+    }
+
+    return sum
+}
+
+fun main() {
+
+    println("===== BIG FUNCTION SYSTEM =====")
+
+    val list = (1..10).toList()
+
+    val total = analyzeList(list)
+
+    println("Total Sum = $total")
+}` }
     ];
   }
 // 👉 SWIFT
@@ -1490,7 +3159,543 @@ if (lang === "Node.js") {
       { name: "C# Project 7", code:`using System;\nusing System.Collections.Generic;\nusing System.Linq;\nclass Product{public int Id;public string Name;public string Category;public int Price;public int Stock;public int Sold;public bool Available;}\nclass Customer{public int Id;public string Name;public int Orders;public int Spent;public bool Premium;}\nclass Order{public int Id;public string Customer;public string Product;public int Qty;public int Total;public string Status;}\nclass Program{\nstatic void Main(){\nList<Product> products=new List<Product>{\nnew Product{Id=101,Name="Laptop",Category="Electronics",Price=72000,Stock=25,Sold=145,Available=true},\nnew Product{Id=102,Name="Keyboard",Category="Accessories",Price=3500,Stock=70,Sold=264,Available=true},\nnew Product{Id=103,Name="Mouse",Category="Accessories",Price=1800,Stock=110,Sold=401,Available=true},\nnew Product{Id=104,Name="Monitor",Category="Electronics",Price=16500,Stock=42,Sold=138,Available=true},\nnew Product{Id=105,Name="SSD",Category="Storage",Price=7600,Stock=51,Sold=192,Available=true},\nnew Product{Id=106,Name="Headset",Category="Audio",Price=5900,Stock=38,Sold=167,Available=true}\n};\nList<Customer> customers=new List<Customer>{\nnew Customer{Id=1,Name="Aman",Orders=18,Spent=185000,Premium=true},\nnew Customer{Id=2,Name="Neha",Orders=11,Spent=98000,Premium=true},\nnew Customer{Id=3,Name="Ravi",Orders=7,Spent=35400,Premium=false},\nnew Customer{Id=4,Name="Priya",Orders=15,Spent=142000,Premium=true},\nnew Customer{Id=5,Name="Arjun",Orders=9,Spent=48200,Premium=false}\n};\nList<Order> orders=new List<Order>{\nnew Order{Id=1001,Customer="Aman",Product="Laptop",Qty=1,Total=72000,Status="Delivered"},\nnew Order{Id=1002,Customer="Neha",Product="Monitor",Qty=1,Total=16500,Status="Delivered"},\nnew Order{Id=1003,Customer="Priya",Product="SSD",Qty=2,Total=15200,Status="Processing"},\nnew Order{Id=1004,Customer="Arjun",Product="Mouse",Qty=3,Total=5400,Status="Packed"},\nnew Order{Id=1005,Customer="Ravi",Product="Keyboard",Qty=1,Total=3500,Status="Delivered"}\n};\nint totalStock=products.Sum(x=>x.Stock);\nint totalSold=products.Sum(x=>x.Sold);\nint inventoryValue=products.Sum(x=>x.Stock*x.Price);\nint revenue=orders.Sum(x=>x.Total);\nint premiumUsers=customers.Count(x=>x.Premium);\nvar bestSeller=products.OrderByDescending(x=>x.Sold).First();\nDictionary<string,string> dashboard=new Dictionary<string,string>();\ndashboard.Add("Server","Online");\ndashboard.Add("Database","Connected");\ndashboard.Add("API","Running");\ndashboard.Add("Security","Enabled");\ndashboard.Add("Cache","Active");\ndashboard.Add("Backup","Completed");\ndashboard.Add("Version","2.3.1");\nConsole.WriteLine("============= C# STORE MANAGEMENT SYSTEM =============");\nConsole.WriteLine("Products: "+products.Count);\nConsole.WriteLine("Customers: "+customers.Count);\nConsole.WriteLine("Orders: "+orders.Count);\nConsole.WriteLine("Stock: "+totalStock);\nConsole.WriteLine("Sold: "+totalSold);\nConsole.WriteLine("Inventory Value: "+inventoryValue);\nConsole.WriteLine("Revenue: "+revenue);\nConsole.WriteLine("Premium Customers: "+premiumUsers);\nConsole.WriteLine("Best Seller: "+bestSeller.Name+" "+bestSeller.Sold);\nConsole.WriteLine("=====PRODUCTS=====");\nforeach(var p in products){Console.WriteLine(p.Id+" "+p.Name+" "+p.Category+" "+p.Price+" "+p.Stock+" "+p.Sold+" "+p.Available);}\nConsole.WriteLine("=====CUSTOMERS=====");\nforeach(var c in customers){Console.WriteLine(c.Id+" "+c.Name+" "+c.Orders+" "+c.Spent+" "+c.Premium);}\nConsole.WriteLine("=====ORDERS=====");\nforeach(var o in orders){Console.WriteLine(o.Id+" "+o.Customer+" "+o.Product+" "+o.Qty+" "+o.Total+" "+o.Status);}\nConsole.WriteLine("=====SYSTEM STATUS=====");\nforeach(var d in dashboard){Console.WriteLine(d.Key+" : "+d.Value);}\nstring[] modules={"Dashboard","Inventory","Orders","Customers","Billing","Reports","Analytics","Support","Settings","Notifications","Logs","Cloud Sync"};\nConsole.WriteLine("=====MODULES=====");\nforeach(string m in modules){Console.WriteLine(m);}\nConsole.WriteLine("C# Store Management System Started Successfully");\n}\n}`  },
       { name: "C# Project 8", code:`using System;\nusing System.Collections.Generic;\nusing System.Linq;\nclass Student{public int Roll;public string Name;public string Course;public List<int> Marks;public int Attendance;}\nclass Program{\nstatic string Grade(double avg){if(avg>=90)return"A+";if(avg>=80)return"A";if(avg>=70)return"B";if(avg>=60)return"C";return"D";}\nstatic void Main(){\nList<Student> students=new List<Student>{\nnew Student{Roll=1,Name="Aman",Course="AI",Marks=new List<int>{95,91,89,94},Attendance=97},\nnew Student{Roll=2,Name="Neha",Course="Cloud",Marks=new List<int>{82,85,81,84},Attendance=95},\nnew Student{Roll=3,Name="Ravi",Course="Cyber",Marks=new List<int>{71,75,73,70},Attendance=89},\nnew Student{Roll=4,Name="Priya",Course="Web",Marks=new List<int>{98,96,99,97},Attendance=99},\nnew Student{Roll=5,Name="Arjun",Course="Data",Marks=new List<int>{88,84,86,90},Attendance=93},\nnew Student{Roll=6,Name="Karan",Course="ML",Marks=new List<int>{69,72,74,70},Attendance=87}\n};\nDictionary<string,string> portal=new Dictionary<string,string>();\nportal.Add("Semester","Final");\nportal.Add("Result","Published");\nportal.Add("Server","Online");\nportal.Add("Database","Connected");\nportal.Add("Portal","Running");\ndouble classAverage=0;\nstring topper=\"\";\ndouble topMarks=0;\nConsole.WriteLine(\"============= C# STUDENT PORTAL =============\");\nforeach(var s in students){\ndouble avg=s.Marks.Average();\nclassAverage+=avg;\nif(avg>topMarks){topMarks=avg;topper=s.Name;}\nConsole.WriteLine(\"--------------------------------\");\nConsole.WriteLine(\"Roll : \"+s.Roll);\nConsole.WriteLine(\"Name : \"+s.Name);\nConsole.WriteLine(\"Course : \"+s.Course);\nConsole.WriteLine(\"Marks : \"+string.Join(\",\",s.Marks));\nConsole.WriteLine(\"Average : \"+avg);\nConsole.WriteLine(\"Grade : \"+Grade(avg));\nConsole.WriteLine(\"Attendance : \"+s.Attendance+\"%\");\n}\nConsole.WriteLine(\"================================\");\nConsole.WriteLine(\"Students : \"+students.Count);\nConsole.WriteLine(\"Class Average : \"+(classAverage/students.Count));\nConsole.WriteLine(\"Topper : \"+topper+\" (\"+topMarks+\")\");\nConsole.WriteLine(\"=====PORTAL STATUS=====\");\nforeach(var p in portal){Console.WriteLine(p.Key+\" : \"+p.Value);}\nstring[] notices={\"Project Submission\",\"Exam Completed\",\"Certificates Ready\",\"Placement Drive\",\"Holiday Notice\",\"New Semester Registration\"};\nConsole.WriteLine(\"=====NOTICES=====\");\nforeach(string n in notices){Console.WriteLine(n);}\nConsole.WriteLine(\"Student Portal Closed Successfully\");\n}\n}` },
       { name: "C# Project 9", code:`using System;\nusing System.Collections.Generic;\nusing System.Linq;\nclass Flight{public int Id;public string Code;public string From;public string To;public int Seats;public int Booked;public int Price;public string Status;}\nclass Passenger{public int Id;public string Name;public string Flight;public string Seat;public bool Paid;}\nclass Program{\nstatic void Main(){\nList<Flight> flights=new List<Flight>{\nnew Flight{Id=1,Code="AI101",From="Delhi",To="Mumbai",Seats=180,Booked=165,Price=6200,Status="OnTime"},\nnew Flight{Id=2,Code="AI205",From="Pune",To="Bengaluru",Seats=170,Booked=152,Price=5400,Status="Boarding"},\nnew Flight{Id=3,Code="AI309",From="Hyderabad",To="Chennai",Seats=160,Booked=121,Price=4700,Status="Delayed"},\nnew Flight{Id=4,Code="AI410",From="Jaipur",To="Goa",Seats=190,Booked=181,Price=7900,Status="OnTime"},\nnew Flight{Id=5,Code="AI555",From="Kolkata",To="Delhi",Seats=200,Booked=176,Price=6800,Status="Scheduled"},\nnew Flight{Id=6,Code="AI620",From="Lucknow",To="Ahmedabad",Seats=175,Booked=149,Price=5100,Status="OnTime"}\n};\nList<Passenger> passengers=new List<Passenger>{\nnew Passenger{Id=1,Name="Aman",Flight="AI101",Seat="12A",Paid=true},\nnew Passenger{Id=2,Name="Neha",Flight="AI205",Seat="08C",Paid=true},\nnew Passenger{Id=3,Name="Ravi",Flight="AI309",Seat="16D",Paid=false},\nnew Passenger{Id=4,Name="Priya",Flight="AI410",Seat="02F",Paid=true},\nnew Passenger{Id=5,Name="Arjun",Flight="AI555",Seat="21B",Paid=true},\nnew Passenger{Id=6,Name="Karan",Flight="AI620",Seat="11E",Paid=true},\nnew Passenger{Id=7,Name="Pooja",Flight="AI101",Seat="18C",Paid=false},\nnew Passenger{Id=8,Name="Rohan",Flight="AI205",Seat="09A",Paid=true}\n};\nint totalSeats=flights.Sum(f=>f.Seats);\nint bookedSeats=flights.Sum(f=>f.Booked);\nint availableSeats=totalSeats-bookedSeats;\nint revenue=flights.Sum(f=>f.Booked*f.Price);\nint paidTickets=passengers.Count(p=>p.Paid);\nint pendingTickets=passengers.Count-paidTickets;\nvar busiest=flights.OrderByDescending(f=>f.Booked).First();\nDictionary<string,string> system=new Dictionary<string,string>();\nsystem.Add("Server","Online");\nsystem.Add("Radar","Connected");\nsystem.Add("Weather","Clear");\nsystem.Add("Security","Enabled");\nsystem.Add("CheckIn","Running");\nsystem.Add("Boarding","Active");\nsystem.Add("Database","Connected");\nsystem.Add("Version","5.8.1");\nConsole.WriteLine("=============== C# AIRPORT MANAGEMENT SYSTEM ===============");\nConsole.WriteLine("Flights : "+flights.Count);\nConsole.WriteLine("Passengers : "+passengers.Count);\nConsole.WriteLine("Seats : "+totalSeats);\nConsole.WriteLine("Booked : "+bookedSeats);\nConsole.WriteLine("Available : "+availableSeats);\nConsole.WriteLine("Revenue : "+revenue);\nConsole.WriteLine("Paid Tickets : "+paidTickets);\nConsole.WriteLine("Pending Tickets : "+pendingTickets);\nConsole.WriteLine("Busiest Flight : "+busiest.Code+\" (\"+busiest.Booked+\")\");\nConsole.WriteLine("=====FLIGHTS=====");\nforeach(var f in flights){Console.WriteLine(f.Id+\" \"+f.Code+\" \"+f.From+\" -> \"+f.To+\" Seats:\"+f.Seats+\" Booked:\"+f.Booked+\" Price:\"+f.Price+\" Status:\"+f.Status);}\nConsole.WriteLine("=====PASSENGERS=====");\nforeach(var p in passengers){Console.WriteLine(p.Id+\" \"+p.Name+\" Flight:\"+p.Flight+\" Seat:\"+p.Seat+\" Paid:\"+p.Paid);}\nConsole.WriteLine("=====SYSTEM STATUS=====");\nforeach(var s in system){Console.WriteLine(s.Key+\" : \"+s.Value);}\nstring[] services={\"Online Booking\",\"Mobile CheckIn\",\"Flight Tracker\",\"Baggage\",\"VIP Lounge\",\"Customer Support\",\"Refund\",\"Ticket Print\",\"Live Schedule\",\"Notifications\",\"Security Monitor\",\"Analytics\",\"Reports\",\"Settings\"};\nConsole.WriteLine("=====SERVICES=====");\nforeach(string x in services){Console.WriteLine(x);}\nConsole.WriteLine("Airport Management System Started Successfully");\n}\n}` },
-      { name: "C# Project 10", code:`using System;\nusing System.Collections.Generic;\nusing System.Linq;\nclass Device{public int Id;public string Name;public string Ip;public int Cpu;public int Ram;public int Disk;public bool Online;}\nclass Service{public string Name;public int Requests;public int Errors;public double Uptime;}\nclass Alert{public int Id;public string Level;public string Message;public bool Resolved;}\nclass Program{\nstatic void Main(){\nList<Device> devices=new List<Device>{\nnew Device{Id=1,Name="Gateway",Ip="10.0.0.1",Cpu=35,Ram=48,Disk=61,Online=true},\nnew Device{Id=2,Name="WebServer",Ip="10.0.0.2",Cpu=72,Ram=66,Disk=58,Online=true},\nnew Device{Id=3,Name="Database",Ip="10.0.0.3",Cpu=81,Ram=84,Disk=79,Online=true},\nnew Device{Id=4,Name="Cache",Ip="10.0.0.4",Cpu=29,Ram=41,Disk=43,Online=true},\nnew Device{Id=5,Name="Storage",Ip="10.0.0.5",Cpu=57,Ram=63,Disk=91,Online=true},\nnew Device{Id=6,Name="Backup",Ip="10.0.0.6",Cpu=22,Ram=36,Disk=96,Online=true},\nnew Device{Id=7,Name="Analytics",Ip="10.0.0.7",Cpu=76,Ram=71,Disk=69,Online=false},\nnew Device{Id=8,Name="Mail",Ip="10.0.0.8",Cpu=41,Ram=47,Disk=52,Online=true}\n};\nList<Service> services=new List<Service>{\nnew Service{Name="Login API",Requests=16234,Errors=12,Uptime=99.98},\nnew Service{Name="Payment API",Requests=11452,Errors=8,Uptime=99.96},\nnew Service{Name="Storage API",Requests=18430,Errors=5,Uptime=99.99},\nnew Service{Name="Notification",Requests=9234,Errors=3,Uptime=99.95},\nnew Service{Name="Analytics",Requests=13542,Errors=14,Uptime=99.91},\nnew Service{Name="Reports",Requests=7532,Errors=2,Uptime=99.99}\n};\nList<Alert> alerts=new List<Alert>{\nnew Alert{Id=101,Level="High",Message="CPU Usage",Resolved=false},\nnew Alert{Id=102,Level="Medium",Message="Memory Warning",Resolved=true},\nnew Alert{Id=103,Level="Critical",Message="Network Timeout",Resolved=false},\nnew Alert{Id=104,Level="Low",Message="Disk Cleanup",Resolved=true},\nnew Alert{Id=105,Level="Medium",Message="Backup Delay",Resolved=true},\nnew Alert{Id=106,Level="High",Message="API Response Slow",Resolved=false}\n};\nint online=devices.Count(x=>x.Online);\nint offline=devices.Count-online;\nint avgCpu=(int)devices.Average(x=>x.Cpu);\nint avgRam=(int)devices.Average(x=>x.Ram);\nint avgDisk=(int)devices.Average(x=>x.Disk);\nint totalRequests=services.Sum(x=>x.Requests);\nint totalErrors=services.Sum(x=>x.Errors);\nint unresolved=alerts.Count(x=>!x.Resolved);\nDictionary<string,string> system=new Dictionary<string,string>();\nsystem.Add("Cluster","Healthy");\nsystem.Add("Firewall","Enabled");\nsystem.Add("SSL","Active");\nsystem.Add("Database","Connected");\nsystem.Add("Monitoring","Running");\nsystem.Add("Scheduler","Online");\nsystem.Add("Backup","Completed");\nsystem.Add("Version","10.5.2");\nsystem.Add("Cloud","Connected");\nsystem.Add("Security","Protected");\nConsole.WriteLine("================= C# NETWORK OPERATIONS CENTER =================");\nConsole.WriteLine("Devices : "+devices.Count);\nConsole.WriteLine("Online : "+online+\" Offline : \"+offline);\nConsole.WriteLine("CPU Avg : "+avgCpu+\"% RAM Avg : \"+avgRam+\"% Disk Avg : \"+avgDisk+\"%\");\nConsole.WriteLine("Requests : "+totalRequests+\" Errors : \"+totalErrors);\nConsole.WriteLine("Alerts : "+alerts.Count+\" Unresolved : \"+unresolved);\nConsole.WriteLine("=====DEVICES=====");\nforeach(var d in devices){Console.WriteLine(d.Id+\" \"+d.Name+\" \"+d.Ip+\" CPU:\"+d.Cpu+\" RAM:\"+d.Ram+\" DISK:\"+d.Disk+\" Online:\"+d.Online);}\nConsole.WriteLine("=====SERVICES=====");\nforeach(var s in services){Console.WriteLine(s.Name+\" Requests:\"+s.Requests+\" Errors:\"+s.Errors+\" Uptime:\"+s.Uptime+\"%\");}\nConsole.WriteLine("=====ALERTS=====");\nforeach(var a in alerts){Console.WriteLine(a.Id+\" \"+a.Level+\" \"+a.Message+\" Resolved:\"+a.Resolved);}\nConsole.WriteLine("=====SYSTEM=====");\nforeach(var x in system){Console.WriteLine(x.Key+\" : \"+x.Value);}\nstring[] modules={\"Dashboard\",\"Devices\",\"Servers\",\"Alerts\",\"Traffic\",\"Security\",\"Analytics\",\"Logs\",\"Cloud\",\"Automation\",\"Scheduler\",\"Reports\",\"Performance\",\"Audit\",\"Firewall\",\"API Gateway\",\"Storage\",\"Settings\",\"Support\",\"Terminal\"};\nConsole.WriteLine("=====MODULES=====");\nforeach(string m in modules){Console.WriteLine(m);}\nConsole.WriteLine("Network Operations Center Started Successfully");\n}\n}` }
+      { name: "C# Project 10", code:`using System;\nusing System.Collections.Generic;\nusing System.Linq;\nclass Device{public int Id;public string Name;public string Ip;public int Cpu;public int Ram;public int Disk;public bool Online;}\nclass Service{public string Name;public int Requests;public int Errors;public double Uptime;}\nclass Alert{public int Id;public string Level;public string Message;public bool Resolved;}\nclass Program{\nstatic void Main(){\nList<Device> devices=new List<Device>{\nnew Device{Id=1,Name="Gateway",Ip="10.0.0.1",Cpu=35,Ram=48,Disk=61,Online=true},\nnew Device{Id=2,Name="WebServer",Ip="10.0.0.2",Cpu=72,Ram=66,Disk=58,Online=true},\nnew Device{Id=3,Name="Database",Ip="10.0.0.3",Cpu=81,Ram=84,Disk=79,Online=true},\nnew Device{Id=4,Name="Cache",Ip="10.0.0.4",Cpu=29,Ram=41,Disk=43,Online=true},\nnew Device{Id=5,Name="Storage",Ip="10.0.0.5",Cpu=57,Ram=63,Disk=91,Online=true},\nnew Device{Id=6,Name="Backup",Ip="10.0.0.6",Cpu=22,Ram=36,Disk=96,Online=true},\nnew Device{Id=7,Name="Analytics",Ip="10.0.0.7",Cpu=76,Ram=71,Disk=69,Online=false},\nnew Device{Id=8,Name="Mail",Ip="10.0.0.8",Cpu=41,Ram=47,Disk=52,Online=true}\n};\nList<Service> services=new List<Service>{\nnew Service{Name="Login API",Requests=16234,Errors=12,Uptime=99.98},\nnew Service{Name="Payment API",Requests=11452,Errors=8,Uptime=99.96},\nnew Service{Name="Storage API",Requests=18430,Errors=5,Uptime=99.99},\nnew Service{Name="Notification",Requests=9234,Errors=3,Uptime=99.95},\nnew Service{Name="Analytics",Requests=13542,Errors=14,Uptime=99.91},\nnew Service{Name="Reports",Requests=7532,Errors=2,Uptime=99.99}\n};\nList<Alert> alerts=new List<Alert>{\nnew Alert{Id=101,Level="High",Message="CPU Usage",Resolved=false},\nnew Alert{Id=102,Level="Medium",Message="Memory Warning",Resolved=true},\nnew Alert{Id=103,Level="Critical",Message="Network Timeout",Resolved=false},\nnew Alert{Id=104,Level="Low",Message="Disk Cleanup",Resolved=true},\nnew Alert{Id=105,Level="Medium",Message="Backup Delay",Resolved=true},\nnew Alert{Id=106,Level="High",Message="API Response Slow",Resolved=false}\n};\nint online=devices.Count(x=>x.Online);\nint offline=devices.Count-online;\nint avgCpu=(int)devices.Average(x=>x.Cpu);\nint avgRam=(int)devices.Average(x=>x.Ram);\nint avgDisk=(int)devices.Average(x=>x.Disk);\nint totalRequests=services.Sum(x=>x.Requests);\nint totalErrors=services.Sum(x=>x.Errors);\nint unresolved=alerts.Count(x=>!x.Resolved);\nDictionary<string,string> system=new Dictionary<string,string>();\nsystem.Add("Cluster","Healthy");\nsystem.Add("Firewall","Enabled");\nsystem.Add("SSL","Active");\nsystem.Add("Database","Connected");\nsystem.Add("Monitoring","Running");\nsystem.Add("Scheduler","Online");\nsystem.Add("Backup","Completed");\nsystem.Add("Version","10.5.2");\nsystem.Add("Cloud","Connected");\nsystem.Add("Security","Protected");\nConsole.WriteLine("================= C# NETWORK OPERATIONS CENTER =================");\nConsole.WriteLine("Devices : "+devices.Count);\nConsole.WriteLine("Online : "+online+\" Offline : \"+offline);\nConsole.WriteLine("CPU Avg : "+avgCpu+\"% RAM Avg : \"+avgRam+\"% Disk Avg : \"+avgDisk+\"%\");\nConsole.WriteLine("Requests : "+totalRequests+\" Errors : \"+totalErrors);\nConsole.WriteLine("Alerts : "+alerts.Count+\" Unresolved : \"+unresolved);\nConsole.WriteLine("=====DEVICES=====");\nforeach(var d in devices){Console.WriteLine(d.Id+\" \"+d.Name+\" \"+d.Ip+\" CPU:\"+d.Cpu+\" RAM:\"+d.Ram+\" DISK:\"+d.Disk+\" Online:\"+d.Online);}\nConsole.WriteLine("=====SERVICES=====");\nforeach(var s in services){Console.WriteLine(s.Name+\" Requests:\"+s.Requests+\" Errors:\"+s.Errors+\" Uptime:\"+s.Uptime+\"%\");}\nConsole.WriteLine("=====ALERTS=====");\nforeach(var a in alerts){Console.WriteLine(a.Id+\" \"+a.Level+\" \"+a.Message+\" Resolved:\"+a.Resolved);}\nConsole.WriteLine("=====SYSTEM=====");\nforeach(var x in system){Console.WriteLine(x.Key+\" : \"+x.Value);}\nstring[] modules={\"Dashboard\",\"Devices\",\"Servers\",\"Alerts\",\"Traffic\",\"Security\",\"Analytics\",\"Logs\",\"Cloud\",\"Automation\",\"Scheduler\",\"Reports\",\"Performance\",\"Audit\",\"Firewall\",\"API Gateway\",\"Storage\",\"Settings\",\"Support\",\"Terminal\"};\nConsole.WriteLine("=====MODULES=====");\nforeach(string m in modules){Console.WriteLine(m);}\nConsole.WriteLine("Network Operations Center Started Successfully");\n}\n}` },
+            { section: "Basic C#" },
+      { name: "1. Print (Output)", code: `using System;
+
+class Program {
+    static void Main() {
+        Console.WriteLine("Hello World");
+    }
+}` },
+      { name: "2. Integer (int)", code: `using System;
+
+class Program {
+    static void Main() {
+        int num = 10;
+        Console.WriteLine("Integer: " + num);
+    }
+}` },
+      { name: "3. Float (decimal number)", code: `using System;
+
+class Program {
+    static void Main() {
+        float price = 99.99f;
+        Console.WriteLine("Float: " + price);
+    }
+}` },
+
+      { name: "4. Double", code: `using System;
+
+class Program {
+    static void Main() {
+        double value = 123.456;
+        Console.WriteLine("Double: " + value);
+    }
+}` },
+      { name: "5. String (Text)", code: `using System;
+
+class Program {
+    static void Main() {
+        string name = "Krishna";
+        Console.WriteLine("String: " + name);
+    }
+}` },
+      { name: "6. Boolean (True/False)", code: `using System;
+
+class Program {
+    static void Main() {
+        bool isStudent = true;
+        Console.WriteLine("Boolean: " + isStudent);
+    }
+}` },
+      { name: "7. List (Array/List)", code: `using System;
+using System.Collections.Generic;
+
+class Program {
+    static void Main() {
+        List<int> numbers = new List<int> {10, 20, 30};
+
+        Console.WriteLine("First value: " + numbers[0]);
+
+        foreach (int n in numbers) {
+            Console.WriteLine(n);
+        }
+    }
+}` },
+      { name: "8. Dictionary (Key-Value)", code: `using System;
+using System.Collections.Generic;
+
+class Program {
+    static void Main() {
+        Dictionary<string, int> student = new Dictionary<string, int>();
+
+        student["age"] = 18;
+        student["marks"] = 90;
+
+        Console.WriteLine("Age: " + student["age"]);
+        Console.WriteLine("Marks: " + student["marks"]);
+    }
+}` },
+      { name: "9. Null", code: `using System;
+
+class Program {
+    static void Main() {
+        string data = null;
+        Console.WriteLine(data);
+    }
+}` },
+      { name: "10. Var (Auto Type)", code: `using System;
+
+class Program {
+    static void Main() {
+        var x = 100;
+        var name = "Krishna";
+
+        Console.WriteLine(x);
+        Console.WriteLine(name);
+    }
+}` },
+      { name: "Bonus (Mixed Example)", code: `using System;
+using System.Collections.Generic;
+
+class Program {
+    static void Main() {
+        string name = "Krishna";
+        int age = 18;
+
+        List<int> marks = new List<int> {80, 90, 100};
+
+        Console.WriteLine(name);
+        Console.WriteLine(age);
+
+        foreach (int m in marks) {
+            Console.WriteLine(m);
+        }
+    }
+}` },
+      { section: "IF - ELSE IF - ELSE" },
+      { name: "1.IF = (Multiple Checks System)", code: `using System;
+
+class Program {
+    static void Main() {
+        int age = 22;
+        int balance = 1500;
+
+        if (age >= 18) {
+            Console.WriteLine("You are eligible to vote");
+        }
+
+        if (age >= 21) {
+            Console.WriteLine("You can apply for driving license");
+        }
+
+        if (balance >= 1000) {
+            Console.WriteLine("You are a Gold User");
+        }
+
+        if (balance >= 2000) {
+            Console.WriteLine("You are a Premium User");
+        }
+    }
+}` },
+      { name: "2. IF + ELSE IF = (Grading System)", code: `using System;
+
+class Program {
+    static void Main() {
+        int marks = 78;
+
+        if (marks >= 90) {
+            Console.WriteLine("Grade A+");
+        }
+        else if (marks >= 75) {
+            Console.WriteLine("Grade A");
+        }
+        else if (marks >= 60) {
+            Console.WriteLine("Grade B");
+        }
+        else if (marks >= 40) {
+            Console.WriteLine("Pass");
+        }
+    }
+}` },
+      { name: "3. IF + ELSE (Login System)", code: `using System;
+
+class Program {
+    static void Main() {
+        string username = "admin";
+        string password = "1234";
+
+        if (username == "admin" && password == "1234") {
+            Console.WriteLine("Login Successful");
+        }
+        else {
+            Console.WriteLine("Invalid Username or Password");
+        }
+    }
+}` },
+      { name: "4. IF + ELSE IF + ELSE", code: `using System;
+
+class Program {
+    static void Main() {
+        int balance = 1200;
+
+        if (balance >= 2000) {
+            Console.WriteLine("Premium Account");
+            Console.WriteLine("Unlimited transactions");
+        }
+        else if (balance >= 1000) {
+            Console.WriteLine("Gold Account");
+            Console.WriteLine("Limited transactions");
+        }
+        else if (balance >= 500) {
+            Console.WriteLine("Silver Account");
+            Console.WriteLine("Basic features");
+        }
+        else {
+            Console.WriteLine("Basic Account");
+            Console.WriteLine("Minimum balance required");
+        }
+    }
+}` },
+      { section: "loops in c#" },
+      { name: "1. FOR Loop", code: `using System;
+
+class Program {
+    static void Main() {
+        int sum = 0;
+        int evenCount = 0;
+
+        Console.WriteLine("Numbers from 1 to 10:");
+
+        for (int i = 1; i <= 10; i++) {
+            Console.WriteLine(i);
+            sum += i;
+
+            if (i % 2 == 0) {
+                evenCount++;
+            }
+        }
+
+        Console.WriteLine("Total Sum: " + sum);
+        Console.WriteLine("Even Numbers Count: " + evenCount);
+    }
+}` },
+      { name: "2. WHILE Loop", code: `using System;
+
+class Program {
+    static void Main() {
+        int number = 0;
+
+        Console.WriteLine("Enter a number greater than 10:");
+
+        while (number <= 10) {
+            number = Convert.ToInt32(Console.ReadLine());
+
+            if (number <= 10) {
+                Console.WriteLine("Invalid! Try again:");
+            }
+        }
+
+        Console.WriteLine("Valid Number Entered: " + number);
+    }
+}` },
+      { name: "3. DO-WHILE Loop", code: `using System;
+
+class Program {
+    static void Main() {
+        int choice;
+
+        do {
+            Console.WriteLine("\n--- MENU ---");
+            Console.WriteLine("1. Say Hello");
+            Console.WriteLine("2. Show Time");
+            Console.WriteLine("3. Exit");
+
+            Console.Write("Enter choice: ");
+            choice = Convert.ToInt32(Console.ReadLine());
+
+            if (choice == 1) {
+                Console.WriteLine("Hello User!");
+            }
+            else if (choice == 2) {
+                Console.WriteLine("Time: " + DateTime.Now);
+            }
+
+        } while (choice != 3);
+
+        Console.WriteLine("Program Ended");
+    }
+}` },
+      { name: "4. FOREACH LOOP", code: `using System;
+using System.Collections.Generic;
+
+class Program {
+    static void Main() {
+        List<int> numbers = new List<int>() { 5, 10, 15, 20, 25 };
+        int total = 0;
+
+        Console.WriteLine("List Elements:");
+
+        foreach (int num in numbers) {
+            Console.WriteLine(num);
+            total += num;
+        }
+
+        Console.WriteLine("Total Sum: " + total);
+    }
+}` },
+      { name: "NESTED LOOP", code: `using System;
+
+class Program {
+    static void Main() {
+        int rows = 5;
+
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= i; j++) {
+                Console.Write("* ");
+            }
+            Console.WriteLine();
+        }
+    }
+}` },
+      { name: "6. LOOP WITH BREAK", code: `using System;
+
+class Program {
+    static void Main() {
+        for (int i = 1; i <= 10; i++) {
+
+            if (i == 6) {
+                Console.WriteLine("Stopped at: " + i);
+                break;
+            }
+
+            Console.WriteLine(i);
+        }
+    }
+}` },
+      { name: "7. LOOP WITH CONTINUE", code: `using System;
+
+class Program {
+    static void Main() {
+        for (int i = 1; i <= 10; i++) {
+
+            if (i % 2 == 0) {
+                continue;
+            }
+
+            Console.WriteLine("Odd Number: " + i);
+        }
+    }
+}` },
+      { section: "FUNCTIONS in c#" },
+      { name: "1. Basic Function (Return + Parameter)", code: `using System;
+
+class Program
+{
+    static int Square(int num)
+    {
+        return num * num;
+    }
+
+    static void Main()
+    {
+        int result = Square(5);
+        Console.WriteLine("Square: " + result);
+    }
+}` },
+      { name: "2. Multiple Parameters + Logic", code: `using System;
+
+class Program
+{
+    static int MaxNumber(int a, int b, int c)
+    {
+        int max = a;
+
+        if (b > max)
+            max = b;
+
+        if (c > max)
+            max = c;
+
+        return max;
+    }
+
+    static void Main()
+    {
+        Console.WriteLine("Max: " + MaxNumber(10, 25, 15));
+    }
+}` },
+      { name: "3. Void Function (No Return)", code: `using System;
+
+class Program
+{
+    static void PrintTable(int num)
+    {
+        for (int i = 1; i <= 10; i++)
+        {
+            Console.WriteLine(num + " x " + i + " = " + (num * i));
+        }
+    }
+
+    static void Main()
+    {
+        PrintTable(5);
+    }
+}` },
+
+      { name: "4. Function with Array", code: `using System;
+
+class Program
+{
+    static int SumArray(int[] arr)
+    {
+        int sum = 0;
+
+        foreach (int num in arr)
+        {
+            sum += num;
+        }
+
+        return sum;
+    }
+
+    static void Main()
+    {
+        int[] numbers = { 10, 20, 30, 40 };
+        Console.WriteLine("Sum: " + SumArray(numbers));
+    }
+}` },
+      { name: "5. Function with List", code: `using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static int FindEvenCount(List<int> list)
+    {
+        int count = 0;
+
+        foreach (int num in list)
+        {
+            if (num % 2 == 0)
+                count++;
+        }
+
+        return count;
+    }
+
+    static void Main()
+    {
+        List<int> nums = new List<int> { 1, 2, 3, 4, 6, 8 };
+        Console.WriteLine("Even Count: " + FindEvenCount(nums));
+    }
+}` },
+      { name: "6. Function with Dictionary", code: `using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void PrintDictionary(Dictionary<string, int> data)
+    {
+        foreach (var item in data)
+        {
+            Console.WriteLine(item.Key + " = " + item.Value);
+        }
+    }
+
+    static void Main()
+    {
+        Dictionary<string, int> marks = new Dictionary<string, int>()
+        {
+            {"Math", 90},
+            {"Science", 85},
+            {"English", 88}
+        };
+
+        PrintDictionary(marks);
+    }
+}` },
+      { name: "7. Recursive Function (Factorial)", code: `using System;
+
+class Program
+{
+    static int Factorial(int n)
+    {
+        if (n == 1)
+            return 1;
+
+        return n * Factorial(n - 1);
+    }
+
+    static void Main()
+    {
+        Console.WriteLine("Factorial: " + Factorial(5));
+    }
+}` },
+      { name: "8. Function Overloading", code: `using System;
+
+class Program
+{
+    static int Add(int a, int b)
+    {
+        return a + b;
+    }
+
+    static double Add(double a, double b)
+    {
+        return a + b;
+    }
+
+    static void Main()
+    {
+        Console.WriteLine(Add(5, 10));
+        Console.WriteLine(Add(5.5, 2.3));
+    }
+}` },
+      { name: "9. Function with Default Parameter", code: `using System;
+
+class Program
+{
+    static void Greet(string name = "Guest")
+    {
+        Console.WriteLine("Hello " + name);
+    }
+
+    static void Main()
+    {
+        Greet();
+        Greet("Krishna");
+    }
+}` },
+      { name: "Real Mini Project", code: `using System;
+
+class Program
+{
+    static bool Login(string username, string password)
+    {
+        string correctUser = "admin";
+        string correctPass = "1234";
+
+        if (username == correctUser && password == correctPass)
+            return true;
+        else
+            return false;
+    }
+
+    static void Main()
+    {
+        Console.Write("Enter Username: ");
+        string user = Console.ReadLine();
+
+        Console.Write("Enter Password: ");
+        string pass = Console.ReadLine();
+
+        if (Login(user, pass))
+            Console.WriteLine("Login Successful ✅");
+        else
+            Console.WriteLine("Login Failed ❌");
+    }
+}` }
     ];
   }
 
@@ -5230,6 +7435,4870 @@ End Module` },
         End If
     End Sub
 End Module` }
+    ];
+  }
+
+    // 👉 F#
+  if (lang === "F#") {
+    return [
+      { name: "F# Project 1", code: `// # import System
+
+open System
+
+let numbers = [|12; 7; 9; 20; 33; 42|]
+
+let mutable evenSum = 0
+let mutable oddSum = 0
+
+for n in numbers do
+    if n % 2 = 0 then
+        evenSum <- evenSum + n
+    else
+        oddSum <- oddSum + n
+
+printfn "Even Sum: %d" evenSum
+printfn "Odd Sum: %d" oddSum
+
+if evenSum > oddSum then
+    printfn "Even numbers dominate"
+else
+    printfn "Odd numbers dominate"` },
+      { name: "F# Project 2", code: `// # import System
+
+open System
+
+let orders = [|
+    ("Laptop", 2, 50000)
+    ("Mouse", 5, 500)
+    ("Keyboard", 1, 1500)
+|]
+
+let mutable totalBill = 0
+
+for (item, qty, price) in orders do
+    let cost = qty * price
+    totalBill <- totalBill + cost
+    printfn "%s x%d = %d" item qty cost
+
+printfn "Total Bill: %d" totalBill
+
+if totalBill > 50000 then
+    printfn "Discount Applied"
+else
+    printfn "No Discount"` },
+      { name: "F# Project 3", code: `// # import System
+
+open System
+
+let products = [|"Pen"; "Book"; "Bag"; "Bottle"|]
+let stock = [|10; 0; 5; 2|]
+
+for i in 0 .. products.Length - 1 do
+    if stock[i] = 0 then
+        printfn "%s is OUT OF STOCK" products[i]
+    elif stock[i] < 3 then
+        printfn "%s is LOW STOCK (%d left)" products[i] stock[i]
+    else
+        printfn "%s is Available (%d)" products[i] stock[i]` },
+      { name: "F# Project 4", code: `// # import System
+
+open System
+
+let marks = [|78; 45; 90; 66; 52; 30; 88|]
+
+let mutable passCount = 0
+let mutable failCount = 0
+let mutable total = 0
+
+for m in marks do
+    total <- total + m
+    if m >= 50 then
+        passCount <- passCount + 1
+    else
+        failCount <- failCount + 1
+
+let avg = total / marks.Length
+
+printfn "Average Marks: %d" avg
+printfn "Passed: %d" passCount
+printfn "Failed: %d" failCount
+
+if avg >= 60 then
+    printfn "Overall Performance: Good"
+else
+    printfn "Overall Performance: Needs Improvement"` },
+      { name: "F# Project 5", code: `// # import System
+
+open System
+
+let correctUser = "admin"
+let correctPass = "1234"
+
+let attempts = [|
+    ("admin", "1111")
+    ("user", "1234")
+    ("admin", "1234")
+|]
+
+let mutable success = false
+
+for (u, p) in attempts do
+    if success = false then
+        if u = correctUser && p = correctPass then
+            printfn "Login Successful"
+            success <- true
+        else
+            printfn "Invalid credentials"
+
+if success = false then
+    printfn "Account Locked"` },
+      { name: "F# Project 6", code: `// # import System
+
+open System
+
+type Account = {
+    Id: int
+    Name: string
+    mutable Balance: float
+}
+
+let accounts = ResizeArray<Account>()
+accounts.Add({Id=1; Name="Ram"; Balance=5000.0})
+accounts.Add({Id=2; Name="Shyam"; Balance=8000.0})
+accounts.Add({Id=3; Name="Mohan"; Balance=2000.0})
+
+let deposit accId amount =
+    for acc in accounts do
+        if acc.Id = accId then
+            acc.Balance <- acc.Balance + amount
+            printfn "Deposited %.2f to %s" amount acc.Name
+
+let withdraw accId amount =
+    for acc in accounts do
+        if acc.Id = accId then
+            if acc.Balance >= amount then
+                acc.Balance <- acc.Balance - amount
+                printfn "Withdrawn %.2f from %s" amount acc.Name
+            else
+                printfn "Insufficient balance for %s" acc.Name
+
+let showAll() =
+    for acc in accounts do
+        printfn "ID:%d Name:%s Balance:%.2f" acc.Id acc.Name acc.Balance
+
+deposit 1 2000.0
+withdraw 2 3000.0
+withdraw 3 5000.0
+showAll()` },
+      { name: "F# Project 7", code: `// # import System
+
+open System
+
+type Employee = {
+    Name: string
+    Salary: float
+    Department: string
+}
+
+let employees = [|
+    {Name="Amit"; Salary=30000.0; Department="IT"}
+    {Name="Ravi"; Salary=25000.0; Department="HR"}
+    {Name="Neha"; Salary=40000.0; Department="IT"}
+    {Name="Sita"; Salary=20000.0; Department="Admin"}
+|]
+
+let mutable total = 0.0
+
+for emp in employees do
+    let bonus =
+        if emp.Department = "IT" then emp.Salary * 0.2
+        elif emp.Department = "HR" then emp.Salary * 0.1
+        else emp.Salary * 0.05
+
+    let finalSalary = emp.Salary + bonus
+    total <- total + finalSalary
+
+    printfn "%s (%s) -> Final Salary: %.2f"
+        emp.Name emp.Department finalSalary
+
+printfn "Total Salary Expense: %.2f" total` },
+      { name: "F# Project 8", code: `// # import System
+
+open System
+
+type Product = {
+    Name: string
+    Price: float
+    Qty: int
+}
+
+let cart = ResizeArray<Product>()
+
+cart.Add({Name="Laptop"; Price=50000.0; Qty=1})
+cart.Add({Name="Mouse"; Price=500.0; Qty=2})
+cart.Add({Name="Keyboard"; Price=1500.0; Qty=1})
+
+let mutable total = 0.0
+
+for item in cart do
+    let cost = item.Price * float item.Qty
+    total <- total + cost
+    printfn "%s x%d = %.2f" item.Name item.Qty cost
+
+let discount =
+    if total > 50000.0 then total * 0.1
+    elif total > 20000.0 then total * 0.05
+    else 0.0
+
+let finalAmount = total - discount
+
+printfn "Total: %.2f" total
+printfn "Discount: %.2f" discount
+printfn "Final Amount: %.2f" finalAmount` },
+      { name: "F# Project 9", code: `// # import System
+
+open System
+
+type Book = {
+    Title: string
+    mutable Available: bool
+}
+
+let books = ResizeArray<Book>()
+books.Add({Title="C Programming"; Available=true})
+books.Add({Title="Python Basics"; Available=true})
+books.Add({Title="Data Structures"; Available=false})
+
+let issueBook title =
+    let mutable found = false
+    for b in books do
+        if b.Title = title then
+            found <- true
+            if b.Available then
+                b.Available <- false
+                printfn "%s issued successfully" title
+            else
+                printfn "%s is already issued" title
+    if not found then
+        printfn "Book not found"
+
+let returnBook title =
+    for b in books do
+        if b.Title = title then
+            b.Available <- true
+            printfn "%s returned successfully" title
+
+issueBook "Python Basics"
+issueBook "Data Structures"
+returnBook "Data Structures"
+issueBook "Data Structures"` },
+      { name: "F# Project 10", code: `// # import System
+
+open System
+
+type Student = {
+    Name: string
+    Marks: int array
+}
+
+let students = [|
+    {Name="Ram"; Marks=[|78; 80; 65|]}
+    {Name="Shyam"; Marks=[|40; 50; 45|]}
+    {Name="Mohan"; Marks=[|90; 92; 88|]}
+|]
+
+for s in students do
+    let total = Array.sum s.Marks
+    let avg = total / s.Marks.Length
+
+    let grade =
+        if avg >= 85 then "A"
+        elif avg >= 60 then "B"
+        elif avg >= 40 then "C"
+        else "Fail"
+
+    printfn "%s -> Avg:%d Grade:%s" s.Name avg grade` }
+    ];
+  }
+  
+  // 👉 Haskell
+  if (lang === "Haskell") {
+    return [
+      { name: "Haskell Project 1", code: `module Main where
+
+import System.IO
+
+countWords :: String -> Int
+countWords str = length (words str)
+
+main :: IO ()
+main = do
+    putStrLn "Reading file: sample.txt"
+
+    content <- readFile "sample.txt"
+
+    let wordCount = countWords content
+    let lineCount = length (lines content)
+    let charCount = length content
+
+    putStrLn ("Lines: " ++ show lineCount)
+    putStrLn ("Words: " ++ show wordCount)
+    putStrLn ("Characters: " ++ show charCount)
+
+    putStrLn "File Content Preview:"
+    putStrLn (take 100 content)` },
+      { name: "Haskell Project 2", code: `module Main where
+
+type Student = (String, Int)
+
+addStudent :: [Student] -> Student -> [Student]
+addStudent list student = list ++ [student]
+
+showStudents :: [Student] -> IO ()
+showStudents [] = putStrLn "No students"
+showStudents ((name, marks):xs) = do
+    putStrLn ("Name: " ++ name ++ ", Marks: " ++ show marks)
+    showStudents xs
+
+main :: IO ()
+main = do
+    let students = []
+
+    let students1 = addStudent students ("Krishna", 85)
+    let students2 = addStudent students1 ("Rahul", 90)
+    let students3 = addStudent students2 ("Amit", 78)
+
+    putStrLn "Student List:"
+    showStudents students3` },
+      { name: "Haskell Project 3", code: `module Main where
+
+isPrime :: Int -> Bool
+isPrime n
+    | n <= 1 = False
+    | otherwise = null [x | x <- [2..n-1], n  x == 0]
+
+getPrimes :: Int -> [Int]
+getPrimes n = [x | x <- [2..n], isPrime x]
+
+main :: IO ()
+main = do
+    putStrLn "Enter a number:"
+    input <- getLine
+    let num = read input :: Int
+
+    if isPrime num
+        then putStrLn "Number is Prime"
+        else putStrLn "Number is NOT Prime"
+
+    putStrLn "Prime numbers till n:"
+    print (getPrimes num)` },
+      { name: "Haskell Project 4", code: `module Main where
+
+-- infinite fibonacci list
+fibonacci :: [Integer]
+fibonacci = 0 : 1 : zipWith (+) fibonacci (tail fibonacci)
+
+getFibo :: Int -> [Integer]
+getFibo n = take n fibonacci
+
+main :: IO ()
+main = do
+    putStrLn "Enter how many Fibonacci numbers:"
+    input <- getLine
+    let n = read input :: Int
+
+    let result = getFibo n
+
+    putStrLn "Fibonacci series:"
+    print result` },
+      { name: "Haskell Project 5", code: `module Main where
+
+-- factorial function
+factorial :: Int -> Int
+factorial 0 = 1
+factorial n = n * factorial (n - 1)
+
+-- generate list of factorials
+factorialList :: Int -> [Int]
+factorialList n = [factorial x | x <- [0..n]]
+
+main :: IO ()
+main = do
+    putStrLn "Enter a number:"
+    input <- getLine
+    let num = read input :: Int
+
+    putStrLn "Factorial is:"
+    print (factorial num)
+
+    putStrLn "Factorial list from 0 to n:"
+    print (factorialList num)` },
+      { name: "Haskell Project 6", code: `module Main where
+
+import Data.Char
+
+respond :: String -> String
+respond input
+    | "hello" words lower = "Hi!"
+    | "how" words lower = "I'm fine!"
+    | "name" words lower = "I am Haskell Bot"
+    | "bye" words lower = "Goodbye!"
+    | otherwise = "I don't understand"
+    where lower = map toLower input
+
+chat :: IO ()
+chat = do
+    putStrLn "You:"
+    input <- getLine
+    let reply = respond input
+    putStrLn ("Bot: " ++ reply)
+    if reply == "Goodbye!"
+        then return ()
+        else chat
+
+main :: IO ()
+main = do
+    putStrLn "Chatbot started (type 'bye' to exit)"
+    chat` },
+      { name: "Haskell Project 7", code: `module Main where
+
+bubbleSort :: [Int] -> IO [Int]
+bubbleSort xs = bubble xs (length xs)
+
+bubble :: [Int] -> Int -> IO [Int]
+bubble xs 0 = return xs
+bubble xs n = do
+    let newList = pass xs
+    print newList
+    bubble newList (n - 1)
+
+pass :: [Int] -> [Int]
+pass (x:y:xs)
+    | x > y = y : pass (x:xs)
+    | otherwise = x : pass (y:xs)
+pass xs = xs
+
+main :: IO ()
+main = do
+    let arr = [5,3,8,1,2]
+    putStrLn "Sorting steps:"
+    result <- bubbleSort arr
+    putStrLn "Sorted:"
+    print result` },
+      { name: "Haskell Project 8", code: `module Main where
+
+import System.IO
+
+type Task = (Int, String, Bool)
+
+addTask :: [Task] -> Task -> [Task]
+addTask tasks task = tasks ++ [task]
+
+completeTask :: [Task] -> Int -> [Task]
+completeTask [] _ = []
+completeTask ((id, desc, done):xs) taskId
+    | id == taskId = (id, desc, True) : xs
+    | otherwise = (id, desc, done) : completeTask xs taskId
+
+showTasks :: [Task] -> IO ()
+showTasks [] = putStrLn "No tasks"
+showTasks ((id, desc, done):xs) = do
+    putStrLn ("ID: " ++ show id ++ " | " ++ desc ++ " | Done: " ++ show done)
+    showTasks xs
+
+main :: IO ()
+main = do
+    let tasks = []
+    let t1 = addTask tasks (1, "Learn Haskell", False)
+    let t2 = addTask t1 (2, "Build project", False)
+
+    putStrLn "Tasks:"
+    showTasks t2
+
+    let updated = completeTask t2 1
+
+    putStrLn "\nAfter Completing Task:"
+    showTasks updated` },
+      { name: "Haskell Project 9", code: `module Main where
+
+type Account = (Int, String, Double)
+
+createAccount :: [Account] -> Account -> [Account]
+createAccount accs acc = accs ++ [acc]
+
+deposit :: [Account] -> Int -> Double -> [Account]
+deposit [] _ _ = []
+deposit ((id, name, bal):xs) accId amt
+    | id == accId = (id, name, bal + amt) : xs
+    | otherwise = (id, name, bal) : deposit xs accId amt
+
+withdraw :: [Account] -> Int -> Double -> [Account]
+withdraw [] _ _ = []
+withdraw ((id, name, bal):xs) accId amt
+    | id == accId && bal >= amt = (id, name, bal - amt) : xs
+    | otherwise = (id, name, bal) : withdraw xs accId amt
+
+showAccounts :: [Account] -> IO ()
+showAccounts [] = return ()
+showAccounts ((id, name, bal):xs) = do
+    putStrLn ("ID: " ++ show id ++ ", Name: " ++ name ++ ", Balance: " ++ show bal)
+    showAccounts xs
+
+main :: IO ()
+main = do
+    let accs = []
+    let a1 = createAccount accs (1, "Krishna", 1000)
+    let a2 = createAccount a1 (2, "Rahul", 500)
+
+    putStrLn "Accounts:"
+    showAccounts a2
+
+    let afterDeposit = deposit a2 1 500
+    let afterWithdraw = withdraw afterDeposit 2 200
+
+    putStrLn "\nAfter Transactions:"
+    showAccounts afterWithdraw` },
+      { name: "Haskell Project 10", code: `module Main where
+
+import Data.List
+import System.IO
+
+type Book = (Int, String, String, Bool) 
+-- (ID, Title, Author, Issued)
+
+addBook :: [Book] -> Book -> [Book]
+addBook books book = books ++ [book]
+
+showBooks :: [Book] -> IO ()
+showBooks [] = putStrLn "No books available"
+showBooks ((id, title, author, issued):xs) = do
+    putStrLn ("ID: " ++ show id)
+    putStrLn ("Title: " ++ title)
+    putStrLn ("Author: " ++ author)
+    putStrLn ("Issued: " ++ show issued)
+    putStrLn "----------------------"
+    showBooks xs
+
+issueBook :: [Book] -> Int -> [Book]
+issueBook [] _ = []
+issueBook ((id, t, a, i):xs) bookId
+    | id == bookId = (id, t, a, True) : xs
+    | otherwise = (id, t, a, i) : issueBook xs bookId
+
+returnBook :: [Book] -> Int -> [Book]
+returnBook [] _ = []
+returnBook ((id, t, a, i):xs) bookId
+    | id == bookId = (id, t, a, False) : xs
+    | otherwise = (id, t, a, i) : returnBook xs bookId
+
+searchBook :: [Book] -> String -> [Book]
+searchBook books keyword =
+    filter (\(_, title, author, _) ->
+        isInfixOf keyword title || isInfixOf keyword author) books
+
+main :: IO ()
+main = do
+    let books = []
+    let b1 = addBook books (1, "Haskell Basics", "John", False)
+    let b2 = addBook b1 (2, "Learn FP", "Alice", False)
+    let b3 = addBook b2 (3, "Algorithms", "Bob", False)
+
+    putStrLn "Library Books:"
+    showBooks b3
+
+    let issuedList = issueBook b3 2
+    putStrLn "\nAfter issuing book ID 2:"
+    showBooks issuedList
+
+    let returnedList = returnBook issuedList 2
+    putStrLn "\nAfter returning book:"
+    showBooks returnedList
+
+    let found = searchBook returnedList "Learn"
+    putStrLn "\nSearch Result:"
+    showBooks found` }
+    ];
+  }
+  
+  // 👉 Elixir
+  if (lang === "Elixir") {
+    return [
+      { name: "Elixir Project 1", code: `# # import Enum
+
+defmodule Analyzer do
+  def analyze([], even_sum, odd_sum), do: {even_sum, odd_sum}
+
+  def analyze([h | t], even_sum, odd_sum) do
+    if rem(h, 2) == 0 do
+      analyze(t, even_sum + h, odd_sum)
+    else
+      analyze(t, even_sum, odd_sum + h)
+    end
+  end
+end
+
+numbers = [12, 7, 9, 20, 33, 42]
+
+{even_sum, odd_sum} = Analyzer.analyze(numbers, 0, 0)
+
+IO.puts("Even Sum: #{even_sum}")
+IO.puts("Odd Sum: #{odd_sum}")
+
+if even_sum > odd_sum do
+  IO.puts("Even numbers dominate")
+else
+  IO.puts("Odd numbers dominate")
+end` },
+      { name: "Elixir Project 2", code: `# # import Enum
+
+cart = [
+  {"Laptop", 1, 50000},
+  {"Mouse", 2, 500},
+  {"Keyboard", 1, 1500}
+]
+
+total =
+  Enum.reduce(cart, 0, fn {name, qty, price}, acc ->
+    cost = qty * price
+    IO.puts("#{name} x#{qty} = #{cost}")
+    acc + cost
+  end)
+
+discount =
+  cond do
+    total > 50000 -> div(total, 10)
+    total > 20000 -> div(total, 20)
+    true -> 0
+  end
+
+final = total - discount
+
+IO.puts("Total: #{total}")
+IO.puts("Discount: #{discount}")
+IO.puts("Final Amount: #{final}")` },
+      { name: "Elixir Project 3", code: `# # import Enum
+
+correct_user = "admin"
+correct_pass = "1234"
+
+attempts = [
+  {"admin", "1111"},
+  {"user", "1234"},
+  {"admin", "1234"}
+]
+
+result =
+  Enum.reduce_while(attempts, false, fn {u, p}, _ ->
+    if u == correct_user and p == correct_pass do
+      IO.puts("Login Successful")
+      {:halt, true}
+    else
+      IO.puts("Invalid credentials")
+      {:cont, false}
+    end
+  end)
+
+if result == false do
+  IO.puts("Account Locked")
+end` },
+      { name: "Elixir Project 4", code: `# # import Enum
+
+products = ["Pen", "Book", "Bag", "Bottle"]
+stock    = [10, 0, 5, 2]
+
+Enum.zip(products, stock)
+|> Enum.each(fn {p, s} ->
+  cond do
+    s == 0 -> IO.puts("#{p} is OUT OF STOCK")
+    s < 3  -> IO.puts("#{p} is LOW STOCK (#{s})")
+    true   -> IO.puts("#{p} is Available (#{s})")
+  end
+end)` },
+      { name: "Elixir Project 5", code: `# # import Enum
+
+marks = [78, 45, 90, 66, 52, 30, 88]
+
+pass_count = Enum.count(marks, fn m -> m >= 50 end)
+fail_count = length(marks) - pass_count
+total = Enum.sum(marks)
+avg = div(total, length(marks))
+
+IO.puts("Average Marks: #{avg}")
+IO.puts("Passed: #{pass_count}")
+IO.puts("Failed: #{fail_count}")
+
+if avg >= 60 do
+  IO.puts("Overall Performance: Good")
+else
+  IO.puts("Needs Improvement")
+end` },
+      { name: "Elixir Project 6", code: `# # import Enum
+
+defmodule Library do
+  def issue(books, title) do
+    Enum.map(books, fn b ->
+      cond do
+        b.title == title and b.available ->
+          IO.puts("#{title} issued successfully")
+          %{b | available: false}
+
+        b.title == title ->
+          IO.puts("#{title} already issued")
+          b
+
+        true ->
+          b
+      end
+    end)
+  end
+
+  def return_book(books, title) do
+    Enum.map(books, fn b ->
+      if b.title == title do
+        IO.puts("#{title} returned")
+        %{b | available: true}
+      else
+        b
+      end
+    end)
+  end
+
+  def show(books) do
+    Enum.each(books, fn b ->
+      status = if b.available, do: "Available", else: "Issued"
+      IO.puts("#{b.title} -> #{status}")
+    end)
+  end
+end
+
+books = [
+  %{title: "C Programming", available: true},
+  %{title: "Python Basics", available: true},
+  %{title: "Data Structures", available: false}
+]
+
+books = Library.issue(books, "Python Basics")
+books = Library.issue(books, "Data Structures")
+books = Library.return_book(books, "Data Structures")
+books = Library.issue(books, "Data Structures")
+
+Library.show(books)` },
+      { name: "Elixir Project 7", code: `# # import Enum
+
+defmodule Student do
+  def average(marks) do
+    Enum.sum(marks) div length(marks)
+  end
+
+  def grade(avg) do
+    cond do
+      avg >= 85 -> "A"
+      avg >= 60 -> "B"
+      avg >= 40 -> "C"
+      true -> "Fail"
+    end
+  end
+
+  def process(students) do
+    Enum.each(students, fn s ->
+      avg = average(s.marks)
+      g = grade(avg)
+      IO.puts("#{s.name} -> Avg:#{avg} Grade:#{g}")
+    end)
+  end
+end
+
+students = [
+  %{name: "Ram", marks: [78, 80, 65]},
+  %{name: "Shyam", marks: [40, 50, 45]},
+  %{name: "Mohan", marks: [90, 92, 88]}
+]
+
+Student.process(students)` },
+      { name: "Elixir Project 8", code: `# # import Enum
+
+defmodule Cart do
+  def print(cart) do
+    Enum.each(cart, fn item ->
+      cost = item.qty * item.price
+      IO.puts("#{item.name} x#{item.qty} = #{cost}")
+    end)
+  end
+
+  def total(cart) do
+    Enum.reduce(cart, 0, fn item, acc ->
+      acc + item.qty * item.price
+    end)
+  end
+
+  def discount(total) do
+    cond do
+      total > 50000 -> total * 0.1
+      total > 20000 -> total * 0.05
+      true -> 0
+    end
+  end
+end
+
+cart = [
+  %{name: "Laptop", qty: 1, price: 50000},
+  %{name: "Mouse", qty: 2, price: 500},
+  %{name: "Keyboard", qty: 1, price: 1500}
+]
+
+Cart.print(cart)
+
+total = Cart.total(cart)
+disc = Cart.discount(total)
+final = total - disc
+
+IO.puts("Total: #{total}")
+IO.puts("Discount: #{disc}")
+IO.puts("Final Amount: #{final}")` },
+      { name: "Elixir Project 9", code: `# # import Enum
+
+defmodule EmployeeSystem do
+  def bonus(emp) do
+    cond do
+      emp.dept == "IT" -> emp.salary * 0.2
+      emp.dept == "HR" -> emp.salary * 0.1
+      true -> emp.salary * 0.05
+    end
+  end
+
+  def final_salary(emp) do
+    emp.salary + bonus(emp)
+  end
+
+  def process(employees) do
+    Enum.reduce(employees, 0, fn emp, acc ->
+      fs = final_salary(emp)
+      IO.puts("#{emp.name} (#{emp.dept}) -> #{fs}")
+      acc + fs
+    end)
+  end
+end
+
+employees = [
+  %{name: "Amit", salary: 30000, dept: "IT"},
+  %{name: "Ravi", salary: 25000, dept: "HR"},
+  %{name: "Neha", salary: 40000, dept: "IT"},
+  %{name: "Sita", salary: 20000, dept: "Admin"}
+]
+
+total = EmployeeSystem.process(employees)
+IO.puts("Total Expense: #{total}")` },
+      { name: "Elixir Project 10", code: `# # import Enum
+
+defmodule Bank do
+  def deposit(accounts, id, amount) do
+    Enum.map(accounts, fn acc ->
+      if acc.id == id do
+        %{acc | balance: acc.balance + amount}
+      else
+        acc
+      end
+    end)
+  end
+
+  def withdraw(accounts, id, amount) do
+    Enum.map(accounts, fn acc ->
+      cond do
+        acc.id == id and acc.balance >= amount ->
+          %{acc | balance: acc.balance - amount}
+
+        acc.id == id ->
+          IO.puts("Insufficient balance for #{acc.name}")
+          acc
+
+        true ->
+          acc
+      end
+    end)
+  end
+
+  def show(accounts) do
+    Enum.each(accounts, fn acc ->
+      IO.puts("ID:#{acc.id} Name:#{acc.name} Balance:#{acc.balance}")
+    end)
+  end
+end
+
+accounts = [
+  %{id: 1, name: "Ram", balance: 5000},
+  %{id: 2, name: "Shyam", balance: 8000},
+  %{id: 3, name: "Mohan", balance: 2000}
+]
+
+accounts = Bank.deposit(accounts, 1, 2000)
+accounts = Bank.withdraw(accounts, 2, 3000)
+accounts = Bank.withdraw(accounts, 3, 5000)
+
+Bank.show(accounts)` }
+    ];
+  }
+  
+  // 👉 Erlang
+  if (lang === "Erlang") {
+    return [
+      { name: "Erlang Project 1", code: `%% # import io
+
+-module(analyzer).
+-export([main/0, analyze/3]).
+
+main() ->
+    Numbers = [12,7,9,20,33,42],
+    {Even, Odd} = analyze(Numbers, 0, 0),
+
+    io:format("Even Sum: ~p~n",[Even]),
+    io:format("Odd Sum: ~p~n",[Odd]),
+
+    case Even > Odd of
+        true -> io:format("Even dominates~n");
+        false -> io:format("Odd dominates~n")
+    end.
+
+analyze([], E, O) -> {E,O};
+analyze([H|T], E, O) ->
+    case H rem 2 of
+        0 -> analyze(T, E+H, O);
+        _ -> analyze(T, E, O+H)
+    end.` },
+      { name: "Erlang Project 2", code: `%% # import io
+
+-module(cart).
+-export([main/0, print/1, total/1]).
+
+main() ->
+    Cart = [{"Laptop",1,50000},{"Mouse",2,500},{"Keyboard",1,1500}],
+    print(Cart),
+    Total = total(Cart),
+
+    Discount =
+        case Total > 50000 of
+            true -> Total div 10;
+            false ->
+                case Total > 20000 of
+                    true -> Total div 20;
+                    false -> 0
+                end
+        end,
+
+    Final = Total - Discount,
+
+    io:format("Total: ~p~n",[Total]),
+    io:format("Discount: ~p~n",[Discount]),
+    io:format("Final: ~p~n",[Final]).
+
+print([]) -> ok;
+print([{Name,Q,P}|Rest]) ->
+    Cost = Q * P,
+    io:format("~s x~p = ~p~n",[Name,Q,Cost]),
+    print(Rest).
+
+total([]) -> 0;
+total([{_,Q,P}|Rest]) ->
+    Q * P + total(Rest).` },
+      { name: "Erlang Project 3", code: `%% # import io
+
+-module(login).
+-export([main/0, check/2]).
+
+main() ->
+    Attempts = [{"admin","1111"}, {"user","1234"}, {"admin","1234"}],
+    check(Attempts, false).
+
+check([], false) ->
+    io:format("Account Locked~n");
+check([], true) ->
+    ok;
+check([{U,P}|Rest], _) ->
+    case {U,P} of
+        {"admin","1234"} ->
+            io:format("Login Successful~n"),
+            check([], true);
+        _ ->
+            io:format("Invalid credentials~n"),
+            check(Rest, false)
+    end.` },
+      { name: "Erlang Project 4", code: `%% # import io
+
+-module(inventory).
+-export([main/0, check/2]).
+
+main() ->
+    Products = ["Pen","Book","Bag","Bottle"],
+    Stock    = [10,0,5,2],
+    check(Products, Stock).
+
+check([], []) -> ok;
+check([P|Ps], [S|Ss]) ->
+    case S of
+        0 -> io:format("~s OUT OF STOCK~n",[P]);
+        _ when S < 3 -> io:format("~s LOW STOCK (~p)~n",[P,S]);
+        _ -> io:format("~s Available (~p)~n",[P,S])
+    end,
+    check(Ps, Ss).` },
+      { name: "Erlang Project 5", code: `%% # import io
+
+-module(student).
+-export([main/0]).
+
+main() ->
+    Marks = [78,45,90,66,52,30,88],
+
+    Pass = length([M || M <- Marks, M >= 50]),
+    Fail = length(Marks) - Pass,
+    Total = lists:sum(Marks),
+    Avg = Total div length(Marks),
+
+    io:format("Average: ~p~n", [Avg]),
+    io:format("Passed: ~p~n", [Pass]),
+    io:format("Failed: ~p~n", [Fail]),
+
+    case Avg >= 60 of
+        true  -> io:format("Performance: Good~n");
+        false -> io:format("Needs Improvement~n")
+    end.` },
+      { name: "Erlang Project 6", code: `%% # import io
+
+-module(library_system).
+-export([main/0, issue/2, return/2, show/1]).
+
+main() ->
+    Books = [
+        {"C Programming", true},
+        {"Python Basics", true},
+        {"Data Structures", false}
+    ],
+
+    {B1,_} = issue(Books, "Python Basics"),
+    {B2,_} = issue(B1, "Data Structures"),
+    B3 = return(B2, "Data Structures"),
+    {B4,_} = issue(B3, "Data Structures"),
+
+    show(B4).
+
+issue([], _) -> {[], "Not Found"};
+issue([{T,true}|Rest], T) ->
+    io:format("~s issued~n",[T]),
+    {[{T,false}|Rest], "Issued"};
+issue([{T,false}|Rest], T) ->
+    io:format("~s already issued~n",[T]),
+    {[{T,false}|Rest], "Busy"};
+issue([H|Rest], T) ->
+    {R,M} = issue(Rest, T),
+    {[H|R], M}.
+
+return([], _) -> [];
+return([{T,_}|Rest], T) ->
+    io:format("~s returned~n",[T]),
+    [{T,true}|Rest];
+return([H|Rest], T) ->
+    [H | return(Rest, T)].
+
+show([]) -> ok;
+show([{T,A}|Rest]) ->
+    Status = case A of true -> "Available"; false -> "Issued" end,
+    io:format("~s -> ~s~n",[T,Status]),
+    show(Rest).` },
+      { name: "Erlang Project 7", code: `%% # import io
+
+-module(student_system).
+-export([main/0, avg/1, grade/1, process/1]).
+
+main() ->
+    Students = [
+        {"Ram",[78,80,65]},
+        {"Shyam",[40,50,45]},
+        {"Mohan",[90,92,88]}
+    ],
+
+    process(Students).
+
+avg(Marks) ->
+    lists:sum(Marks) div length(Marks).
+
+grade(Avg) when Avg >= 85 -> "A";
+grade(Avg) when Avg >= 60 -> "B";
+grade(Avg) when Avg >= 40 -> "C";
+grade(_) -> "Fail".
+
+process([]) -> ok;
+process([{Name,Marks}|Rest]) ->
+    A = avg(Marks),
+    G = grade(A),
+    io:format("~s -> Avg:~p Grade:~s~n",[Name,A,G]),
+    process(Rest).` },
+      { name: "Erlang Project 8", code: `%% # import io
+
+-module(cart_system).
+-export([main/0, print/1, total/1, discount/1]).
+
+main() ->
+    Cart = [
+        {"Laptop",1,50000},
+        {"Mouse",2,500},
+        {"Keyboard",1,1500}
+    ],
+
+    print(Cart),
+    Total = total(Cart),
+    Disc  = discount(Total),
+    Final = Total - Disc,
+
+    io:format("Total: ~p~n",[Total]),
+    io:format("Discount: ~p~n",[Disc]),
+    io:format("Final: ~p~n",[Final]).
+
+print([]) -> ok;
+print([{Name,Q,P}|Rest]) ->
+    Cost = Q * P,
+    io:format("~s x~p = ~p~n",[Name,Q,Cost]),
+    print(Rest).
+
+total([]) -> 0;
+total([{_,Q,P}|Rest]) ->
+    Q * P + total(Rest).
+
+discount(Total) when Total > 50000 -> Total * 0.1;
+discount(Total) when Total > 20000 -> Total * 0.05;
+discount(_) -> 0.` },
+      { name: "Erlang Project 9", code: `%% # import io
+
+-module(employee_system).
+-export([main/0, bonus/1, final_salary/1, process/1]).
+
+main() ->
+    Employees = [
+        {"Amit",30000,"IT"},
+        {"Ravi",25000,"HR"},
+        {"Neha",40000,"IT"},
+        {"Sita",20000,"Admin"}
+    ],
+
+    Total = process(Employees),
+    io:format("Total Expense: ~p~n",[Total]).
+
+bonus({_,Sal,"IT"}) -> Sal * 0.2;
+bonus({_,Sal,"HR"}) -> Sal * 0.1;
+bonus({_,Sal,_})    -> Sal * 0.05.
+
+final_salary(E = {_,Sal,_}) ->
+    Sal + bonus(E).
+
+process([]) -> 0;
+process([E={Name,_,Dept}|Rest]) ->
+    FS = final_salary(E),
+    io:format("~s (~s) -> ~p~n",[Name,Dept,FS]),
+    FS + process(Rest).` },
+      { name: "Erlang Project 10", code: `%% # import io
+
+-module(bank_system).
+-export([main/0, deposit/3, withdraw/3, show/1]).
+
+main() ->
+    Accounts = [
+        {1, "Ram", 5000},
+        {2, "Shyam", 8000},
+        {3, "Mohan", 2000}
+    ],
+
+    A1 = deposit(Accounts, 1, 2000),
+    A2 = withdraw(A1, 2, 3000),
+    A3 = withdraw(A2, 3, 5000),
+
+    show(A3).
+
+deposit([], _, _) -> [];
+deposit([{Id,Name,B}|Rest], Id, Amt) ->
+    [{Id,Name,B+Amt} | deposit(Rest, Id, Amt)];
+deposit([H|Rest], Id, Amt) ->
+    [H | deposit(Rest, Id, Amt)].
+
+withdraw([], _, _) -> [];
+withdraw([{Id,Name,B}|Rest], Id, Amt) when B >= Amt ->
+    [{Id,Name,B-Amt} | withdraw(Rest, Id, Amt)];
+withdraw([{Id,Name,B}|Rest], Id, Amt) ->
+    io:format("Insufficient balance for ~s~n",[Name]),
+    [{Id,Name,B} | Rest];
+withdraw([H|Rest], Id, Amt) ->
+    [H | withdraw(Rest, Id, Amt)].
+
+show([]) -> ok;
+show([{Id,Name,B}|Rest]) ->
+    io:format("ID:~p Name:~s Balance:~p~n",[Id,Name,B]),
+    show(Rest).` }
+    ];
+  }
+  
+  // 👉 Solidity
+  if (lang === "Solidity") {
+    return [
+      { name: "Solidity Project 1", code: `// # import solidity ^0.8.0
+
+pragma solidity ^0.8.0;
+
+contract Auction {
+
+    address public highestBidder;
+    uint public highestBid;
+
+    mapping(address => uint) public bids;
+
+    function bid() public payable {
+        require(msg.value > highestBid, "Bid too low");
+
+        if(highestBidder != address(0)) {
+            bids[highestBidder] += highestBid;
+        }
+
+        highestBidder = msg.sender;
+        highestBid = msg.value;
+    }
+
+    function withdraw() public {
+        uint amount = bids[msg.sender];
+        require(amount > 0, "Nothing to withdraw");
+
+        bids[msg.sender] = 0;
+        payable(msg.sender).transfer(amount);
+    }
+}` },
+      { name: "Solidity Project 2", code: `// # import solidity ^0.8.0
+
+pragma solidity ^0.8.0;
+
+contract StudentManager {
+
+    struct Student {
+        string name;
+        uint marks;
+    }
+
+    mapping(uint => Student) public students;
+    uint public count;
+
+    function addStudent(string memory name, uint marks) public {
+        students[count] = Student(name, marks);
+        count++;
+    }
+
+    function getGrade(uint id) public view returns(string memory) {
+        uint m = students[id].marks;
+
+        if(m >= 85) return "A";
+        else if(m >= 60) return "B";
+        else if(m >= 40) return "C";
+        else return "Fail";
+    }
+}` },
+      { name: "Solidity Project 3", code: `// # import solidity ^0.8.0
+
+pragma solidity ^0.8.0;
+
+contract AdvancedBank {
+
+    address public owner;
+    mapping(address => uint) public balances;
+
+    event Deposited(address user, uint amount);
+    event Withdrawn(address user, uint amount);
+
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Not owner");
+        _;
+    }
+
+    constructor() {
+        owner = msg.sender;
+    }
+
+    function deposit() public payable {
+        balances[msg.sender] += msg.value;
+        emit Deposited(msg.sender, msg.value);
+    }
+
+    function withdraw(uint amount) public {
+        require(balances[msg.sender] >= amount, "Low balance");
+
+        balances[msg.sender] -= amount;
+        payable(msg.sender).transfer(amount);
+
+        emit Withdrawn(msg.sender, amount);
+    }
+
+    function contractBalance() public view onlyOwner returns(uint) {
+        return address(this).balance;
+    }
+}` },
+      { name: "Solidity Project 4", code: `// # import solidity ^0.8.0
+
+pragma solidity ^0.8.0;
+
+contract VotingSystem {
+
+    struct Candidate {
+        string name;
+        uint voteCount;
+    }
+
+    Candidate[] public candidates;
+    mapping(address => bool) public voted;
+
+    function addCandidate(string memory name) public {
+        candidates.push(Candidate(name, 0));
+    }
+
+    function vote(uint index) public {
+        require(!voted[msg.sender], "Already voted");
+
+        candidates[index].voteCount++;
+        voted[msg.sender] = true;
+    }
+
+    function getWinner() public view returns(string memory) {
+        uint maxVotes = 0;
+        uint winnerIndex = 0;
+
+        for(uint i = 0; i < candidates.length; i++) {
+            if(candidates[i].voteCount > maxVotes) {
+                maxVotes = candidates[i].voteCount;
+                winnerIndex = i;
+            }
+        }
+
+        return candidates[winnerIndex].name;
+    }
+}` },
+      { name: "Solidity Project 5", code: `// # import solidity ^0.8.0
+
+pragma solidity ^0.8.0;
+
+contract Store {
+
+    struct Product {
+        string name;
+        uint price;
+    }
+
+    Product[] public products;
+    mapping(address => uint[]) public purchases;
+
+    function addProduct(string memory name, uint price) public {
+        products.push(Product(name, price));
+    }
+
+    function buy(uint index) public payable {
+        require(msg.value >= products[index].price, "Not enough ETH");
+
+        purchases[msg.sender].push(index);
+
+        uint extra = msg.value - products[index].price;
+        if(extra > 0) {
+            payable(msg.sender).transfer(extra);
+        }
+    }
+
+    function getMyPurchases() public view returns(uint[] memory) {
+        return purchases[msg.sender];
+    }
+}` },
+      { name: "Solidity Project 6", code: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract TodoList {
+    struct Task {
+        string content;
+        bool completed;
+    }
+
+    mapping(address => Task[]) public userTasks;
+
+    function addTask(string memory _content) public {
+        userTasks[msg.sender].push(Task(_content, false));
+    }
+
+    function toggleTask(uint index) public {
+        Task storage task = userTasks[msg.sender][index];
+        task.completed = !task.completed;
+    }
+
+    function getTasks() public view returns (Task[] memory) {
+        return userTasks[msg.sender];
+    }
+}` },
+      { name: "Solidity Project 7", code: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Lottery {
+    address public manager;
+    address[] public players;
+
+    constructor() {
+        manager = msg.sender;
+    }
+
+    function enter() public payable {
+        require(msg.value > 0.01 ether, "Minimum entry required");
+        players.push(msg.sender);
+    }
+
+    function random() private view returns (uint) {
+        return uint(keccak256(abi.encodePacked(block.timestamp, players)));
+    }
+
+    function pickWinner() public {
+        require(msg.sender == manager, "Only manager");
+        require(players.length > 0, "No players");
+
+        uint index = random() % players.length;
+        payable(players[index]).transfer(address(this).balance);
+
+        delete players;
+    }
+
+    function getPlayers() public view returns (address[] memory) {
+        return players;
+    }
+}` },
+      { name: "Solidity Project 8", code: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Crowdfunding {
+    address public owner;
+    uint public goal;
+    uint public totalFunds;
+    mapping(address => uint) public contributions;
+
+    constructor(uint _goal) {
+        owner = msg.sender;
+        goal = _goal;
+    }
+
+    function contribute() public payable {
+        contributions[msg.sender] += msg.value;
+        totalFunds += msg.value;
+    }
+
+    function withdrawFunds() public {
+        require(msg.sender == owner, "Only owner");
+        require(totalFunds >= goal, "Goal not reached");
+
+        payable(owner).transfer(totalFunds);
+    }
+
+    function refund() public {
+        require(totalFunds < goal, "Goal reached");
+
+        uint amount = contributions[msg.sender];
+        contributions[msg.sender] = 0;
+        payable(msg.sender).transfer(amount);
+    }
+}` },
+      { name: "Solidity Project 9", code: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Bank {
+    mapping(address => uint) private balances;
+
+    function deposit() public payable {
+        balances[msg.sender] += msg.value;
+    }
+
+    function withdraw(uint amount) public {
+        require(balances[msg.sender] >= amount, "Insufficient balance");
+
+        balances[msg.sender] -= amount;
+        payable(msg.sender).transfer(amount);
+    }
+
+    function checkBalance() public view returns (uint) {
+        return balances[msg.sender];
+    }
+}` },
+      { name: "Solidity Project 10", code: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract VotingSystem {
+    struct Candidate {
+        string name;
+        uint voteCount;
+    }
+
+    mapping(address => bool) public hasVoted;
+    Candidate[] public candidates;
+    address public owner;
+
+    constructor(string[] memory candidateNames) {
+        owner = msg.sender;
+        for (uint i = 0; i < candidateNames.length; i++) {
+            candidates.push(Candidate(candidateNames[i], 0));
+        }
+    }
+
+    function vote(uint candidateIndex) public {
+        require(!hasVoted[msg.sender], "Already voted!");
+        require(candidateIndex < candidates.length, "Invalid candidate");
+
+        hasVoted[msg.sender] = true;
+        candidates[candidateIndex].voteCount++;
+    }
+
+    function getWinner() public view returns (string memory) {
+        uint maxVotes = 0;
+        uint winnerIndex = 0;
+
+        for (uint i = 0; i < candidates.length; i++) {
+            if (candidates[i].voteCount > maxVotes) {
+                maxVotes = candidates[i].voteCount;
+                winnerIndex = i;
+            }
+        }
+
+        return candidates[winnerIndex].name;
+    }
+}` }
+    ];
+  }
+  
+  // 👉 SQL
+  if (lang === "SQL") {
+    return [
+      { name: "SQL Project 1", code: `-- Total students
+SELECT COUNT(*) AS total_students FROM students;
+
+-- Average marks
+SELECT AVG(marks) AS avg_marks FROM students;
+
+-- Highest marks
+SELECT MAX(marks) AS highest_marks FROM students;` },
+      { name: "SQL Project 2", code: `-- Create table
+CREATE TABLE students (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    marks INT
+);
+
+-- Insert data
+INSERT INTO students VALUES (1, 'Amit', 75);
+INSERT INTO students VALUES (2, 'Neha', 88);
+INSERT INTO students VALUES (3, 'Ravi', 60);` },
+      { name: "SQL Project 3", code: `-- Tables: students, courses, enrollments
+
+SELECT 
+    s.id AS student_id,
+    s.name AS student_name,
+    c.course_name,
+    e.marks
+FROM students s
+INNER JOIN enrollments e 
+    ON s.id = e.student_id
+INNER JOIN courses c 
+    ON e.course_id = c.id
+WHERE e.marks > 60
+ORDER BY e.marks DESC;` },
+      { name: "SQL Project 4", code: `-- Student performance report
+
+SELECT 
+    s.name,
+    c.course_name,
+    e.marks,
+    CASE
+        WHEN e.marks >= 80 THEN 'Excellent'
+        WHEN e.marks >= 60 THEN 'Good'
+        WHEN e.marks >= 40 THEN 'Average'
+        ELSE 'Fail'
+    END AS grade
+FROM students s
+JOIN enrollments e 
+    ON s.id = e.student_id
+JOIN courses c 
+    ON e.course_id = c.id
+ORDER BY s.name, e.marks DESC;` },
+      { name: "SQL Project 5", code: `-- Average marks per course + filter
+
+SELECT 
+    c.course_name,
+    COUNT(e.student_id) AS total_students,
+    AVG(e.marks) AS avg_marks,
+    MAX(e.marks) AS highest,
+    MIN(e.marks) AS lowest
+FROM courses c
+LEFT JOIN enrollments e 
+    ON c.id = e.course_id
+GROUP BY c.course_name
+HAVING AVG(e.marks) > 65
+ORDER BY avg_marks DESC;` },
+      { name: "SQL Project 6", code: `WITH sales_data AS (
+    SELECT 
+        s.product_id,
+        SUM(s.quantity) AS total_sold,
+        SUM(s.quantity * s.price) AS total_revenue
+    FROM sales s
+    GROUP BY s.product_id
+),
+purchase_data AS (
+    SELECT 
+        p.product_id,
+        SUM(p.quantity) AS total_purchased,
+        SUM(p.quantity * p.cost_price) AS total_cost
+    FROM purchases p
+    GROUP BY p.product_id
+),
+combined AS (
+    SELECT 
+        pr.id,
+        pr.product_name,
+        pr.stock,
+        sd.total_sold,
+        sd.total_revenue,
+        pd.total_purchased,
+        pd.total_cost
+    FROM products pr
+    LEFT JOIN sales_data sd ON pr.id = sd.product_id
+    LEFT JOIN purchase_data pd ON pr.id = pd.product_id
+),
+final_calc AS (
+    SELECT *,
+        (total_revenue - total_cost) AS profit,
+        CASE 
+            WHEN stock < 10 THEN 'LOW STOCK'
+            WHEN stock = 0 THEN 'OUT OF STOCK'
+            ELSE 'OK'
+        END AS stock_status
+    FROM combined
+)
+SELECT 
+    id,
+    product_name,
+    stock,
+    total_sold,
+    total_revenue,
+    total_cost,
+    profit,
+    stock_status
+FROM final_calc
+ORDER BY profit DESC;` },
+      { name: "SQL Project 7", code: `WITH RECURSIVE emp_tree AS (
+    SELECT 
+        id,
+        name,
+        manager_id,
+        salary,
+        1 AS level,
+        CAST(name AS CHAR(500)) AS path
+    FROM employees
+    WHERE manager_id IS NULL
+
+    UNION ALL
+
+    SELECT 
+        e.id,
+        e.name,
+        e.manager_id,
+        e.salary,
+        et.level + 1,
+        CONCAT(et.path, ' -> ', e.name)
+    FROM employees e
+    JOIN emp_tree et ON e.manager_id = et.id
+),
+salary_stats AS (
+    SELECT 
+        level,
+        AVG(salary) AS avg_salary,
+        MAX(salary) AS max_salary,
+        MIN(salary) AS min_salary
+    FROM emp_tree
+    GROUP BY level
+)
+SELECT 
+    et.id,
+    et.name,
+    et.level,
+    et.salary,
+    ss.avg_salary,
+    ss.max_salary,
+    ss.min_salary,
+    et.path
+FROM emp_tree et
+JOIN salary_stats ss ON et.level = ss.level
+ORDER BY et.level, et.salary DESC;` },
+      { name: "SQL Project 8", code: `WITH base AS (
+    SELECT 
+        t.id,
+        t.user_id,
+        t.amount,
+        t.location,
+        t.transaction_time,
+        LAG(t.amount) OVER (PARTITION BY t.user_id ORDER BY t.transaction_time) AS prev_amount,
+        LAG(t.transaction_time) OVER (PARTITION BY t.user_id ORDER BY t.transaction_time) AS prev_time
+    FROM transactions t
+),
+risk_flags AS (
+    SELECT *,
+        CASE WHEN amount > 20000 THEN 1 ELSE 0 END AS high_amount,
+        CASE WHEN amount > prev_amount * 3 THEN 1 ELSE 0 END AS sudden_spike,
+        CASE WHEN TIMESTAMPDIFF(MINUTE, prev_time, transaction_time) < 1 THEN 1 ELSE 0 END AS too_fast
+    FROM base
+),
+risk_score AS (
+    SELECT *,
+        (high_amount + sudden_spike + too_fast) AS risk_points
+    FROM risk_flags
+)
+SELECT 
+    user_id,
+    amount,
+    transaction_time,
+    location,
+    risk_points,
+    CASE 
+        WHEN risk_points >= 2 THEN 'HIGH RISK'
+        WHEN risk_points = 1 THEN 'MEDIUM RISK'
+        ELSE 'LOW RISK'
+    END AS risk_level
+FROM risk_score
+ORDER BY risk_points DESC, transaction_time DESC;` },
+      { name: "SQL Project 9", code: `WITH user_orders AS (
+    SELECT 
+        u.id AS user_id,
+        u.name,
+        o.id AS order_id,
+        o.amount,
+        o.order_date,
+        DATE_FORMAT(o.order_date, '%Y-%m') AS order_month
+    FROM users u
+    LEFT JOIN orders o ON u.id = o.user_id
+),
+monthly_user_stats AS (
+    SELECT 
+        user_id,
+        name,
+        order_month,
+        COUNT(order_id) AS total_orders,
+        SUM(amount) AS total_spent,
+        AVG(amount) AS avg_order
+    FROM user_orders
+    GROUP BY user_id, name, order_month
+),
+ranked_users AS (
+    SELECT *,
+        RANK() OVER (PARTITION BY order_month ORDER BY total_spent DESC) AS monthly_rank
+    FROM monthly_user_stats
+),
+growth_calc AS (
+    SELECT *,
+        LAG(total_spent) OVER (PARTITION BY user_id ORDER BY order_month) AS prev_month_spent
+    FROM ranked_users
+)
+SELECT 
+    user_id,
+    name,
+    order_month,
+    total_orders,
+    total_spent,
+    avg_order,
+    monthly_rank,
+    prev_month_spent,
+    (total_spent - prev_month_spent) AS growth,
+    ROUND((total_spent - prev_month_spent) * 100 / prev_month_spent, 2) AS growth_percent
+FROM growth_calc
+ORDER BY order_month, monthly_rank;` },
+      { name: "SQL Project 10", code: `WITH user_purchases AS (
+    SELECT 
+        user_id,
+        product_id,
+        COUNT(*) AS purchase_count
+    FROM orders
+    GROUP BY user_id, product_id
+),
+product_pairs AS (
+    SELECT 
+        a.product_id AS product_a,
+        b.product_id AS product_b,
+        COUNT(*) AS pair_count
+    FROM user_purchases a
+    JOIN user_purchases b 
+        ON a.user_id = b.user_id 
+        AND a.product_id <> b.product_id
+    GROUP BY a.product_id, b.product_id
+),
+ranked_pairs AS (
+    SELECT *,
+        RANK() OVER (PARTITION BY product_a ORDER BY pair_count DESC) AS rank_num
+    FROM product_pairs
+)
+SELECT 
+    product_a,
+    product_b AS recommended_product,
+    pair_count
+FROM ranked_pairs
+WHERE rank_num <= 3
+ORDER BY product_a, pair_count DESC;` }
+    ];
+  }
+  
+  // 👉 Bash
+  if (lang === "Bash") {
+    return [
+      { name: "Bash Project 1", code: `#!/bin/bash
+
+while true; do
+    echo "===== FILE MANAGER ====="
+    echo "1. List files"
+    echo "2. Create file"
+    echo "3. Delete file"
+    echo "4. Exit"
+
+    read -p "Choose: " choice
+
+    case $choice in
+        1)
+            ls -lh
+            ;;
+        2)
+            read -p "File name: " fname
+            touch "$fname"
+            echo "File created."
+            ;;
+        3)
+            read -p "File name: " fname
+            rm -i "$fname"
+            ;;
+        4)
+            echo "Bye!"
+            break
+            ;;
+        *)
+            echo "Invalid choice"
+            ;;
+    esac
+done` },
+      { name: "Bash Project 2", code: `#!/bin/bash
+
+LOG_FILE="/var/log/syslog"
+
+if [ ! -f "$LOG_FILE" ]; then
+    echo "Log file not found!"
+    exit 1
+fi
+
+echo "Analyzing logs..."
+
+ERRORS=$(grep -i "error" "$LOG_FILE" | wc -l)
+WARNINGS=$(grep -i "warn" "$LOG_FILE" | wc -l)
+
+echo "Total Errors: $ERRORS"
+echo "Total Warnings: $WARNINGS"
+
+echo "Recent Errors:"
+grep -i "error" "$LOG_FILE" | tail -5` },
+      { name: "Bash Project 3", code: `#!/bin/bash
+
+echo "1. Add User"
+echo "2. Delete User"
+read -p "Choose option: " choice
+
+case $choice in
+    1)
+        read -p "Enter username: " username
+        sudo useradd "$username"
+        echo "User $username created."
+        ;;
+    2)
+        read -p "Enter username: " username
+        sudo userdel "$username"
+        echo "User $username deleted."
+        ;;
+    *)
+        echo "Invalid option"
+        ;;
+esac` },
+      { name: "Bash Project 4", code: `#!/bin/bash
+
+echo "===== SYSTEM STATUS ====="
+
+# CPU Load
+CPU=$(top -bn1 | grep "Cpu(s)" | awk '{print $2 + $4}')
+echo "CPU Usage: $CPU%"
+
+# Memory
+MEM=$(free -m | awk 'NR==2{printf "%.2f", $3*100/$2 }')
+echo "Memory Usage: $MEM%"
+
+# Disk
+DISK=$(df -h / | awk 'NR==2{print $5}')
+echo "Disk Usage: $DISK"
+
+# Uptime
+echo "Uptime:"
+uptime -p
+
+echo "========================="` },
+      { name: "Bash Project 5", code: `#!/bin/bash
+
+# Source and destination
+SOURCE_DIR="$HOME/Documents"
+BACKUP_DIR="$HOME/backup"
+
+# Create backup folder if not exists
+mkdir -p "$BACKUP_DIR"
+
+# Timestamp
+DATE=$(date +"%Y-%m-%d_%H-%M-%S")
+
+# Backup file name
+BACKUP_FILE="$BACKUP_DIR/backup_$DATE.tar.gz"
+
+# Create backup
+tar -czf "$BACKUP_FILE" "$SOURCE_DIR"
+
+# Check success
+if [ $? -eq 0 ]; then
+    echo "Backup successful: $BACKUP_FILE"
+else
+    echo "Backup failed!"
+fi
+
+# Delete backups older than 7 days
+find "$BACKUP_DIR" -type f -mtime +7 -exec rm {} \;
+
+echo "Old backups cleaned."` },
+      { name: "Bash Project 6", code: `#!/bin/bash
+
+LOG_FILE="/var/log/syslog"
+OUTPUT="alert.log"
+
+check_errors() {
+    ERRORS=$(grep -i "error" "$LOG_FILE" | tail -10)
+    if [ ! -z "$ERRORS" ]; then
+        echo "$(date) - Errors found" >> "$OUTPUT"
+        echo "$ERRORS" >> "$OUTPUT"
+    fi
+}
+
+check_failed_logins() {
+    FAIL=$(grep "Failed password" "$LOG_FILE" | tail -5)
+    if [ ! -z "$FAIL" ]; then
+        echo "$(date) - Failed logins" >> "$OUTPUT"
+        echo "$FAIL" >> "$OUTPUT"
+    fi
+}
+
+auto_block_ip() {
+    IP=$(grep "Failed password" "$LOG_FILE" | awk '{print $11}' | tail -1)
+    if [ ! -z "$IP" ]; then
+        sudo iptables -A INPUT -s "$IP" -j DROP
+        echo "$(date) - Blocked IP: $IP" >> "$OUTPUT"
+    fi
+}
+
+while true; do
+    check_errors
+    check_failed_logins
+    auto_block_ip
+    sleep 20
+done` },
+      { name: "Bash Project 7", code: `#!/bin/bash
+
+SOURCE="$HOME/data"
+BACKUP_DIR="$HOME/backups"
+RESTORE_DIR="$HOME/restore"
+LOG_FILE="$HOME/backup.log"
+
+mkdir -p "$BACKUP_DIR" "$RESTORE_DIR"
+
+log() {
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
+}
+
+create_backup() {
+    DATE=$(date +"%Y%m%d_%H%M%S")
+    FILE="$BACKUP_DIR/backup_$DATE.tar.gz"
+
+    tar -czf "$FILE" "$SOURCE" 2>>"$LOG_FILE"
+
+    if [ $? -eq 0 ]; then
+        log "Backup created: $FILE"
+    else
+        log "Backup failed!"
+    fi
+}
+
+list_backups() {
+    echo "Available backups:"
+    ls -1 "$BACKUP_DIR"
+}
+
+restore_backup() {
+    list_backups
+    read -p "Enter backup filename: " file
+    FULL_PATH="$BACKUP_DIR/$file"
+
+    if [ -f "$FULL_PATH" ]; then
+        tar -xzf "$FULL_PATH" -C "$RESTORE_DIR"
+        log "Restored: $file"
+    else
+        echo "Invalid file!"
+    fi
+}
+
+cleanup_old() {
+    find "$BACKUP_DIR" -type f -mtime +7 -exec rm {} \;
+    log "Old backups deleted"
+}
+
+while true; do
+    echo "1. Backup"
+    echo "2. Restore"
+    echo "3. List"
+    echo "4. Cleanup"
+    echo "5. Exit"
+
+    read -p "Choice: " ch
+
+    case $ch in
+        1) create_backup ;;
+        2) restore_backup ;;
+        3) list_backups ;;
+        4) cleanup_old ;;
+        5) break ;;
+        *) echo "Invalid";;
+    esac
+done` },
+      { name: "Bash Project 8", code: `#!/bin/bash
+
+LOG="system_monitor.log"
+
+CPU_LIMIT=80
+MEM_LIMIT=80
+DISK_LIMIT=90
+
+log() {
+    echo "$(date) - $1" >> "$LOG"
+}
+
+get_cpu() {
+    top -bn1 | grep "Cpu" | awk '{print $2 + $4}'
+}
+
+get_mem() {
+    free | awk '/Mem/ {printf("%.0f"), $3/$2 * 100}'
+}
+
+get_disk() {
+    df / | awk 'NR==2 {print $5}' | sed 's/%//'
+}
+
+check_alerts() {
+    cpu=$(get_cpu)
+    mem=$(get_mem)
+    disk=$(get_disk)
+
+    echo "CPU: $cpu%"
+    echo "MEM: $mem%"
+    echo "DISK: $disk%"
+
+    if (( $(echo "$cpu > $CPU_LIMIT" | bc -l) )); then
+        log "High CPU usage: $cpu%"
+    fi
+
+    if [ "$mem" -gt "$MEM_LIMIT" ]; then
+        log "High Memory usage: $mem%"
+    fi
+
+    if [ "$disk" -gt "$DISK_LIMIT" ]; then
+        log "Disk almost full: $disk%"
+    fi
+}
+
+while true; do
+    check_alerts
+    sleep 10
+done` },
+      { name: "Bash Project 9", code: `#!/bin/bash
+
+APP_DIR="$HOME/myapp"
+REPO="https://github.com/user/project.git"
+BRANCH="main"
+LOG="deploy.log"
+
+log() {
+    echo "$(date) - $1" >> "$LOG"
+}
+
+clone_repo() {
+    if [ ! -d "$APP_DIR" ]; then
+        git clone "$REPO" "$APP_DIR"
+        log "Repo cloned"
+    fi
+}
+
+update_repo() {
+    cd "$APP_DIR" || exit
+    git fetch origin
+    git reset --hard origin/$BRANCH
+    log "Repo updated"
+}
+
+install_deps() {
+    cd "$APP_DIR" || exit
+    if [ -f "package.json" ]; then
+        npm install
+        log "Dependencies installed"
+    fi
+}
+
+build_app() {
+    cd "$APP_DIR" || exit
+    if [ -f "package.json" ]; then
+        npm run build
+        log "Build complete"
+    fi
+}
+
+restart_app() {
+    pkill -f node
+    nohup node server.js > app.log 2>&1 &
+    log "App restarted"
+}
+
+deploy() {
+    clone_repo
+    update_repo
+    install_deps
+    build_app
+    restart_app
+    log "Deployment done"
+}
+
+deploy` },
+      { name: "Bash Project 10", code: `#!/bin/bash
+
+echo "===== SERVER SETUP ====="
+
+update_system() {
+    sudo apt update && sudo apt upgrade -y
+}
+
+install_nginx() {
+    sudo apt install nginx -y
+    sudo systemctl enable nginx
+    sudo systemctl start nginx
+}
+
+install_node() {
+    sudo apt install nodejs npm -y
+}
+
+create_user() {
+    read -p "Username: " user
+    sudo adduser "$user"
+}
+
+setup_firewall() {
+    sudo ufw allow OpenSSH
+    sudo ufw allow 'Nginx Full'
+    sudo ufw enable
+}
+
+show_menu() {
+    echo "1. Update System"
+    echo "2. Install Nginx"
+    echo "3. Install Node"
+    echo "4. Create User"
+    echo "5. Setup Firewall"
+    echo "6. Exit"
+}
+
+while true; do
+    show_menu
+    read -p "Choice: " ch
+
+    case $ch in
+        1) update_system ;;
+        2) install_nginx ;;
+        3) install_node ;;
+        4) create_user ;;
+        5) setup_firewall ;;
+        6) break ;;
+        *) echo "Invalid option";;
+    esac
+done` }
+    ];
+  }
+  
+  // 👉 PowerShell
+  if (lang === "PowerShell") {
+    return [
+      { name: "PowerShell Project 1", code: `# Kill processes using high CPU
+
+$limit = 100
+
+Get-Process | ForEach-Object {
+    if ($_.CPU -gt $limit) {
+        Write-Host "Killing:" $_.ProcessName "CPU:" $_.CPU
+        Stop-Process -Id $_.Id -Force
+    }
+}` },
+      { name: "PowerShell Project 2", code: `# Create local user
+
+$username = Read-Host "Enter username"
+$password = Read-Host "Enter password" -AsSecureString
+
+New-LocalUser -Name $username -Password $password -FullName $username
+
+Add-LocalGroupMember -Group "Users" -Member $username
+
+Write-Host "User created successfully!"` },
+      { name: "PowerShell Project 3", code: `# System Info Script
+
+Write-Host "===== SYSTEM INFO ====="
+
+$os = Get-CimInstance Win32_OperatingSystem
+$cpu = Get-CimInstance Win32_Processor
+$ram = Get-CimInstance Win32_PhysicalMemory
+$disk = Get-CimInstance Win32_LogicalDisk -Filter "DriveType=3"
+
+Write-Host "OS:" $os.Caption
+Write-Host "Version:" $os.Version
+Write-Host "CPU:" $cpu.Name
+
+$totalRAM = ($ram | Measure-Object -Property Capacity -Sum).Sum / 1GB
+Write-Host "RAM:" ([math]::Round($totalRAM,2)) "GB"
+
+foreach ($d in $disk) {
+    $free = [math]::Round($d.FreeSpace / 1GB,2)
+    $total = [math]::Round($d.Size / 1GB,2)
+    Write-Host "Drive:" $d.DeviceID "Free:" $free "GB /" $total "GB"
+}
+
+Write-Host "========================"` },
+      { name: "PowerShell Project 4", code: `# Organize files by type
+
+$folder = "$HOME\Downloads"
+
+Get-ChildItem $folder -File | ForEach-Object {
+    $ext = $_.Extension.Replace(".", "")
+    if ($ext -eq "") { $ext = "NoExt" }
+
+    $dest = Join-Path $folder $ext
+
+    if (!(Test-Path $dest)) {
+        New-Item -ItemType Directory -Path $dest | Out-Null
+    }
+
+    Move-Item $_.FullName -Destination $dest
+}
+
+Write-Host "Files organized!"` },
+      { name: "PowerShell Project 5", code: `# Backup folder
+
+$source = "$HOME\Documents"
+$dest = "$HOME\Backup"
+
+if (!(Test-Path $dest)) {
+    New-Item -ItemType Directory -Path $dest | Out-Null
+}
+
+$date = Get-Date -Format "yyyy-MM-dd_HH-mm-ss"
+$zipFile = "$dest\backup_$date.zip"
+
+Compress-Archive -Path $source -DestinationPath $zipFile
+
+Write-Host "Backup created:" $zipFile` },
+      { name: "PowerShell Project 6", code: `# Server Setup Script
+
+function Update-System {
+    Write-Host "Updating system..."
+    Install-WindowsUpdate -AcceptAll -AutoReboot
+}
+
+function Install-IIS {
+    Add-WindowsFeature Web-Server
+    Write-Host "IIS Installed"
+}
+
+function Install-Node {
+    choco install nodejs -y
+}
+
+function Create-User {
+    $user = Read-Host "Enter username"
+    $pass = Read-Host "Enter password" -AsSecureString
+    New-LocalUser -Name $user -Password $pass
+    Add-LocalGroupMember -Group "Users" -Member $user
+}
+
+function Show-Menu {
+    Write-Host "1 Update System"
+    Write-Host "2 Install IIS"
+    Write-Host "3 Install Node"
+    Write-Host "4 Create User"
+    Write-Host "5 Exit"
+}
+
+while ($true) {
+    Show-Menu
+    $ch = Read-Host "Choice"
+
+    switch ($ch) {
+        1 { Update-System }
+        2 { Install-IIS }
+        3 { Install-Node }
+        4 { Create-User }
+        5 { break }
+        default { Write-Host "Invalid option" }
+    }
+}` },
+      { name: "PowerShell Project 7", code: `# Log Analyzer
+
+$log = "C:\Windows\System32\winevt\Logs\Security.evtx"
+
+function Get-FailedLogins {
+    Get-WinEvent -LogName Security |
+    Where-Object { $_.Id -eq 4625 } |
+    Select-Object TimeCreated, Message -First 10
+}
+
+function Get-Errors {
+    Get-WinEvent -LogName System |
+    Where-Object { $_.LevelDisplayName -eq "Error" } |
+    Select-Object TimeCreated, Message -First 10
+}
+
+function Alert {
+    Write-Host "===== SECURITY ALERT ====="
+    Get-FailedLogins
+    Get-Errors
+}
+
+while ($true) {
+    Alert
+    Start-Sleep -Seconds 30
+}` },
+      { name: "PowerShell Project 8", code: `# Auto Installer Script
+
+$apps = @(
+    "googlechrome",
+    "vlc",
+    "7zip",
+    "git",
+    "nodejs"
+)
+
+function Install-App($app) {
+    Write-Host "Installing $app..."
+    choco install $app -y
+}
+
+function Check-Choco {
+    if (!(Get-Command choco -ErrorAction SilentlyContinue)) {
+        Write-Host "Installing Chocolatey..."
+        Set-ExecutionPolicy Bypass -Scope Process -Force
+        Invoke-Expression ((New-Object Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+    }
+}
+
+Check-Choco
+
+foreach ($app in $apps) {
+    Install-App $app
+}
+
+Write-Host "All apps installed!"` },
+      { name: "PowerShell Project 9", code: `# Backup + Restore Script
+
+$backupDir = "$HOME\Backups"
+$sourceDir = "$HOME\Documents"
+$restoreDir = "$HOME\Restore"
+
+if (!(Test-Path $backupDir)) { New-Item -ItemType Directory $backupDir }
+if (!(Test-Path $restoreDir)) { New-Item -ItemType Directory $restoreDir }
+
+function Create-Backup {
+    $date = Get-Date -Format "yyyyMMdd_HHmmss"
+    $file = "$backupDir\backup_$date.zip"
+    Compress-Archive -Path $sourceDir -DestinationPath $file
+    Write-Host "Backup Created: $file"
+}
+
+function List-Backups {
+    Get-ChildItem $backupDir | Select Name
+}
+
+function Restore-Backup {
+    List-Backups
+    $file = Read-Host "Enter backup file name"
+    $fullPath = Join-Path $backupDir $file
+
+    if (Test-Path $fullPath) {
+        Expand-Archive $fullPath -DestinationPath $restoreDir -Force
+        Write-Host "Restored to $restoreDir"
+    } else {
+        Write-Host "Invalid file!"
+    }
+}
+
+function Cleanup {
+    Get-ChildItem $backupDir | Where-Object {
+        $_.LastWriteTime -lt (Get-Date).AddDays(-7)
+    } | Remove-Item
+
+    Write-Host "Old backups removed"
+}
+
+while ($true) {
+    Write-Host "1 Backup"
+    Write-Host "2 Restore"
+    Write-Host "3 List"
+    Write-Host "4 Cleanup"
+    Write-Host "5 Exit"
+
+    $ch = Read-Host "Choose"
+
+    switch ($ch) {
+        1 { Create-Backup }
+        2 { Restore-Backup }
+        3 { List-Backups }
+        4 { Cleanup }
+        5 { break }
+        default { Write-Host "Invalid" }
+    }
+}` },
+      { name: "PowerShell Project 10", code: `# System Monitor Script
+
+$logFile = "$HOME\system_monitor.log"
+$cpuLimit = 80
+$memLimit = 80
+$diskLimit = 90
+
+function Write-Log($msg) {
+    $time = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    "$time - $msg" | Out-File -Append $logFile
+}
+
+function Get-CPU {
+    (Get-Counter '\Processor(_Total)\% Processor Time').CounterSamples.CookedValue
+}
+
+function Get-Memory {
+    $mem = Get-CimInstance Win32_OperatingSystem
+    (($mem.TotalVisibleMemorySize - $mem.FreePhysicalMemory) * 100 / $mem.TotalVisibleMemorySize)
+}
+
+function Get-Disk {
+    (Get-CimInstance Win32_LogicalDisk -Filter "DeviceID='C:'").FreeSpace /
+    (Get-CimInstance Win32_LogicalDisk -Filter "DeviceID='C:'").Size * 100
+}
+
+while ($true) {
+    $cpu = [math]::Round((Get-CPU),2)
+    $mem = [math]::Round((Get-Memory),2)
+    $diskFree = [math]::Round((Get-Disk),2)
+    $diskUsed = 100 - $diskFree
+
+    Write-Host "CPU: $cpu % | MEM: $mem % | DISK USED: $diskUsed %"
+
+    if ($cpu -gt $cpuLimit) { Write-Log "High CPU: $cpu%" }
+    if ($mem -gt $memLimit) { Write-Log "High Memory: $mem%" }
+    if ($diskUsed -gt $diskLimit) { Write-Log "Disk Full: $diskUsed%" }
+
+    Start-Sleep -Seconds 10
+}` }
+    ];
+  }
+  
+  // 👉 
+  if (lang === "Assembly") {
+    return [
+      { name: "Assembly Project 1", code: `section .data
+    str db "HELLO"
+    len equ 5
+
+section .bss
+    rev resb 5
+
+section .text
+    global _start
+
+_start:
+    mov ecx, len
+    mov esi, str
+    add esi, len
+    dec esi
+
+    mov edi, rev
+
+reverse_loop:
+    mov al, [esi]
+    mov [edi], al
+
+    dec esi
+    inc edi
+    loop reverse_loop
+
+    mov eax, 1
+    int 0x80` },
+      { name: "Assembly Project 2", code: `section .data
+    num db 5
+    result dw 1
+
+section .text
+    global _start
+
+_start:
+    mov cl, [num]
+    mov ax, 1
+
+factorial_loop:
+    mul cl
+    dec cl
+    cmp cl, 1
+    jg factorial_loop
+
+    mov [result], ax
+
+    mov eax, 1
+    int 0x80` },
+      { name: "Assembly Project 3", code: `section .data
+    array db 3, 7, 2, 9, 5
+    len equ 5
+    max db 0
+
+section .text
+    global _start
+
+_start:
+    mov ecx, len
+    mov esi, array
+    mov al, [esi]
+    mov [max], al
+
+next:
+    inc esi
+    dec ecx
+    jz done
+
+    mov al, [esi]
+    cmp al, [max]
+    jle next
+
+    mov [max], al
+    jmp next
+
+done:
+    mov eax, 1
+    int 0x80` },
+      { name: "Assembly Project 4", code: `section .data
+    num1 db 5
+    num2 db 3
+    result db 0
+
+section .text
+    global _start
+
+_start:
+    mov al, [num1]
+    add al, [num2]
+    mov [result], al
+
+    mov eax, 1
+    int 0x80` },
+      { name: "Assembly Project 5", code: `section .data
+    str db "HELLO"
+    len equ 5
+
+section .bss
+    rev resb 5
+
+section .text
+    global _start
+
+_start:
+    mov ecx, len
+    mov esi, str
+    add esi, len
+    dec esi
+
+    mov edi, rev
+
+reverse_loop:
+    mov al, [esi]
+    mov [edi], al
+
+    dec esi
+    inc edi
+    loop reverse_loop
+
+    mov eax, 1
+    int 0x80` },
+      { name: "Assembly Project 6", code: `section .data
+    filename db "test.txt",0
+    text db "Hello from Assembly!",0xA
+    len equ $-text
+
+section .text
+    global _start
+
+_start:
+    ; create file
+    mov eax,8
+    mov ebx,filename
+    mov ecx,0777
+    int 0x80
+
+    mov ebx,eax
+
+    ; write file
+    mov eax,4
+    mov ecx,text
+    mov edx,len
+    int 0x80
+
+    ; close file
+    mov eax,6
+    int 0x80
+
+    ; exit
+    mov eax,1
+    int 0x80` },
+      { name: "Assembly Project 7", code: `section .data
+    str1 db "HELLO",0
+    str2 db "HELLO",0
+
+section .text
+    global _start
+
+_start:
+    mov esi,str1
+    mov edi,str2
+
+compare:
+    mov al,[esi]
+    mov bl,[edi]
+
+    cmp al,bl
+    jne not_equal
+
+    cmp al,0
+    je equal
+
+    inc esi
+    inc edi
+    jmp compare
+
+equal:
+    mov eax,1
+    jmp exit
+
+not_equal:
+    mov eax,0
+
+exit:
+    mov ebx,0
+    int 0x80` },
+      { name: "Assembly Project 8", code: `section .data
+    n db 6
+    a db 0
+    b db 1
+
+section .bss
+    res resb 10
+
+section .text
+    global _start
+
+_start:
+    mov cl,[n]
+    mov al,[a]
+    mov bl,[b]
+
+    mov esi,res
+
+loop1:
+    mov [esi],al
+    add esi,1
+
+    add al,bl
+    xchg al,bl
+
+    dec cl
+    jnz loop1
+
+    mov eax,1
+    int 0x80` },
+      { name: "Assembly Project 9", code: `section .data
+    arr db 5,3,8,1,2
+    len equ 5
+
+section .text
+    global _start
+
+_start:
+    mov ecx,len
+
+outer:
+    dec ecx
+    jz end
+
+    mov esi,arr
+    mov edi,ecx
+
+inner:
+    mov al,[esi]
+    mov bl,[esi+1]
+
+    cmp al,bl
+    jbe skip
+
+    mov [esi],bl
+    mov [esi+1],al
+
+skip:
+    inc esi
+    dec edi
+    jnz inner
+
+    jmp outer
+
+end:
+    mov eax,1
+    int 0x80` },
+      { name: "Assembly Project 10", code: `section .data
+    menu db "1.Add 2.Sub 3.Mul 4.Div",0xA
+    len equ $-menu
+
+section .bss
+    choice resb 1
+    num1 resb 1
+    num2 resb 1
+
+section .text
+    global _start
+
+_start:
+    ; print menu
+    mov eax,4
+    mov ebx,1
+    mov ecx,menu
+    mov edx,len
+    int 0x80
+
+    ; read choice
+    mov eax,3
+    mov ebx,0
+    mov ecx,choice
+    mov edx,1
+    int 0x80
+
+    ; read num1
+    mov eax,3
+    mov ebx,0
+    mov ecx,num1
+    mov edx,1
+    int 0x80
+
+    ; read num2
+    mov eax,3
+    mov ebx,0
+    mov ecx,num2
+    mov edx,1
+    int 0x80
+
+    mov al,[num1]
+    sub al,'0'
+    mov bl,[num2]
+    sub bl,'0'
+
+    mov cl,[choice]
+
+    cmp cl,'1'
+    je add_op
+    cmp cl,'2'
+    je sub_op
+    cmp cl,'3'
+    je mul_op
+    cmp cl,'4'
+    je div_op
+
+add_op:
+    add al,bl
+    jmp done
+
+sub_op:
+    sub al,bl
+    jmp done
+
+mul_op:
+    mul bl
+    jmp done
+
+div_op:
+    div bl
+
+done:
+    add al,'0'
+
+    mov [num1],al
+
+    mov eax,4
+    mov ebx,1
+    mov ecx,num1
+    mov edx,1
+    int 0x80
+
+    mov eax,1
+    int 0x80` }
+    ];
+  }
+  
+  // 👉 COBOL
+  if (lang === "COBOL") {
+    return [
+      { name: "COBOL Project 1", code: `IDENTIFICATION DIVISION.
+       PROGRAM-ID. HELLO.
+
+       PROCEDURE DIVISION.
+           DISPLAY "HELLO, WORLD!".
+           STOP RUN.` },
+      { name: "COBOL Project 2", code: `IDENTIFICATION DIVISION.
+       PROGRAM-ID. SALARY.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 BASIC PIC 9(6)V99.
+       01 HRA PIC 9(6)V99.
+       01 DA PIC 9(6)V99.
+       01 TOTAL PIC 9(7)V99.
+
+       PROCEDURE DIVISION.
+           DISPLAY "ENTER BASIC SALARY: ".
+           ACCEPT BASIC.
+
+           COMPUTE HRA = BASIC * 0.20.
+           COMPUTE DA = BASIC * 0.10.
+
+           COMPUTE TOTAL = BASIC + HRA + DA.
+
+           DISPLAY "HRA = " HRA.
+           DISPLAY "DA = " DA.
+           DISPLAY "TOTAL SALARY = " TOTAL.
+
+           STOP RUN.` },
+      { name: "COBOL Project 3", code: `IDENTIFICATION DIVISION.
+       PROGRAM-ID. INTEREST.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 P PIC 9(5)V99.
+       01 R PIC 9(3)V99.
+       01 T PIC 9(3).
+       01 SI PIC 9(7)V99.
+
+       PROCEDURE DIVISION.
+           DISPLAY "ENTER PRINCIPAL: ".
+           ACCEPT P.
+
+           DISPLAY "ENTER RATE: ".
+           ACCEPT R.
+
+           DISPLAY "ENTER TIME: ".
+           ACCEPT T.
+
+           COMPUTE SI = (P * R * T) / 100.
+
+           DISPLAY "SIMPLE INTEREST = " SI.
+           STOP RUN.` },
+      { name: "COBOL Project 4", code: `IDENTIFICATION DIVISION.
+       PROGRAM-ID. LARGEST.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 A PIC 9(3).
+       01 B PIC 9(3).
+       01 C PIC 9(3).
+       01 MAX PIC 9(3).
+
+       PROCEDURE DIVISION.
+           DISPLAY "ENTER A: ".
+           ACCEPT A.
+           DISPLAY "ENTER B: ".
+           ACCEPT B.
+           DISPLAY "ENTER C: ".
+           ACCEPT C.
+
+           MOVE A TO MAX.
+
+           IF B > MAX THEN
+               MOVE B TO MAX
+           END-IF.
+
+           IF C > MAX THEN
+               MOVE C TO MAX
+           END-IF.
+
+           DISPLAY "LARGEST = " MAX.
+           STOP RUN.` },
+      { name: "COBOL Project 5", code: `IDENTIFICATION DIVISION.
+       PROGRAM-ID. ADDITION.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 NUM1 PIC 9(3).
+       01 NUM2 PIC 9(3).
+       01 RESULT PIC 9(4).
+
+       PROCEDURE DIVISION.
+           DISPLAY "ENTER FIRST NUMBER: ".
+           ACCEPT NUM1.
+
+           DISPLAY "ENTER SECOND NUMBER: ".
+           ACCEPT NUM2.
+
+           ADD NUM1 TO NUM2 GIVING RESULT.
+
+           DISPLAY "SUM = " RESULT.
+           STOP RUN.` },
+      { name: "COBOL Project 6", code: `IDENTIFICATION DIVISION.
+       PROGRAM-ID. INVENTORY.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+
+       01 I PIC 9(2).
+       01 COUNT PIC 9(2).
+
+       01 ITEM-TABLE.
+           05 ITEM OCCURS 10 TIMES.
+               10 ITEM-NAME PIC A(20).
+               10 QTY PIC 9(4).
+
+       PROCEDURE DIVISION.
+           DISPLAY "ENTER NUMBER OF ITEMS: ".
+           ACCEPT COUNT.
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > COUNT
+               DISPLAY "ENTER ITEM NAME: "
+               ACCEPT ITEM-NAME(I)
+
+               DISPLAY "ENTER QUANTITY: "
+               ACCEPT QTY(I)
+           END-PERFORM.
+
+           DISPLAY "---- STOCK REPORT ----".
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > COUNT
+               DISPLAY ITEM-NAME(I) " QTY=" QTY(I)
+
+               IF QTY(I) < 10 THEN
+                   DISPLAY "LOW STOCK ALERT!"
+               END-IF
+           END-PERFORM.
+
+           STOP RUN.` },
+      { name: "COBOL Project 7", code: `IDENTIFICATION DIVISION.
+       PROGRAM-ID. BANK-SYSTEM.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 BALANCE PIC 9(7)V99 VALUE 0.
+       01 CHOICE PIC 9.
+       01 AMOUNT PIC 9(6)V99.
+
+       PROCEDURE DIVISION.
+       MAIN-LOOP.
+           DISPLAY "1.DEPOSIT 2.WITHDRAW 3.EXIT".
+           ACCEPT CHOICE.
+
+           IF CHOICE = 1 THEN
+               DISPLAY "ENTER AMOUNT: "
+               ACCEPT AMOUNT
+               ADD AMOUNT TO BALANCE
+               DISPLAY "BALANCE = " BALANCE
+               GO TO MAIN-LOOP
+
+           ELSE IF CHOICE = 2 THEN
+               DISPLAY "ENTER AMOUNT: "
+               ACCEPT AMOUNT
+
+               IF AMOUNT > BALANCE THEN
+                   DISPLAY "INSUFFICIENT BALANCE"
+               ELSE
+                   SUBTRACT AMOUNT FROM BALANCE
+                   DISPLAY "BALANCE = " BALANCE
+               END-IF
+
+               GO TO MAIN-LOOP
+           END-IF.
+
+           STOP RUN.` },
+      { name: "COBOL Project 8", code: `IDENTIFICATION DIVISION.
+       PROGRAM-ID. FILE-EMP.
+
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT EMP-FILE ASSIGN TO "emp.dat"
+           ORGANIZATION IS LINE SEQUENTIAL.
+
+       DATA DIVISION.
+       FILE SECTION.
+       FD EMP-FILE.
+       01 EMP-REC.
+           05 NAME PIC A(20).
+           05 SAL  PIC 9(6).
+
+       WORKING-STORAGE SECTION.
+       01 CHOICE PIC 9.
+
+       PROCEDURE DIVISION.
+           DISPLAY "1.WRITE 2.READ".
+           ACCEPT CHOICE.
+
+           IF CHOICE = 1 THEN
+               OPEN OUTPUT EMP-FILE
+               PERFORM 3 TIMES
+                   DISPLAY "ENTER NAME & SALARY: "
+                   ACCEPT NAME SAL
+                   WRITE EMP-REC
+               END-PERFORM
+               CLOSE EMP-FILE
+
+           ELSE
+               OPEN INPUT EMP-FILE
+               PERFORM UNTIL FALSE
+                   READ EMP-FILE
+                       AT END EXIT PERFORM
+                   END-READ
+                   DISPLAY NAME " " SAL
+               END-PERFORM
+               CLOSE EMP-FILE
+           END-IF.
+
+           STOP RUN.` },
+      { name: "COBOL Project 9", code: `IDENTIFICATION DIVISION.
+       PROGRAM-ID. STUDENT-RESULT.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+
+       01 I PIC 9(2).
+       01 COUNT PIC 9(2).
+
+       01 STUDENT-TABLE.
+           05 STUDENT OCCURS 10 TIMES.
+               10 NAME PIC A(20).
+               10 M1 PIC 9(3).
+               10 M2 PIC 9(3).
+               10 M3 PIC 9(3).
+               10 AVG PIC 9(3)V9.
+               10 GRADE PIC A(1).
+
+       PROCEDURE DIVISION.
+           DISPLAY "ENTER NUMBER OF STUDENTS: ".
+           ACCEPT COUNT.
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > COUNT
+               DISPLAY "ENTER NAME: "
+               ACCEPT NAME(I)
+
+               DISPLAY "ENTER 3 MARKS: "
+               ACCEPT M1(I) M2(I) M3(I)
+
+               COMPUTE AVG(I) = (M1(I) + M2(I) + M3(I)) / 3
+
+               IF AVG(I) >= 75 THEN
+                   MOVE "A" TO GRADE(I)
+               ELSE IF AVG(I) >= 50
+                   MOVE "B" TO GRADE(I)
+               ELSE
+                   MOVE "C" TO GRADE(I)
+               END-IF
+           END-PERFORM.
+
+           DISPLAY "---- RESULT ----".
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > COUNT
+               DISPLAY NAME(I) " AVG=" AVG(I) " GRADE=" GRADE(I)
+           END-PERFORM.
+
+           STOP RUN.` },
+      { name: "COBOL Project 10", code: `IDENTIFICATION DIVISION.
+       PROGRAM-ID. PAYROLL-SYSTEM.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+
+       01 EMP-COUNT PIC 9(2) VALUE 0.
+       01 I PIC 9(2).
+
+       01 EMP-TABLE.
+           05 EMP-DETAILS OCCURS 10 TIMES.
+               10 EMP-NAME   PIC A(20).
+               10 BASIC      PIC 9(6)V99.
+               10 HRA        PIC 9(6)V99.
+               10 DA         PIC 9(6)V99.
+               10 TOTAL      PIC 9(7)V99.
+
+       PROCEDURE DIVISION.
+           DISPLAY "ENTER NUMBER OF EMPLOYEES (MAX 10): ".
+           ACCEPT EMP-COUNT.
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > EMP-COUNT
+               DISPLAY "ENTER NAME: "
+               ACCEPT EMP-NAME(I)
+
+               DISPLAY "ENTER BASIC SALARY: "
+               ACCEPT BASIC(I)
+
+               COMPUTE HRA(I) = BASIC(I) * 0.20
+               COMPUTE DA(I)  = BASIC(I) * 0.10
+               COMPUTE TOTAL(I) = BASIC(I) + HRA(I) + DA(I)
+           END-PERFORM.
+
+           DISPLAY "---- PAYROLL REPORT ----".
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > EMP-COUNT
+               DISPLAY EMP-NAME(I) " TOTAL = " TOTAL(I)
+           END-PERFORM.
+
+           STOP RUN.` }
+    ];
+  }
+  
+  // 👉 Fortran
+  if (lang === "Fortran") {
+    return [
+      { name: "Fortran Project 1", code: `program hello
+    implicit none
+    print *, "Hello, World!"
+end program hello` },
+      { name: "Fortran Project 2", code: `program addition
+    implicit none
+    integer :: a, b, sum
+
+    print *, "Enter two numbers:"
+    read *, a, b
+
+    sum = a + b
+
+    print *, "Sum =", sum
+end program addition` },
+      { name: "Fortran Project 3", code: `program largest
+    implicit none
+    integer :: arr(5), i, max
+
+    print *, "Enter 5 numbers:"
+    read *, arr
+
+    max = arr(1)
+
+    do i = 2, 5
+        if (arr(i) > max) then
+            max = arr(i)
+        end if
+    end do
+
+    print *, "Largest =", max
+end program largest` },
+      { name: "Fortran Project 4", code: `program simple_interest
+    implicit none
+    real :: p, r, t, si
+
+    print *, "Enter Principal, Rate, Time:"
+    read *, p, r, t
+
+    si = (p * r * t) / 100.0
+
+    print *, "Simple Interest =", si
+end program simple_interest` },
+      { name: "Fortran Project 5", code: `program largest
+    implicit none
+    integer :: arr(5), i, max
+
+    print *, "Enter 5 numbers:"
+    read *, arr
+
+    max = arr(1)
+
+    do i = 2, 5
+        if (arr(i) > max) then
+            max = arr(i)
+        end if
+    end do
+
+    print *, "Largest =", max
+end program largest` },
+      { name: "Fortran Project 6", code: `program motion_simulation
+    implicit none
+    real :: t, dt, velocity, position, g
+    integer :: steps, i
+
+    g = 9.8
+    dt = 0.1
+
+    print *, "Enter number of steps:"
+    read *, steps
+
+    velocity = 0.0
+    position = 0.0
+
+    print *, "Time  Position  Velocity"
+
+    do i = 1, steps
+        t = i * dt
+
+        velocity = velocity + g * dt
+        position = position + velocity * dt
+
+        print *, t, position, velocity
+    end do
+
+end program` },
+      { name: "Fortran Project 7", code: `program student_system
+    implicit none
+
+    type :: student
+        character(len=20) :: name
+        integer :: marks(3)
+        real :: avg
+    end type
+
+    type(student), allocatable :: s(:)
+    integer :: n, i
+
+    print *, "Enter number of students:"
+    read *, n
+
+    allocate(s(n))
+
+    do i = 1, n
+        print *, "Enter name:"
+        read *, s(i)%name
+
+        print *, "Enter 3 marks:"
+        read *, s(i)%marks
+
+        s(i)%avg = sum(s(i)%marks) / 3.0
+    end do
+
+    print *, "---- Results ----"
+    do i = 1, n
+        print *, s(i)%name, "Avg =", s(i)%avg
+    end do
+
+end program` },
+      { name: "Fortran Project 8", code: `program fibonacci
+    implicit none
+    integer :: n, result
+
+    print *, "Enter n:"
+    read *, n
+
+    result = fib(n)
+
+    print *, "Fibonacci =", result
+
+contains
+
+    recursive function fib(n) result(res)
+        implicit none
+        integer, intent(in) :: n
+        integer :: res
+
+        if (n <= 1) then
+            res = n
+        else
+            res = fib(n-1) + fib(n-2)
+        end if
+    end function
+
+end program` },
+      { name: "Fortran Project 9", code: `program file_processing
+    implicit none
+    integer :: i, num
+    integer :: sum
+    character(len=20) :: filename
+
+    filename = "data.txt"
+    sum = 0
+
+    open(unit=10, file=filename, status='unknown')
+
+    print *, "Enter 5 numbers:"
+    do i = 1, 5
+        read *, num
+        write(10,*) num
+    end do
+
+    close(10)
+
+    open(unit=10, file=filename, status='old')
+
+    do i = 1, 5
+        read(10,*) num
+        sum = sum + num
+    end do
+
+    close(10)
+
+    print *, "Sum from file =", sum
+end program` },
+      { name: "Fortran Project 10", code: `module matrix_ops
+contains
+    subroutine multiply(A, B, C, n)
+        implicit none
+        integer, intent(in) :: n
+        real, intent(in) :: A(n,n), B(n,n)
+        real, intent(out) :: C(n,n)
+        integer :: i, j, k
+
+        do i = 1, n
+            do j = 1, n
+                C(i,j) = 0.0
+                do k = 1, n
+                    C(i,j) = C(i,j) + A(i,k) * B(k,j)
+                end do
+            end do
+        end do
+    end subroutine
+end module
+
+program matrix_main
+    use matrix_ops
+    implicit none
+    integer :: n, i, j
+    real, allocatable :: A(:,:), B(:,:), C(:,:)
+
+    print *, "Enter size of matrix:"
+    read *, n
+
+    allocate(A(n,n), B(n,n), C(n,n))
+
+    print *, "Enter matrix A:"
+    read *, A
+
+    print *, "Enter matrix B:"
+    read *, B
+
+    call multiply(A, B, C, n)
+
+    print *, "Result matrix:"
+    do i = 1, n
+        print *, (C(i,j), j=1,n)
+    end do
+end program` }
+    ];
+  }
+  
+  // 👉 Groovy
+  if (lang === "Groovy") {
+    return [
+      { name: "Groovy Project 1", code: `println "Hello, World!"` },
+      { name: "Groovy Project 2", code: `class Student {
+    String name
+    int marks
+
+    def display() {
+        println "Name: $name, Marks: $marks"
+    }
+}
+
+def s1 = new Student(name: "Rahul", marks: 85)
+s1.display()` },
+      { name: "Groovy Project 3", code: `def list = [3, 7, 2, 9, 5]
+
+def max = list[0]
+
+for (num in list) {
+    if (num > max) {
+        max = num
+    }
+}
+
+println "Largest = $max"` },
+      { name: "Groovy Project 4", code: `print "Enter number: "
+def n = System.console().readLine().toInteger()
+
+def fact = 1
+
+for (i in 1..n) {
+    fact *= i
+}
+
+println "Factorial = $fact"` },
+      { name: "Groovy Project 5", code: `print "Enter first number: "
+def a = System.console().readLine().toInteger()
+
+print "Enter second number: "
+def b = System.console().readLine().toInteger()
+
+def sum = a + b
+
+println "Sum = $sum"` },
+      { name: "Groovy Project 6", code: `class Account {
+    String name
+    double balance = 0
+
+    void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount
+            println "Deposited: $amount"
+        } else {
+            println "Invalid amount"
+        }
+    }
+
+    void withdraw(double amount) {
+        if (amount <= balance) {
+            balance -= amount
+            println "Withdrawn: $amount"
+        } else {
+            println "Insufficient balance"
+        }
+    }
+
+    void showBalance() {
+        println "Balance: $balance"
+    }
+}
+
+class BankApp {
+
+    static void main(String[] args) {
+        def acc = new Account(name: "User")
+
+        while (true) {
+            println "\n1.Deposit 2.Withdraw 3.Balance 4.Exit"
+            def choice = System.console().readLine()
+
+            switch (choice) {
+                case "1":
+                    print "Enter amount: "
+                    acc.deposit(System.console().readLine().toDouble())
+                    break
+                case "2":
+                    print "Enter amount: "
+                    acc.withdraw(System.console().readLine().toDouble())
+                    break
+                case "3":
+                    acc.showBalance()
+                    break
+                case "4":
+                    println "Exiting..."
+                    return
+                default:
+                    println "Invalid choice"
+            }
+        }
+    }
+}` },
+      { name: "Groovy Project 7", code: `class Student {
+    String name
+    int marks
+}
+
+class StudentManager {
+
+    List<Student> students = []
+
+    void addStudent(String name, int marks) {
+        students << new Student(name: name, marks: marks)
+    }
+
+    void displayAll() {
+        students.each {
+            println "${it.name} - ${it.marks}"
+        }
+    }
+
+    void sortByMarks() {
+        students = students.sort { -it.marks }
+    }
+
+    void showTopper() {
+        def topper = students.max { it.marks }
+        println "Topper: ${topper.name} (${topper.marks})"
+    }
+}
+
+// Run
+def sm = new StudentManager()
+sm.addStudent("Amit", 78)
+sm.addStudent("Riya", 92)
+sm.addStudent("Rahul", 85)
+
+sm.sortByMarks()
+sm.displayAll()
+sm.showTopper()` },
+      { name: "Groovy Project 8", code: `class TaskProcessor {
+
+    static void processTask(int id) {
+        println "Task $id started"
+
+        sleep(1000)
+
+        println "Task $id completed"
+    }
+}
+
+def threads = []
+
+(1..5).each { i ->
+    def t = Thread.start {
+        TaskProcessor.processTask(i)
+    }
+    threads << t
+}
+
+threads*.join()
+
+println "All tasks finished"` },
+      { name: "Groovy Project 9", code: `import groovy.json.JsonSlurper
+
+class ApiFetcher {
+
+    static void fetchData() {
+        def url = new URL("https://jsonplaceholder.typicode.com/posts")
+        def response = url.text
+
+        def json = new JsonSlurper().parseText(response)
+
+        json.take(5).each { post ->
+            println "ID: ${post.id}"
+            println "Title: ${post.title}"
+            println "----------------------"
+        }
+    }
+}
+
+ApiFetcher.fetchData()` },
+      { name: "Groovy Project 10", code: `import java.nio.file.*
+
+class FileAnalyzer {
+
+    static void analyze(String path) {
+        def file = new File(path)
+
+        if (!file.exists()) {
+            println "File not found!"
+            return
+        }
+
+        int lineCount = 0
+        int wordCount = 0
+        int charCount = 0
+
+        file.eachLine { line ->
+            lineCount++
+            wordCount += line.split("\\s+").size()
+            charCount += line.length()
+        }
+
+        println "File Analysis Report"
+        println "Lines: $lineCount"
+        println "Words: $wordCount"
+        println "Characters: $charCount"
+    }
+}
+
+// Run
+FileAnalyzer.analyze("sample.txt")` }
+    ];
+  }
+  
+  // 👉 Clojure
+  if (lang === "Clojure") {
+    return [
+      { name: "Clojure Project 1", code: `(ns hello.core)
+
+(println "Hello, World!")` },
+      { name: "Clojure Project 2", code: `(ns filter.core)
+
+(def nums [1 2 3 4 5 6 7 8 9 10])
+
+(def even-nums (filter even? nums))
+
+(def squares (map #(* % %) even-nums))
+
+(println "Even Numbers =" even-nums)
+(println "Squares =" squares)` },
+      { name: "Clojure Project 3", code: `(ns max.core)
+
+(def numbers [3 7 2 9 5])
+
+(def max-value (apply max numbers))
+
+(println "Largest =" max-value)` },
+      { name: "Clojure Project 4", code: `(ns factorial.core)
+
+(defn factorial [n]
+  (if (<= n 1)
+    1
+    (* n (factorial (dec n)))))
+
+(println "Factorial of 5 =" (factorial 5))` },
+      { name: "Clojure Project 5", code: `(ns add.core)
+
+(defn -main []
+  (println "Enter two numbers:")
+  (let [a (Integer/parseInt (read-line))
+        b (Integer/parseInt (read-line))
+        sum (+ a b)]
+    (println "Sum =" sum)))` },
+      { name: "Clojure Project 6", code: `(ns log.core
+  (:require [clojure.string :as str]))
+
+(def log-file "log.txt")
+
+(defn count-lines []
+  (count (str/split-lines (slurp log-file))))
+
+(defn search-keyword [kw]
+  (let [lines (str/split-lines (slurp log-file))]
+    (filter #(str/includes? % kw) lines)))
+
+(defn keyword-count [kw]
+  (count (search-keyword kw)))
+
+(defn analyze []
+  (println "Total lines:" (count-lines))
+  (println "Error count:" (keyword-count "ERROR"))
+  (println "Warning count:" (keyword-count "WARNING"))
+  (println "Sample Errors:")
+  (doseq [line (take 3 (search-keyword "ERROR"))]
+    (println line)))
+
+;; Run
+(analyze)` },
+      { name: "Clojure Project 7", code: `(ns validation.core)
+
+(def data
+  [{:name "Amit" :marks 78}
+   {:name "Riya" :marks -10}
+   {:name "Rahul" :marks 105}
+   {:name "Neha" :marks 88}])
+
+(defn valid? [s]
+  (and (>= (:marks s) 0) (<= (:marks s) 100)))
+
+(defn process []
+  (let [valid-data (filter valid? data)
+        graded (map #(assoc % :grade
+                             (cond
+                               (>= (:marks %) 75) "A"
+                               (>= (:marks %) 50) "B"
+                               :else "C"))
+                    valid-data)]
+    (println "Processed Data:")
+    (doseq [s graded]
+      (println s))))
+
+;; Run
+(process)` },
+      { name: "Clojure Project 8", code: `(ns task.core)
+
+(defn process-task [id]
+  (println "Task" id "started")
+  (Thread/sleep 1000)
+  (println "Task" id "completed"))
+
+(defn run-tasks []
+  (let [tasks (map #(future (process-task %)) (range 1 6))]
+    (doseq [t tasks] @t)
+    (println "All tasks finished")))
+
+;; Run
+(run-tasks)` },
+      { name: "Clojure Project 9", code: `(ns student-file.core
+  (:require [clojure.string :as str]))
+
+(def file "students.txt")
+
+(defn add-student [name marks]
+  (spit file (str name "," marks "\n") :append true))
+
+(defn read-students []
+  (let [lines (str/split-lines (slurp file))]
+    (map #(let [[n m] (str/split % #",")]
+            {:name n :marks (Integer/parseInt m)})
+         lines)))
+
+(defn show-results []
+  (doseq [s (read-students)]
+    (println (:name s) "Marks:" (:marks s))))
+
+(defn average-marks []
+  (let [students (read-students)
+        total (reduce + (map :marks students))
+        count (count students)]
+    (println "Average =" (/ total count))))
+
+;; Run
+(add-student "Amit" 80)
+(add-student "Riya" 90)
+(show-results)
+(average-marks)` },
+      { name: "Clojure Project 10", code: `(ns bank.core)
+
+(def account (atom {:name "User" :balance 0}))
+
+(defn deposit [amount]
+  (if (> amount 0)
+    (swap! account update :balance + amount)
+    (println "Invalid amount")))
+
+(defn withdraw [amount]
+  (let [bal (:balance @account)]
+    (if (>= bal amount)
+      (swap! account update :balance - amount)
+      (println "Insufficient balance"))))
+
+(defn show-balance []
+  (println "Balance =" (:balance @account)))
+
+(defn menu []
+  (loop []
+    (println "\n1.Deposit 2.Withdraw 3.Balance 4.Exit")
+    (let [choice (read-line)]
+      (case choice
+        "1" (do (println "Enter amount:")
+                (deposit (Integer/parseInt (read-line)))
+                (recur))
+        "2" (do (println "Enter amount:")
+                (withdraw (Integer/parseInt (read-line)))
+                (recur))
+        "3" (do (show-balance)
+                (recur))
+        "4" (println "Exiting...")
+        (do (println "Invalid choice") (recur))))))
+
+;; Run
+(menu)` }
+    ];
+  }
+  
+  // 👉 OCaml
+  if (lang === "OCaml") {
+    return [
+      { name: "OCaml Project 1", code: `let rec factorial n =
+  if n = 0 then 1
+  else n * factorial (n - 1)
+
+let () =
+  print_endline ("Factorial of 5: " ^ string_of_int (factorial 5))` },
+      { name: "OCaml Project 2", code: `let filter_even lst =
+  List.filter (fun x -> x mod 2 = 0) lst
+
+let () =
+  let evens = filter_even [1;2;3;4;5;6] in
+  List.iter (fun x -> print_int x; print_string " ") evens` },
+      { name: "OCaml Project 3", code: `let reverse lst =
+  List.fold_left (fun acc x -> x :: acc) [] lst
+
+let () =
+  let result = reverse [1; 2; 3; 4] in
+  List.iter (fun x -> print_int x; print_string " ") result` },
+      { name: "OCaml Project 4", code: `let rec sum_list lst =
+  match lst with
+  | [] -> 0
+  | h :: t -> h + sum_list t
+
+let () =
+  let numbers = [1; 2; 3; 4; 5] in
+  print_endline ("Sum: " ^ string_of_int (sum_list numbers))` },
+      { name: "OCaml Project 5", code: `let rec fib n =
+  if n <= 1 then n
+  else fib (n - 1) + fib (n - 2)
+
+let () =
+  print_endline ("Fibonacci of 6: " ^ string_of_int (fib 6))` },
+      { name: "OCaml Project 6", code: `type expr =
+  | Num of int
+  | Add of expr * expr
+  | Sub of expr * expr
+  | Mul of expr * expr
+  | Div of expr * expr
+
+let rec eval e =
+  match e with
+  | Num n -> n
+  | Add (a,b) -> eval a + eval b
+  | Sub (a,b) -> eval a - eval b
+  | Mul (a,b) -> eval a * eval b
+  | Div (a,b) -> eval a / eval b
+
+let rec print_expr e =
+  match e with
+  | Num n -> print_int n
+  | Add (a,b) -> print_string "("; print_expr a; print_string "+"; print_expr b; print_string ")"
+  | Sub (a,b) -> print_string "("; print_expr a; print_string "-"; print_expr b; print_string ")"
+  | Mul (a,b) -> print_string "("; print_expr a; print_string "*"; print_expr b; print_string ")"
+  | Div (a,b) -> print_string "("; print_expr a; print_string "/"; print_expr b; print_string ")"
+
+let () =
+  let expression = Add(Num 5, Mul(Num 3, Num 2)) in
+  print_string "Expression: ";
+  print_expr expression;
+  print_newline ();
+  print_endline ("Result: " ^ string_of_int (eval expression))` },
+      { name: "OCaml Project 7", code: `open Unix
+
+let start_server port =
+  let sock = socket PF_INET SOCK_STREAM 0 in
+  bind sock (ADDR_INET (inet_addr_any, port));
+  listen sock 10;
+
+  print_endline ("Server running on port " ^ string_of_int port);
+
+  while true do
+    let (client, _) = accept sock in
+    let msg = "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\nHello from OCaml Server!" in
+    ignore (Unix.write client (Bytes.of_string msg) 0 (String.length msg));
+    close client
+  done
+
+let () =
+  start_server 8080` },
+      { name: "OCaml Project 8", code: `module IntMap = Map.Make(Int)
+
+let graph =
+  IntMap.empty
+  |> IntMap.add 1 [2;3]
+  |> IntMap.add 2 [4]
+  |> IntMap.add 3 [4;5]
+  |> IntMap.add 4 []
+  |> IntMap.add 5 []
+
+let rec dfs visited node =
+  if List.mem node !visited then ()
+  else begin
+    visited := node :: !visited;
+    Printf.printf "Visited: %d\n" node;
+    let neighbors = try IntMap.find node graph with Not_found -> [] in
+    List.iter (dfs visited) neighbors
+  end
+
+let () =
+  let visited = ref [] in
+  dfs visited 1` },
+      { name: "OCaml Project 9", code: `let task id =
+  for i = 1 to 5 do
+    Printf.printf "Task %d running step %d\n%!" id i;
+    Unix.sleep 1
+  done
+
+let () =
+  let d1 = Domain.spawn (fun () -> task 1) in
+  let d2 = Domain.spawn (fun () -> task 2) in
+
+  Domain.join d1;
+  Domain.join d2;
+
+  print_endline "All tasks finished!"` },
+      { name: "OCaml Project 10", code: `type json =
+  | JString of string
+  | JNumber of float
+  | JBool of bool
+  | JNull
+  | JObject of (string * json) list
+
+let rec print_json j =
+  match j with
+  | JString s -> print_string ("\"" ^ s ^ "\"")
+  | JNumber n -> print_float n
+  | JBool b -> print_string (string_of_bool b)
+  | JNull -> print_string "null"
+  | JObject obj ->
+      print_string "{ ";
+      List.iter (fun (k,v) ->
+        print_string ("\"" ^ k ^ "\": ");
+        print_json v;
+        print_string ", "
+      ) obj;
+      print_string " }"
+
+let sample =
+  JObject [
+    ("name", JString "Krishna");
+    ("age", JNumber 20.0);
+    ("isStudent", JBool true)
+  ]
+
+let () =
+  print_endline "JSON Output:";
+  print_json sample;
+  print_newline ()` }
+    ];
+  }
+  
+  // 👉 Prolog
+  if (lang === "Prolog") {
+    return [
+      { name: "Prolog Project 1", code: `:- use_module(library(clpfd)).
+
+sudoku(Rows) :-
+    length(Rows, 4),
+    maplist(same_length(Rows), Rows),
+    append(Rows, Vs), Vs ins 1..4,
+
+    maplist(all_distinct, Rows),
+    transpose(Rows, Columns),
+    maplist(all_distinct, Columns),
+
+    Rows = [A,B,C,D],
+    blocks(A,B),
+    blocks(C,D).
+
+blocks([], []).
+blocks([A,B|Rest1], [C,D|Rest2]) :-
+    all_distinct([A,B,C,D]),
+    blocks(Rest1, Rest2).
+
+% Query:
+% ?- sudoku([[_,_,2,_],[_,_,_,3],[_,1,_,_],[4,_,_,_]]).` },
+      { name: "Prolog Project 2", code: `sentence --> noun_phrase, verb_phrase.
+
+noun_phrase --> determiner, noun.
+verb_phrase --> verb, noun_phrase.
+
+determiner --> [the].
+determiner --> [a].
+
+noun --> [cat].
+noun --> [dog].
+
+verb --> [chases].
+verb --> [eats].
+
+% Query:
+% ?- phrase(sentence, [the, cat, chases, a, dog]).` },
+      { name: "Prolog Project 3", code: `queens(N, Solution) :-
+    length(Solution, N),
+    permutation(Solution, Solution),
+    safe(Solution).
+
+safe([]).
+safe([Q|Others]) :-
+    safe(Others),
+    no_attack(Q, Others, 1).
+
+no_attack(_, [], _).
+no_attack(Q, [Q1|Qs], D) :-
+    Q =\= Q1,
+    abs(Q - Q1) =\= D,
+    D1 is D + 1,
+    no_attack(Q, Qs, D1).
+
+% Query:
+% ?- queens(4, S).` },
+      { name: "Prolog Project 4", code: `% Symptoms
+symptom(fever).
+symptom(cough).
+symptom(headache).
+symptom(fatigue).
+
+% Rules
+disease(flu) :-
+    symptom(fever),
+    symptom(cough),
+    symptom(headache).
+
+disease(cold) :-
+    symptom(cough),
+    symptom(fatigue).
+
+disease(migraine) :-
+    symptom(headache),
+    \+ symptom(fever).
+
+% Query:
+% ?- disease(X).` },
+      { name: "Prolog Project 5", code: `% Graph edges
+edge(a,b).
+edge(a,c).
+edge(b,d).
+edge(c,d).
+edge(d,e).
+edge(c,f).
+edge(f,e).
+
+% Path finding
+path(Start, End, Path) :-
+    travel(Start, End, [Start], Q),
+    reverse(Q, Path).
+
+travel(Node, Node, Visited, Visited).
+travel(Node, End, Visited, Path) :-
+    edge(Node, Next),
+    \+ member(Next, Visited),
+    travel(Next, End, [Next|Visited], Path).
+
+% Reverse list
+reverse([], []).
+reverse([H|T], R) :-
+    reverse(T, RT),
+    append(RT, [H], R).
+
+% Append helper
+append([], L, L).
+append([H|T], L, [H|R]) :-
+    append(T, L, R).
+
+% Query:
+% ?- path(a, e, P).` },
+      { name: "Prolog Project 6", code: `response(hello, "Hi there!").
+response(hi, "Hello!").
+response(name, "I am a Prolog chatbot.").
+response(help, "Ask me simple questions.").
+response(bye, "Goodbye!").
+
+chat :-
+    write("You: "),
+    read(Input),
+    reply(Input).
+
+reply(bye) :-
+    response(bye, R),
+    write(R), nl.
+
+reply(Input) :-
+    response(Input, R),
+    write(R), nl,
+    chat.
+
+reply(_) :-
+    write("I don't understand."), nl,
+    chat.
+
+% Start:
+% ?- chat.` },
+      { name: "Prolog Project 7", code: `:- use_module(library(clpfd)).
+
+schedule(Tasks, Times) :-
+    Times ins 1..10,
+    all_distinct(Times),
+    constrain(Tasks, Times).
+
+constrain([], []).
+constrain([task(_,Dur)|T], [Time|Times]) :-
+    Time + Dur #=< 10,
+    constrain(T, Times).
+
+% Example:
+tasks([
+    task(a,2),
+    task(b,3),
+    task(c,1)
+]).
+
+run :-
+    tasks(T),
+    length(T, N),
+    length(Times, N),
+    schedule(T, Times),
+    label(Times),
+    print(Times).
+
+% Query:
+% ?- run.` },
+      { name: "Prolog Project 8", code: `fact(sun_rises_east).
+fact(rainy).
+rule(wet_ground, [rainy]).
+rule(daylight, [sun_rises_east]).
+
+infer(Fact) :- fact(Fact).
+infer(Fact) :-
+    rule(Fact, Conditions),
+    check_all(Conditions).
+
+check_all([]).
+check_all([H|T]) :-
+    infer(H),
+    check_all(T).
+
+% Query:
+% ?- infer(wet_ground).` },
+      { name: "Prolog Project 9", code: `win([X,X,X,_,_,_,_,_,_], X).
+win([_,_,_,X,X,X,_,_,_], X).
+win([_,_,_,_,_,_,X,X,X], X).
+win([X,_,_,X,_,_,X,_,_], X).
+win([_,X,_,_,X,_,_,X,_], X).
+win([_,_,X,_,_,X,_,_,X], X).
+win([X,_,_,_,X,_,_,_,X], X).
+win([_,_,X,_,X,_,X,_,_], X).
+
+move(Board, Player, NewBoard) :-
+    nth0(I, Board, empty),
+    replace(Board, I, Player, NewBoard).
+
+replace([_|T], 0, X, [X|T]).
+replace([H|T], I, X, [H|R]) :-
+    I > 0, I1 is I - 1,
+    replace(T, I1, X, R).
+
+minimax(Board, Player, BestMove) :-
+    findall(Move, move(Board, Player, Move), Moves),
+    choose_best(Moves, Player, BestMove).
+
+choose_best([M|_], _, M). % simplified
+
+% Query:
+% ?- minimax([empty,empty,empty,empty,empty,empty,empty,empty,empty], x, Best).` },
+      { name: "Prolog Project 10", code: `edge(a,b,1). edge(a,c,4).
+edge(b,d,2). edge(c,d,1).
+edge(d,e,3).
+
+heuristic(a,7).
+heuristic(b,6).
+heuristic(c,2).
+heuristic(d,1).
+heuristic(e,0).
+
+astar(Start, Goal, Path, Cost) :-
+    search([[Start,0,[Start]]], Goal, RevPath, Cost),
+    reverse(RevPath, Path).
+
+search(Open, Goal, Path, Cost) :-
+    sort(2, @=<, Open, [[Goal,Cost,Path]|_]).
+
+search(Open, Goal, Path, Cost) :-
+    sort(2, @=<, Open, [[Node,G,Visited]|Rest]),
+    findall([Next,G1,[Next|Visited]],
+        (edge(Node,Next,C),
+         \+ member(Next,Visited),
+         G1 is G + C),
+    Children),
+    append(Rest, Children, NewOpen),
+    search(NewOpen, Goal, Path, Cost).
+
+reverse([], []).
+reverse([H|T], R) :-
+    reverse(T, RT),
+    append(RT, [H], R).
+
+append([], L, L).
+append([H|T], L, [H|R]) :- append(T, L, R).
+
+% Query:
+% ?- astar(a, e, Path, Cost).` }
+    ];
+  }
+  
+  // 👉 Ada
+  if (lang === "Ada") {
+    return [
+      { name: "Ada Project 1", code: `with Ada.Text_IO; use Ada.Text_IO;
+
+procedure Hello is
+begin
+   Put_Line("Hello, World!");
+end Hello;` },
+      { name: "Ada Project 2", code: `with Ada.Text_IO; use Ada.Text_IO;
+
+procedure Table is
+begin
+   for I in 1..10 loop
+      Put_Line(Integer'Image(5) & " x " &
+               Integer'Image(I) & " = " &
+               Integer'Image(5 * I));
+   end loop;
+end Table;` },
+      { name: "Ada Project 3", code: `with Ada.Text_IO; use Ada.Text_IO;
+
+procedure Even_Odd is
+   N : Integer := 7;
+begin
+   if N mod 2 = 0 then
+      Put_Line("Even Number");
+   else
+      Put_Line("Odd Number");
+   end if;
+end Even_Odd;` },
+      { name: "Ada Project 4", code: `with Ada.Text_IO; use Ada.Text_IO;
+
+procedure Array_Sum is
+   type Int_Array is array(1..5) of Integer;
+   A : Int_Array := (1,2,3,4,5);
+   Sum : Integer := 0;
+begin
+   for I in A'Range loop
+      Sum := Sum + A(I);
+   end loop;
+
+   Put_Line("Sum = " & Integer'Image(Sum));
+end Array_Sum;` },
+      { name: "Ada Project 5", code: `with Ada.Text_IO; use Ada.Text_IO;
+
+procedure Factorial is
+   function Fact(N : Integer) return Integer is
+   begin
+      if N = 0 then
+         return 1;
+      else
+         return N * Fact(N - 1);
+      end if;
+   end Fact;
+
+begin
+   Put_Line("Factorial of 5: " & Integer'Image(Fact(5)));
+end Factorial;` },
+      { name: "Ada Project 6", code: `with Ada.Text_IO; use Ada.Text_IO;
+
+procedure Protected_Demo is
+
+   protected Counter is
+      procedure Increment;
+      function Get return Integer;
+   private
+      Value : Integer := 0;
+   end Counter;
+
+   protected body Counter is
+      procedure Increment is
+      begin
+         Value := Value + 1;
+      end Increment;
+
+      function Get return Integer is
+      begin
+         return Value;
+      end Get;
+   end Counter;
+
+   task type Worker;
+
+   task body Worker is
+   begin
+      for I in 1..100 loop
+         Counter.Increment;
+      end loop;
+   end Worker;
+
+   W1, W2 : Worker;
+
+begin
+   delay 1.0;
+   Put_Line("Final Counter: " & Integer'Image(Counter.Get));
+end Protected_Demo;` },
+      { name: "Ada Project 7", code: `with Ada.Text_IO; use Ada.Text_IO;
+
+procedure Generic_Demo is
+
+   generic
+      type T is private;
+   procedure Swap(A, B : in out T);
+
+   procedure Swap(A, B : in out T) is
+      Temp : T;
+   begin
+      Temp := A;
+      A := B;
+      B := Temp;
+   end Swap;
+
+   procedure Int_Swap is new Swap(Integer);
+
+   X : Integer := 10;
+   Y : Integer := 20;
+
+begin
+   Put_Line("Before: X=" & Integer'Image(X) &
+            " Y=" & Integer'Image(Y));
+
+   Int_Swap(X, Y);
+
+   Put_Line("After: X=" & Integer'Image(X) &
+            " Y=" & Integer'Image(Y));
+end Generic_Demo;` },
+      { name: "Ada Project 8", code: `with Ada.Text_IO; use Ada.Text_IO;
+
+procedure Stack_Demo is
+
+   Max : constant Integer := 5;
+
+   type Stack_Type is record
+      Data : array(1..Max) of Integer;
+      Top  : Integer := 0;
+   end record;
+
+   procedure Push(S : in out Stack_Type; X : Integer) is
+   begin
+      if S.Top < Max then
+         S.Top := S.Top + 1;
+         S.Data(S.Top) := X;
+      end if;
+   end;
+
+   procedure Pop(S : in out Stack_Type) is
+   begin
+      if S.Top > 0 then
+         S.Top := S.Top - 1;
+      end if;
+   end;
+
+   S : Stack_Type;
+
+begin
+   Push(S, 10);
+   Push(S, 20);
+   Push(S, 30);
+
+   Put_Line("Top Element: " & Integer'Image(S.Data(S.Top)));
+
+   Pop(S);
+   Put_Line("After Pop Top: " & Integer'Image(S.Data(S.Top)));
+end Stack_Demo;` },
+      { name: "Ada Project 9", code: `with Ada.Text_IO; use Ada.Text_IO;
+
+procedure File_IO is
+   File : File_Type;
+   Line : String (1..100);
+   Last : Natural;
+begin
+   -- Write
+   Create(File, Out_File, "data.txt");
+   Put_Line(File, "Hello Ada File!");
+   Close(File);
+
+   -- Read
+   Open(File, In_File, "data.txt");
+   Get_Line(File, Line, Last);
+   Put_Line("Read: " & Line(1..Last));
+   Close(File);
+end File_IO;` },
+      { name: "Ada Project 10", code: `with Ada.Text_IO; use Ada.Text_IO;
+
+procedure Task_Demo is
+
+   task type Worker(ID : Integer);
+
+   task body Worker is
+   begin
+      for I in 1..5 loop
+         Put_Line("Task " & Integer'Image(ID) &
+                  " running step " & Integer'Image(I));
+         delay 1.0;
+      end loop;
+   end Worker;
+
+   W1 : Worker(1);
+   W2 : Worker(2);
+
+begin
+   Put_Line("Starting Tasks...");
+end Task_Demo;` }
+    ];
+  }
+  
+  // 👉 Nim
+  if (lang === "Nim") {
+    return [
+      { name: "Nim Project 1", code: `import asynchttpserver, asyncdispatch
+
+var server = newAsyncHttpServer()
+
+proc cb(req: Request) {.async.} =
+  await req.respond(Http200, "Hello from Nim Server!")
+
+echo "Server running at http://localhost:8080"
+waitFor server.serve(Port(8080), cb)` },
+      { name: "Nim Project 2", code: `import os, threadpool
+
+proc task(id: int) =
+  for i in 1..5:
+    echo "Task ", id, " step ", i
+    sleep(500)
+
+# Run tasks in parallel
+spawn task(1)
+spawn task(2)
+spawn task(3)
+
+sync()   # wait for all tasks
+echo "All tasks finished!"` },
+      { name: "Nim Project 3", code: `import json
+
+let data = """
+{
+  "name": "Krishna",
+  "age": 20,
+  "skills": ["Nim", "Python", "Web"]
+}
+"""
+
+let parsed = parseJson(data)
+
+echo "Name: ", parsed["name"].getStr()
+echo "Age: ", parsed["age"].getInt()
+
+echo "Skills:"
+for skill in parsed["skills"]:
+  echo "- ", skill.getStr()` },
+      { name: "Nim Project 4", code: `type
+  Stack = object
+    data: seq[int]
+
+proc push(s: var Stack, x: int) =
+  s.data.add(x)
+
+proc pop(s: var Stack): int =
+  result = s.data[^1]
+  s.data.setLen(s.data.len - 1)
+
+proc peek(s: Stack): int =
+  s.data[^1]
+
+var s: Stack
+push(s, 10)
+push(s, 20)
+push(s, 30)
+
+echo "Top: ", peek(s)
+echo "Popped: ", pop(s)
+echo "New Top: ", peek(s)` },
+      { name: "Nim Project 5", code: `import strutils
+
+let filename = "data.txt"
+
+# Write file
+writeFile(filename, "Hello Nim\nThis is a test file\nNim is fast")
+
+# Read file
+let content = readFile(filename)
+
+# Count words
+let words = content.splitWhitespace()
+echo "Total words: ", words.len
+
+# Print lines
+for line in content.splitLines():
+  echo "Line: ", line` },
+      { name: "Nim Project 6", code: `import tables, strutils
+
+type
+  User = object
+    id: int
+    name: string
+    age: int
+
+var db = initTable[int, User]()
+var nextId = 1
+
+proc createUser(name: string, age: int): User =
+  let u = User(id: nextId, name: name, age: age)
+  db[nextId] = u
+  inc nextId
+  return u
+
+proc getUser(id: int): User =
+  return db[id]
+
+proc updateUser(id: int, name: string, age: int) =
+  if id in db:
+    db[id] = User(id: id, name: name, age: age)
+
+proc deleteUser(id: int) =
+  db.del(id)
+
+# Demo
+let u1 = createUser("Amit", 25)
+let u2 = createUser("Riya", 22)
+
+echo "Users:"
+for k, v in db:
+  echo v
+
+updateUser(u1.id, "Amit Updated", 30)
+deleteUser(u2.id)
+
+echo "After Update/Delete:"
+for k, v in db:
+  echo v` },
+      { name: "Nim Project 7", code: `import asynchttpserver, asyncdispatch, json, strutils, times
+
+var server = newAsyncHttpServer()
+
+proc logRequest(path: string) =
+  echo "[", now(), "] Request: ", path
+
+proc handle(req: Request) {.async.} =
+  let path = req.url.path
+  logRequest(path)
+
+  if path == "/":
+    await req.respond(Http200, "Nim Advanced Server")
+
+  elif path == "/time":
+    let res = %*{"time": $now()}
+    await req.respond(Http200, $res)
+
+  elif path.startsWith("/calc/"):
+    let parts = path.split("/")
+    if parts.len == 4:
+      let a = parseInt(parts[2])
+      let b = parseInt(parts[3])
+      let result = %*{
+        "a": a,
+        "b": b,
+        "sum": a + b,
+        "mul": a * b
+      }
+      await req.respond(Http200, $result)
+    else:
+      await req.respond(Http400, "Invalid URL")
+
+  else:
+    await req.respond(Http404, "Not Found")
+
+echo "Server running..."
+waitFor server.serve(Port(8080), handle)` },
+      { name: "Nim Project 8", code: `import tables, strutils
+
+type User = object
+  username: string
+  password: string
+
+var users = initTable[string, User]()
+var sessions = initTable[string, string]()  # sessionId -> username
+
+proc register(username, password: string) =
+  if username in users:
+    echo "User already exists"
+  else:
+    users[username] = User(username: username, password: password)
+    echo "Registered: ", username
+
+proc login(username, password: string): string =
+  if username in users and users[username].password == password:
+    let sessionId = username & "_session"
+    sessions[sessionId] = username
+    return sessionId
+  return ""
+
+proc getUser(sessionId: string): string =
+  if sessionId in sessions:
+    return sessions[sessionId]
+  return "Invalid session"
+
+# Demo
+register("krishna", "1234")
+let sid = login("krishna", "1234")
+echo "Session: ", sid
+echo "Current user: ", getUser(sid)` },
+      { name: "Nim Project 9", code: `import strutils, tables, os
+
+type LogStats = object
+  info: int
+  warn: int
+  error: int
+
+var stats: LogStats
+
+proc processLine(line: string) =
+  if line.startsWith("INFO"):
+    stats.info += 1
+  elif line.startsWith("WARNING"):
+    stats.warn += 1
+  elif line.startsWith("ERROR"):
+    stats.error += 1
+
+proc monitor(logs: seq[string]) =
+  for line in logs:
+    processLine(line)
+    echo "Processed: ", line
+
+proc report() =
+  echo "INFO: ", stats.info
+  echo "WARNING: ", stats.warn
+  echo "ERROR: ", stats.error
+
+# Demo
+let logs = @[
+  "INFO Start",
+  "ERROR Crash",
+  "WARNING Memory",
+  "INFO Done"
+]
+
+monitor(logs)
+report()` },
+      { name: "Nim Project 10", code: `import tables, strutils
+
+type Command = proc(args: seq[string])
+
+var commands = initTable[string, Command]()
+
+proc register(name: string, cmd: Command) =
+  commands[name] = cmd
+
+proc execute(input: string) =
+  let parts = input.split(" ")
+  let cmd = parts[0]
+
+  if cmd in commands:
+    commands[cmd](parts[1..^1])
+  else:
+    echo "Unknown command"
+
+# Plugins
+register("hello", proc(args: seq[string]) =
+  echo "Hello ", args[0]
+)
+
+register("sum", proc(args: seq[string]) =
+  var total = 0
+  for a in args:
+    total += parseInt(a)
+  echo "Sum = ", total
+)
+
+# Demo
+execute("hello Krishna")
+execute("sum 1 2 3 4")` }
+    ];
+  }
+  
+  // 👉 Zig
+  if (lang === "Zig") {
+    return [
+      { name: "Zig Project 1", code: `const std = @import("std");
+
+const Student = struct {
+    name: []const u8,
+    marks: i32,
+
+    fn isPass(self: Student) bool {
+        return self.marks >= 40;
+    }
+};
+
+pub fn main() void {
+    var s1 = Student{ .name = "Krishna", .marks = 75 };
+
+    if (s1.isPass()) {
+        std.debug.print("{s} passed\n", .{s1.name});
+    } else {
+        std.debug.print("{s} failed\n", .{s1.name});
+    }
+}` },
+      { name: "Zig Project 2", code: `const std = @import("std");
+
+pub fn main() void {
+    const str = "ZigLanguage";
+    var buffer: [20]u8 = undefined;
+
+    var len = str.len;
+    var i: usize = 0;
+
+    while (i < len) : (i += 1) {
+        buffer[i] = str[len - i - 1];
+    }
+
+    std.debug.print("Reversed: {s}\n", .{buffer[0..len]});
+}` },
+      { name: "Zig Project 3", code: `const std = @import("std");
+
+pub fn main() void {
+    var numbers = [_]i32{1,2,3,4,5,6,7,8,9,10};
+    var even: i32 = 0;
+    var odd: i32 = 0;
+
+    for (numbers) |num| {
+        if (num % 2 == 0) {
+            even += 1;
+        } else {
+            odd += 1;
+        }
+    }
+
+    std.debug.print("Even: {}, Odd: {}\n", .{even, odd});
+}` },
+      { name: "Zig Project 4", code: `const std = @import("std");
+
+pub fn main() void {
+    var arr = [_]i32{10, 20, 30, 40, 50};
+    var sum: i32 = 0;
+
+    for (arr) |value| {
+        sum += value;
+    }
+
+    std.debug.print("Sum: {}\n", .{sum});
+}` },
+      { name: "Zig Project 5", code: `const std = @import("std");
+
+fn factorial(n: u32) u32 {
+    if (n == 0) return 1;
+    return n * factorial(n - 1);
+}
+
+pub fn main() void {
+    const result = factorial(5);
+    std.debug.print("Factorial: {}\n", .{result});
+}` },
+      { name: "Zig Project 6", code: `const std = @import("std");
+
+pub fn main() !void {
+    var stdin = std.io.getStdIn().reader();
+    var stdout = std.io.getStdOut().writer();
+
+    var buffer: [100]u8 = undefined;
+
+    try stdout.print("Enter expression (e.g. 5 + 3): ", .{});
+    const input = try stdin.readUntilDelimiterOrEof(&buffer, '\n');
+
+    var a: i32 = 0;
+    var b: i32 = 0;
+    var op: u8 = '+';
+
+    _ = std.fmt.scan(input.?, "{} {} {}", .{ &a, &op, &b });
+
+    var result: i32 = 0;
+
+    switch (op) {
+        '+' => result = a + b,
+        '-' => result = a - b,
+        '*' => result = a * b,
+        '/' => result = if (b != 0) a / b else 0,
+        else => {
+            try stdout.print("Invalid operator\n", .{});
+            return;
+        },
+    }
+
+    try stdout.print("Result: {}\n", .{result});
+}` },
+      { name: "Zig Project 7", code: `const std = @import("std");
+
+pub fn main() !void {
+    var gpa = std.heap.GeneralPurposeAllocator(.{}){};
+    const allocator = gpa.allocator();
+
+    var args = std.process.args();
+    _ = args.next();
+
+    const src = args.next() orelse {
+        std.debug.print("Usage: copy <source> <dest>\n", .{});
+        return;
+    };
+
+    const dest = args.next() orelse {
+        std.debug.print("Missing destination\n", .{});
+        return;
+    };
+
+    const infile = try std.fs.cwd().openFile(src, .{});
+    defer infile.close();
+
+    const outfile = try std.fs.cwd().createFile(dest, .{});
+    defer outfile.close();
+
+    var buffer: [1024]u8 = undefined;
+
+    while (true) {
+        const bytes_read = try infile.read(&buffer);
+        if (bytes_read == 0) break;
+
+        try outfile.writeAll(buffer[0..bytes_read]);
+    }
+
+    std.debug.print("File copied successfully!\n", .{});
+}` },
+      { name: "Zig Project 8", code: `const std = @import("std");
+
+fn checkPassword(pwd: []const u8) void {
+    var has_upper = false;
+    var has_lower = false;
+    var has_digit = false;
+
+    for (pwd) |c| {
+        if (c >= 'A' and c <= 'Z') has_upper = true;
+        if (c >= 'a' and c <= 'z') has_lower = true;
+        if (c >= '0' and c <= '9') has_digit = true;
+    }
+
+    if (pwd.len < 6) {
+        std.debug.print("Weak: Too short\n", .{});
+    } else if (has_upper and has_lower and has_digit) {
+        std.debug.print("Strong password\n", .{});
+    } else {
+        std.debug.print("Medium password\n", .{});
+    }
+}
+
+pub fn main() !void {
+    var stdin = std.io.getStdIn().reader();
+    var buffer: [100]u8 = undefined;
+
+    std.debug.print("Enter password: ", .{});
+    const input = try stdin.readUntilDelimiterOrEof(&buffer, '\n');
+
+    checkPassword(input.?);
+}` },
+      { name: "Zig Project 9", code: `const std = @import("std");
+
+pub fn main() !void {
+    var prng = std.rand.DefaultPrng.init(12345);
+    const rand = prng.random();
+
+    const secret = rand.intRangeLessThan(i32, 1, 100);
+
+    var stdin = std.io.getStdIn().reader();
+    var buffer: [50]u8 = undefined;
+
+    std.debug.print("Guess number (1-100):\n", .{});
+
+    while (true) {
+        const input = try stdin.readUntilDelimiterOrEof(&buffer, '\n');
+        var guess: i32 = 0;
+
+        _ = std.fmt.parseInt(i32, input.?, 10) catch {
+            std.debug.print("Invalid input\n", .{});
+            continue;
+        };
+
+        guess = try std.fmt.parseInt(i32, input.?, 10);
+
+        if (guess < secret) {
+            std.debug.print("Too low\n", .{});
+        } else if (guess > secret) {
+            std.debug.print("Too high\n", .{});
+        } else {
+            std.debug.print("Correct!\n", .{});
+            break;
+        }
+    }
+}` },
+      { name: "Zig Project 10", code: `const std = @import("std");
+
+const Task = struct {
+    id: i32,
+    title: []const u8,
+    done: bool,
+};
+
+pub fn main() void {
+    var tasks = [_]Task{
+        .{ .id = 1, .title = "Learn Zig", .done = false },
+        .{ .id = 2, .title = "Build Project", .done = false },
+    };
+
+    // Mark task 1 as done
+    for (&tasks) |*t| {
+        if (t.id == 1) {
+            t.done = true;
+        }
+    }
+
+    // Display tasks
+    for (tasks) |t| {
+        const status = if (t.done) "Done" else "Pending";
+        std.debug.print("{}: {s} [{}]\n", .{t.id, t.title, status});
+    }
+}` }
     ];
   }
 
