@@ -1172,6 +1172,12 @@ const languages = ["Python","Java","C++","JavaScript","HTML","CSS","TypeScript",
 function showPage(p){
   document.querySelectorAll(".page").forEach(el=>el.classList.remove("active"));
   document.getElementById("page"+p).classList.add("active");
+
+  setTimeout(()=>{
+    window.scrollTo(0,0);
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }, 10);
 }
 
 startFirstPageTyping();
@@ -1312,7 +1318,7 @@ function startTest(p){
   document.getElementById("keyboardBox").style.display = "none";
 }
   currentProject = p.name;
-  selectedCode = cleanCode(p.code);
+  selectedCode = p.code;
   document.getElementById("testTitle").innerText = currentLang + " - " + currentProject;
   time = 120;
   updateTimer();
@@ -1476,7 +1482,40 @@ function renderText(userInput) {
 
   highlightNextKey(userInput);
 }
+inputBox.addEventListener("keydown", function(e) {
+  if (e.key === "Enter") {
+    e.preventDefault();
 
+    let cursorPos = inputBox.selectionStart;
+    let value = inputBox.value;
+
+    // 🔥 current line find karo
+    let beforeCursor = value.substring(0, cursorPos);
+    let currentLineIndex = beforeCursor.split("\n").length - 1;
+
+    // 🔥 original code ki lines
+    let codeLines = selectedCode.split("\n");
+
+    // 🔥 next line ka indentation uthao
+    let nextLine = codeLines[currentLineIndex + 1] || "";
+    let indentMatch = nextLine.match(/^\s*/);
+    let indent = indentMatch ? indentMatch[0] : "";
+
+    // 🔥 new line + correct indent insert
+    let newText =
+      value.substring(0, cursorPos) +
+      "\n" + indent +
+      value.substring(cursorPos);
+
+    inputBox.value = newText;
+
+    // 🔥 cursor ko sahi jagah set karo
+    let newCursorPos = cursorPos + 1 + indent.length;
+    inputBox.selectionStart = inputBox.selectionEnd = newCursorPos;
+
+    renderText(inputBox.value);
+  }
+});
 // Timer
 function updateTimer(){
   let min = Math.floor(time / 60);
@@ -1686,13 +1725,8 @@ document.addEventListener("keydown", function(e) {
 
 });
 
-  function cleanCode(code) {
-  return code
-    .replace(/\r/g, "")                 // Windows line break fix
-    .split("\n")
-    .map(line => line.trimStart())      // left spaces remove
-    .filter(line => line.trim() !== "") // ❌ blank lines remove
-    .join("\n");
+function cleanCode(code){
+  return code.replace(/\r/g, "");
 }
 
 // Close menu when clicking outside
