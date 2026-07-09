@@ -1,58 +1,118 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9GKD8H5FTZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-9GKD8H5FTZ');
-</script>
 <title>Blogs & Articles</title>
-<link rel="stylesheet" href="style.css">
   <style>
-/* Background */
-body{
-  margin: 0;
-  padding: 20px 40px;
-  color: white;
+body::before {
+content: "";
+position: fixed;
+top:0;
+left:0;
+width: 100vw;
+height: 100vh;
+background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d);
+background-size: 400% 400%;
+animation: gradientBG 10s ease infinite;
+z-index: -1;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('bgnm.jpeg') no-repeat center/cover;
-  filter: blur(10px) brightness(0.3);
-  z-index: -1;
+@keyframes gradientBG {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
 }
-</style>
-    <style>
+
+/* Back Button */
 .back-btn {
-  position: static;
-  top: 15px;
-  left: 15px;
-  background-color: #ff0000;
-  color: white;
-  padding: 8px 12px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 14px;
+position: fixed;
+top: 15px;
+left: 15px;
+background-color: #ff0000;
+color: white;
+padding: 8px 12px;
+text-decoration: none;
+border-radius: 5px;
+font-size: 14px;
 }
 
 .back-btn:hover {
-  background-color: #b30000;
+background-color: #b30000;
 }
+
+/* ===== PROFILE CARD (NEW) ===== */
+.profile-card {
+display: flex;
+align-items: center;
+gap: 20px;
+margin-bottom: 30px;
+padding: 20px;
+
+background: rgba(255, 255, 255, 0.08);
+border-radius: 15px;
+backdrop-filter: blur(15px);
+-webkit-backdrop-filter: blur(15px);
+
+border: 1px solid rgba(255,255,255,0.2);
+box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+
+animation: fadeIn 1s ease;
+}
+
+/* Animation */
+@keyframes fadeIn {
+from {
+opacity: 0;
+transform: translateY(-20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* Profile Image */
+.profile-card img {
+width: 90px;
+height: 90px;
+border-radius: 15%;
+border: 3px solid white;
+object-fit: cover;
+}
+
+/* Info Section */
+.profile-info h3 {
+margin: 0;
+font-size: 20px;
+}
+
+.profile-info p {
+margin: 5px 0;
+font-size: 14px;
+color: #ddd;
+}
+
+/* Responsive (Mobile) */
+@media (max-width: 600px) {
+.profile-card {
+flex-direction: column;
+text-align: center;
+}
+}
+    
 </style>
 </head>
 
-<a href="index.html" class="back-btn">← Back</a>
-
+<body style="font-family: Arial; padding:20px; background:#111; color:white;">
+  <!-- ===== PROFILE SECTION ===== -->
+  <div class="profile-card">  
+  <!-- Photo (Replace later) -->  
+  <img src="https://via.placeholder.com/150" alt="Your Photo">  
+  <!-- Info -->  
+  <div class="profile-info">
+    <h3>Name : Pandurang Baliram Garad</h3>
+    <p>Web Developer / Creator</p>
+    <p>Email : panduranggarad922@gmail.com</p>
+    <p>Location : Nanded, Maharashtra, India</p>
   <h1> Blogs & Articles</h1>
 
   <p>
