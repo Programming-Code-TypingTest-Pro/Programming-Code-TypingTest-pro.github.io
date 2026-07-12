@@ -86,7 +86,8 @@
   opacity: 0.7;
 }
 .row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(15, 1fr); /* total columns */
   gap: 6px;
 }
 .key .bottom {
@@ -1472,7 +1473,7 @@ function createKeyboard() {
     {main:"0",shift:")"},
     {main:"-",shift:"_"},
     {main:"=",shift:"+"},
-    "backspace"
+    "back"
   ],
 
   [
