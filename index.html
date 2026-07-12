@@ -73,6 +73,23 @@
 <meta name="google-site-verification" content="google050c71ad9565dde7" />
   <style>
   /* KEYBOARD POSITION */
+ @media (max-width: 768px) {
+  #keyboardBox {
+    position: relative;
+    left: -46%;
+    transform: translateX(-50%) scale(0.9); /* center + resize */
+    margin-top: 180px;   /* niche shift */
+    top: 30px;   /* 👈 niche lane ke liye adjust karo */
+    right: auto;
+
+    width: 95%;
+    padding: 10px;
+  }
+  .row {
+    grid-template-columns: repeat(10, 1fr);
+  }
+ }
+    
   .key {
   position: relative;
   font-size: 15px;
