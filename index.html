@@ -1990,66 +1990,41 @@ document.addEventListener("click", function(e) {
   }
 });
 
-  function filterLanguages(){
+//search box 1  page
+function filterLanguages() {
   let input = document.getElementById("searchBox").value.toLowerCase();
+  let buttons = document.querySelectorAll("#languages button");
   let suggestionsBox = document.getElementById("suggestions");
 
   suggestionsBox.innerHTML = "";
-
-  if(input === ""){
-    suggestionsBox.style.display = "none";
-    removeHighlight();
-    return;
-  }
-
-  let filtered = languages.filter(lang =>
-    lang.toLowerCase().includes(input)
-  );
-
-  if(filtered.length === 0){
-    suggestionsBox.style.display = "none";
-    removeHighlight();
-    return;
-  }
-
-  suggestionsBox.style.display = "block";
-
-  filtered.forEach(lang => {
-    let div = document.createElement("div");
-    div.className = "suggestion-item";
-    div.innerText = lang;
-
-    div.onclick = () => {
-      document.getElementById("searchBox").value = lang;
-      suggestionsBox.style.display = "none";
-      highlightLanguage(lang);
-    };
-
-    suggestionsBox.appendChild(div);
-  });
-
-  // 🔥 Auto highlight first match
-  highlightLanguage(filtered[0]);
-}
-
-// 🔥 Highlight buttons
-function highlightLanguage(lang){
-  let buttons = document.querySelectorAll("#languages button");
+  suggestionsBox.style.display = "none";
 
   buttons.forEach(btn => {
-    btn.classList.remove("highlight");
+    let text = btn.innerText.toLowerCase();
 
-    if(btn.innerText.toLowerCase() === lang.toLowerCase()){
-      btn.classList.add("highlight");
+    if (text.includes(input)) {
+      btn.style.display = "block";
+
+      // 🔥 suggestion show
+      if (input.length > 0) {
+        let div = document.createElement("div");
+        div.className = "suggestion-item";
+        div.innerText = btn.innerText;
+
+        div.onclick = () => {
+          btn.click(); // direct open language
+        };
+
+        suggestionsBox.appendChild(div);
+        suggestionsBox.style.display = "block";
+      }
+
+    } else {
+      btn.style.display = "none";
     }
   });
 }
-
-// 🔥 Remove highlight
-function removeHighlight(){
-  let buttons = document.querySelectorAll("#languages button");
-  buttons.forEach(btn => btn.classList.remove("highlight"));
-}
+  //page 2 search box
   function filterProjects() {
   let input = document.getElementById("projectSearch").value.toLowerCase();
   let buttons = document.querySelectorAll("#projects button");
