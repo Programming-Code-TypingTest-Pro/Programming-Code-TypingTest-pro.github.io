@@ -839,7 +839,91 @@ body {
 }
 </style>  
 <script>
+const canvas = document.getElementById("hackerBg");
+const ctx = canvas.getContext("2d");
 
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const codeLines = [
+  "function hackSystem() {",
+  "  access_granted = true;",
+  "  bypassFirewall();",
+  "  injectPayload();",
+  "}",
+  "console.log('Access Granted');",
+  "while(true){ execute(); }",
+  "if(user === admin){ unlock(); }"
+];
+
+let lines = [];
+
+for (let i = 0; i < 25; i++) {
+  lines.push({
+    text: codeLines[Math.floor(Math.random() * codeLines.length)],
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    speed: 1 + Math.random() * 2,
+    opacity: Math.random()
+  });
+}
+
+// 🔥 Color Modes
+function getColorByTime() {
+  let time = Math.floor(Date.now() / 5000) % 5;
+
+  switch (time) {
+    case 0: // MIX
+      const colors = ["red", "lime", "blue", "white"];
+      return colors[Math.floor(Math.random() * colors.length)];
+
+    case 1: return "lime";   // Green
+    case 2: return "red";    // Red
+    case 3: return "blue";   // Blue
+    case 4: return "white";  // White
+  }
+}
+
+function draw() {
+  ctx.fillStyle = "black";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.font = "16px monospace";
+
+  lines.forEach(line => {
+
+    let color = getColorByTime();
+
+    // Glow effect 🔥
+    ctx.shadowColor = color;
+    ctx.shadowBlur = 10;
+
+    let opacity = 0.3 + Math.random() * 0.7; // random blink
+
+ctx.fillStyle = color;
+ctx.globalAlpha = opacity;
+
+ctx.fillText(line.text, line.x, line.y);
+
+// reset alpha (important)
+ctx.globalAlpha = 1;
+
+    line.x += line.speed;
+
+    if (line.x > canvas.width) {
+      line.x = -200;
+      line.y = Math.random() * canvas.height;
+    }
+
+    // blinking
+    line.opacity = Math.random();
+  });
+
+  requestAnimationFrame(draw);
+}
+
+draw();
+</script>
 <!-- PAGE 1 -->
 <div id="page1" class="page active">
   <div class="top-navbar">
