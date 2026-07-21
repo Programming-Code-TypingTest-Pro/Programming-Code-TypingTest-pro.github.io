@@ -1415,7 +1415,7 @@ function startTypingEffect(){
 
 <script>
 // Languages
-const languages = ["Python","Java","JavaScript","C++","C#","TypeScript","Kotlin","HTML","CSS","Swift","Node.js","Dart","Rust","R","PHP","SQL","Bash","PowerShell","Go","Ruby","Scal","Matlab","Julia","Lua","Perl","VB.NET","F#","Haskell","Elixir","Erlang","COBOL","Fortran","Groovy","Clojure","OCaml","Prolog","Ada","Nim","Zig","Solidity","Assembly","Objective-C"];
+const languages = ["English","Python","Java","JavaScript","C++","C#","TypeScript","Kotlin","HTML","CSS","Swift","Node.js","Dart","Rust","R","PHP","SQL","Bash","PowerShell","Go","Ruby","Scal","Matlab","Julia","Lua","Perl","VB.NET","F#","Haskell","Elixir","Erlang","COBOL","Fortran","Groovy","Clojure","OCaml","Prolog","Ada","Nim","Zig","Solidity","Assembly","Objective-C"];
 
 function showPage(p){
   document.querySelectorAll(".page").forEach(el=>el.classList.remove("active"));
@@ -1434,7 +1434,7 @@ languages.forEach(lang=>{
   let btn = document.createElement("button");
 
   // ⭐ sirf select languages ke liye
-  if(lang === "Python" || lang === "Java" || lang === "C++" || lang === "JavaScript" || lang === "TypeScript" || lang === "Kotlin" || lang === "C#"){  
+  if(lang === "Python" || lang === "Java" || lang === "C++" || lang === "JavaScript" || lang === "TypeScript" || lang === "Kotlin" || lang === "C#" || lang === "English"){  
     btn.innerText = "⭐ " + lang;
   } else {
     btn.innerText = lang;
