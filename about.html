@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>About</title>
-</head>
- <style>/* Animated Background */
-body::before {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Programming Typing Speed Test</title>
+  <style>
+    body::before {
 content: "";
 position: fixed;
 top:0;
 left:0;
 width: 100vw;
 height: 100vh;
-background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d);
+background: linear-gradient(-45deg, #e8891c, #b21f1f, #fdbb2d);
 background-size: 400% 400%;
 animation: gradientBG 10s ease infinite;
 z-index: -1;
@@ -82,8 +83,73 @@ flex-direction: column;
 text-align: center;
 }
 }
-
-</style>
+    .about-card {
+      max-width: 850px;
+      margin: 30px auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    h1 {
+      color: #ff4d4d;
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #ff0000, #ffd700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    h2 {
+      color: #ffd700;
+      border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+      padding-bottom: 8px;
+      margin-top: 30px;
+    }
+    ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .grid-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .feature-box {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .feature-box h3 {
+      margin-top: 0;
+      color: #ff5555;
+    }
+    .back-home {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 18px;
+      background: linear-gradient(45deg, #ff0000, #111);
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
 <body style="font-family: Arial; padding:20px; background:#111; color:white;">
 
   <!-- ===== PROFILE SECTION ===== -->
@@ -97,106 +163,50 @@ text-align: center;
     <p>Email : panduranggarad922@gmail.com</p>
     <p>Location : Nanded, Maharashtra, India</p>
   </div></div>
-<h1>About Us</h1>
 
-<p>
-Welcome to our Programming Typing Speed Test website. This platform is created to help users 
-improve their typing speed while practicing real programming languages in a simple and effective way.
-</p>
 
-<p>
-In today’s digital world, typing speed is an essential skill for students, developers, and professionals. 
-Our goal is to provide a free and easy-to-use platform where users can practice typing and enhance their skills.
-</p>
+  <div class="about-card">
+    <a href="index.html" class="back-home">← Back to Home</a>
+    
+    <h1>About Our Platform</h1>
+    <p>Welcome to <strong>Programming Typing Speed Test</strong> — an interactive developer-focused platform designed to help programmers, students, and tech enthusiasts master coding speed and precision.</p>
 
-<p>
-This website is specially designed for those who want to improve both typing speed and coding efficiency. 
-By practicing programming-based content, users can become more comfortable with real-world typing scenarios.
-</p>
+    <h2>🎯 Our Core Mission</h2>
+    <p>Unlike standard typing tools that focus on plain text or literature, our platform is built specifically around <strong>real programming syntax</strong>. Writing code requires frequent use of special characters, symbols, indentations, and brackets (<code>{}</code>, <code>[]</code>, <code>&lt;&gt;</code>). Our mission is to provide a 100% free, lightweight, and distraction-free environment to turn syntax hesitation into muscle memory.</p>
 
-<p>
-We understand that learning typing can be challenging at the beginning. That is why we have created 
-a clean and user-friendly interface that allows users to focus only on practice without distractions.
-</p>
+    <h2>⚡ Key Features Designed for Developers</h2>
+    <div class="grid-features">
+      <div class="feature-box">
+        <h3>💻 Real Language Syntax</h3>
+        <p>Practice with real code snippets from Python, Java, C++, JavaScript, HTML/CSS, TypeScript, and 30+ other languages.</p>
+      </div>
+      <div class="feature-box">
+        <h3>⌨️ On-Screen Visual Guide</h3>
+        <p>Dynamic virtual keyboard highlighting upcoming keys to guide proper finger positioning for complex symbols.</p>
+      </div>
+      <div class="feature-box">
+        <h3>📊 Real-Time Analytics</h3>
+        <p>Instant performance evaluation including Words Per Minute (WPM), Net Accuracy %, and mistake breakdowns.</p>
+      </div>
+      <div class="feature-box">
+        <h3>⏱️ Custom Practice Modes</h3>
+        <p>Flexible settings allowing timed exam simulations or untimed practice modes for long projects.</p>
+      </div>
+    </div>
 
-<p>
-Our typing test tool helps users measure their speed and accuracy in real time. 
-This allows users to track their progress and identify areas where improvement is needed.
-</p>
+    <h2>💡 Why Coding Speed Matters</h2>
+    <p>In modern software engineering, live coding interviews, and competitive programming, typing speed directly affects logical flow and productivity. Practicing daily on real source code snippets helps developers minimize syntax bugs and focus entirely on problem-solving logic.</p>
 
-<p>
-Accuracy is the most important part of typing. We encourage users to focus on typing correctly first, 
-and then gradually increase their speed through regular practice.
-</p>
+    <h2>🔒 Quality & Trust</h2>
+    <p>We are dedicated to maintaining a safe, fast, and accessible learning hub. Our website is responsive across desktops, laptops, and mobile devices with zero paywalls or mandatory registrations.</p>
 
-<p>
-This platform supports multiple programming languages, making it useful for developers and students 
-who want to improve their typing skills in coding environments.
-</p>
+    <p>For inquiries, feedback, or policy verification, please review our legal and contact pages:</p>
+    <ul>
+      <li>Read our <a href="privacy.html">Privacy Policy</a></li>
+      <li>Review our <a href="terms.html">Terms & Conditions</a></li>
+      <li>Get in touch via our <a href="contact.html">Contact Us</a> page</li>
+    </ul>
+  </div>
 
-<p>
-We believe that consistency is the key to success. Even a few minutes of daily practice can lead to 
-significant improvement over time.
-</p>
-
-<p>
-Our mission is to provide a helpful and accessible platform for anyone who wants to learn and improve typing skills. 
-We aim to make learning simple, fast, and effective.
-</p>
-
-<p>
-We are continuously working to improve this website by adding new features, better content, 
-and an enhanced user experience.
-</p>
-
-<p>
-User satisfaction is our priority. We value feedback from our users and use it to improve our services.
-</p>
-
-<p>
-This website is completely free to use. Our goal is to make typing practice accessible to everyone 
-without any cost or restrictions.
-</p>
-
-<p>
-We also aim to help users prepare for exams, coding interviews, and real-world tasks where typing speed matters.
-</p>
-
-<p>
-Our platform is designed to work smoothly on both desktop and mobile devices, 
-so users can practice anytime and anywhere.
-</p>
-
-<p>
-We focus on providing a distraction-free environment where users can concentrate on improving their skills.
-</p>
-
-<p>
-Typing is not just about speed, but also about efficiency and comfort. 
-We encourage users to maintain proper posture and hand positioning while typing.
-</p>
-
-<p>
-With regular practice and the right approach, anyone can become a fast and accurate typist.
-</p>
-
-<p>
-We are committed to maintaining quality and continuously improving our platform 
-to meet the needs of our users.
-</p>
-
-<p>
-Thank you for visiting our website and being a part of our learning community.
-</p>
-
-<p><strong>Last Updated: May 2026</strong></p>
-
-  <footer>
-  <a href="/index.html">Home</a>
-  <a href="/blog.html">Blog</a>
-  <a href="/contact.html">Contact</a>
-  <a href="/privacy.html">Privacy Policy</a>
-  <a href="/terms.html">Terms</a>
-</footer>
 </body>
 </html>
