@@ -1,168 +1,214 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms & Conditions | Programming Typing Speed Test</title>
+
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9GKD8H5FTZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9GKD8H5FTZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-9GKD8H5FTZ');
-</script>
-<title>Terms & Conditions</title>
+    gtag('config', 'G-9GKD8H5FTZ');
+  </script>
+
+  <style>
+    :root {
+      --primary-accent: #ff4d4d;
+      --gold-accent: #ffd700;
+      --blue-accent: #58a6ff;
+      --card-bg: rgba(22, 27, 34, 0.85);
+      --border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0d1117;
+      color: #c9d1d9;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.7;
+    }
+
+    /* Animated Background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(-45deg, #0d1117, #161b22, #1a2a6c, #0d1117);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      z-index: -1;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 20px auto;
+      padding: 35px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .back-btn {
+      display: inline-block;
+      padding: 8px 16px;
+      background: #238636;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      margin-bottom: 25px;
+      transition: background 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: #2ea043;
+    }
+
+    h1 {
+      color: var(--primary-accent);
+      font-size: 30px;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 10px;
+      margin-top: 0;
+    }
+
+    h2 {
+      color: var(--gold-accent);
+      margin-top: 30px;
+      font-size: 20px;
+      border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+      padding-bottom: 6px;
+    }
+
+    p {
+      color: #8b949e;
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      color: #8b949e;
+    }
+
+    .notice-box {
+      background: rgba(56, 139, 253, 0.1);
+      border-left: 4px solid var(--blue-accent);
+      padding: 15px;
+      border-radius: 4px;
+      margin: 20px 0;
+      color: #c9d1d9;
+    }
+
+    .last-updated {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      color: var(--gold-accent);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--blue-accent);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
-  <style>/* Background */
-body::before {
-  content: "";
-  position: fixed;
+<body>
 
-top:0;
-  left:0;
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d);
-  background-size: 400% 400%;
-  animation: gradientBG 10s ease infinite;
+  <div class="container">
+    <a href="index.html" class="back-btn">← Back to Practice Home</a>
 
-  z-index: -1;
-}
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+    <h1>Terms & Conditions</h1>
+    <div class="last-updated">Last Updated: May 2026</div>
 
-</style>
-    <style>
-.back-btn {
-  position: static;
-  top: 15px;
-  left: 15px;
-  background-color: #ff0000;
-  color: white;
-  padding: 8px 12px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 14px;
-}
+    <p>Welcome to <strong>Programming Typing Speed Test</strong>. By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by these terms, please do not access or use our service.</p>
 
-.back-btn:hover {
-  background-color: #b30000;
-}
-</style>
-<a href="index.html" class="back-btn">← Back</a>
-<body style="font-family: Arial; padding:20px; background:#111; color:white;">
+    <div class="notice-box">
+      📜 <strong>Summary:</strong> Our platform is a free educational typing utility tool. Use it respectfully, do not attempt to disrupt services, and adhere to standard usage policies.
+    </div>
 
-<h2>Terms & Conditions</h2>
+    <h2>1. Website Purpose & Use of Service</h2>
+    <p>This website provides interactive typing speed tests using real programming syntax (such as Python, JavaScript, HTML, C++, and Java) for educational and practice purposes only.</p>
+    <ul>
+      <li>The platform is offered free of charge to help students and developers enhance their coding speed and accuracy.</li>
+      <li>You agree to use this website only for lawful purposes and in a manner that does not infringe upon the rights of others or restrict their access.</li>
+    </ul>
 
-<p>By using this website, you agree to follow the rules.</p>
+    <h2>2. Intellectual Property Rights</h2>
+    <p>All design assets, custom code engines, layout elements, and compiled educational materials on this website are protected by applicable intellectual property laws.</p>
+    <ul>
+      <li>Users are not allowed to copy, reproduce, scrape, or distribute any proprietary content or code structure from this platform without explicit written authorization.</li>
+      <li>Programming code snippets used in exercises belong to their respective open-source frameworks and educational contexts.</li>
+    </ul>
 
-<p>This typing test app is for practice purposes only.</p>
+    <h2>3. User Acceptable Use & Security</h2>
+    <p>To ensure platform integrity and availability for all users, you agree not to:</p>
+    <ul>
+      <li>Attempt to hack, disrupt, or introduce malicious scripts, viruses, or automated bots to manipulate typing tests.</li>
+      <li>Misuse contact forms or attempt to gain unauthorized access to server infrastructure.</li>
+      <li>Perform activities that impair or degrade website speed and performance.</li>
+    </ul>
 
-<p>We are not responsible for any loss or misuse.</p>
-<p>
-Welcome to our website. By accessing and using this website, you accept and agree 
-to be bound by the terms and conditions outlined below. If you do not agree with 
-any part of these terms, please do not use our website.
-</p>
+    <h2>4. Third-Party Advertisements & External Links</h2>
+    <p>This website may display third-party advertisements provided by services like <strong>Google AdSense</strong>. We do not control or endorse the specific content or accuracy of third-party advertisements displayed on the site.</p>
+    <p>Our website may also contain links to external sites for reference. We hold no responsibility for the content, privacy policies, or practices of third-party web services.</p>
 
-<p>
-This website provides a typing speed test tool for educational and practice purposes. 
-The content and services are offered to help users improve their typing skills.
-</p>
+    <h2>5. Disclaimer of Warranties & Limitation of Liability</h2>
+    <p>The service is provided on an "AS IS" and "AS AVAILABLE" basis. While we strive to maintain uninterrupted service, we do not guarantee that the website will always be error-free, secure, or available without downtime.</p>
+    <p>In no event shall the platform owners or creators be held liable for any direct, indirect, incidental, or consequential damages resulting from your use of, or inability to use, this website.</p>
 
-<p>
-You agree to use this website only for lawful purposes. You must not use this website 
-in any way that causes damage to the website or impairs the availability or accessibility 
-of the service.
-</p>
+    <h2>6. Modifications & Updates</h2>
+    <p>We reserve the right to revise or modify these Terms & Conditions at any time without prior notice. Continued usage of the website following any changes signifies your acceptance of the updated terms.</p>
 
-<p>
-All content provided on this website is for general information and educational purposes only. 
-We do not guarantee the accuracy, completeness, or reliability of any information on this site.
-</p>
+    <h2>7. Governing Law & Contact Information</h2>
+    <p>These terms are governed in accordance with applicable legal frameworks. If you have any questions or require clarification regarding these Terms & Conditions, feel free to reach us via our <a href="contact.html">Contact Us</a> page.</p>
 
-<p>
-We reserve the right to modify, update, or remove any part of the website or these terms 
-at any time without prior notice. It is your responsibility to review this page regularly.
-</p>
+    <!-- FOOTER LEGAL LINKS -->
+    <div class="footer-links">
+      <a href="index.html">Home</a> |
+      <a href="about.html">About Us</a> |
+      <a href="blog.html">Blog</a> |
+      <a href="contact.html">Contact</a> |
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
 
-<p>
-This website may display advertisements provided by third-party services such as Google AdSense. 
-We are not responsible for the content or accuracy of advertisements shown on the website.
-</p>
-
-<p>
-Users are not allowed to copy, reproduce, or distribute any content from this website 
-without prior permission. All rights are reserved.
-</p>
-
-<p>
-We are not liable for any loss or damage that may occur from using this website. 
-Use of this website is at your own risk.
-</p>
-
-<p>
-This website may include links to external websites. These links are provided for 
-convenience, and we do not have control over the content or practices of those sites.
-</p>
-
-<p>
-We do not guarantee that the website will always be available or free from errors. 
-Technical issues may occur from time to time.
-</p>
-
-<p>
-Users must not attempt to misuse the website, including hacking, introducing malicious 
-code, or disrupting the service in any way.
-</p>
-
-<p>
-We reserve the right to restrict or terminate access to the website if any user violates 
-these terms and conditions.
-</p>
-
-<p>
-By continuing to use this website, you confirm that you understand and agree to these terms.
-</p>
-
-<p>
-These terms and conditions are governed by applicable laws, and any disputes will be handled 
-according to the relevant legal framework.
-</p>
-
-<p>
-If you have any questions regarding these Terms and Conditions, you can contact us through 
-our Contact page.
-</p>
-
-<p>
-We aim to provide a useful and reliable platform for users, but we cannot guarantee 
-continuous availability or error-free performance.
-</p>
-
-<p>
-Users are responsible for ensuring that their use of this website complies with all 
-applicable laws and regulations.
-</p>
-
-<p>
-We may update or change these terms at any time to reflect changes in our services 
-or legal requirements.
-</p>
-
-<p>
-Your continued use of the website after changes are made will be considered as your 
-acceptance of the updated terms.
-</p>
-
-  <footer>
-  <a href="/index.html">Home</a>
-  <a href="/about.html">About</a>
-  <a href="/blog.html">Blog</a>
-  <a href="/contact.html">Contact</a>
-  <a href="/privacy.html">Privacy Policy</a>
-</footer>
 </body>
 </html>
