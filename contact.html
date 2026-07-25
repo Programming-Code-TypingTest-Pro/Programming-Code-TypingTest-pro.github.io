@@ -1,171 +1,319 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <style>/* Animated Background */
-body::before {
-content: "";
-position: fixed;
-top:0;
-left:0;
-width: 100vw;
-height: 100vh;
-background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d);
-background-size: 400% 400%;
-animation: gradientBG 10s ease infinite;
-z-index: -1;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Programming Typing Speed Test</title>
+  <style>
+    :root {
+      --primary-accent: #ff4d4d;
+      --gold-accent: #ffd700;
+      --blue-accent: #58a6ff;
+      --card-bg: transparent;
+      --border-color: rgba(255, 255, 255, 0.12);
+    }
 
-@keyframes gradientBG {
-0% { background-position: 0% 50%; }
-50% { background-position: 100% 50%; }
-100% { background-position: 0% 50%; }
-}
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #06090c;
+      color: #c9d1d9;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.7;
+    }
 
-/* Back Button */
-.back-btn {
-position: fixed;
-top: 15px;
-left: 15px;
-background-color: #ff0000;
-color: white;
-padding: 8px 12px;
-text-decoration: none;
-border-radius: 5px;
-font-size: 14px;
-}
+    /* Animated Gradient Background Effect */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(-45deg, #e8891c, #b21f1f, #fdbb2d);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      z-index: -1;
+    }
 
-.back-btn:hover {
-background-color: #b30000;
-}
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-/* ===== PROFILE CARD (NEW) ===== */
-.profile-card {
-display: flex;
-align-items: center;
-gap: 20px;
-margin-bottom: 30px;
-padding: 20px;
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 35px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    }
 
-background: rgba(255, 255, 255, 0.08);
-border-radius: 15px;
-backdrop-filter: blur(15px);
--webkit-backdrop-filter: blur(15px);
+    .back-btn {
+      display: inline-block;
+      padding: 8px 18px;
+      background: #238636;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      margin-bottom: 25px;
+      transition: all 0.3s ease;
+    }
 
-border: 1px solid rgba(255,255,255,0.2);
-box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    .back-btn:hover {
+      background: #2ea043;
+      transform: translateX(-3px);
+    }
 
-animation: fadeIn 1s ease;
-}
+    /* ===== PROFILE CARD ===== */
+    .profile-card {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      margin-bottom: 35px;
+      padding: 25px;
+      background:transparent;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 0.8s ease;
+    }
 
-/* Animation */
-@keyframes fadeIn {
-from {
-opacity: 0;
-transform: translateY(-20px);
-}
-to {
-opacity: 1;
-transform: translateY(0);
-}
-}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-/* Profile Image */
-.profile-card img {
-width: 90px;
-height: 90px;
-border-radius: 15%;
-border: 3px solid white;
-object-fit: cover;
-}
+    .profile-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 16%;
+      border: 3px solid var(--blue-accent);
+      object-fit: cover;
+      box-shadow: 0 0 15px rgba(88, 166, 255, 0.3);
+    }
 
-/* Info Section */
-.profile-info h3 {
-margin: 0;
-font-size: 20px;
-}
+    .profile-info h3 {
+      margin: 0 0 5px 0;
+      font-size: 22px;
+      color: #ffffff;
+    }
 
-.profile-info p {
-margin: 5px 0;
-font-size: 14px;
-color: #ddd;
-}
+    .profile-info p {
+      margin: 4px 0;
+      font-size: 14px;
+      color: white;
+    }
 
-/* Responsive (Mobile) */
-@media (max-width: 600px) {
-.profile-card {
-flex-direction: column;
-text-align: center;
-}
-}
+    .badge {
+      display: inline-block;
+      background: rgba(88, 166, 255, 0.15);
+      color: var(--blue-accent);
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
 
-</style><title>Contact Us</title>
+    h1 {
+      color: var(--primary-accent);
+      font-size: 30px;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 10px;
+      margin-top: 0;
+    }
+
+    h2 {
+      color: var(--gold-accent);
+      margin-top: 30px;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    p {
+      color: #f6f8fa;
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+
+    /* GRID LAYOUT FOR CONTACT INFO */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin: 25px 0;
+    }
+
+    .info-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-50px);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .info-card h4 {
+      margin: 0 0 10px 0;
+      color: var(--blue-accent);
+      font-size: 16px;
+    }
+
+    .btn-email {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      padding: 12px;
+      background: linear-gradient(45deg, #1f6feb, #238636);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      margin-top: 10px;
+      box-sizing: border-box;
+      transition: opacity 0.3s ease;
+    }
+
+    .btn-email:hover {
+      opacity: 0.9;
+    }
+
+    /* SOCIAL LINKS */
+    .social-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .social-btn {
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: #58a6ff;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .social-btn:hover {
+      background: rgba(88, 166, 255, 0.15);
+      border-color: var(--blue-accent);
+    }
+
+    .notice-box {
+      background: rgba(210, 153, 34, 0.1);
+      border-left: 4px solid var(--gold-accent);
+      padding: 15px;
+      border-radius: 6px;
+      margin: 25px 0;
+      color: #c9d1d9;
+      font-size: 14px;
+    }
+
+    .footer-links {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--blue-accent);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .profile-card {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
-  <body style="font-family: Arial; padding:20px; background:#111; color:white;">
-    
-  <!-- ===== PROFILE SECTION ===== -->
-  <div class="profile-card">  
-    <!-- Photo (Replace later) -->  
-    <img src="me.jpeg" alt="Your Photo">  
-    <!-- Info --> 
-    <div class="profile-info">
-      
-    <h3>Name : Pandurang Baliram Garad</h3>
-    <p>Web Developer / Creator</p>
-    <p>Email : panduranggarad922@gmail.com</p>
-    <p>Location : Nanded, Maharashtra, India</p>
-  </div></div><h2>Contact Us</h2><p>
-If you have any questions, suggestions, or feedback regarding our website, 
-we are always happy to hear from you. Your feedback helps us improve our services 
-and provide a better experience for all users.
-</p><p>
-You can contact us using the details provided below. We will try our best to 
-respond as quickly as possible.
-</p><h3>Email Support</h3><p>
-For general inquiries, support, or feedback, please contact us via email:</p>
+<body>
 
-<p>
-<strong>Email:</strong> 
-<a href="mailto:panduranggarad922@gmail.com?subject=Contact from Website&body=Hello, I want to ask..." >
-  panduranggarad922@gmail.com
-</a>
-</p>
+  <div class="container">
+    <a href="index.html" class="back-btn">← Back to Practice Home</a>
 
-<h3>Contact Number</h3><p>
-You can also reach us through phone for urgent queries (optional):
-</p><p><strong>Phone:</strong> DM Instagram </p><h3>Social Media</h3><p>
-Stay connected with us through our social media platforms:
-</p>
-<p><strong>Instagram:</strong> 
-<a href="https://www.instagram.com/vishal_garad___?igsh=dG5icDVrdTVvb3d2" target="_blank" style="color:#4da6ff;">
-  @vishal_garad___</a></p>
+    <!-- PROFILE CARD SECTION -->
+    <div class="profile-card">
+      <img src="me.jpeg" alt="Pandurang Garad">
+      <div class="profile-info">
+        <span class="badge">Platform Founder</span>
+        <h3>Pandurang Baliram Garad</h3>
+        <p>💻 Full Stack Web Developer & Creator</p>
+        <p>📧 Email: panduranggarad922@gmail.com</p>
+        <p>📍 Location: Nanded, Maharashtra, India</p>
+      </div>
+    </div>
 
-<p><strong>Facebook:</strong> 
-<a href="https://www.facebook.com/share/1CxrdCh84L/" target="_blank" style="color:#4da6ff;">
-  Facebook
-</a></p>
-<p><strong>Twitter (X):</strong> ...</p><h3>Working Hours</h3><p>
-Our support team is available during the following hours:
-</p><p>Monday to Saturday: 9:00 AM – 6:00 PM</p>
-<p>Sunday: Closed</p><h3>Response Time</h3><p>
-We usually respond to emails within 24–48 hours. 
-Response time may vary depending on the number of requests.
-</p><h3>Support and Help</h3><p>
-If you face any issues while using our typing speed test tool, 
-feel free to contact us. We will try to resolve your issue as soon as possible.
-</p><p>
-Before contacting us, you may also check other pages of our website 
-for answers to common questions.
-</p><h3>Important Note</h3><p>
-Please do not share sensitive personal information such as passwords, 
-bank details, or confidential data while contacting us.
-</p><p>
-We respect your privacy and ensure that your information is handled securely.
-</p><p>
-Thank you for visiting our website and supporting us.
-</p><footer>
-  <a href="/about.html">About</a>
-  <a href="/index.html">Home</a>
-  <a href="/blog.html">Blog</a>
-  <a href="/privacy.html">Privacy Policy</a>
-  <a href="/terms.html">Terms</a>
-</footer></body>
+    <h1>Get in Touch</h1>
+    <p>If you have any questions, suggestions, feature requests, or technical feedback regarding our <strong>Programming Typing Speed Test</strong> platform, we are always happy to hear from you. Your insights help us refine our tools and deliver an exceptional experience for developers worldwide.</p>
+
+    <!-- GRID CARDS -->
+    <div class="grid-container">
+      <div class="info-card">
+        <h4>📧 Email Support</h4>
+        <p style="font-size: 13px;">Reach out directly for general support, bug reports, or partnership opportunities.</p>
+        <a href="mailto:panduranggarad922@gmail.com?subject=Website Inquiry - Programming Typing Test" class="btn-email">Send Direct Email</a>
+      </div>
+
+      <div class="info-card">
+        <h4>🕒 Working Hours & Desk</h4>
+        <p style="font-size: 13px; margin-bottom: 5px;"><strong>Mon to Sat:</strong> 9:00 AM – 6:00 PM (IST)</p>
+        <p style="font-size: 13px; margin-bottom: 5px;"><strong>Sunday:</strong> Closed</p>
+        <p style="font-size: 13px; color: var(--gold-accent);"><strong>Response Time:</strong> 24–48 hours</p>
+      </div>
+    </div>
+
+    <h2>💬 Connect on Social Media</h2>
+    <p>Stay updated with feature announcements and connect directly through social channels:</p>
+    <div class="social-links">
+      <a href="https://www.instagram.com/vishal_garad___?igsh=dG5icDVrdTVvb3d2" target="_blank" class="social-btn">📸 Instagram (@vishal_garad___)</a>
+      <a href="https://www.facebook.com/share/1CxrdCh84L/" target="_blank" class="social-btn">📘 Facebook</a>
+    </div>
+
+    <h2>🛠️ Support & Troubleshooting</h2>
+    <p>If you encounter any glitches with the Code Box, Timer, or Virtual Keyboard during your test sessions, please detail the issue (along with your browser type) in your message. We aim to fix user-reported bugs promptly.</p>
+
+    <div class="notice-box">
+      ⚠️ <strong>Security Advisory:</strong> Please do not share sensitive personal information (such as passwords, financial data, or banking credentials) through email or contact forms. We respect your privacy and handle all communication securely.
+    </div>
+
+    <p style="text-align: center; font-size: 14px; color: #8b949e; margin-top: 30px;">
+      Thank you for practicing with us and supporting our web application!
+    </p>
+
+    <!-- FOOTER LEGAL LINKS -->
+    <div class="footer-links">
+      <a href="index.html">Home</a> |
+      <a href="about.html">About Us</a> |
+      <a href="blog.html">Blog</a> |
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Service</a>
+    </div>
+  </div>
+
+</body>
 </html>
