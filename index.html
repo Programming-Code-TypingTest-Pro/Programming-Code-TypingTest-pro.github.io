@@ -1004,7 +1004,7 @@ draw();
   border-radius: 15px;
 }
 </style>
-<section class="first-page">
+<!-- <section class="first-page">
   <h2 id="firstTitle">Welcome to Coding Typing Speed Test</h2>
   <div id="firstPageTyping"></div>
 </section>
@@ -1169,19 +1169,12 @@ function typeFirstPage() {
       setTimeout(typeChar, 2);
 
     } else {
-
       firstIndex++;
-
       setTimeout(typeFirstPage, 400);
-
     }
-
   }
-
   typeChar();
-
 }
-
 function startFirstPageTyping() {
   let container = document.getElementById("firstPageTyping");
   container.innerHTML = "";
@@ -1189,7 +1182,7 @@ function startFirstPageTyping() {
   firstChar = 0;
   typeFirstPage();
 }
-</script>
+</script> -->
 </div>
 
 <!-- PAGE 2 -->
@@ -1414,7 +1407,7 @@ function startTypingEffect(){
 </div>
 
 <script>
-// Languages
+/* // Languages
 const languages = ["English","Python","Java","JavaScript","C++","C#","TypeScript","Kotlin","HTML","CSS","Swift","Node.js","Dart","Rust","R","PHP","SQL","Bash","PowerShell","Go","Ruby","Scal","Matlab","Julia","Lua","Perl","VB.NET","F#","Haskell","Elixir","Erlang","COBOL","Fortran","Groovy","Clojure","OCaml","Prolog","Ada","Nim","Zig","Solidity","Assembly","Objective-C"];
 
 function showPage(p){
@@ -1442,7 +1435,39 @@ languages.forEach(lang=>{
 
   btn.onclick = ()=>selectLang(lang);
   langDiv.appendChild(btn);
+}); */
+
+// Languages
+const languages = ["Python","Java","JavaScript","TypeScript","C++","C#","Kotlin","HTML","CSS","Swift","Node.js","Dart","Rust","R","PHP","SQL","Bash","PowerShell","Go","Ruby","Scal","Matlab","Julia","Lua","Perl","VB.NET","F#","Haskell","Elixir","Erlang","COBOL","Fortran","Groovy","Clojure","OCaml","Prolog","Ada","Nim","Zig","Solidity","Assembly","Objective-C"];
+
+function showPage(p){
+  document.querySelectorAll(".page").forEach(el=>el.classList.remove("active"));
+  document.getElementById("page"+p).classList.add("active");
+
+  setTimeout(()=>{
+    window.scrollTo(0,0);
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }, 10);
+}
+
+// Removing startFirstPageTyping(); since logic is removed
+
+const langDiv = document.getElementById("languages");
+languages.forEach(lang=>{
+  let btn = document.createElement("button");
+
+  // ⭐ sirf select languages ke liye
+   if(lang === "Python" || lang === "Java" || lang === "C++" || lang === "JavaScript" || lang === "TypeScript" || lang === "Kotlin" || lang === "C#" || lang === "English"){  
+    btn.innerText = "⭐ " + lang;
+  } else {
+    btn.innerText = lang;
+  }
+
+  btn.onclick = ()=>selectLang(lang);
+  langDiv.appendChild(btn);
 });
+
 let selectedProjects = [];
 let selectedCode = "";
 let time = 120;
