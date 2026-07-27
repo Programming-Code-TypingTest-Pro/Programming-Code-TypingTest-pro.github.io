@@ -1180,11 +1180,12 @@ draw();
       line-height: 1.8;
       
       /* Animated Background Logic Applied Here */
-      background: linear-gradient(-45deg, #fe192c, #ff6b81, #ff5202, #fcfc07);
+      background: linear-gradient(-45deg, #ff4757, #ff6b81, #ffa502, #ff7f50);
       background-size: 400% 400%;
       animation: gradientShift 12s ease infinite;
       box-shadow: 0 20px 50px rgba(255, 71, 87, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.2);
       border: 1px solid rgba(255, 255, 255, 0.3);
+      overflow: hidden; /* Extra safety */
     }
 
     @keyframes gradientShift {
@@ -1217,10 +1218,10 @@ draw();
     #contact-wrapper .highlight-text {
       color: var(--highlight-cyan);
       font-weight: 700;
-      background: rgb(251, 128, 6);
+      background: rgba(0, 240, 255, 0.15);
       padding: 3px 8px;
       border-radius: 6px;
-      border: 1px dashed rgba(255, 136, 0, 0.936);
+      border: 1px dashed rgba(0, 240, 255, 0.5);
     }
 
     #contact-wrapper .section-title {
@@ -1244,7 +1245,8 @@ draw();
     /* Inner Dark Glass Cards */
     #contact-wrapper .info-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      /* Changed 300px to 250px for better mobile responsiveness */
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 25px;
       margin-bottom: 40px;
     }
@@ -1400,9 +1402,11 @@ draw();
       transform: translateY(-2px);
     }
 
+    /* Mobile Specific Adjustments */
     @media (max-width: 768px) {
       #contact-wrapper .contact-container { padding: 30px 20px; }
       #contact-wrapper .main-title { font-size: 30px; }
+      #contact-wrapper .info-box { padding: 20px; }
     }
   </style>
 
@@ -1455,7 +1459,8 @@ draw();
 
     <!-- Direct Contact Methods -->
     <h2 class="section-title"><i>📫</i> Reach Out to Us Directly</h2>
-    <div class="info-grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+    <!-- Fix: Removed the hardcoded inline width (minmax 400px) from here so it adapts perfectly -->
+    <div class="info-grid">
       
       <!-- Email Box -->
       <div class="info-box" style="text-align: center;">
@@ -1470,9 +1475,10 @@ draw();
       <div class="info-box" style="text-align: center;">
         <h3>💬 Connect on Socials</h3>
         <p style="margin-bottom: 20px;">Follow us for the latest updates, platform maintenance news, and coding tips. Feel free to send a DM for quick, informal chats!</p>
-        <div class="contact-action-box" style="flex-direction: row; gap: 10px;">
-          <a href="https://www.instagram.com/vishal_garad___?igsh=dG5icDVrdTVvb3d2" target="_blank" class="btn-premium" style="font-size: 14px;">Instagram</a>
-          <a href="https://www.facebook.com/share/1CxrdCh84L/" target="_blank" class="btn-premium" style="font-size: 14px;">Facebook</a>
+        <!-- Fix: Added flex-wrap: wrap so buttons don't break the box on small screens -->
+        <div class="contact-action-box" style="flex-direction: row; gap: 10px; flex-wrap: wrap; justify-content: center;">
+          <a href="https://www.instagram.com/vishal_garad___?igsh=dG5icDVrdTVvb3d2" target="_blank" class="btn-premium" style="font-size: 14px; flex: 1; min-width: 120px;">Instagram</a>
+          <a href="https://www.facebook.com/share/1CxrdCh84L/" target="_blank" class="btn-premium" style="font-size: 14px; flex: 1; min-width: 120px;">Facebook</a>
         </div>
       </div>
 
@@ -1502,6 +1508,7 @@ draw();
   </div>
 </div>
 <!-- 🔥 CONTACT SUPPORT MODULE END -->
+
 
 
   
