@@ -81,7 +81,6 @@
     margin-top: 180px;   /* niche shift */
     top: 30px;   /* 👈 niche lane ke liye adjust karo */
     right: auto;
-
     width: 95%;
     padding: 10px;
   }
@@ -117,21 +116,16 @@
   position: fixed;   /* absolute ❌ */
   top: 122px;
   right: 65px;
-
   width: 530px;
   display: flex;
   flex-direction: column;
   gap: 6px;
-
   padding: 15px;
   border-radius: 15px;
-
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(20px);
-
   box-shadow: 0 0 25px rgba(0,255,255,0.3);
   z-index: 9999;
-
   transform: scale(0.65);
   transform-origin: top right;
 }
@@ -211,7 +205,6 @@ body.light-mode {
 body.light-mode #hackerBg {
   display: none; /* light mode me animation hide */
 }
-
     
 body.no-bg::before {
   display: none;
@@ -249,19 +242,13 @@ button{
   font-size:16px;
     font-weight:800;
     letter-spacing:0.5px;
-
     border-radius:10px;
-
     padding:12px;
     color:white;
     border:none;
-
     cursor:pointer;
-
     background:linear-gradient(45deg,#ff0000,#111);
-
     transition:.3s;
-
     box-shadow:0 0 10px rgba(255,0,0,.4);
 }
 
@@ -269,49 +256,32 @@ button{
 button:hover{
 
     transform:translateY(-4px) scale(1.05);
-
     box-shadow:
     0 0 15px red,
     0 0 25px orange;
 }
 
 /* Glass Lines */
-
 button::before,
 button::after{
-
     content:"";
-
     position:absolute;
-
     top:0;
-
     left:-40%;
-
     width:20%;
-
     height:100%;
-
     background:rgba(255,255,255,.35);
-
     transform:skewX(-25deg);
-
 }
-
 button::before{
     animation:shine1 1.8s linear infinite;
 }
-
 button::after{
     animation:shine2 1.8s linear infinite;
 }
-
 @keyframes shine1{
-
 0%{left:-40%;}
-
 100%{left:140%;}
-
 }
 
 @keyframes shine2{
@@ -322,7 +292,6 @@ button::after{
 }
 button span{
     position:relative;
-
     z-index:2;
 }
 /* Code */
@@ -381,7 +350,6 @@ font-size: 30px;
     margin:10px 0;
     position:relative;
 }
-
 .fill{
     width:0%;
     height:100%;
@@ -500,29 +468,21 @@ font-size: 30px;
   top: 15px;
   left: 5px;
   padding: 5px 7px;
-
   font-size: 14px;
   font-weight: bold;
   color: #fff;
-
   text-decoration: none;
   border-radius: 12px;
-
   background: linear-gradient(135deg, #ffd700, #ffb300, #fff8dc);
   backdrop-filter: blur(15px);
-
   border: 1px solid rgba(255,255,255,0.4);
-
   box-shadow: 
     0 0 15px rgba(255,215,0,0.6),
     inset 0 0 10px rgba(255,255,255,0.5);
-
   overflow: hidden;
   z-index: 9999;
-
   transition: 0.3s;
 }
-
 .get-free-btn:hover {
   transform: scale(1.08);
   box-shadow: 
@@ -576,16 +536,11 @@ font-size: 30px;
     padding:7px 18px;
     margin:25px 0;
     border-radius:12px;
-
     background:linear-gradient(135deg,#ffd700,#ff0000,#ffd700);
-
     overflow:hidden;
-
     border:2px solid gold;
-
     box-shadow:
 0 0 8px rgba(255,215,0,.6);
-
     backdrop-filter:blur(15px);
 }
 
@@ -636,23 +591,17 @@ animation:glass2 .8s linear infinite;
 0%{
 left:-150px;
 }
-
 100%{
 left:120%;
 }
-
 }
-
 @keyframes glass2{
-
 0%{
 left:120%;
 }
-
 100%{
 left:-150px;
 }}
-
 .search-container{
   text-align:center;
   margin:20px auto;
@@ -682,7 +631,6 @@ left:-150px;
   overflow-y:auto;
   display:none;
 }
-
 .suggestion-item{
   padding:10px;
   cursor:pointer;
@@ -798,9 +746,7 @@ left:-150px;
 }
 </style>
 </head>
-
 <body>
-
   <canvas id="hackerBg"></canvas>
 <style>
   body {
@@ -808,7 +754,6 @@ left:-150px;
   overflow: hidden;
   background: black;
 }
-
 #hackerBg {
   position: fixed;
   top: 0;
@@ -827,10 +772,8 @@ body {
 <script>
 const canvas = document.getElementById("hackerBg");
 const ctx = canvas.getContext("2d");
-
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
 const codeLines = [
   "function hackSystem() {",
   "  access_granted = true;",
@@ -841,9 +784,7 @@ const codeLines = [
   "while(true){ execute(); }",
   "if(user === admin){ unlock(); }"
 ];
-
 let lines = [];
-
 for (let i = 0; i < 25; i++) {
   lines.push({
     text: codeLines[Math.floor(Math.random() * codeLines.length)],
@@ -853,7 +794,6 @@ for (let i = 0; i < 25; i++) {
     opacity: Math.random()
   });
 }
-
 // 🔥 Color Modes
 function getColorByTime() {
   let time = Math.floor(Date.now() / 5000) % 5;
@@ -873,41 +813,28 @@ function getColorByTime() {
 function draw() {
   ctx.fillStyle = "black";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-
   ctx.font = "16px monospace";
-
   lines.forEach(line => {
-
     let color = getColorByTime();
-
     // Glow effect 🔥
     ctx.shadowColor = color;
     ctx.shadowBlur = 10;
-
     let opacity = 0.3 + Math.random() * 0.7; // random blink
-
 ctx.fillStyle = color;
 ctx.globalAlpha = opacity;
-
 ctx.fillText(line.text, line.x, line.y);
-
 // reset alpha (important)
 ctx.globalAlpha = 1;
-
     line.x += line.speed;
-
     if (line.x > canvas.width) {
       line.x = -200;
       line.y = Math.random() * canvas.height;
     }
-
     // blinking
     line.opacity = Math.random();
   });
-
   requestAnimationFrame(draw);
 }
-
 draw();
 </script>
 <!-- PAGE 1 -->
@@ -922,7 +849,6 @@ draw();
     
   </div>
 </div>
-  
   <div class="header">👑𝙋𝙍𝙊𝙂𝙍𝘼𝙈 𝘾𝙊𝘿𝙀 𝙏𝙔𝙋𝙀 𝙈𝘼𝙎𝙏𝙀𝙍👑</div>
   <!-- 🔥 GET FREE BUTTON -->
 <a href="https://panduranggarad922-cell.github.io/images-pdf-cumvert/" target="_blank" class="get-free-btn">
@@ -936,7 +862,6 @@ draw();
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-
     text-shadow: 2px 2px 8px rgba(255,0,0,0.4);
 }</style>
   <!-- ☰ Menu Button -->
@@ -990,7 +915,6 @@ draw();
   border-radius: 15px;
 }
 </style>
-
 </div>
 
 <!-- PAGE 2 -->
@@ -1014,23 +938,18 @@ draw();
 <button onclick="goBack(1)" class="back-btn">
   Back
 </button>
-
 <style>
 .back-btn {
   position: absolute;
   top: 50px;
   left: 5px;
-
   padding: 8px 13px;
   font-size: 13px;
   color: white;
-
   background: rgba(255, 255, 255, 0.1); /* transparent */
   border: 1px solid rgba(255, 255, 255, 0.3);
-
   border-radius: 12px;
   backdrop-filter: none; 
-
   cursor: pointer;
   transition: 0.3s;
 }
@@ -1053,12 +972,10 @@ draw();
 <div id="page3" class="page">
   <div class="header">👍Best Of Luck💯</div>
 <style>.header {
-
     background: linear-gradient(90deg, red,red, gold, yellow);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-
     text-shadow: 2px 2px 8px rgba(255,0,0,0.4);
 }</style>
 <div class="timer" id="timer">2:00</div>
@@ -1072,7 +989,6 @@ End Exam
 <button onclick="goBack(2)" class="back-btn">
   Back
 </button>
-
 <style>
 .back-btn {
   position: absolute;
@@ -1105,12 +1021,10 @@ End Exam
 <div id="page4" class="page">
    <div class="header">🎉Test Results🎉</div>
 <style>.header {
-
     background: linear-gradient(90deg, red,red, gold, yellow);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-
     text-shadow: 2px 2px 8px rgba(255,0,0,0.4);
 }</style>
 <h2 id="resultText"></h2>
@@ -1144,10 +1058,8 @@ End Exam
 </div>
 
 <h3 id="score"></h3>
-
 <button onclick="restart()">Restart</button>
-<button onclick="goBack(2)">Back</button>
-  
+<button onclick="goBack(2)">Back</button> 
 <section class="typing-guide">
  <h1 id="typingTitle">See This</h1>
  <h2> 🧠 Challenge Yourself Daily </h2>
@@ -1208,12 +1120,10 @@ function startTypingEffect(){
   container.innerHTML = ""; // sirf paragraphs clear honge
   paraIndex = 0;
   charIndex = 0;
-
   typeParagraph();
 }
 </script>
 </div>
-
 <script>
 
 // Languages
@@ -1299,7 +1209,6 @@ selectedProjects.forEach((p,index)=>{
 
       <h2>📂 ${p.section.toUpperCase()}</h2>
     `;
-
     projDiv.appendChild(h);
     return; // 🔥 bas yahi ek return rahega
   }
@@ -1330,9 +1239,7 @@ selectedProjects.forEach((p,index)=>{
   let btn=document.createElement("button");
   btn.innerText=p.name;
   btn.onclick=()=>startTest(p);
-
   projDiv.appendChild(btn);
-
 });
 
 // =========================
@@ -1347,7 +1254,6 @@ h3.innerHTML = `
 <div class="line line2"></div>
 <div class="line line3"></div>
 <div class="line line4"></div>
-
 <h2>Complete Programming Language code💫</h2>
 `;
 
@@ -1382,7 +1288,6 @@ timerInterval = setInterval(()=>{
   if (timerEnabled) {
     time--;
     updateTimer();
-
     if(time <= 0){
       clearInterval(timerInterval);
       finishTest();
@@ -1444,11 +1349,9 @@ function createKeyboard() {
 layout.forEach(row => {
   let rowDiv = document.createElement("div");
   rowDiv.className = "row";
-
   row.forEach(key => {
     let div = document.createElement("div");
     div.className = "key";
-
     if (typeof key === "object") {
   div.innerHTML = `
     <span class="top">${key.shift}</span><br>
@@ -1465,10 +1368,8 @@ layout.forEach(row => {
   // 🔥 IMPORTANT
   div.setAttribute("data-key", key);
 }
-
     rowDiv.appendChild(div);
   });
-
   keyboard.appendChild(rowDiv);
 });
 }
@@ -1477,7 +1378,6 @@ layout.forEach(row => {
 function endExam(){
   clearInterval(timerInterval);
   let typed = document.getElementById("inputBox").value;
-
   if(typed.length < selectedCode.length){
     document.getElementById("resultText").innerHTML =
       "⚠️ Exam Not Complete";
@@ -1497,25 +1397,18 @@ function initTypingBox() {
   inputBox.focus();
   // click anywhere on box = focus
   typingBox.onclick = () => inputBox.focus();
-
   inputBox.addEventListener("input", () => {
     renderText(inputBox.value);
   });
 }
 function renderText(userInput) {
-
   let result = "";
-
   for (let i = 0; i < selectedCode.length; i++) {
-
     let originalChar = selectedCode[i];
     let typedChar = userInput[i];
-
     // 🔥 Normalize (important fix)
     if (typedChar === "\r") typedChar = "\n";
-
     if (i < userInput.length) {
-
       // 🔥 CASE INSENSITIVE COMPARISON
       if (
   typedChar &&
@@ -1525,20 +1418,16 @@ function renderText(userInput) {
 } else {
   result += '<span class="incorrect">' + originalChar + '</span>';
 }
-
     } else {
       result += '<span class="pending">' + originalChar + '</span>';
     }
   }
-
   typingBox.innerHTML = result + '<span class="cursor"></span>';
-
   highlightNextKey(userInput);
 }
 inputBox.addEventListener("keydown", function(e) {
   if (e.key === "Enter") {
     e.preventDefault();
-
     let cursorPos = inputBox.selectionStart;
     let value = inputBox.value;
 
@@ -1559,13 +1448,11 @@ inputBox.addEventListener("keydown", function(e) {
       value.substring(0, cursorPos) +
       "\n" + indent +
       value.substring(cursorPos);
-
     inputBox.value = newText;
 
     // 🔥 cursor ko sahi jagah set karo
     let newCursorPos = cursorPos + 1 + indent.length;
     inputBox.selectionStart = inputBox.selectionEnd = newCursorPos;
-
     renderText(inputBox.value);
   }
 });
@@ -1578,38 +1465,24 @@ function updateTimer(){
 }
 
   function animateBar(id,target){
-
     let bar=document.getElementById(id);
-
     let txt=bar.querySelector(".percent");
-
     let value=0;
-
     let timer=setInterval(()=>{
-
         if(value>=target){
-
             clearInterval(timer);
-
         }else{
-
             value++;
-
             bar.style.width=value+"%";
-
             txt.innerText=value+"%";
-
         }
-
     },8);
-
 }
 
 // 🔥 FINAL RESULT LOGIC
 function finishTest(){
 let typed = document.getElementById("inputBox").value;
   let correct = 0;
-
    for(let i=0;i<typed.length;i++){
     if (
   typed[i] &&
@@ -1618,42 +1491,26 @@ let typed = document.getElementById("inputBox").value;
   correct++;
 }
   }
-
   let accuracy = Math.round((correct/selectedCode.length)*100);
-
   let progress = Math.round((typed.length / selectedCode.length) * 100);
   if(progress > 100) progress = 100;
-
 let chars = typed.length;
-
 // total time = 120 sec hai (tumhare code me)
 let timeTaken = (120 - time) / 60; // minutes me convert
-
 if(timeTaken <= 0) timeTaken = 1/60; // error avoid
-
 let wpm = Math.round((chars / 5) / timeTaken);
-
 // 🔥 WPM = Speed - 12
 let displayWPM = Math.max(0, progress - 12);
-
 let mistakes = typed.length - correct;
 if(mistakes < 0) mistakes = 0;
-
 let wpmPercent = Math.min(displayWPM, 100);
 let mistakePercent = Math.min(mistakes,100);
-
 setTimeout(()=>{
-
 animateBar("speedBar",progress);
-
 animateBar("wpmBar",wpmPercent);
-
 animateBar("accBar",accuracy);
-
 animateBar("mistakeBar",mistakePercent);
-
 },300);
-
 document.getElementById("score").innerText =
 "Speed: " + progress + "% | WPM: " + displayWPM + "% | Accuracy: " + accuracy + "% | Mistakes: " + mistakePercent + "%"
 if(accuracy >= 80){
@@ -1691,7 +1548,6 @@ function toggleDarkMode() {
   document.body.classList.toggle("light-mode");
   let body = document.body;
   let btn = document.getElementById("darkBtn");
-
   body.classList.toggle("no-bg");
 
   // Button text change
@@ -1703,12 +1559,9 @@ function toggleDarkMode() {
 }
 
 let timerEnabled = true;
-
 function toggleTimer() {
   let btn = document.getElementById("timerBtn");
-
   timerEnabled = !timerEnabled;
-
   if (timerEnabled) {
     btn.innerText = "Timer ON";
   } else {
@@ -1716,14 +1569,10 @@ function toggleTimer() {
   }
 }
 let keyboardEnabled = window.innerWidth > 768;
-
 function toggleKeyboard() {
-
   const keyboard = document.getElementById("keyboardBox");
   const btn = document.getElementById("keyboardBtn");
-
   keyboardEnabled = !keyboardEnabled;
-
   if (keyboardEnabled) {
     keyboard.style.display = "flex";
     btn.innerText = "Keyboard ON";
@@ -1731,9 +1580,7 @@ function toggleKeyboard() {
     keyboard.style.display = "none";
     btn.innerText = "Keyboard OFF";
   }
-
 }
-
 document.getElementById("inputBox")
   .addEventListener("input", function() {
     highlightNextKey(this.value);
@@ -1741,33 +1588,23 @@ document.getElementById("inputBox")
 
 // ✅ YAHAN ADD KARO (OUTSIDE)
 function highlightNextKey(userInput) {
-
   const text = selectedCode;
   const nextChar = text[userInput.length];
-
   let next = nextChar;
-
   if (next === " ") next = "space";
   if (next === "\n") next = "enter";
-
   document.querySelectorAll(".key").forEach(key => {
     key.classList.remove("active");
-
     const main = key.getAttribute("data-key");
-
 const shift =
-
 key.getAttribute("data-shift");
-
 if (next === main || next === shift) {
-
 key.classList.add("active");
 }
 });
 }
 // Shift + Enter = end exam
 document.addEventListener("keydown", function(e) {
-
   if (
     document.getElementById("page3").classList.contains("active") &&
     e.shiftKey &&
@@ -1776,9 +1613,7 @@ document.addEventListener("keydown", function(e) {
     e.preventDefault();
     endExam();
   }
-
 });
-
 function cleanCode(code){
   return code.replace(/\r/g, "");
 }
@@ -1799,30 +1634,23 @@ function filterLanguages() {
   let input = document.getElementById("searchBox").value.toLowerCase();
   let buttons = document.querySelectorAll("#languages button");
   let suggestionsBox = document.getElementById("suggestions");
-
   suggestionsBox.innerHTML = "";
   suggestionsBox.style.display = "none";
-
   buttons.forEach(btn => {
     let text = btn.innerText.toLowerCase();
-
     if (text.includes(input)) {
       btn.style.display = "block";
-
       // 🔥 suggestion show
       if (input.length > 0) {
         let div = document.createElement("div");
         div.className = "suggestion-item";
         div.innerText = btn.innerText;
-
         div.onclick = () => {
           btn.click(); // direct open language
         };
-
         suggestionsBox.appendChild(div);
         suggestionsBox.style.display = "block";
       }
-
     } else {
       btn.style.display = "none";
     }
@@ -1833,70 +1661,53 @@ function filterLanguages() {
   let input = document.getElementById("projectSearch").value.toLowerCase();
   let buttons = document.querySelectorAll("#projects button");
   let suggestionsBox = document.getElementById("projectSuggestions");
-
   suggestionsBox.innerHTML = "";
   suggestionsBox.style.display = "none";
-
   buttons.forEach(btn => {
     let text = btn.innerText.toLowerCase();
-
     if (text.includes(input)) {
       btn.style.display = "block";
-
       // 🔥 suggestion show
       if (input.length > 0) {
         let div = document.createElement("div");
         div.className = "suggestion-item";
         div.innerText = btn.innerText;
-
         div.onclick = () => {
           btn.click(); // direct open project
         };
-
         suggestionsBox.appendChild(div);
         suggestionsBox.style.display = "block";
       }
-
     } else {
       btn.style.display = "none";
     }
   });
 }
 </script>
-
 <script src="script.js"></script>
 <script>
 // 🔥 JS Shine Effect Controller
-
 const btn = document.querySelector(".get-free-btn");
 const shine1 = btn.querySelector(".shine1");
 const shine2 = btn.querySelector(".shine2");
-
 function startShine() {
-
   // LEFT ➡️ RIGHT
   shine1.style.transition = "none";
   shine1.style.left = "-60%";
-
   setTimeout(() => {
     shine1.style.transition = "left 1.2s linear";
     shine1.style.left = "120%";
   }, 50);
-
-
   // RIGHT ➡️ LEFT
   shine2.style.transition = "none";
   shine2.style.right = "-60%";
-
   setTimeout(() => {
     shine2.style.transition = "right 1.2s linear";
     shine2.style.right = "120%";
   }, 50);
 }
-
 // 🔁 Repeat animation every 3 sec
 setInterval(startShine, 3000);
-
 // 🚀 First time start
 startShine();
 </script>
