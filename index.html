@@ -1561,14 +1561,388 @@ draw();
   background: none;
 }
 </style>
-<h1>Recommended Settings</h1>
-<h2>1. ⏱️ Timer OFF / ON</h2>
-<p> 💡 Working on 6 to 10 long typing projects? Turn Off the Timer and type at your own pace. </p>
-<p> Go Home = Menu Button / Setting Tab = Click Timer OFF </p>
-<p>... </p>
-<h2>2. ⌨️ Screen Keybord OFF / ON</h2>
-<p>💡 Pro user? Turn Off the On-Screen Keyboard for a better experience. </p>
-<p> Go Home = Menu Button / Setting Tab = Click Keybord OFF  </p>
+
+
+
+
+
+
+
+
+
+  <!-- 🔥 PAGE 2: PROJECT SELECTION & PRACTICE GUIDE MODULE START -->
+<div id="projects-pro-wrapper">
+
+  <!-- ✨ Background Glow Orbs -->
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+
+  <!-- 🚀 Main Title -->
+  <h2 class="pro-main-title">⚡ Code Snippet Selection & Practice Setup Guide ⚡</h2>
+
+  <!-- 📌 Section 1: Intro / How to Select Projects -->
+  <div class="pro-section-card">
+    <h3 class="title-blue">🎯 How to Choose the Right Typing Project</h3>
+    <p class="text-muted">
+      Welcome to the project library! Once you select a language, you can practice real code snippets ranging from basic statements to advanced architecture. Select a project category that aligns with your current goal:
+    </p>
+
+    <div class="project-cat-grid">
+      <div class="cat-card">
+        <span class="cat-icon">🔤</span>
+        <h4>Basic Syntax &amp; Output</h4>
+        <p>Master fundamental statements like <code class="code-tag">print()</code>, variable assignments, and basic mathematical operators.</p>
+      </div>
+
+      <div class="cat-card">
+        <span class="cat-icon">🔄</span>
+        <h4>Control Flow &amp; Loops</h4>
+        <p>Build muscle memory for conditional logic including <code class="code-tag">if / else</code>, <code class="code-tag">switch</code>, <code class="code-tag">for</code>, and <code class="code-tag">while</code> loops.</p>
+      </div>
+
+      <div class="cat-card">
+        <span class="cat-icon">🧩</span>
+        <h4>Functions &amp; Data Structures</h4>
+        <p>Type functions, parameters, array manipulations, key-value pairs, and method chaining effortlessly.</p>
+      </div>
+
+      <div class="cat-card">
+        <span class="cat-icon">🚀</span>
+        <h4>Advanced Algorithms &amp; OOP</h4>
+        <p>Challenge yourself with classes, asynchronous functions (<code class="code-tag">async/await</code>), recursion, and design patterns.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📌 Section 2: Recommended Settings (Expanded Existing Content) -->
+  <div class="pro-section-card">
+    <h3 class="title-orange">⚙️ Recommended Settings for Maximum Efficiency</h3>
+    <p class="text-muted">
+      Customize your test environment before launching a project snippet. Use these recommended configurations based on your practice goal:
+    </p>
+
+    <div class="settings-grid">
+      <!-- Setting 1: Timer Toggle -->
+      <div class="setting-card">
+        <div class="setting-header">
+          <span class="setting-badge text-orange">Feature 01</span>
+          <h4>⏱️ Timer Toggle (OFF / ON)</h4>
+        </div>
+        <p class="setting-desc">
+          <strong>Working on long typing projects?</strong> Turn <strong>OFF</strong> the timer to practice at your own relaxed pace without time pressure. Turn it <strong>ON</strong> when you want to benchmark your official WPM speed.
+        </p>
+        <div class="setting-route">
+          <code>Go Home ➔ Settings Tab ➔ Toggle Timer OFF/ON</code>
+        </div>
+      </div>
+
+      <!-- Setting 2: Screen Keyboard Toggle -->
+      <div class="setting-card">
+        <div class="setting-header">
+          <span class="setting-badge text-blue">Feature 02</span>
+        </div>
+        <h4 style="margin-top:0;">⌨️ On-Screen Keyboard (OFF / ON)</h4>
+        <p class="setting-desc">
+          <strong>Want a distraction-free screen?</strong> If you are a pro user or already know finger positions, turn <strong>OFF</strong> the virtual keyboard. Keep it <strong>ON</strong> if you need visual assistance for symbol keys like <code class="code-tag">{} [] ; &lt;&gt;</code>.
+        </p>
+        <div class="setting-route">
+          <code>Go Home ➔ Settings Tab ➔ Toggle Keyboard OFF/ON</code>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📌 Section 3: Practice Modes & Strategy -->
+  <div class="pro-section-card">
+    <h3 class="title-red">💡 Practice Modes &amp; Learning Workflow</h3>
+    <ul class="pro-feature-list">
+      <li><strong class="text-cyan">Accuracy Mode (Recommended for Beginners):</strong> Set Timer to <strong>OFF</strong>. Focus strictly on hitting every bracket, semicolon, and quote correctly without relying on Backspace.</li>
+      <li><strong class="text-yellow">Speed Benchmark Mode:</strong> Set Timer to <strong>ON</strong>. Choose a medium-length loop or function snippet and push your fingers to complete it under time constraints.</li>
+      <li><strong class="text-cyan">Symbol Muscle Memory Mode:</strong> Turn On-Screen Keyboard <strong>ON</strong>. Select code snippets rich in special operators (<code class="code-tag">=&gt;</code>, <code class="code-tag">&amp;&amp;</code>, <code class="code-tag">||</code>, <code class="code-tag">===</code>) to train finger positioning.</li>
+    </ul>
+  </div>
+
+  <!-- 🎯 Interactive Widget: Recommended Project & Setting Preset Recommender -->
+  <div class="interactive-widget">
+    <h3 class="text-cyan" style="text-align:center; margin-top:0; margin-bottom:10px;">🎮 Find Your Ideal Practice Setup</h3>
+    <p style="text-align:center; font-size:14px; color:#dfe4ea; margin-bottom:20px;">
+      Select your experience level below to get instant recommendations for project types and settings:
+    </p>
+
+    <div class="btn-group">
+      <button onclick="getPresetRecommendation('beginner')" class="interactive-btn btn-orange">🌱 Beginner Coder</button>
+      <button onclick="getPresetRecommendation('intermediate')" class="interactive-btn btn-blue">💻 Intermediate Dev</button>
+      <button onclick="getPresetRecommendation('pro')" class="interactive-btn btn-red">🔥 Pro Speed Typist</button>
+    </div>
+
+    <div id="presetFeedbackBox" class="feedback-display">
+      👆 Click a button above to see your recommended practice setup!
+    </div>
+  </div>
+
+</div>
+
+<!-- 🎨 Local Encapsulated Styles -->
+<style>
+  #projects-pro-wrapper {
+    max-width: 950px;
+    margin: 40px auto;
+    padding: 35px;
+    background: rgba(15, 15, 25, 0.88);
+    border: 2px solid rgba(0, 240, 255, 0.3);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 40px rgba(0, 240, 255, 0.2), inset 0 0 20px rgba(255, 71, 87, 0.15);
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  #projects-pro-wrapper * {
+    box-sizing: border-box;
+  }
+
+  /* Text & Colors */
+  .text-muted { color: #dfe4ea; line-height: 1.6; font-size: 15px; }
+  .text-cyan { color: #00f0ff !important; text-shadow: 0 0 8px rgba(0,240,255,0.4); }
+  .text-orange { color: #ff9900 !important; text-shadow: 0 0 8px rgba(255,153,0,0.4); }
+  .text-blue { color: #3399ff !important; text-shadow: 0 0 8px rgba(51,153,255,0.4); }
+  .text-red { color: #ff3366 !important; text-shadow: 0 0 8px rgba(255,51,102,0.4); }
+  .text-yellow { color: #fbc531 !important; text-shadow: 0 0 8px rgba(251,197,49,0.4); }
+
+  .code-tag {
+    background: rgba(0, 240, 255, 0.15);
+    color: #00f0ff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    border: 1px solid rgba(0, 240, 255, 0.3);
+  }
+
+  /* Titles */
+  .pro-main-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 30px;
+    background: linear-gradient(90deg, #00f0ff, #ff9900, #ff3366, #fbc531);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .title-blue { color: #00f0ff; border-left: 4px solid #00f0ff; padding-left: 12px; margin-top:0; margin-bottom: 15px; font-size: 20px; }
+  .title-orange { color: #ff9900; border-left: 4px solid #ff9900; padding-left: 12px; margin-top:0; margin-bottom: 15px; font-size: 20px; }
+  .title-red { color: #ff3366; border-left: 4px solid #ff3366; padding-left: 12px; margin-top:0; margin-bottom: 15px; font-size: 20px; }
+
+  /* Cards */
+  .pro-section-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 22px;
+    margin-bottom: 25px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+
+  .pro-section-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 240, 255, 0.4);
+  }
+
+  /* Project Categories Grid */
+  .project-cat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .cat-card {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .cat-icon { font-size: 24px; display: block; margin-bottom: 8px; }
+  .cat-card h4 { margin: 0 0 6px 0; font-size: 15px; color: #ffffff; }
+  .cat-card p { margin: 0; font-size: 13px; color: #a4b0be; line-height: 1.5; }
+
+  /* Settings Grid */
+  .settings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .setting-card {
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .setting-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .setting-badge {
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .setting-card h4 { margin: 0; font-size: 17px; color: #ffffff; }
+  .setting-desc { font-size: 14px; color: #dfe4ea; line-height: 1.6; margin: 10px 0 15px 0; }
+
+  .setting-route {
+    background: rgba(0, 240, 255, 0.08);
+    border: 1px dashed rgba(0, 240, 255, 0.3);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #00f0ff;
+    text-align: center;
+  }
+
+  /* Feature List */
+  .pro-feature-list {
+    margin: 15px 0 0 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .pro-feature-list li {
+    margin-bottom: 12px;
+    line-height: 1.7;
+    font-size: 15px;
+    color: #dfe4ea;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .pro-feature-list li::before {
+    content: "➢";
+    position: absolute;
+    left: 0;
+    color: #00f0ff;
+  }
+
+  /* Interactive Widget */
+  .interactive-widget {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px dashed rgba(251, 197, 49, 0.5);
+    padding: 22px;
+    border-radius: 16px;
+    margin-top: 30px;
+  }
+
+  .btn-group {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+  }
+
+  .interactive-btn {
+    padding: 10px 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    font-size: 14px;
+  }
+
+  .btn-orange { background: linear-gradient(45deg, #ff5500, #ff9900); box-shadow: 0 0 10px rgba(255,153,0,0.3); }
+  .btn-blue { background: linear-gradient(45deg, #0055ff, #00f0ff); box-shadow: 0 0 10px rgba(0,240,255,0.3); }
+  .btn-red { background: linear-gradient(45deg, #cc0033, #ff3366); box-shadow: 0 0 10px rgba(255,51,102,0.3); }
+
+  .interactive-btn:hover { transform: translateY(-2px) scale(1.04); filter: brightness(1.2); }
+
+  .feedback-display {
+    text-align: center;
+    font-weight: 600;
+    font-size: 15px;
+    color: #fbc531;
+    min-height: 40px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  /* Orbs */
+  .glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.3;
+  }
+  .orb-1 { width: 220px; height: 220px; background: #00f0ff; top: -40px; left: -40px; }
+  .orb-2 { width: 220px; height: 220px; background: #ff3366; bottom: -40px; right: -40px; }
+
+  /* Mobile Responsive Fixes */
+  @media (max-width: 768px) {
+    #projects-pro-wrapper { padding: 20px 15px; border-radius: 16px; }
+    .pro-main-title { font-size: 22px; }
+    .pro-section-card { padding: 16px; }
+    .btn-group { flex-direction: column; }
+    .interactive-btn { width: 100%; }
+  }
+</style>
+
+<!-- ⚡ JavaScript for Interactive Recommender -->
+<script>
+  function getPresetRecommendation(level) {
+    const box = document.getElementById("presetFeedbackBox");
+    let msg = "";
+    let color = "";
+
+    if (level === 'beginner') {
+      msg = "🌱 Recommended: Pick 'Basic Syntax' or 'Print Statements'. Set Timer = OFF and Keyboard = ON to learn key layouts comfortably.";
+      color = "#ff9900";
+    } else if (level === 'intermediate') {
+      msg = "💻 Recommended: Pick 'Loops & If-Else' or 'Functions'. Set Timer = ON and Keyboard = OFF for realistic coding practice.";
+      color = "#00f0ff";
+    } else {
+      msg = "🔥 Recommended: Pick 'Algorithms & OOP'. Set Timer = ON and Keyboard = OFF to test maximum speed and flow state!";
+      color = "#ff3366";
+    }
+
+    box.style.color = color;
+    box.style.borderColor = color;
+    box.innerText = msg;
+  }
+</script>
+<!-- 🔥 PAGE 2: PROJECT SELECTION & PRACTICE GUIDE MODULE END -->
+
+
+
+
+
+
+
+
+
+  
 </div>
 
 <!-- PAGE 3 -->
