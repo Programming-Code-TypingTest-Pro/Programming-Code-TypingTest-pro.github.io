@@ -517,6 +517,99 @@
       </p>
     </div>
 
+    <!-- ARTICLE 8 -->
+    <div class="article-card">
+      <div class="article-meta">
+        <span class="tag" style="background: linear-gradient(90deg, #00599C, #004482); color: #ffffff; font-weight: 800;">C++ ADVANCED</span>
+        <span>📅 October 2026</span>
+        <span>⏱️ 6 Min Read</span>
+      </div>
+      <h2 class="article-title">🚀 Advanced C++ Architecture: Object-Oriented Design, Smart Pointers & Memory Management</h2>
+      
+      <p>
+        Created by <span style="color: #ffb703; font-weight: 600;">Bjarne Stroustrup</span> as an extension of C, <span style="color: #00f2fe; font-weight: 600;">C++</span> takes system-level programming to the next level. While retaining C's raw speed and hardware access, C++ introduces powerful high-level paradigms like <span style="color: #ff007f; font-weight: 700;">Object-Oriented Programming (OOP)</span>, <span style="color: #00ff87; font-weight: 600;">Templates</span>, and modern <span style="color: #ff79c6; font-weight: 600;">Smart Pointers</span>.
+      </p>
+
+      <p>
+        In enterprise applications—such as AAA game engines (Unreal Engine), high-frequency financial trading systems, and web browsers—modern C++ prevents dangerous memory leaks using <span style="color: #bd93f9; font-weight: 600;">RAII (Resource Acquisition Is Initialization)</span> instead of manual raw pointers.
+      </p>
+
+      <!-- COLORFUL CHATGPT-STYLE CODE BLOCK -->
+      <p>
+        📌 <strong>Modern C++ OOP & Smart Pointer Implementation Example:</strong>
+      </p>
+
+      <pre style="background: #111322; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px; padding: 20px; overflow-x: auto; font-family: 'Fira Code', 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6; box-shadow: 0 10px 30px rgba(0,0,0,0.5); margin: 15px 0;">
+<span style="color: #ff79c6; font-weight: bold;">#include</span> <span style="color: #f1fa8c;">&lt;iostream&gt;</span>
+<span style="color: #ff79c6; font-weight: bold;">#include</span> <span style="color: #f1fa8c;">&lt;memory&gt;</span>
+<span style="color: #ff79c6; font-weight: bold;">#include</span> <span style="color: #f1fa8c;">&lt;string&gt;</span>
+
+<span style="color: #6272a4;">// Encapsulated Class representing a High-Performance Engine Module</span>
+<span style="color: #ff79c6; font-weight: bold;">class</span> <span style="color: #f1fa8c; font-weight: bold;">EngineCore</span> {
+<span style="color: #ff79c6; font-weight: bold;">private:</span>
+    <span style="color: #8be9fd;">std::string</span> <span style="color: #ffb86c;">moduleName</span>;
+    <span style="color: #8be9fd; font-weight: bold;">int</span> <span style="color: #ffb86c;">coreVersion</span>;
+
+<span style="color: #ff79c6; font-weight: bold;">public:</span>
+    <span style="color: #6272a4;">// Constructor initializing properties</span>
+    <span style="color: #50fa7b; font-weight: bold;">EngineCore</span>(<span style="color: #8be9fd;">std::string</span> <span style="color: #ffb86c;">name</span>, <span style="color: #8be9fd; font-weight: bold;">int</span> <span style="color: #ffb86c;">version</span>) 
+        : <span style="color: #ffb86c;">moduleName</span>(<span style="color: #ffb86c;">name</span>), <span style="color: #ffb86c;">coreVersion</span>(<span style="color: #ffb86c;">version</span>) {}
+
+    <span style="color: #6272a4;">// Member function displaying state</span>
+    <span style="color: #ff79c6; font-weight: bold;">void</span> <span style="color: #50fa7b;">executeTask</span>() {
+        <span style="color: #8be9fd;">std::cout</span> &lt;&lt; <span style="color: #f1fa8c;">"🚀 Active Module: "</span> &lt;&lt; <span style="color: #ffb86c;">moduleName</span> 
+                  &lt;&lt; <span style="color: #f1fa8c;">" | Build: v"</span> &lt;&lt; <span style="color: #ffb86c;">coreVersion</span> &lt;&lt; <span style="color: #8be9fd;">std::endl</span>;
+    }
+};
+
+<span style="color: #8be9fd; font-weight: bold;">int</span> <span style="color: #50fa7b; font-weight: bold;">main</span>() {
+    <span style="color: #6272a4;">// Modern C++ Smart Pointer: Automatically frees memory when going out of scope!</span>
+    <span style="color: #8be9fd;">std::unique_ptr</span>&lt;<span style="color: #f1fa8c;">EngineCore</span>&gt; <span style="color: #ffb86c;">engineApp</span> = 
+        <span style="color: #8be9fd;">std::make_unique</span>&lt;<span style="color: #f1fa8c;">EngineCore</span>&gt;(<span style="color: #f1fa8c;">"QuantumEngine"</span>, <span style="color: #bd93f9;">2026</span>);
+
+    <span style="color: #6272a4;">// Accessing member function via pointer arrow operator</span>
+    <span style="color: #ffb86c;">engineApp</span>-&gt;<span style="color: #50fa7b;">executeTask</span>();
+
+    <span style="color: #ff79c6; font-weight: bold;">return</span> <span style="color: #bd93f9;">0</span>; <span style="color: #6272a4;">// Automatic Destructor Cleanup happens here</span>
+}</pre>
+
+      <p>
+        🔍 <strong>Line-by-Line Breakdown: C++ vs C Breakthroughs:</strong>
+      </p>
+
+      <p>
+        🔹 <code style="color: #ff79c6; background: rgba(255, 121, 198, 0.12); padding: 3px 8px; border-radius: 6px; font-weight: bold;">class EngineCore</code>: Unlike C structs, C++ classes bundle both data variables and behavior functions together with access control (<span style="color: #ff79c6;">private</span>, <span style="color: #ff79c6;">public</span>, <span style="color: #ff79c6;">protected</span>).
+      </p>
+
+      <p>
+        🔹 <code style="color: #8be9fd; background: rgba(139, 233, 253, 0.12); padding: 3px 8px; border-radius: 6px; font-weight: bold;">std::unique_ptr</code>: A smart pointer that retains exclusive ownership of a dynamic heap object and automatically deallocates memory as soon as execution leaves the current scope.
+      </p>
+
+      <p>
+        🔹 <code style="color: #50fa7b; background: rgba(80, 250, 123, 0.12); padding: 3px 8px; border-radius: 6px; font-weight: bold;">std::make_unique()</code>: The modern C++ safer alternative to raw <span style="color: #ff79c6;">new</span> / <span style="color: #ff79c6;">malloc()</span> allocations, guaranteeing exception-safe memory allocation.
+      </p>
+
+      <p>
+        🔹 <code style="color: #ffb86c; background: rgba(255, 184, 108, 0.12); padding: 3px 8px; border-radius: 6px; font-weight: bold;">std::cout &amp; std::endl</code>: Type-safe standard stream output system replacing C’s traditional <span style="color: #50fa7b;">printf()</span> function.
+      </p>
+
+      <p>
+        ⚙️ <strong>Core Advantages of Modern C++ in High-Performance Software:</strong>
+      </p>
+
+      <p>
+        1️⃣ <strong style="color: #00ff87;">Zero-Cost Abstractions:</strong> You can write high-level object-oriented or generic template code without incurring runtime execution penalties.
+      </p>
+
+      <p>
+        2️⃣ <strong style="color: #00f2fe;">STL (Standard Template Library):</strong> Built-in dynamic data structures like <span style="color: #8be9fd; font-weight: 600;">std::vector</span>, <span style="color: #8be9fd; font-weight: 600;">std::unordered_map</span>, and algorithms make writing complex logic fast and standardized.
+      </p>
+
+      <p>
+        Mastering C++ gives developers the dual power of low-level memory efficiency combined with modern, scalable software design architecture.
+      </p>
+    </div>
+
 
 
 
