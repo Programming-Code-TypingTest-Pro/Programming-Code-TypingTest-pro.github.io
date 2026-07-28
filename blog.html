@@ -341,6 +341,96 @@
       </p>
     </div>
 
+    <!-- ARTICLE 6 -->
+    <div class="article-card">
+      <div class="article-meta">
+        <span class="tag" style="background: linear-gradient(90deg, #f89820, #5382a1); color: #ffffff; font-weight: 800;">JAVA</span>
+        <span>📅 August 2026</span>
+        <span>⏱️ 6 Min Read</span>
+      </div>
+      <h2 class="article-title">☕ Java Core Architecture: Deconstructing the Main Method & Enterprise Application Design</h2>
+      
+      <p>
+        <span style="color: #00f2fe; font-weight: 600;">Java</span> remains one of the most robust, high-performance, and secure object-oriented programming languages in the world. Built on the iconic principle of <span style="color: #ff007f; font-weight: 700;">"Write Once, Run Anywhere" (WORA)</span>, Java code is compiled into platform-independent bytecode that runs smoothly across any system powered by the <span style="color: #00ff87; font-weight: 600;">Java Virtual Machine (JVM)</span>.
+      </p>
+
+      <p>
+        From massive enterprise banking systems and Android mobile applications to cloud microservices, understanding Java’s execution flow begins with its primary entry point: the <code style="color: #ff79c6; background: rgba(255, 121, 198, 0.12); padding: 3px 8px; border-radius: 6px; font-weight: bold;">main()</code> function.
+      </p>
+
+      <!-- COLORFUL CHATGPT-STYLE CODE BLOCK -->
+      <p>
+        <strong>📌 Practical Java Execution Code Example:</strong>
+      </p>
+      
+      <pre style="background: #111322; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px; padding: 20px; overflow-x: auto; font-family: 'Fira Code', 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6; box-shadow: 0 10px 30px rgba(0,0,0,0.5); margin: 15px 0;">
+<span style="color: #6272a4;">// Standard Java Application Entry Point & Stream Example</span>
+<span style="color: #ff79c6; font-weight: bold;">public class</span> <span style="color: #f1fa8c; font-weight: bold;">DeveloperSuite</span> {
+
+    <span style="color: #6272a4;">// Execution starting point triggered by JVM</span>
+    <span style="color: #ff79c6; font-weight: bold;">public static void</span> <span style="color: #50fa7b; font-weight: bold;">main</span>(<span style="color: #8be9fd;">String</span>[] <span style="color: #ffb86c;">args</span>) {
+        
+        <span style="color: #8be9fd;">String</span> <span style="color: #ffb86c;">developerName</span> = <span style="color: #f1fa8c;">"Alex"</span>;
+        <span style="color: #8be9fd; font-weight: bold;">int</span> <span style="color: #ffb86c;">experienceYears</span> = <span style="color: #bd93f9;">5</span>;
+
+        <span style="color: #6272a4;">// Printing dynamic formatted output to stdout</span>
+        <span style="color: #8be9fd;">System</span>.<span style="color: #8be9fd;">out</span>.<span style="color: #50fa7b;">println</span>(<span style="color: #f1fa8c;">"Welcome "</span> + <span style="color: #ffb86c;">developerName</span> + <span style="color: #f1fa8c;">"! Years active: "</span> + <span style="color: #ffb86c;">experienceYears</span>);
+        
+        <span style="color: #6272a4;">// Invoking custom processing function</span>
+        <span style="color: #50fa7b;">calculatePerformanceScore</span>(<span style="color: #ffb86c;">experienceYears</span>);
+    }
+
+    <span style="color: #ff79c6; font-weight: bold;">public static void</span> <span style="color: #50fa7b;">calculatePerformanceScore</span>(<span style="color: #8be9fd; font-weight: bold;">int</span> <span style="color: #ffb86c;">years</span>) {
+        <span style="color: #8be9fd; font-weight: bold;">int</span> <span style="color: #ffb86c;">score</span> = <span style="color: #ffb86c;">years</span> * <span style="color: #bd93f9;">20</span>;
+        <span style="color: #8be9fd;">System</span>.<span style="color: #8be9fd;">out</span>.<span style="color: #50fa7b;">println</span>(<span style="color: #f1fa8c;">"Calculated Skill Index: "</span> + <span style="color: #ffb86c;">score</span> + <span style="color: #f1fa8c;">"/100"</span>);
+    }
+}</pre>
+
+      <p>
+        🔍 <strong>Deep Dive Line-by-Line Keyword Breakdown:</strong>
+      </p>
+
+      <p>
+        🔹 <code style="color: #ff79c6; background: rgba(255, 121, 198, 0.12); padding: 3px 8px; border-radius: 6px; font-weight: bold;">public</code>: An access modifier that makes the method accessible from anywhere outside the package, allowing the <span style="color: #00f2fe; font-weight: 600;">JVM</span> to execute it globally.
+      </p>
+
+      <p>
+        🔹 <code style="color: #ff79c6; background: rgba(255, 121, 198, 0.12); padding: 3px 8px; border-radius: 6px; font-weight: bold;">static</code>: Allows the JVM to invoke the <span style="color: #50fa7b; font-weight: bold;">main()</span> function without creating an instance of the class beforehand, saving initial memory allocations.
+      </p>
+
+      <p>
+        🔹 <code style="color: #8be9fd; background: rgba(139, 233, 253, 0.12); padding: 3px 8px; border-radius: 6px; font-weight: bold;">void</code>: Specifies the return type. It indicates that the method executes its logic and finishes without returning any value back to the caller.
+      </p>
+
+      <p>
+        🔹 <code style="color: #50fa7b; background: rgba(80, 250, 123, 0.12); padding: 3px 8px; border-radius: 6px; font-weight: bold;">main()</code>: The predefined signature name that Java’s execution launcher explicitly searches for inside the compiled <span style="color: #ffb703; font-weight: 600;">.class</span> bytecode file.
+      </p>
+
+      <p>
+        🔹 <code style="color: #ffb86c; background: rgba(255, 184, 108, 0.12); padding: 3px 8px; border-radius: 6px; font-weight: bold;">String[] args</code>: Accepts command-line argument parameters passed as an array of textual strings during startup execution.
+      </p>
+
+      <p>
+        🔹 <code style="color: #8be9fd; background: rgba(139, 233, 253, 0.12); padding: 3px 8px; border-radius: 6px; font-weight: bold;">System.out.println()</code>: Standard Java output utility. <span style="color: #bd93f9; font-weight: 600;">System</span> is a built-in core class, <span style="color: #8be9fd; font-weight: 600;">out</span> is the standard output stream, and <span style="color: #50fa7b; font-weight: 600;">println()</span> appends the text string followed by a new line.
+      </p>
+
+      <p>
+        ⚙️ <strong>Key Architectural Advantages of Java in 2026:</strong>
+      </p>
+
+      <p>
+        1️⃣ <strong style="color: #00ff87;">Automatic Garbage Collection:</strong> Java automatically manages memory allocation and reclaims unused heap space, significantly eliminating memory leaks and segmentation faults.
+      </p>
+
+      <p>
+        2️⃣ <strong style="color: #00f2fe;">Strong Type Safety & Exception Handling:</strong> Strict compile-time checks combined with robust <span style="color: #ff79c6; font-weight: 600;">try-catch</span> blocks ensure high software stability in critical production systems.
+      </p>
+
+      <p>
+        Mastering these fundamental concepts empowers developers to build secure, modular, and maintainable software tailored for modern high-traffic enterprise environments.
+      </p>
+    </div>
+
 
 
 
