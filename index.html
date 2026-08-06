@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js')
+    .then(function(reg) {
+      console.log("Service Worker Registered");
+    })
+    .catch(function(err) {
+      console.log("Service Worker Failed", err);
+    });
+}
+</script>
+
+
+
+  
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4812365413453737"
      crossorigin="anonymous"></script>
 <!-- Google tag (gtag.js) -->
