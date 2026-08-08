@@ -32,8 +32,159 @@ The river continued to flow, just as it always had, inspiring new generations to
 Among the students was a boy named Aman, who struggled with studies. He often felt discouraged when he couldn’t understand lessons as quickly as others. However, Mr. Sharma noticed his efforts and decided to help him.
 Instead of giving him easy answers, the teacher encouraged Aman to think deeply and solve problems step by step. At first, it was difficult, but gradually, Aman started improving. He realized that learning was not about being fast, but about being consistent.
 The classroom became a place where mistakes were not punished, but understood. Students learned to support each other and grow together. Over time, Aman transformed into a confident learner who no longer feared challenges.
-Years later, when Aman looked back at his school days, he realized that the quiet classroom had given him something more valuable than knowledge — it had given him the ability to believe in himself. ` }
-];
+Years later, when Aman looked back at his school days, he realized that the quiet classroom had given him something more valuable than knowledge — it had given him the ability to believe in himself. ` },
+
+ { section: "laters" },
+      { name: "1. Class Teacher", code: `Date: 08 August 2026
+
+To,
+The Class Teacher,
+Mount Carmel High School,
+Akola
+
+Subject: Application for two days of sick leave.
+
+Respected Sir/Madam,
+
+With due respect, I would like to inform you that I have been suffering 
+from a high fever since last night. My doctor has advised me to take 
+complete rest for at least two days. 
+
+Therefore, I will not be able to attend my classes on 09 August 2026 and 
+10 August 2026. I kindly request you to grant me leave for these two days. 
+I will make sure to catch up on all the missed work.
+
+Thanking you.
+
+                                                        Yours obediently,
+                                                        Rahul Sharma
+                                                        Class 10-B, Roll 24`},
+      { name: "2. Bank Manager", code: `12, MG Road, Ram Nagar
+                                                        Akola, 444001
+                                                        Date: 08 August 2026
+
+To,
+The Branch Manager,
+State Bank of India,
+Civil Lines Branch
+
+Subject: Request to update contact details in my savings account.
+
+Dear Sir/Madam,
+
+I hold a savings account in your branch with the account number 
+31245678901. I am writing to request an update to the contact 
+information linked to my account. 
+
+Please update my current mobile number and email address as provided 
+below for all future banking communications and SMS alerts:
+
+* New Mobile Number: 9876543210
+* New Email Address: rahul.sharma@email.com
+
+Kindly process this request at your earliest convenience.
+
+Thanking you.
+
+                                                        Yours faithfully,
+                                                        Rahul Sharma
+                                                        (Signature)`},
+      { name: "3.Brother", code: `45, Shivaji Nagar
+                                                        Pune, 411005
+                                                        Date: 08 August 2026
+
+Dear Amit,
+
+Hope you are doing well! I received your message yesterday and it was 
+great to hear from you. 
+
+Everything is going good on my end. I have been quite busy lately 
+practicing .NET programming and exploring some AI coding tools like 
+GitHub Copilot to speed up my work. It’s been challenging but interesting. 
+
+How are your studies going? Make sure you are taking care of your health 
+and not stressing too much. Let’s plan a video call this weekend so we 
+can catch up properly.
+
+Miss you and hope to see you soon!
+
+                                                        With love,
+                                                        Rahul`},
+      { name: "4.Manager/Boss", code: `Date: 08 August 2026
+
+To,
+Vikram Singh,
+TechSolutions Private Limited
+
+Subject: Request for software license for development work.
+
+Dear Vikram,
+
+I hope this letter finds you well. 
+
+As we are working on optimizing our development process, I would like to 
+request an official license for GitHub Copilot for my workstation. Having 
+access to AI-assisted tools will significantly reduce the time spent on 
+writing routine code and fixing errors. 
+
+This will ultimately help in delivering our project modules much faster 
+and with better efficiency. Please let me know if we need to raise a 
+formal IT ticket for the same.
+
+                                                        Best regards,
+                                                        Rahul Sharma
+                                                        Junior Developer`},
+      { name: "5. Municipal Corporation", code: `78, Vasant Vihar
+                                                        Akola, 444002
+                                                        Date: 08 August 2026
+
+To,
+The Municipal Commissioner,
+Municipal Corporation of Akola,
+Akola
+
+Subject: Complaint regarding poor road conditions in Vasant Vihar.
+
+Respected Sir/Madam,
+
+I am a resident of Vasant Vihar, and I am writing to draw your 
+attention to the miserable condition of the main road in our locality. 
+
+There are numerous potholes on the road, which get filled with water 
+during rains, making it extremely dangerous for commuters. We have 
+witnessed several minor accidents in the past few weeks due to this.
+
+I request you to kindly look into this matter urgently and arrange for 
+the repair of the road to prevent any severe mishaps. 
+
+Thanking you.
+
+                                                        Yours sincerely,
+                                                        Rahul Sharma
+                                                        9876543210`},
+      { name: "6.Friend", code: `78, Vasant Vihar
+                                                        Akola, 444002
+                                                        Date: 08 August 2026
+
+Dear Rohan,
+
+It has been way too long since we last met! I hope you are doing great.
+
+I am planning a small get-together at my place this coming Sunday, at 
+around 6:00 PM. A few of our other friends will be coming over too. We 
+will order some great food, play games, and just relax. 
+
+Please make sure to keep your Sunday evening free. Let me know by Friday 
+if you can make it, so I can finalize the arrangements. 
+
+Really looking forward to seeing you!
+
+                                                        Cheers,
+                                                        Rahul`}
+   
+    
+    
+    ];
 }
 
   // 👉 PYTHON
