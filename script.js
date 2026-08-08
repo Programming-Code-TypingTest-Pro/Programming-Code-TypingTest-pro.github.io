@@ -3898,7 +3898,511 @@ class Program
       { name: "R Project 7", code:`library(dplyr)\nemployees<-data.frame(id=101:110,name=c("Aman","Ravi","Neha","Priya","Arjun","Karan","Sneha","Rohan","Meera","Ankit"),department=c("Backend","Frontend","Testing","DevOps","Support","HR","Finance","Marketing","Security","Admin"),salary=c(72000,68000,59000,81000,47000,52000,61000,56000,90000,64000),experience=c(5,4,3,7,2,6,5,4,8,5),active=c(TRUE,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE))\nprojects<-data.frame(id=1:10,title=c("Portal","CRM","ERP","Cloud","Billing","Store","Finance","Analytics","Support","Security"),manager=c("Aman","Ravi","Priya","Neha","Karan","Sneha","Ankit","Meera","Arjun","Rohan"),budget=c(450000,520000,630000,710000,360000,580000,620000,770000,330000,880000),completed=c(FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE))\nclients<-data.frame(id=201:208,name=c("Alpha","Nova","Vertex","Global","SmartTech","FutureX","Prime","Vision"),country=c("India","USA","UK","Canada","Germany","Japan","Australia","Singapore"),value=c(850000,960000,740000,680000,810000,990000,720000,930000),active=c(TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,TRUE))\nservers<-data.frame(name=c("API","Database","Storage","Auth","Mail","Backup","Analytics","Gateway"),cpu=c(42,76,58,37,41,29,67,53),ram=c(64,82,71,48,45,36,77,69),disk=c(72,88,91,61,54,93,80,70),status=c("Online","Online","Running","Online","Running","Active","Online","Running"))\ntasks<-data.frame(id=1001:1015,owner=c("Aman","Ravi","Neha","Priya","Arjun","Karan","Sneha","Rohan","Meera","Ankit","Aman","Neha","Priya","Karan","Meera"),priority=c("High","Medium","Low","High","Medium","Low","High","Medium","High","Low","Medium","High","Medium","Low","High"),hours=c(8,6,5,9,4,7,8,6,10,5,7,9,6,4,8),completed=c(TRUE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE))\nactiveEmployees<-employees%>%filter(active==TRUE)\ncompletedProjects<-projects%>%filter(completed==TRUE)\nactiveClients<-clients%>%filter(active==TRUE)\ncompletedTasks<-tasks%>%filter(completed==TRUE)\ntotalSalary<-sum(employees$salary)\navgSalary<-mean(employees$salary)\nhighSalary<-employees%>%filter(salary>65000)\ntotalBudget<-sum(projects$budget)\navgBudget<-mean(projects$budget)\nclientValue<-sum(clients$value)\navgClientValue<-mean(clients$value)\nserverCpu<-mean(servers$cpu)\nserverRam<-mean(servers$ram)\nserverDisk<-mean(servers$disk)\ntaskHours<-sum(tasks$hours)\navgTaskHours<-mean(tasks$hours)\ntopEmployee<-employees[which.max(employees$salary),]\ntopProject<-projects[which.max(projects$budget),]\ntopClient<-clients[which.max(clients$value),]\nmodules<-c("Dashboard","Projects","Employees","Clients","Finance","Analytics","Cloud","Security","Billing","Support","Reports","Settings","Monitoring","Automation","Backup","Scheduler","Notifications","Logs","Gateway","API","Storage","Database","CRM","ERP","Inventory")\nconfig<-list(Server="Online",Database="Connected",Firewall="Enabled",Security="Protected",Cache="Running",Backup="Completed",Cloud="Connected",Analytics="Running",Scheduler="Active",Version="6.0.0",Environment="Production",Region="Asia")\ncat("================ ENTERPRISE MANAGEMENT PLATFORM ================\\n")\ncat("Employees:",nrow(employees)," Active:",nrow(activeEmployees),"\\n")\ncat("Projects:",nrow(projects)," Completed:",nrow(completedProjects),"\\n")\ncat("Clients:",nrow(clients)," Active:",nrow(activeClients),"\\n")\ncat("Tasks:",nrow(tasks)," Completed:",nrow(completedTasks),"\\n")\ncat("Total Salary:",totalSalary," Average:",avgSalary,"\\n")\ncat("Total Budget:",totalBudget," Average:",avgBudget,"\\n")\ncat("Client Value:",clientValue," Average:",avgClientValue,"\\n")\ncat("Task Hours:",taskHours," Average:",avgTaskHours,"\\n")\ncat("Server CPU:",serverCpu," RAM:",serverRam," Disk:",serverDisk,"\\n")\ncat("Highest Paid:",topEmployee$name,topEmployee$salary,"\\n")\ncat("Largest Project:",topProject$title,topProject$budget,"\\n")\ncat("Top Client:",topClient$name,topClient$value,"\\n")\nprint(highSalary)\nprint(employees)\nprint(projects)\nprint(clients)\nprint(tasks)\nprint(servers)\nprint(config)\nprint(modules)\ncat("Authentication : OK\\n")\ncat("Database : Connected\\n")\ncat("API Gateway : Running\\n")\ncat("Cloud Sync : Active\\n")\ncat("Email Service : Online\\n")\ncat("Payment Service : Ready\\n")\ncat("Scheduler : Running\\n")\ncat("Monitoring : Enabled\\n")\ncat("Logs : Updated\\n")\ncat("Backup : Successful\\n")\ncat("Security Scan : Passed\\n")\ncat("Analytics : Live\\n")\ncat("Enterprise Platform Started Successfully\\n")`  },
       { name: "R Project 8", code:`library(dplyr)\nlibrary(stringr)\nemployees<-data.frame(id=1001:1015,name=c("Aman","Ravi","Neha","Priya","Arjun","Karan","Sneha","Rohan","Meera","Ankit","Vikas","Pooja","Nitin","Komal","Rahul"),department=c("Backend","Frontend","Testing","DevOps","HR","Finance","Support","Security","Cloud","Admin","Analytics","Sales","Marketing","Database","AI"),salary=c(72000,68000,59000,85000,54000,61000,47000,91000,83000,62000,77000,56000,64000,81000,95000),experience=c(5,4,3,8,6,5,2,9,7,5,6,4,5,8,10),rating=c(4.5,4.2,4.1,4.8,4.0,4.4,3.9,4.9,4.7,4.3,4.6,4.1,4.2,4.8,5.0),active=c(TRUE,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE))\nprojects<-data.frame(id=1:12,name=c("Portal","CRM","ERP","Finance","Store","Cloud","Security","Analytics","Support","Mobile","Billing","AI"),budget=c(450000,520000,610000,700000,390000,830000,560000,920000,340000,470000,640000,990000),completed=c(TRUE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE))\nclients<-data.frame(id=201:210,name=c("Alpha","Nova","Vertex","Prime","Future","Digital","Vision","NextGen","Core","Matrix"),country=c("India","USA","UK","Canada","Germany","Japan","France","Singapore","UAE","Australia"),revenue=c(850000,920000,730000,690000,810000,980000,720000,940000,660000,870000),active=c(TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,TRUE))\nservers<-data.frame(server=c("API","Database","Storage","Gateway","Mail","Analytics","Cache","Backup","Proxy","Security"),cpu=c(42,76,61,55,34,67,39,28,46,58),ram=c(64,88,72,61,48,79,55,41,60,70),disk=c(73,92,95,68,54,81,63,97,69,78),status=c("Online","Online","Running","Running","Online","Running","Online","Active","Running","Protected"))\nlogs<-data.frame(id=1:20,level=rep(c("INFO","WARN","ERROR","DEBUG"),5),module=rep(c("API","DB","AUTH","UI","PAY"),4),count=c(15,3,1,8,4,14,2,0,6,5,12,1,2,7,3,11,4,1,5,2))\nactiveEmployees<-employees%>%filter(active)\nhighSalary<-employees%>%filter(salary>70000)\nexperienced<-employees%>%filter(experience>=6)\ncompletedProjects<-projects%>%filter(completed)\nactiveClients<-clients%>%filter(active)\ntotalSalary<-sum(employees$salary)\navgSalary<-mean(employees$salary)\ntotalBudget<-sum(projects$budget)\navgBudget<-mean(projects$budget)\nclientRevenue<-sum(clients$revenue)\navgRevenue<-mean(clients$revenue)\nserverCpu<-mean(servers$cpu)\nserverRam<-mean(servers$ram)\nserverDisk<-mean(servers$disk)\ntopEmployee<-employees[which.max(employees$salary),]\ntopProject<-projects[which.max(projects$budget),]\ntopClient<-clients[which.max(clients$revenue),]\nmodules<-c("Dashboard","Employees","Projects","Clients","Finance","Reports","Analytics","Security","Cloud","Storage","Database","API","Gateway","Scheduler","Notifications","Logs","Backup","Automation","Monitoring","Settings","Billing","Support","AI","CRM","ERP","Inventory","Payments","Email","Search","Admin")\nconfig<-list(Server="Online",Database="Connected",Firewall="Enabled",Security="Protected",Cloud="Running",Backup="Completed",Scheduler="Running",Analytics="Enabled",Cache="Active",Gateway="Healthy",Version="8.4.1",Environment="Production",Region="Asia",Theme="Light",Mode="Enterprise")\ncat("==================== ENTERPRISE RESOURCE PLATFORM ====================\\n")\ncat("Employees:",nrow(employees)," Active:",nrow(activeEmployees)," Experienced:",nrow(experienced),"\\n")\ncat("Projects:",nrow(projects)," Completed:",nrow(completedProjects),"\\n")\ncat("Clients:",nrow(clients)," Active:",nrow(activeClients),"\\n")\ncat("Salary:",totalSalary," Average:",avgSalary,"\\n")\ncat("Budget:",totalBudget," Average:",avgBudget,"\\n")\ncat("Revenue:",clientRevenue," Average:",avgRevenue,"\\n")\ncat("CPU:",serverCpu," RAM:",serverRam," Disk:",serverDisk,"\\n")\ncat("Top Employee:",topEmployee$name,topEmployee$salary,"\\n")\ncat("Top Project:",topProject$name,topProject$budget,"\\n")\ncat("Top Client:",topClient$name,topClient$revenue,"\\n")\nprint(highSalary)\nprint(activeEmployees)\nprint(projects)\nprint(clients)\nprint(servers)\nprint(logs)\nprint(config)\nprint(modules)\ncat("Authentication : Success\\n")\ncat("Database : Connected\\n")\ncat("API : Running\\n")\ncat("Gateway : Healthy\\n")\ncat("Cloud : Connected\\n")\ncat("Scheduler : Active\\n")\ncat("Notifications : Enabled\\n")\ncat("Reports : Generated\\n")\ncat("Monitoring : Running\\n")\ncat("Security Scan : Passed\\n")\ncat("Backup : Completed\\n")\ncat("ERP Platform Started Successfully\\n")`  },
       { name: "R Project 9", code:`library(dplyr)\nemployees<-data.frame(id=1:18,name=c("Aman","Ravi","Neha","Priya","Arjun","Karan","Sneha","Rohan","Meera","Ankit","Vikas","Pooja","Nitin","Komal","Rahul","Dev","Isha","Kabir"),role=c("Admin","Dev","Dev","QA","Manager","Support","Analyst","DevOps","HR","Finance","Dev","QA","Support","Security","AI","Cloud","Design","Backend"),salary=c(72000,68000,59000,85000,54000,61000,47000,91000,83000,62000,77000,56000,64000,81000,95000,88000,66000,74000),exp=c(5,4,3,8,6,5,2,9,7,5,6,4,5,8,10,9,4,7),rating=c(4.5,4.2,4.1,4.8,4.0,4.4,3.9,4.9,4.7,4.3,4.6,4.1,4.2,4.8,5.0,4.9,4.3,4.6),active=c(TRUE,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE))\nprojects<-data.frame(id=1:15,title=c("ERP","CRM","Portal","AI Engine","Cloud","Security","Billing","Analytics","HRMS","Mobile","API","Dashboard","Search","Storage","Automation"),budget=c(450000,520000,610000,900000,830000,560000,640000,920000,380000,470000,750000,680000,590000,720000,860000),progress=c(90,60,80,95,85,70,88,92,55,65,78,82,74,69,89),completed=c(TRUE,FALSE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE))\nclients<-data.frame(id=1:12,name=c("Alpha","Nova","Vertex","Prime","Future","Digital","Vision","NextGen","Core","Matrix","Omega","Zenith"),value=c(850000,920000,730000,690000,810000,980000,720000,940000,660000,870000,990000,880000),active=c(TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE))\nservers<-data.frame(name=c("API","DB","Auth","Storage","Gateway","Cache","Mail","Analytics","Backup","Proxy"),cpu=c(42,76,61,55,34,67,39,58,28,46),ram=c(64,88,72,61,48,79,55,70,41,60),disk=c(73,92,95,68,54,81,63,78,97,69),status=c("Online","Online","Running","Running","Online","Running","Online","Running","Active","Protected"))\ntickets<-data.frame(id=1:25,priority=rep(c("High","Medium","Low","Critical","Normal"),5),module=rep(c("API","DB","UI","Auth","Payment"),5),time=c(8,6,5,9,4,7,8,6,10,5,7,9,6,4,8,5,6,7,8,9,4,3,6,7,5),resolved=c(TRUE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,TRUE))\nactiveEmployees<-employees%>%filter(active)\nhighEarners<-employees%>%filter(salary>70000)\nexperienced<-employees%>%filter(exp>=6)\ncompletedProjects<-projects%>%filter(completed)\nactiveClients<-clients%>%filter(active)\ntotalSalary<-sum(employees$salary)\navgSalary<-mean(employees$salary)\ntotalBudget<-sum(projects$budget)\navgBudget<-mean(projects$budget)\nclientValue<-sum(clients$value)\navgClientValue<-mean(clients$value)\nserverCpu<-mean(servers$cpu)\nserverRam<-mean(servers$ram)\nserverDisk<-mean(servers$disk)\ntotalTickets<-nrow(tickets)\nresolvedTickets<-sum(tickets$resolved)\nunresolvedTickets<-totalTickets-resolvedTickets\ntopEmployee<-employees[which.max(employees$salary),]\ntopProject<-projects[which.max(projects$budget),]\ntopClient<-clients[which.max(clients$value),]\nmodules<-c("Dashboard","Employees","Projects","Clients","Finance","Analytics","Reports","Security","Cloud","Storage","Database","API","Gateway","Scheduler","Notifications","Logs","Monitoring","Automation","AI","Billing","Support","Search","ERP","CRM","HRMS","Mobile","Payments","Backup","Audit","Settings")\nconfig<-list(Server="Online",Database="Connected",Firewall="Enabled",Security="Protected",Cloud="Running",Backup="Completed",Scheduler="Running",Analytics="Enabled",Cache="Active",Gateway="Healthy",Version="9.1.0",Environment="Production",Region="Asia",Theme="Dark",Mode="Enterprise",Uptime="99.99%")\ncat("==================== R ENTERPRISE MANAGEMENT SYSTEM ====================\\n")\ncat("Employees:",nrow(employees)," Active:",nrow(activeEmployees)," Experienced:",nrow(experienced),"\\n")\ncat("Projects:",nrow(projects)," Completed:",nrow(completedProjects),"\\n")\ncat("Clients:",nrow(clients)," Active:",nrow(activeClients),"\\n")\ncat("Tickets:",totalTickets," Resolved:",resolvedTickets," Unresolved:",unresolvedTickets,"\\n")\ncat("Salary:",totalSalary," Avg:",avgSalary,"\\n")\ncat("Budget:",totalBudget," Avg:",avgBudget,"\\n")\ncat("Client Value:",clientValue," Avg:",avgClientValue,"\\n")\ncat("Server CPU:",serverCpu," RAM:",serverRam," Disk:",serverDisk,"\\n")\ncat("Top Employee:",topEmployee$name,topEmployee$salary,"\\n")\ncat("Top Project:",topProject$title,topProject$budget,"\\n")\ncat("Top Client:",topClient$name,topClient$value,"\\n")\nprint(highEarners)\nprint(activeEmployees)\nprint(projects)\nprint(clients)\nprint(servers)\nprint(tickets)\nprint(config)\nprint(modules)\ncat("Authentication : Success\\n")\ncat("Database : Connected\\n")\ncat("API : Running\\n")\ncat("Gateway : Healthy\\n")\ncat("Cloud : Active\\n")\ncat("Scheduler : Running\\n")\ncat("Notifications : Enabled\\n")\ncat("Reports : Generated\\n")\ncat("Monitoring : Live\\n")\ncat("Security Scan : Passed\\n")\ncat("Backup : Completed\\n")\ncat("Enterprise System Started Successfully\\n")` },
-      { name: "R Project 10", code:`library(dplyr)\nset.seed(42)\ndevices<-data.frame(id=1:22,name=c("Gateway","Web","DB","Cache","Storage","Backup","Auth","API","Mail","Proxy","AI","ML","Analytics","Search","Queue","Logger","Billing","CDN","Edge","Firewall","Monitor","Sync"),ip=paste0("10.0.0.",1:22),cpu=sample(20:90,22,replace=TRUE),ram=sample(30:95,22,replace=TRUE),disk=sample(40:98,22,replace=TRUE),online=sample(c(TRUE,FALSE),22,replace=TRUE))\nservices<-data.frame(name=c("Login","Payment","Order","Inventory","Notification","Search","Upload","Download","Stream","Report","Auth","AI Engine","Billing","Support","Sync","Analytics"),requests=sample(5000:20000,16),errors=sample(0:50,16),uptime=runif(16,98,100))\nalerts<-data.frame(id=1:18,level=sample(c("Low","Medium","High","Critical"),18,replace=TRUE),message=sample(c("CPU Spike","Memory Leak","Disk Full","Network Delay","API Failure","Auth Issue","Backup Delay"),18,replace=TRUE),resolved=sample(c(TRUE,FALSE),18,replace=TRUE))\nlogs<-data.frame(id=1:30,level=sample(c("INFO","WARN","ERROR","DEBUG"),30,replace=TRUE),module=sample(c("API","DB","AUTH","UI","PAY","CACHE"),30,replace=TRUE),count=sample(1:20,30,replace=TRUE))\nonlineDevices<-devices%>%filter(online)\nofflineDevices<-devices%>%filter(!online)\ntotalCpu<-sum(devices$cpu)\navgCpu<-mean(devices$cpu)\navgRam<-mean(devices$ram)\navgDisk<-mean(devices$disk)\ntotalRequests<-sum(services$requests)\ntotalErrors<-sum(services$errors)\navgUptime<-mean(services$uptime)\nunresolvedAlerts<-sum(!alerts$resolved)\ntopDevice<-devices[which.max(devices$cpu),]\ntopService<-services[which.max(services$requests),]\nhealthScore<-round((avgUptime - (totalErrors/100))*10,2)\nmodules<-c("Dashboard","Devices","Services","Alerts","Logs","Analytics","Security","Network","Storage","API Gateway","Scheduler","Monitoring","Automation","Cloud Sync","Backup","AI Engine","Load Balancer","Firewall","Database","Reports","Settings","Support","Audit")\nconfig<-list(System="Active",Database="Connected",Firewall="Enabled",Security="Strong",Cloud="Synced",Backup="Completed",Monitoring="Running",AI="Enabled",Cache="Active",Gateway="Healthy",Version="11.0.3",Region="Asia",Mode="Enterprise",Uptime="99.97%")\ncat("==================== R NETWORK INTELLIGENCE SYSTEM ====================\\n")\ncat("Devices:",nrow(devices)," Online:",nrow(onlineDevices)," Offline:",nrow(offlineDevices),"\\n")\ncat("CPU Avg:",avgCpu," RAM Avg:",avgRam," Disk Avg:",avgDisk,"\\n")\ncat("Services Requests:",totalRequests," Errors:",totalErrors," Uptime Avg:",round(avgUptime,2),"\\n")\ncat("Unresolved Alerts:",unresolvedAlerts," Health Score:",healthScore,"\\n")\ncat("Top Device:",topDevice$name,topDevice$cpu,"CPU\\n")\ncat("Top Service:",topService$name,topService$requests,"Requests\\n")\ncat("=====DEVICES=====")\nprint(onlineDevices)\ncat("=====SERVICES=====")\nprint(services)\ncat("=====ALERTS=====")\nprint(alerts)\ncat("=====LOGS=====")\nprint(logs)\ncat("=====SYSTEM CONFIG=====")\nprint(config)\ncat("=====MODULES=====")\nprint(modules)\ncat("System Status : Optimized\\n")\ncat("Security Level : High\\n")\ncat("Network Health : Stable\\n")\ncat("AI Monitoring : Active\\n")\ncat("Backup Status : Safe\\n")\ncat("Enterprise Network System Running Successfully\\n")` }
+      { name: "R Project 10", code:`library(dplyr)\nset.seed(42)\ndevices<-data.frame(id=1:22,name=c("Gateway","Web","DB","Cache","Storage","Backup","Auth","API","Mail","Proxy","AI","ML","Analytics","Search","Queue","Logger","Billing","CDN","Edge","Firewall","Monitor","Sync"),ip=paste0("10.0.0.",1:22),cpu=sample(20:90,22,replace=TRUE),ram=sample(30:95,22,replace=TRUE),disk=sample(40:98,22,replace=TRUE),online=sample(c(TRUE,FALSE),22,replace=TRUE))\nservices<-data.frame(name=c("Login","Payment","Order","Inventory","Notification","Search","Upload","Download","Stream","Report","Auth","AI Engine","Billing","Support","Sync","Analytics"),requests=sample(5000:20000,16),errors=sample(0:50,16),uptime=runif(16,98,100))\nalerts<-data.frame(id=1:18,level=sample(c("Low","Medium","High","Critical"),18,replace=TRUE),message=sample(c("CPU Spike","Memory Leak","Disk Full","Network Delay","API Failure","Auth Issue","Backup Delay"),18,replace=TRUE),resolved=sample(c(TRUE,FALSE),18,replace=TRUE))\nlogs<-data.frame(id=1:30,level=sample(c("INFO","WARN","ERROR","DEBUG"),30,replace=TRUE),module=sample(c("API","DB","AUTH","UI","PAY","CACHE"),30,replace=TRUE),count=sample(1:20,30,replace=TRUE))\nonlineDevices<-devices%>%filter(online)\nofflineDevices<-devices%>%filter(!online)\ntotalCpu<-sum(devices$cpu)\navgCpu<-mean(devices$cpu)\navgRam<-mean(devices$ram)\navgDisk<-mean(devices$disk)\ntotalRequests<-sum(services$requests)\ntotalErrors<-sum(services$errors)\navgUptime<-mean(services$uptime)\nunresolvedAlerts<-sum(!alerts$resolved)\ntopDevice<-devices[which.max(devices$cpu),]\ntopService<-services[which.max(services$requests),]\nhealthScore<-round((avgUptime - (totalErrors/100))*10,2)\nmodules<-c("Dashboard","Devices","Services","Alerts","Logs","Analytics","Security","Network","Storage","API Gateway","Scheduler","Monitoring","Automation","Cloud Sync","Backup","AI Engine","Load Balancer","Firewall","Database","Reports","Settings","Support","Audit")\nconfig<-list(System="Active",Database="Connected",Firewall="Enabled",Security="Strong",Cloud="Synced",Backup="Completed",Monitoring="Running",AI="Enabled",Cache="Active",Gateway="Healthy",Version="11.0.3",Region="Asia",Mode="Enterprise",Uptime="99.97%")\ncat("==================== R NETWORK INTELLIGENCE SYSTEM ====================\\n")\ncat("Devices:",nrow(devices)," Online:",nrow(onlineDevices)," Offline:",nrow(offlineDevices),"\\n")\ncat("CPU Avg:",avgCpu," RAM Avg:",avgRam," Disk Avg:",avgDisk,"\\n")\ncat("Services Requests:",totalRequests," Errors:",totalErrors," Uptime Avg:",round(avgUptime,2),"\\n")\ncat("Unresolved Alerts:",unresolvedAlerts," Health Score:",healthScore,"\\n")\ncat("Top Device:",topDevice$name,topDevice$cpu,"CPU\\n")\ncat("Top Service:",topService$name,topService$requests,"Requests\\n")\ncat("=====DEVICES=====")\nprint(onlineDevices)\ncat("=====SERVICES=====")\nprint(services)\ncat("=====ALERTS=====")\nprint(alerts)\ncat("=====LOGS=====")\nprint(logs)\ncat("=====SYSTEM CONFIG=====")\nprint(config)\ncat("=====MODULES=====")\nprint(modules)\ncat("System Status : Optimized\\n")\ncat("Security Level : High\\n")\ncat("Network Health : Stable\\n")\ncat("AI Monitoring : Active\\n")\ncat("Backup Status : Safe\\n")\ncat("Enterprise Network System Running Successfully\\n")` },
+
+        { section: "if - else" },
+      { name: "1. If", code: `student_name <- "Rahul"
+marks <- 85
+
+print("\nStudent Result\n")
+print("-----------------------------\n")
+print(paste("Student Name:", student_name, "\n"))
+print(paste("Marks:", marks, "\n"))
+
+if (marks >= 40) {
+  print("Student has passed the examination\n")
+  print("Congratulations!\n")
+  print("You are eligible for the next level\n")
+  print("Keep studying regularly\n")
+  print("Your performance is satisfactory\n")
+  print("Continue improving your knowledge\n")
+  print("Focus on difficult subjects\n")
+  print("Practice more questions\n")
+  print("Revise your lessons regularly\n")
+  print("Maintain your good performance\n")
+}
+
+print("Result processing completed\n")
+print("Student result has been generated\n")
+print("Thank you\n")
+print("-----------------------------\n")
+print("End of Program\n")`},
+      { name: "2. If + Else If", code: `student_name <- "Rahul"
+marks <- 78
+
+print("\nStudent Marks Evaluation\n")
+print("-----------------------------\n")
+print(paste("Name:", student_name, "\n"))
+print(paste("Marks:", marks, "\n"))
+
+if (marks >= 90) {
+  print("Excellent performance\n")
+  print("Outstanding marks\n")
+  print("Very strong academic performance\n")
+} else if (marks >= 75) {
+  print("Very good performance\n")
+  print("Good marks achieved\n")
+  print("Keep working hard\n")
+  print("You are performing well\n")
+  print("Continue regular practice\n")
+  print("Improve your weaker subjects\n")
+  print("Maintain your current performance\n")
+}
+
+print("Marks evaluation completed\n")
+print("Result has been processed\n")
+print("Student evaluation finished\n")
+print("-----------------------------\n")
+print("End of Program\n")`},
+      { name: "3. If + Else", code: `student_name <- "Rahul"
+marks <- 65
+passing_marks <- 40
+
+print("\nExamination Result\n")
+print("-----------------------------\n")
+print(paste("Student:", student_name, "\n"))
+print(paste("Marks:", marks, "\n"))
+print(paste("Passing Marks:", passing_marks, "\n"))
+
+if (marks >= passing_marks) {
+  print("Result: PASS\n")
+  print("Congratulations!\n")
+  print("You successfully passed\n")
+  print("Your marks are above passing marks\n")
+  print("Continue your hard work\n")
+  print("Keep improving your knowledge\n")
+  print("Prepare well for the next examination\n")
+  print("Maintain your performance\n")
+} else {
+  print("Result: FAIL\n")
+  print("You need more preparation\n")
+  print("Study your subjects carefully\n")
+  print("Practice more questions\n")
+  print("Prepare better for the next examination\n")
+}
+
+print("Result calculation completed\n")
+print("Thank you for using the program\n")
+print("-----------------------------\n")
+print("End of Program\n")`},
+      { name: "4. If + Else If + Else", code: `student_name <- "Rahul"
+marks <- 82
+
+print("\nStudent Grade System\n")
+print("-----------------------------\n")
+print(paste("Student Name:", student_name, "\n"))
+print(paste("Student Marks:", marks, "\n"))
+
+if (marks >= 90) {
+  print("Grade: A+\n")
+  print("Excellent performance\n")
+  print("Outstanding result\n")
+} else if (marks >= 75) {
+  print("Grade: A\n")
+  print("Very good performance\n")
+  print("Excellent academic progress\n")
+  print("Keep working hard\n")
+} else if (marks >= 60) {
+  print("Grade: B\n")
+  print("Good performance\n")
+  print("You can improve further\n")
+  print("Practice regularly\n")
+} else {
+  print("Grade: C\n")
+  print("Needs improvement\n")
+  print("Study more regularly\n")
+  print("Practice difficult topics\n")
+}
+
+print("Grade calculation completed\n")
+print("Student evaluation completed\n")
+print("Thank you\n")
+print("-----------------------------\n")
+print("End of Program\n")`},
+
+
+{ section: "loops" },
+      { name: "1. For Loop", code: `students <- c("Rahul", "Amit", "Sneha", "Priya", "Rohit")
+
+print("\nStudent List\n")
+print("-----------------------------\n")
+
+for (student in students) {
+  print(paste("Student Name:", student, "\n"))
+  print("Student is attending the programming class\n")
+  print("Student is learning R language\n")
+  print("Student is practicing loops\n")
+  print("Student is completing today's task\n")
+}
+
+print("All students processed successfully\n")
+print("For loop execution completed\n")
+print("-----------------------------\n")`},
+      { name: "2. While Loop", code: `count <- 1
+
+print("\nWhile Loop Example\n")
+print("-----------------------------\n")
+
+while (count <= 10) {
+  print(paste("Current Number:", count, "\n"))
+  print(paste("Square:", count * count, "\n"))
+  print(paste("Cube:", count * count * count, "\n"))
+  print("Number is being processed\n")
+  print("Calculation completed successfully\n")
+  count <- count + 1
+}
+
+print("All numbers processed\n")
+print("While loop execution completed\n")
+print("-----------------------------\n")`},
+      { name: "3. Do While Loop", code: `count <- 1
+
+print("\nDo While Loop Example\n")
+print("-----------------------------\n")
+
+repeat {
+  print(paste("Current Number:", count, "\n"))
+  print(paste("Double:", count * 2, "\n"))
+  print(paste("Square:", count * count, "\n"))
+  print("Number processed successfully\n")
+  print("Calculation completed\n")
+  
+  count <- count + 1
+  
+  if (count > 10) {
+    break
+  }
+}
+
+print("All numbers processed\n")
+print("Do while style loop completed\n")
+print("-----------------------------\n")`},
+      { name: "4. For...of Loop", code: `languages <- c(
+  "Python",
+  "R",
+  "Java",
+  "C++",
+  "JavaScript"
+)
+
+print("\nProgramming Languages\n")
+print("-----------------------------\n")
+
+for (language in languages) {
+  print(paste("Language:", language, "\n"))
+  print(paste(language, "is a programming language\n"))
+  print("This language can be used for programming\n")
+  print("Learning this language improves coding skills\n")
+}
+
+print("All languages processed\n")
+print("For value loop completed\n")
+print("-----------------------------\n")`},
+      { name: "5. For...in Loop", code: `numbers <- 10:15
+
+print("\nNumber Processing\n")
+print("-----------------------------\n")
+
+for (number in numbers) {
+  print(paste("Number:", number, "\n"))
+  print(paste("Addition:", number + 10, "\n"))
+  print(paste("Subtraction:", number - 5, "\n"))
+  print(paste("Multiplication:", number * 2, "\n"))
+  print(paste("Division:", number / 2, "\n"))
+  print("Number processing completed\n")
+}
+
+print("All calculations completed\n")
+print("For in loop completed\n")
+print("-----------------------------\n")`},
+      { name: "6. For Each Loop", code: `library(foreach)
+
+students <- c(
+  "Rahul",
+  "Amit",
+  "Sneha",
+  "Priya",
+  "Rohit"
+)
+
+print("\nForeach Example\n")
+print("-----------------------------\n")
+
+foreach(student = students) %do% {
+  print(paste("Student:", student, "\n"))
+  print("Student is learning R language\n")
+  print("Student is practicing programming\n")
+  print("Student is working on loop concepts\n")
+  print("Student task completed\n")
+}
+
+print("All students processed\n")
+print("Foreach loop completed\n")
+print("-----------------------------\n")`},
+      { name: "7. Break", code: `numbers <- 1:10
+
+print("\nBreak Statement Example\n")
+print("-----------------------------\n")
+
+for (number in numbers) {
+  print(paste("Current Number:", number, "\n"))
+  print("Number is being checked\n")
+  
+  if (number == 6) {
+    print("Number 6 found\n")
+    print("Loop will stop now\n")
+    break
+  }
+  
+  print("Number is allowed\n")
+  print("Processing continues\n")
+}
+
+print("Loop stopped successfully\n")
+print("Break statement execution completed\n")
+print("-----------------------------\n")`},
+      { name: "8. Continue", code: `numbers <- 1:10
+
+print("\nContinue Example\n")
+print("-----------------------------\n")
+
+for (number in numbers) {
+  
+  if (number == 5) {
+    print("Number 5 skipped\n")
+    next
+  }
+  
+  print(paste("Current Number:", number, "\n"))
+  print(paste("Square:", number * number, "\n"))
+  print(paste("Double:", number * 2, "\n"))
+  print("Number processed successfully\n")
+  print("Loop is continuing\n")
+}
+
+print("All remaining numbers processed\n")
+print("Continue statement execution completed\n")
+print("-----------------------------\n")`},
+
+
+  { section: "functions in r" },
+      { name: "1. print()", code: `name <- "Rahul"
+print("\nStudent Information\n")
+print("-----------------------------\n")
+print(paste("Name:", name, "\n"))
+print("Student is learning R\n")
+print("Programming practice started\n")`},
+      { name: "2. paste()", code: `first_name <- "Rahul"
+last_name <- "Patil"
+
+print("\nString Combination\n")
+print("-----------------------------\n")
+full_name <- paste(first_name, last_name)
+print(paste("Full Name:", full_name, "\n"))
+print("Two strings have been combined\n")
+print("paste function completed\n")`},
+      { name: "3. paste0()", code: `first <- "R"
+second <- "Language"
+
+print("\nPaste0 Example\n")
+print("-----------------------------\n")
+result <- paste0(first, second)
+print(paste("Result:", result, "\n"))
+print("Strings joined without space\n")
+print("paste0 function completed\n")`},
+      { name: "4. length()", code: `students <- c("Rahul", "Amit", "Sneha", "Priya", "Rohit")
+
+print("\nLength Function\n")
+print("-----------------------------\n")
+total <- length(students)
+print(paste("Student List:", students, "\n"))
+print(paste("Total Students:", total, "\n"))
+print("Length of vector calculated\n")
+print("length function completed\n")`},
+      { name: "5. sum()", code: `marks <- c(75, 82, 91, 68, 88)
+
+print("\nSum Function\n")
+print("-----------------------------\n")
+total_marks <- sum(marks)
+print(paste("Marks:", paste(marks, collapse = ", "), "\n"))
+print(paste("Total Marks:", total_marks, "\n"))
+print("All marks have been added\n")
+print("sum function completed\n")`},
+      { name: "6. mean()", code: `marks <- c(75, 82, 91, 68, 88)
+
+print("\nMean Function\n")
+print("-----------------------------\n")
+average <- mean(marks)
+print(paste("Marks:", paste(marks, collapse = ", "), "\n"))
+print(paste("Average Marks:", average, "\n"))
+print("Average has been calculated\n")
+print("mean function completed\n")`},
+      { name: "7. max()", code: `marks <- c(75, 82, 91, 68, 88)
+
+print("\nMaximum Function\n")
+print("-----------------------------\n")
+highest <- max(marks)
+print(paste("Marks:", paste(marks, collapse = ", "), "\n"))
+print(paste("Highest Marks:", highest, "\n"))
+print("Maximum value found successfully\n")
+print("max function completed\n")`},
+      { name: "8. min()", code: `marks <- c(75, 82, 91, 68, 88)
+
+print("\nMinimum Function\n")
+print("-----------------------------\n")
+lowest <- min(marks)
+print(paste("Marks:", paste(marks, collapse = ", "), "\n"))
+print(paste("Lowest Marks:", lowest, "\n"))
+print("Minimum value found successfully\n")
+print("min function completed\n")`},
+      { name: "9. sort()", code: `numbers <- c(45, 12, 89, 23, 67)
+
+print("\nSort Function\n")
+print("-----------------------------\n")
+print(paste("Original:", paste(numbers, collapse = ", "), "\n"))
+ascending <- sort(numbers)
+descending <- sort(numbers, decreasing = TRUE)
+print(paste("Ascending:", paste(ascending, collapse = ", "), "\n"))
+print(paste("Descending:", paste(descending, collapse = ", "), "\n"))
+print("Numbers sorted successfully\n")
+print("sort function completed\n")`},
+      { name: "10. round()", code: `price <- 125.6789
+
+print("\nRound Function\n")
+print("-----------------------------\n")
+print(paste("Original Price:", price, "\n"))
+rounded <- round(price, 2)
+print(paste("Rounded Price:", rounded, "\n"))
+print("Decimal value rounded successfully\n")
+print("round function completed\n")`},
+      { name: "11. abs()", code: `number <- -85
+
+print("\nAbsolute Value Function\n")
+print("-----------------------------\n")
+print(paste("Original Number:", number, "\n"))
+result <- abs(number)
+print(paste("Absolute Value:", result, "\n"))
+print("Negative sign removed from value\n")
+print("abs function completed\n")`},
+      { name: "12. sqrt()", code: `number <- 144
+
+print("\nSquare Root Function\n")
+print("-----------------------------\n")
+result <- sqrt(number)
+print(paste("Number:", number, "\n"))
+print(paste("Square Root:", result, "\n"))
+print("Square root calculated successfully\n")
+print("sqrt function completed\n")`},
+      { name: "13. typeof()", code: `student_name <- "Rahul"
+student_age <- 20L
+student_marks <- 85.5
+
+print("\nType Checking\n")
+print("-----------------------------\n")
+print(paste("Name Type:", typeof(student_name), "\n"))
+print(paste("Age Type:", typeof(student_age), "\n"))
+print(paste("Marks Type:", typeof(student_marks), "\n"))
+print("Data types checked successfully\n")
+print("typeof function completed\n")`},
+      { name: "14. class()", code: `student_name <- "Rahul"
+marks <- c(80, 85, 90)
+
+print("\nClass Function\n")
+print("-----------------------------\n")
+print(paste("Name Class:", class(student_name), "\n"))
+print(paste("Marks Class:", class(marks), "\n"))
+print("Classes identified successfully\n")
+print("class function completed\n")`},
+      { name: "15. is.numeric()", code: `marks <- 85.5
+
+print("\nNumeric Checking\n")
+print("-----------------------------\n")
+result <- is.numeric(marks)
+print(paste("Marks:", marks, "\n"))
+print(paste("Is Numeric:", result, "\n"))
+print("Numeric data type checked\n")
+print("is.numeric function completed\n")`},
+      { name: "16. is.character()", code: `name <- "Rahul"
+
+print("\nCharacter Checking\n")
+print("-----------------------------\n")
+result <- is.character(name)
+print(paste("Name:", name, "\n"))
+print(paste("Is Character:", result, "\n"))
+print("Character data type checked\n")
+print("is.character function completed\n")`},
+      { name: "17. is.logical()", code: `passed <- TRUE
+
+print("\nLogical Checking\n")
+print("-----------------------------\n")
+result <- is.logical(passed)
+print(paste("Value:", passed, "\n"))
+print(paste("Is Logical:", result, "\n"))
+print("Logical data type checked\n")
+print("is.logical function completed\n")`},
+      { name: "18. seq()", code: `print("\nSequence Function\n")
+print("-----------------------------\n")
+numbers <- seq(1, 20, by = 2)
+print(paste("Generated Sequence:", paste(numbers, collapse = ", "), "\n"))
+print("Sequence created from 1 to 20\n")
+print("Numbers increase by 2\n")
+print("seq function completed\n")`},
+      { name: "19. rep()", code: `print("\nRepeat Function\n")
+print("-----------------------------\n")
+colors <- rep(c("Red", "Blue", "Green"), times = 3)
+print(paste("Repeated Values:", paste(colors, collapse = ", "), "\n"))
+print("Values have been repeated three times\n")
+print("rep function completed\n")`},
+      { name: "20. unique()", code: `cities <- c("Nanded", "Pune", "Nanded", "Mumbai", "Pune")
+
+print("\nUnique Function\n")
+print("-----------------------------\n")
+print(paste("Original:", paste(cities, collapse = ", "), "\n"))
+result <- unique(cities)
+print(paste("Unique Cities:", paste(result, collapse = ", "), "\n"))
+print("Duplicate values removed\n")
+print("unique function completed\n")`},
+      { name: "21. which()", code: `marks <- c(45, 78, 92, 35, 88)
+
+print("\nWhich Function\n")
+print("-----------------------------\n")
+positions <- which(marks >= 80)
+print(paste("Marks:", paste(marks, collapse = ", "), "\n"))
+print(paste("Positions:", paste(positions, collapse = ", "), "\n"))
+print("Positions matching condition found\n")
+print("which function completed\n")`},
+      { name: "22. ifelse()", code: `marks <- c(35, 67, 82, 29, 91)
+
+print("\nIfelse Function\n")
+print("-----------------------------\n")
+result <- ifelse(marks >= 40, "PASS", "FAIL")
+print(paste("Marks:", paste(marks, collapse = ", "), "\n"))
+print(paste("Result:", paste(result, collapse = ", "), "\n"))
+print("Pass and fail results generated\n")
+print("ifelse function completed\n")`},
+      { name: "23. c()", code: `print("\nCombine Function\n")
+print("-----------------------------\n")
+numbers <- c(10, 20, 30, 40, 50)
+print(paste("Numbers:", paste(numbers, collapse = ", "), "\n"))
+print("Multiple values combined into one vector\n")
+print("Vector created successfully\n")
+print("c function completed\n")`},
+      { name: "24. data.frame()", code: `24. data.frame()`},
+      { name: "25. nrow() and ncol()", code: `students <- data.frame(
+  Name = c("Rahul", "Amit", "Sneha"),
+  Age = c(20, 21, 19),
+  Marks = c(85, 78, 92)
+)
+
+print("\nRow and Column Count\n")
+print("-----------------------------\n")
+rows <- nrow(students)
+columns <- ncol(students)
+print(paste("Total Rows:", rows, "\n"))
+print(paste("Total Columns:", columns, "\n"))
+print("Data frame structure counted\n")
+print("nrow and ncol completed\n")`}
+ 
     ];
   }
 
