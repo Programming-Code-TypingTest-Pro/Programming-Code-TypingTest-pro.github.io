@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blank Page</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    
+
+<!-- PAGE 3 -->
+<div id="page3" class="page active">
+  <div class="header">Best Of Luck</div>
+<style>.header {
+    background: linear-gradient(90deg, red,red, gold, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 2px 2px 8px rgba(255,0,0,0.4);
+}</style>
+
+
+  <!-- ☰ Menu Button -->
+<div id="menuBtn" onclick="toggleMenu()">☰</div>
+<!-- Dropdown Menu -->
+<div id="menuBox">
+  <button onclick="toggleTimer()" id="timerBtn">Timer ON</button>
+  <button onclick="toggleKeyboard()" id="keyboardBtn">Keyboard ON</button>
+</div>
+
+
+<div class="timer" id="timer">2:00</div>
+
+<div id="keyboardBox"></div>
+
+
+<!-- 🔴 End Exam -->
+<button onclick="endExam()" 
+style="position:absolute; top:60px; right:10px; background:red; padding:5px 10px; font-size:10px; border-radius:3px;">
+End Exam
+</button>
+<span id="testTitle"></span>
+<button onclick="window.location.href='page2.html'" class="back-btn">Back</button>
+<style>
+.back-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 7px 13px;
+  font-size: 13px;
+  color: white;
+  background: transparent; 
+  border: none;
+  border-radius: 12px;
+  backdrop-filter: none; 
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background: none;
+}
+.correct { color: lightgreen; }
+.incorrect { color: red; }
+.pending { color: gray; }
+</style>
+<div class="code-box glass" id="typingBox"></div>
+<textarea id="inputBox"></textarea>
+  <h6> 🟥 Shift + Enter To End Exam</h6>
+</div>
+<script src="main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
