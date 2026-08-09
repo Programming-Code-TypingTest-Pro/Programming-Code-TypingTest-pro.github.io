@@ -60,7 +60,7 @@ body {
 }
 
   /* KEYBOARD POSITION */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   #keyboardBox {
     position: fixed ;
     left: 10px;
@@ -71,8 +71,21 @@ body {
     transform: scale(0.85) ;
     transform-origin: top left ;
   }
+} */
+/* KEYBOARD POSITION - CENTERED FOR MOBILE */
+@media (max-width: 768px) {
+  #keyboardBox {
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    width: 95%;
+    transform: translateX(-50%) scale(0.85);
+    transform-origin: center bottom;
+  }
 }
-    
+
+
+
   .key {
   position: relative;
   font-size: 15px;
