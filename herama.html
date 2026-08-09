@@ -421,5 +421,1684 @@
 
   </div>
 
+
+
+
+
+
+
+
+
+
+
+
+<!-- ==================== PROGRAM CODE TYPE MASTER ==================== -->
+
+<style>
+.program-app-card {
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 38px;
+    border-radius: 30px;
+    color: #fff;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(255, 0, 55, .28), transparent 32%),
+        radial-gradient(circle at 90% 20%, rgba(255, 80, 0, .20), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(180, 0, 70, .25), transparent 35%),
+        linear-gradient(135deg, #09030a, #26030b 45%, #09030b);
+    border: 1px solid rgba(255, 45, 75, .35);
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.65),
+        0 0 45px rgba(255,20,55,.12);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+}
+
+/* Floating glowing orbs */
+.program-app-card::before,
+.program-app-card::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    animation: appFloat 9s ease-in-out infinite alternate;
+}
+
+.program-app-card::before {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(45deg,#ff003c,#ff7a00);
+    top: -130px;
+    left: -100px;
+    opacity: .32;
+}
+
+.program-app-card::after {
+    width: 330px;
+    height: 330px;
+    background: linear-gradient(45deg,#b000ff,#ff0055);
+    right: -130px;
+    bottom: -150px;
+    opacity: .27;
+    animation-delay: -4s;
+}
+
+@keyframes appFloat {
+    from { transform: translate(0,0) scale(1); }
+    to { transform: translate(25px,30px) scale(1.12); }
+}
+
+.program-app-inner {
+    position: relative;
+    z-index: 2;
+}
+
+/* Top badge */
+.program-app-badge {
+    display: inline-block;
+    padding: 7px 19px;
+    border-radius: 50px;
+    background: linear-gradient(90deg,#ff1744,#ff6a00);
+    box-shadow: 0 0 25px rgba(255,35,70,.45);
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+}
+
+/* Heading */
+.program-app-title {
+    margin: 17px 0 10px;
+    font-size: 2.65rem;
+    font-weight: 900;
+    line-height: 1.15;
+    background: linear-gradient(
+        100deg,
+        #ffffff 10%,
+        #ff7b8f 42%,
+        #ff304f 70%,
+        #ff9a4d
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.program-app-description {
+    max-width: 850px;
+    color: #eecfd4;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+/* Feature grid */
+.program-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 17px;
+}
+
+/* Glass feature boxes */
+.program-feature {
+    position: relative;
+    overflow: hidden;
+    min-height: 175px;
+    padding: 21px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.045);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transition: .35s ease;
+}
+
+/* Different colored borders */
+.program-feature.red {
+    border: 1px solid rgba(255,30,65,.65);
+    box-shadow: inset 0 0 25px rgba(255,20,50,.05);
+}
+
+.program-feature.orange {
+    border: 1px solid rgba(255,130,30,.65);
+    box-shadow: inset 0 0 25px rgba(255,100,20,.05);
+}
+
+.program-feature.purple {
+    border: 1px solid rgba(190,70,255,.65);
+    box-shadow: inset 0 0 25px rgba(180,50,255,.05);
+}
+
+.program-feature.cyan {
+    border: 1px solid rgba(0,220,255,.65);
+    box-shadow: inset 0 0 25px rgba(0,210,255,.05);
+}
+
+/* Top colored line */
+.program-feature::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12%;
+    width: 76%;
+    height: 3px;
+    border-radius: 20px;
+}
+
+.program-feature.red::before {
+    background: #ff1744;
+    box-shadow: 0 0 15px #ff1744;
+}
+
+.program-feature.orange::before {
+    background: #ff8a00;
+    box-shadow: 0 0 15px #ff8a00;
+}
+
+.program-feature.purple::before {
+    background: #c23cff;
+    box-shadow: 0 0 15px #c23cff;
+}
+
+.program-feature.cyan::before {
+    background: #00dcff;
+    box-shadow: 0 0 15px #00dcff;
+}
+
+/* Hover */
+.program-feature:hover {
+    transform: translateY(-7px);
+}
+
+.program-feature.red:hover {
+    background: rgba(255,20,50,.10);
+    box-shadow: 0 15px 40px rgba(255,20,50,.20);
+}
+
+.program-feature.orange:hover {
+    background: rgba(255,110,0,.10);
+    box-shadow: 0 15px 40px rgba(255,100,0,.20);
+}
+
+.program-feature.purple:hover {
+    background: rgba(180,40,255,.10);
+    box-shadow: 0 15px 40px rgba(180,40,255,.20);
+}
+
+.program-feature.cyan:hover {
+    background: rgba(0,210,255,.10);
+    box-shadow: 0 15px 40px rgba(0,210,255,.20);
+}
+
+.program-feature-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.program-feature-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    margin-bottom: 7px;
+}
+
+.program-feature-text {
+    color: #cdbbc0;
+    font-size: .84rem;
+    line-height: 1.55;
+}
+
+/* Bottom button area */
+.program-app-bottom {
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.program-app-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 25px;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    font-weight: 800;
+    background: linear-gradient(90deg,#ff123f,#ff6b00);
+    box-shadow: 0 8px 30px rgba(255,30,55,.30);
+    transition: .3s ease;
+}
+
+.program-app-link:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 40px rgba(255,30,55,.50);
+}
+
+.program-app-tag {
+    color: #ffb8c2;
+    font-size: .85rem;
+}
+
+/* Mobile */
+@media(max-width:850px) {
+    .program-feature-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px) {
+    .program-app-card {
+        padding: 23px;
+        border-radius: 23px;
+    }
+
+    .program-app-title {
+        font-size: 1.9rem;
+    }
+
+    .program-app-description {
+        font-size: .9rem;
+    }
+
+    .program-feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .program-feature {
+        min-height: auto;
+    }
+
+    .program-app-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+</style>
+
+<div class="program-app-card">
+
+```
+<div class="program-app-inner">
+
+    <span class="program-app-badge">
+        ⌨️ Programming Typing Platform
+    </span>
+
+    <h2 class="program-app-title">
+        Program Code Type Master
+    </h2>
+
+    <div class="program-app-description">
+        Real programming code type karke apni typing speed, accuracy
+        aur coding muscle memory improve karein. Different programming
+        languages ke practical code snippets ke saath interactive
+        typing practice experience.
+    </div>
+
+    <div class="program-feature-grid">
+
+        <div class="program-feature red">
+            <div class="program-feature-icon">💻</div>
+            <div class="program-feature-title">
+                Real Code Practice
+            </div>
+            <div class="program-feature-text">
+                Functions, loops, conditions, classes aur real coding
+                syntax ke saath typing practice.
+            </div>
+        </div>
+
+        <div class="program-feature orange">
+            <div class="program-feature-icon">📊</div>
+            <div class="program-feature-title">
+                Live Performance
+            </div>
+            <div class="program-feature-text">
+                WPM, accuracy, mistakes aur typing performance ko
+                interactive result screen par dekhein.
+            </div>
+        </div>
+
+        <div class="program-feature purple">
+            <div class="program-feature-icon">⌨️</div>
+            <div class="program-feature-title">
+                Smart Keyboard
+            </div>
+            <div class="program-feature-text">
+                Virtual keyboard ko practice ke according ON/OFF
+                karke comfortable typing experience paayein.
+            </div>
+        </div>
+
+        <div class="program-feature cyan">
+            <div class="program-feature-icon">🚀</div>
+            <div class="program-feature-title">
+                Multiple Languages
+            </div>
+            <div class="program-feature-text">
+                Python, JavaScript, C++, Java aur other programming
+                languages ke code ke saath practice karein.
+            </div>
+        </div>
+
+    </div>
+
+    <div class="program-app-bottom">
+
+        <span class="program-app-tag">
+            ⚡ Practice • Type • Improve
+        </span>
+
+        <a
+            class="program-app-link"
+            href="https://programming-code-typingtest-pro.github.io/"
+            target="_blank"
+            rel="noopener"
+        >
+            🚀 Open App →
+        </a>
+
+    </div>
+
+</div>
+```
+
+</div>
+
+<!-- ==================== END ==================== -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ==================== DOCUCONVERT PRO APP INFO ==================== -->
+
+<style>
+.docu-suite-card {
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 30px;
+    color: #fff;
+    background:
+        radial-gradient(circle at 8% 12%, rgba(0,195,255,.30), transparent 30%),
+        radial-gradient(circle at 92% 15%, rgba(130,45,255,.28), transparent 31%),
+        radial-gradient(circle at 50% 105%, rgba(0,255,200,.20), transparent 34%),
+        linear-gradient(135deg,#030914,#07152b 45%,#080516);
+    border: 1px solid rgba(0,210,255,.30);
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.65),
+        0 0 55px rgba(0,180,255,.12);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    box-sizing: border-box;
+}
+
+/* Floating background glow */
+.docu-suite-card::before,
+.docu-suite-card::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(85px);
+    pointer-events: none;
+    animation: docuOrb 10s ease-in-out infinite alternate;
+}
+
+.docu-suite-card::before {
+    width: 320px;
+    height: 320px;
+    background: linear-gradient(45deg,#00c8ff,#2455ff);
+    top: -150px;
+    left: -100px;
+    opacity: .30;
+}
+
+.docu-suite-card::after {
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(45deg,#9b2cff,#00e6c3);
+    right: -140px;
+    bottom: -160px;
+    opacity: .25;
+    animation-delay: -5s;
+}
+
+@keyframes docuOrb {
+    from { transform: translate(0,0) scale(1); }
+    to { transform: translate(28px,35px) scale(1.10); }
+}
+
+.docu-suite-inner {
+    position: relative;
+    z-index: 2;
+}
+
+/* Badge */
+.docu-suite-badge {
+    display: inline-block;
+    padding: 7px 19px;
+    border-radius: 50px;
+    background: linear-gradient(90deg,#087cff,#9b35ff);
+    box-shadow: 0 0 25px rgba(40,120,255,.42);
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* Main heading */
+.docu-suite-title {
+    margin: 17px 0 10px;
+    font-size: 2.65rem;
+    font-weight: 900;
+    line-height: 1.15;
+    background: linear-gradient(
+        110deg,
+        #ffffff 8%,
+        #55ddff 38%,
+        #9c55ff 68%,
+        #00e5c0
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.docu-suite-description {
+    max-width: 900px;
+    color: #c9dff0;
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 28px;
+}
+
+/* Stats strip */
+.docu-stats {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.docu-stat {
+    text-align: center;
+    padding: 14px 10px;
+    border-radius: 15px;
+    background: rgba(255,255,255,.035);
+    border: 1px solid rgba(255,255,255,.10);
+}
+
+.docu-stat strong {
+    display: block;
+    font-size: 1.15rem;
+    color: #fff;
+}
+
+.docu-stat span {
+    color: #8eb0c8;
+    font-size: .72rem;
+}
+
+/* Feature grid */
+.docu-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 17px;
+}
+
+/* Glass feature */
+.docu-feature {
+    position: relative;
+    overflow: hidden;
+    min-height: 195px;
+    padding: 21px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.045);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transition: .35s ease;
+}
+
+/* Individual borders */
+.docu-feature.blue {
+    border: 1px solid rgba(0,190,255,.65);
+}
+
+.docu-feature.purple {
+    border: 1px solid rgba(175,65,255,.68);
+}
+
+.docu-feature.green {
+    border: 1px solid rgba(0,240,190,.65);
+}
+
+.docu-feature.orange {
+    border: 1px solid rgba(255,150,40,.68);
+}
+
+/* Top neon lines */
+.docu-feature::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12%;
+    width: 76%;
+    height: 3px;
+    border-radius: 20px;
+}
+
+.docu-feature.blue::before {
+    background: #00c8ff;
+    box-shadow: 0 0 16px #00c8ff;
+}
+
+.docu-feature.purple::before {
+    background: #b43cff;
+    box-shadow: 0 0 16px #b43cff;
+}
+
+.docu-feature.green::before {
+    background: #00e6b4;
+    box-shadow: 0 0 16px #00e6b4;
+}
+
+.docu-feature.orange::before {
+    background: #ff9d2e;
+    box-shadow: 0 0 16px #ff9d2e;
+}
+
+/* Hover */
+.docu-feature:hover {
+    transform: translateY(-7px);
+}
+
+.docu-feature.blue:hover {
+    background: rgba(0,190,255,.09);
+    box-shadow: 0 15px 40px rgba(0,190,255,.18);
+}
+
+.docu-feature.purple:hover {
+    background: rgba(175,50,255,.09);
+    box-shadow: 0 15px 40px rgba(175,50,255,.18);
+}
+
+.docu-feature.green:hover {
+    background: rgba(0,230,180,.09);
+    box-shadow: 0 15px 40px rgba(0,230,180,.18);
+}
+
+.docu-feature.orange:hover {
+    background: rgba(255,145,30,.09);
+    box-shadow: 0 15px 40px rgba(255,145,30,.18);
+}
+
+.docu-feature-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.docu-feature-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    margin-bottom: 7px;
+}
+
+.docu-feature-text {
+    color: #a9c1d4;
+    font-size: .83rem;
+    line-height: 1.58;
+}
+
+/* Bottom information */
+.docu-bottom {
+    margin-top: 27px;
+    padding: 20px;
+    border-radius: 18px;
+    background: linear-gradient(
+        90deg,
+        rgba(0,180,255,.08),
+        rgba(150,50,255,.08),
+        rgba(0,230,190,.06)
+    );
+    border: 1px solid rgba(100,180,255,.16);
+}
+
+.docu-bottom-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg,#55ddff,#b36aff,#00e5c0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.docu-bottom-text {
+    color: #b6ccdc;
+    font-size: .86rem;
+    line-height: 1.65;
+}
+
+/* Button area */
+.docu-suite-footer {
+    margin-top: 25px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.docu-tagline {
+    color: #91b7ce;
+    font-size: .84rem;
+}
+
+.docu-open-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 25px;
+    border-radius: 50px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    background: linear-gradient(90deg,#078cff,#873dff);
+    box-shadow: 0 8px 30px rgba(40,100,255,.30);
+    transition: .3s ease;
+}
+
+.docu-open-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 40px rgba(70,100,255,.50);
+}
+
+/* Responsive */
+@media(max-width:850px) {
+    .docu-feature-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .docu-stats {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px) {
+    .docu-suite-card {
+        padding: 23px;
+        border-radius: 23px;
+    }
+
+    .docu-suite-title {
+        font-size: 1.9rem;
+    }
+
+    .docu-suite-description {
+        font-size: .9rem;
+    }
+
+    .docu-feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .docu-stats {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .docu-feature {
+        min-height: auto;
+    }
+
+    .docu-suite-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+</style>
+
+<div class="docu-suite-card">
+
+```
+<div class="docu-suite-inner">
+
+    <span class="docu-suite-badge">
+        ⚡ All-In-One Document Station
+    </span>
+
+    <h2 class="docu-suite-title">
+        Pro Document & Image Conversion Suite
+    </h2>
+
+    <div class="docu-suite-description">
+        Documents, spreadsheets, presentations aur images ko ek hi
+        browser-based workspace mein convert, edit aur optimize karein.
+        PDF, Excel, Word, PowerPoint aur image workflows ke liye
+        multiple conversion tools ek single suite mein available hain.
+    </div>
+
+    <!-- QUICK STATS -->
+    <div class="docu-stats">
+
+        <div class="docu-stat">
+            <strong>📕 PDF</strong>
+            <span>Convert & Extract</span>
+        </div>
+
+        <div class="docu-stat">
+            <strong>📊 Excel</strong>
+            <span>PDF & Images</span>
+        </div>
+
+        <div class="docu-stat">
+            <strong>📝 Word</strong>
+            <span>Document Conversion</span>
+        </div>
+
+        <div class="docu-stat">
+            <strong>🖼️ Images</strong>
+            <span>Edit & Convert</span>
+        </div>
+
+    </div>
+
+    <!-- FEATURES -->
+    <div class="docu-feature-grid">
+
+        <div class="docu-feature blue">
+            <div class="docu-feature-icon">📕</div>
+            <div class="docu-feature-title">
+                PDF Conversion
+            </div>
+            <div class="docu-feature-text">
+                Images se PDF create karein aur PDF pages ko images
+                mein extract karein. Page order, preview, compression
+                aur download controls ke saath.
+            </div>
+        </div>
+
+        <div class="docu-feature purple">
+            <div class="docu-feature-icon">📊</div>
+            <div class="docu-feature-title">
+                Excel Suite
+            </div>
+            <div class="docu-feature-text">
+                XLSX, XLS aur CSV spreadsheet data ko organized PDF
+                documents ya shareable images mein convert karein.
+            </div>
+        </div>
+
+        <div class="docu-feature green">
+            <div class="docu-feature-icon">📝</div>
+            <div class="docu-feature-title">
+                Word Document Tools
+            </div>
+            <div class="docu-feature-text">
+                Word pages ko high-quality images mein process karke
+                crop, adjust, filters, text aur PIP jaise editing tools
+                ke saath customize karein.
+            </div>
+        </div>
+
+        <div class="docu-feature orange">
+            <div class="docu-feature-icon">🟧</div>
+            <div class="docu-feature-title">
+                PowerPoint Suite
+            </div>
+            <div class="docu-feature-text">
+                PPT slides ko PDF ya images mein convert karein aur
+                PDF/images ko presentation workflow mein use karein.
+            </div>
+        </div>
+
+    </div>
+
+    <!-- EXTRA INFO -->
+    <div class="docu-bottom">
+
+        <div class="docu-bottom-title">
+            🔐 Fast • Browser-Based • Responsive
+        </div>
+
+        <div class="docu-bottom-text">
+            Suite browser-based workflow par focused hai, jisme files
+            process karne ke saath preview, editing, quality control,
+            compression aur download options milte hain. Interface
+            mobile, tablet aur desktop screens ke liye responsive hai,
+            isliye alag software installation ke bina web workspace
+            se conversion tasks handle kiye ja sakte hain.
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="docu-suite-footer">
+
+        <span class="docu-tagline">
+            ✨ Convert • Edit • Optimize • Download
+        </span>
+
+        <a
+            class="docu-open-btn"
+            href="https://panduranggarad922-cell.github.io"
+            target="_blank"
+            rel="noopener"
+        >
+            🚀 Open App →
+        </a>
+
+    </div>
+
+</div>
+```
+
+</div>
+
+<!-- ==================== END DOCUCONVERT PRO ==================== -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ==================== IMAGE EDITOR INFO BOX 1 (POPTI GREEN THEME) ==================== -->
+<style>
+.img-app-card-popti {
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 38px;
+    border-radius: 30px;
+    color: #fff;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(0, 255, 136, 0.28), transparent 32%),
+        radial-gradient(circle at 90% 20%, rgba(0, 240, 255, 0.20), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(0, 200, 100, 0.25), transparent 35%),
+        linear-gradient(135deg, #020f08, #052615 45%, #020f0a);
+    border: 1px solid rgba(0, 255, 136, 0.40);
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.65),
+        0 0 45px rgba(0, 255, 136, 0.15);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    box-sizing: border-box;
+}
+
+.img-app-card-popti::before,
+.img-app-card-popti::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    animation: poptiFloat 9s ease-in-out infinite alternate;
+}
+
+.img-app-card-popti::before {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(45deg, #00ff88, #00f0ff);
+    top: -130px;
+    left: -100px;
+    opacity: .32;
+}
+
+.img-app-card-popti::after {
+    width: 330px;
+    height: 330px;
+    background: linear-gradient(45deg, #00cc66, #020f08);
+    right: -130px;
+    bottom: -150px;
+    opacity: .27;
+    animation-delay: -4s;
+}
+
+@keyframes poptiFloat {
+    from { transform: translate(0,0) scale(1); }
+    to { transform: translate(25px,30px) scale(1.12); }
+}
+
+.img-app-popti-inner {
+    position: relative;
+    z-index: 2;
+}
+
+.img-app-popti-badge {
+    display: inline-block;
+    padding: 7px 19px;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #00ff88, #00b359);
+    box-shadow: 0 0 25px rgba(0, 255, 136, 0.45);
+    color: #000;
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+}
+
+.img-app-popti-title {
+    margin: 17px 0 10px;
+    font-size: 2.65rem;
+    font-weight: 900;
+    line-height: 1.15;
+    background: linear-gradient(100deg, #ffffff 10%, #70ffb8 42%, #00ff88 70%, #00f0ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.img-app-popti-desc {
+    max-width: 850px;
+    color: #d0f7e4;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+.img-popti-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 17px;
+}
+
+.img-popti-feature {
+    position: relative;
+    overflow: hidden;
+    min-height: 175px;
+    padding: 21px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.045);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transition: .35s ease;
+    border: 1px solid rgba(0, 255, 136, 0.5);
+}
+
+.img-popti-feature::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12%;
+    width: 76%;
+    height: 3px;
+    border-radius: 20px;
+    background: #00ff88;
+    box-shadow: 0 0 15px #00ff88;
+}
+
+.img-popti-feature:hover {
+    transform: translateY(-7px);
+    background: rgba(0, 255, 136, 0.10);
+    box-shadow: 0 15px 40px rgba(0, 255, 136, 0.20);
+}
+
+.img-popti-feature-icon { font-size: 2rem; margin-bottom: 12px; }
+.img-popti-feature-title { font-size: 1.05rem; font-weight: 800; margin-bottom: 7px; color: #fff; }
+.img-popti-feature-text { color: #bdf2d8; font-size: .84rem; line-height: 1.55; }
+
+.img-popti-bottom {
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.img-popti-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 25px;
+    border-radius: 50px;
+    color: #000;
+    text-decoration: none;
+    font-weight: 800;
+    background: linear-gradient(90deg, #00ff88, #00b359);
+    box-shadow: 0 8px 30px rgba(0, 255, 136, 0.30);
+    transition: .3s ease;
+}
+
+.img-popti-link:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 40px rgba(0, 255, 136, 0.50);
+}
+
+@media(max-width:850px) { .img-popti-grid { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width:600px) {
+    .img-app-card-popti { padding: 23px; border-radius: 23px; }
+    .img-app-popti-title { font-size: 1.9rem; }
+    .img-popti-grid { grid-template-columns: 1fr; }
+    .img-popti-bottom { flex-direction: column; align-items: flex-start; }
+}
+</style>
+
+<div class="img-app-card-popti">
+    <div class="img-app-popti-inner">
+        <span class="img-app-popti-badge">🖼️ Advanced Image Editor Suite</span>
+        <h2 class="img-app-title img-app-popti-title">Pro Image Editor Studio</h2>
+        <div class="img-app-popti-desc">
+            Apni photos ko professional filters, multi-layer text overlays, background glow, selective colors aur Snapchat-style effects ke saath instant edit karein.
+        </div>
+
+        <div class="img-popti-grid">
+            <div class="img-popti-feature">
+                <div class="img-popti-feature-icon">✨</div>
+                <div class="img-popti-feature-title">Smart Color Glow</div>
+                <div class="img-popti-feature-text">Face skin tone aur selective background colors ko high quality mein adjust karein.</div>
+            </div>
+            <div class="img-popti-feature">
+                <div class="img-popti-feature-icon">🔤</div>
+                <div class="img-popti-feature-title">20+ Google Fonts</div>
+                <div class="img-popti-feature-text">Stylish typography, text rotation, color controls aur custom fonts ke saath text add karein.</div>
+            </div>
+            <div class="img-popti-feature">
+                <div class="img-popti-feature-icon">🖼️</div>
+                <div class="img-popti-feature-title">PIP Layering</div>
+                <div class="img-popti-feature-text">Multiple photos aur overlays ko ek hi canvas par perfectly combine aur blend karein.</div>
+            </div>
+            <div class="img-popti-feature">
+                <div class="img-popti-feature-icon">✂️</div>
+                <div class="img-popti-feature-title">Custom Crop & Ratios</div>
+                <div class="img-popti-feature-text">Instagram, Reels, YouTube aur custom sizes ke liye fast cropper tool.</div>
+            </div>
+        </div>
+
+        <div class="img-popti-bottom">
+            <span style="color:#00ff88; font-size:.85rem;">⚡ Edit • Filter • Enhance • Download</span>
+            <a class="img-popti-link" href="https://heramapsoftwares.github.io" target="_blank" rel="noopener">
+                🚀 Visit Site →
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<!-- ==================== IMAGE EDITOR INFO BOX 2 (JAMBLI / PURPLE THEME) ==================== -->
+<style>
+.img-app-card-jambli {
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 30px;
+    color: #fff;
+    background:
+        radial-gradient(circle at 8% 12%, rgba(157, 0, 255, .30), transparent 30%),
+        radial-gradient(circle at 92% 15%, rgba(212, 0, 255, .28), transparent 31%),
+        radial-gradient(circle at 50% 105%, rgba(121, 40, 202, .20), transparent 34%),
+        linear-gradient(135deg, #090214, #190533 45%, #0d021f);
+    border: 1px solid rgba(157, 0, 255, .40);
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.65),
+        0 0 55px rgba(157, 0, 255, .15);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    box-sizing: border-box;
+}
+
+.img-app-card-jambli::before,
+.img-app-card-jambli::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(85px);
+    pointer-events: none;
+    animation: jambliOrb 10s ease-in-out infinite alternate;
+}
+
+.img-app-card-jambli::before {
+    width: 320px;
+    height: 320px;
+    background: linear-gradient(45deg, #9d00ff, #d400ff);
+    top: -150px;
+    left: -100px;
+    opacity: .30;
+}
+
+.img-app-card-jambli::after {
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(45deg, #7928ca, #ff007c);
+    right: -140px;
+    bottom: -160px;
+    opacity: .25;
+    animation-delay: -5s;
+}
+
+@keyframes jambliOrb {
+    from { transform: translate(0,0) scale(1); }
+    to { transform: translate(28px,35px) scale(1.10); }
+}
+
+.img-jambli-inner { position: relative; z-index: 2; }
+
+.img-jambli-badge {
+    display: inline-block;
+    padding: 7px 19px;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #9d00ff, #d400ff);
+    box-shadow: 0 0 25px rgba(157, 0, 255, .42);
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.img-jambli-title {
+    margin: 17px 0 10px;
+    font-size: 2.65rem;
+    font-weight: 900;
+    line-height: 1.15;
+    background: linear-gradient(110deg, #ffffff 8%, #d400ff 38%, #a855ff 68%, #ff007c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.img-jambli-description {
+    max-width: 900px;
+    color: #e5ccff;
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 28px;
+}
+
+.img-jambli-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.img-jambli-stat {
+    text-align: center;
+    padding: 14px 10px;
+    border-radius: 15px;
+    background: rgba(255,255,255,.035);
+    border: 1px solid rgba(157, 0, 255, .30);
+}
+
+.img-jambli-stat strong { display: block; font-size: 1.15rem; color: #fff; }
+.img-jambli-stat span { color: #c499ff; font-size: .72rem; }
+
+.img-jambli-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 17px;
+}
+
+.img-jambli-feature {
+    position: relative;
+    overflow: hidden;
+    min-height: 195px;
+    padding: 21px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.045);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transition: .35s ease;
+    border: 1px solid rgba(157, 0, 255, .60);
+}
+
+.img-jambli-feature::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12%;
+    width: 76%;
+    height: 3px;
+    border-radius: 20px;
+    background: #d400ff;
+    box-shadow: 0 0 16px #d400ff;
+}
+
+.img-jambli-feature:hover {
+    transform: translateY(-7px);
+    background: rgba(157, 0, 255, .12);
+    box-shadow: 0 15px 40px rgba(157, 0, 255, .25);
+}
+
+.img-jambli-feature-icon { font-size: 2rem; margin-bottom: 12px; }
+.img-jambli-feature-title { font-size: 1.05rem; font-weight: 800; margin-bottom: 7px; color: #fff; }
+.img-jambli-feature-text { color: #d6b3ff; font-size: .83rem; line-height: 1.58; }
+
+.img-jambli-bottom {
+    margin-top: 27px;
+    padding: 20px;
+    border-radius: 18px;
+    background: linear-gradient(90deg, rgba(157, 0, 255, .12), rgba(212, 0, 255, .10));
+    border: 1px solid rgba(157, 0, 255, .25);
+}
+
+.img-jambli-bottom-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, #d400ff, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.img-jambli-bottom-text { color: #d9b8ff; font-size: .86rem; line-height: 1.65; }
+
+.img-jambli-footer {
+    margin-top: 25px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.img-jambli-open-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 25px;
+    border-radius: 50px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    background: linear-gradient(90deg, #9d00ff, #d400ff);
+    box-shadow: 0 8px 30px rgba(157, 0, 255, .35);
+    transition: .3s ease;
+}
+
+.img-jambli-open-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 40px rgba(157, 0, 255, .55);
+}
+
+@media(max-width:850px) {
+    .img-jambli-grid, .img-jambli-stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media(max-width:600px) {
+    .img-app-card-jambli { padding: 23px; border-radius: 23px; }
+    .img-jambli-title { font-size: 1.9rem; }
+    .img-jambli-grid { grid-template-columns: 1fr; }
+    .img-jambli-footer { flex-direction: column; align-items: flex-start; }
+}
+</style>
+
+<div class="img-app-card-jambli">
+    <div class="img-jambli-inner">
+        <span class="img-jambli-badge">🔮 Complete Image Suite</span>
+        <h2 class="img-jambli-title">Pro Advance Image Processing Studio</h2>
+        <div class="img-jambli-description">
+            High-definition image editing, canvas resizing, interactive Snapchat style FX filters aur multi-overlay features ke saath apni images ko convert aur export karein.
+        </div>
+
+        <div class="img-jambli-stats">
+            <div class="img-jambli-stat"><strong>🪄 Filters</strong><span>20+ Presets</span></div>
+            <div class="img-jambli-stat"><strong>🎨 Adjust</strong><span>12+ Sliders</span></div>
+            <div class="img-jambli-stat"><strong>📸 Effects</strong><span>HDR & Vignette</span></div>
+            <div class="img-jambli-stat"><strong>💾 Export</strong><span>HD JPG Output</span></div>
+        </div>
+
+        <div class="img-jambli-grid">
+            <div class="img-jambli-feature">
+                <div class="img-jambli-feature-icon">📸</div>
+                <div class="img-jambli-feature-title">HDR Pro FX</div>
+                <div class="img-jambli-feature-text">Dynamic contrast, shadow recovery aur rich vibrance booster algorithm.</div>
+            </div>
+            <div class="img-jambli-feature">
+                <div class="img-jambli-feature-icon">👤</div>
+                <div class="img-jambli-feature-title">Portrait Blur</div>
+                <div class="img-popti-feature-text" style="color:#d6b3ff;">Smart radial lens blur effect for realistic bokeh portrait look.</div>
+            </div>
+            <div class="img-jambli-feature">
+                <div class="img-jambli-feature-icon">📺</div>
+                <div class="img-jambli-feature-title">Retro & VHS</div>
+                <div class="img-jambli-feature-text">Vintage VHS tape, CRT scanlines aur glitch shift overlays.</div>
+            </div>
+            <div class="img-jambli-feature">
+                <div class="img-jambli-feature-icon">⚫</div>
+                <div class="img-jambli-feature-title">Vignette FX</div>
+                <div class="img-jambli-feature-text">Dark aur Light Vignette depth controls photo framing ke liye.</div>
+            </div>
+        </div>
+
+        <div class="img-jambli-bottom">
+            <div class="img-jambli-bottom-title">🔒 Fast • In-Browser Processing • Responsive</div>
+            <div class="img-jambli-bottom-text">
+                Sabhi image processing tasks browser ke andar bina kisi external server upload ke execute hote hain. Aapki image complete privacy ke saath HD resolution mein client-side render hakar instant download hoti hai.
+            </div>
+        </div>
+
+        <div class="img-jambli-footer">
+            <span style="color:#c499ff; font-size:.84rem;">✨ Pro Features • Fast Processing • Instant Export</span>
+            <a class="img-jambli-open-btn" href="https://heramapsoftwares.github.io" target="_blank" rel="noopener">
+                🚀 Visit Official Page →
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ==================== VIDEO TO MP3 CONVERTER INFO BOX (YELLOW-ORANGE THEME) ==================== -->
+<style>
+.audio-app-card-yellow {
+    font-family: 'Poppins', 'Inter', sans-serif;
+    position: relative;
+    overflow: hidden;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 38px;
+    border-radius: 30px;
+    color: #fff;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(255, 170, 0, 0.30), transparent 32%),
+        radial-gradient(circle at 90% 20%, rgba(255, 102, 0, 0.25), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(255, 215, 0, 0.20), transparent 35%),
+        linear-gradient(135deg, #120c02, #261703 45%, #140b01);
+    border: 1px solid rgba(255, 170, 0, 0.45);
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.65),
+        0 0 50px rgba(255, 170, 0, 0.18);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    box-sizing: border-box;
+}
+
+/* Floating ambient glowing orbs */
+.audio-app-card-yellow::before,
+.audio-app-card-yellow::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    animation: yellowFloat 9s ease-in-out infinite alternate;
+}
+
+.audio-app-card-yellow::before {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(45deg, #ffae00, #ff5500);
+    top: -130px;
+    left: -100px;
+    opacity: .35;
+}
+
+.audio-app-card-yellow::after {
+    width: 330px;
+    height: 330px;
+    background: linear-gradient(45deg, #ffd700, #ff8800);
+    right: -130px;
+    bottom: -150px;
+    opacity: .28;
+    animation-delay: -4s;
+}
+
+@keyframes yellowFloat {
+    from { transform: translate(0,0) scale(1); }
+    to { transform: translate(25px,30px) scale(1.12); }
+}
+
+.audio-app-yellow-inner {
+    position: relative;
+    z-index: 2;
+}
+
+/* Top Badge */
+.audio-app-yellow-badge {
+    display: inline-block;
+    padding: 7px 19px;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #ffae00, #ff6600);
+    box-shadow: 0 0 25px rgba(255, 170, 0, 0.45);
+    color: #000;
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+}
+
+/* Title */
+.audio-app-yellow-title {
+    margin: 17px 0 10px;
+    font-size: 2.65rem;
+    font-weight: 900;
+    line-height: 1.15;
+    background: linear-gradient(100deg, #ffffff 10%, #ffe066 42%, #ffaa00 70%, #ff5500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.audio-app-yellow-desc {
+    max-width: 850px;
+    color: #ffe8cc;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+/* 4 Feature Boxes Grid */
+.audio-yellow-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 17px;
+}
+
+/* Shared Feature Box Base Styling */
+.audio-yellow-feature {
+    position: relative;
+    overflow: hidden;
+    min-height: 185px;
+    padding: 21px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.045);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transition: .35s ease;
+}
+
+/* 1. Box - Cyan Border */
+.audio-yellow-feature.border-cyan {
+    border: 1px solid rgba(0, 240, 255, 0.65);
+    box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.05);
+}
+.audio-yellow-feature.border-cyan::before {
+    content: ""; position: absolute; top: 0; left: 12%; width: 76%; height: 3px; border-radius: 20px;
+    background: #00f0ff; box-shadow: 0 0 15px #00f0ff;
+}
+.audio-yellow-feature.border-cyan:hover {
+    transform: translateY(-7px);
+    background: rgba(0, 240, 255, 0.10);
+    box-shadow: 0 15px 40px rgba(0, 240, 255, 0.20);
+}
+
+/* 2. Box - Neon Pink Border */
+.audio-yellow-feature.border-pink {
+    border: 1px solid rgba(255, 0, 124, 0.65);
+    box-shadow: inset 0 0 20px rgba(255, 0, 124, 0.05);
+}
+.audio-yellow-feature.border-pink::before {
+    content: ""; position: absolute; top: 0; left: 12%; width: 76%; height: 3px; border-radius: 20px;
+    background: #ff007c; box-shadow: 0 0 15px #ff007c;
+}
+.audio-yellow-feature.border-pink:hover {
+    transform: translateY(-7px);
+    background: rgba(255, 0, 124, 0.10);
+    box-shadow: 0 15px 40px rgba(255, 0, 124, 0.20);
+}
+
+/* 3. Box - Popti Green Border */
+.audio-yellow-feature.border-popti {
+    border: 1px solid rgba(0, 255, 136, 0.65);
+    box-shadow: inset 0 0 20px rgba(0, 255, 136, 0.05);
+}
+.audio-yellow-feature.border-popti::before {
+    content: ""; position: absolute; top: 0; left: 12%; width: 76%; height: 3px; border-radius: 20px;
+    background: #00ff88; box-shadow: 0 0 15px #00ff88;
+}
+.audio-yellow-feature.border-popti:hover {
+    transform: translateY(-7px);
+    background: rgba(0, 255, 136, 0.10);
+    box-shadow: 0 15px 40px rgba(0, 255, 136, 0.20);
+}
+
+/* 4. Box - Purple / Jambli Border */
+.audio-yellow-feature.border-purple {
+    border: 1px solid rgba(157, 0, 255, 0.65);
+    box-shadow: inset 0 0 20px rgba(157, 0, 255, 0.05);
+}
+.audio-yellow-feature.border-purple::before {
+    content: ""; position: absolute; top: 0; left: 12%; width: 76%; height: 3px; border-radius: 20px;
+    background: #9d00ff; box-shadow: 0 0 15px #9d00ff;
+}
+.audio-yellow-feature.border-purple:hover {
+    transform: translateY(-7px);
+    background: rgba(157, 0, 255, 0.10);
+    box-shadow: 0 15px 40px rgba(157, 0, 255, 0.20);
+}
+
+.audio-yellow-feature-icon { font-size: 2rem; margin-bottom: 12px; }
+.audio-yellow-feature-title { font-size: 1.05rem; font-weight: 800; margin-bottom: 7px; color: #fff; }
+.audio-yellow-feature-text { color: #f0d5b8; font-size: .84rem; line-height: 1.55; }
+
+/* Bottom Action Bar */
+.audio-yellow-bottom {
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.audio-yellow-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 25px;
+    border-radius: 50px;
+    color: #000;
+    text-decoration: none;
+    font-weight: 800;
+    background: linear-gradient(90deg, #ffae00, #ff6600);
+    box-shadow: 0 8px 30px rgba(255, 170, 0, 0.35);
+    transition: .3s ease;
+}
+
+.audio-yellow-link:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 40px rgba(255, 170, 0, 0.55);
+}
+
+@media(max-width:850px) { .audio-yellow-grid { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width:600px) {
+    .audio-app-card-yellow { padding: 23px; border-radius: 23px; }
+    .audio-app-yellow-title { font-size: 1.9rem; }
+    .audio-yellow-grid { grid-template-columns: 1fr; }
+    .audio-yellow-bottom { flex-direction: column; align-items: flex-start; }
+}
+</style>
+
+<div class="audio-app-card-yellow">
+    <div class="audio-app-yellow-inner">
+        
+        <!-- Badge -->
+        <span class="audio-app-yellow-badge">🎵 High-Res Audio Extractor</span>
+        
+        <!-- Main Title -->
+        <h2 class="audio-app-yellow-title">Advanced Video to MP3 Voice Converter Pro</h2>
+        
+        <!-- Subtitle Description -->
+        <div class="audio-app-yellow-desc">
+            Kisi bhi video file se crystal clear audio extract karein, live waveform editor se precision cut & trim karein aur custom file renaming ke saath high quality MP3 format download karein.
+        </div>
+
+        <!-- 4 Small Boxes with Different Border Colors -->
+        <div class="audio-yellow-grid">
+            
+            <!-- Box 1: Cyan Border -->
+            <div class="audio-yellow-feature border-cyan">
+                <div class="audio-yellow-feature-icon">🎬</div>
+                <div class="audio-yellow-feature-title">Universal Video Decoder</div>
+                <div class="audio-yellow-feature-text">MP4, MKV, AVI, MOV aur WEBM video formats se fast and lossy/lossless audio extraction.</div>
+            </div>
+
+            <!-- Box 2: Neon Pink Border -->
+            <div class="audio-yellow-feature border-pink">
+                <div class="audio-yellow-feature-icon">🎙️</div>
+                <div class="audio-yellow-feature-title">Waveform Precision Trimmer</div>
+                <div class="audio-yellow-feature-text">Dual-handle visual slider se audio track ko exact millisecond ki precision par trim karein.</div>
+            </div>
+
+            <!-- Box 3: Popti Green Border -->
+            <div class="audio-yellow-feature border-popti">
+                <div class="audio-yellow-feature-icon">⚡</div>
+                <div class="audio-yellow-feature-title">Client-Side Processing</div>
+                <div class="audio-yellow-feature-text">Zero server upload! Fast Web Audio API dwara pure privacy ke saath high speed conversion.</div>
+            </div>
+
+            <!-- Box 4: Purple / Jambli Border -->
+            <div class="audio-yellow-feature border-purple">
+                <div class="audio-yellow-feature-icon">🏷️</div>
+                <div class="audio-yellow-feature-title">Custom Renaming & Export</div>
+                <div class="audio-yellow-feature-text">Audio file ko custom name dein aur instantly high quality MP3 format mein download karein.</div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Link Bar -->
+        <div class="audio-yellow-bottom">
+            <span style="color:#ffae00; font-size:.85rem;">⚡ Extract • Visual Waveform • Trim • Custom Rename</span>
+            <a class="audio-yellow-link" href="https://heramapsoftwares.github.io" target="_blank" rel="noopener">
+                🚀 Visit Site →
+            </a>
+        </div>
+
+    </div>
+</div>
+<!-- ==================== END VIDEO TO MP3 CONVERTER INFO BOX ==================== -->
+
+
+
 </body>
 </html>
