@@ -68,7 +68,7 @@ if (canvas) {
 // ==========================================
 // GLOBAL VARIABLES & UTILS
 // ==========================================
-const languages = ["English","Python","Java","JavaS_t","TypeS_t","C++","C#","R","Kotlin","HTML","CSS","Swift","Node.js","Dart","Rust","PHP","SQL","Bash","PowerShell","Go","Ruby","Scal","Matlab","Julia","Lua","Perl","VB.NET","F#","Haskell","Elixir","Erlang","COBOL","Fortran","Groovy","Clojure","OCaml","Prolog","Ada","Nim","Zig","Solidity","Assembly","Objective-C"];
+const languages = ["English","Python","Java","JavaS_t","TypeS_t","C++","C#","R","Go","PHP","Dart","Rust","Swift","Kotlin","HTML","CSS","Node.js","SQL","Bash","PowerShell","Ruby","Scal","Matlab","Julia","Lua","Perl","VB.NET","F#","Haskell","Elixir","Erlang","COBOL","Fortran","Groovy","Clojure","OCaml","Prolog","Ada","Nim","Zig","Solidity","Assembly","Objective-C"];
 
 let selectedProjects = [];
 let selectedCode = "";
@@ -137,7 +137,7 @@ function initPage1() {
     if(langDiv) {
         languages.forEach(lang => {
           let btn = document.createElement("button");
-          if(lang === "Python" || lang === "Java" || lang === "C++" || lang === "R" || lang === "JavaScript" || lang === "TypeScript" || lang === "Kotlin" || lang === "C#" || lang === "English"){  
+          if(lang === "Python" || lang === "Java" || lang === "C++" || lang === "R" || lang === "go" || lang === "swift" || lang === "php" || lang === "dart" || lang === "rust" || lang === "JavaScript" || lang === "TypeScript" || lang === "Kotlin" || lang === "C#" || lang === "English"){  
             btn.innerText = "⭐" + lang;
           } else {
             btn.innerText = lang;
