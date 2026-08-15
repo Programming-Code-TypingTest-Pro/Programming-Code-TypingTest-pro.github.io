@@ -1,8 +1,18 @@
 // ==========================================
 // BACKGROUND ANIMATION (Common for all pages)
 // ==========================================
+/* const canvas = document.getElementById("hackerBg");
+if (canvas) { */
+
 const canvas = document.getElementById("hackerBg");
-if (canvas) {
+
+if (window.innerWidth <= 768) {
+    if (canvas) canvas.style.display = "none";
+}
+else if (canvas) {
+
+    
+    
     const ctx = canvas.getContext("2d");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -108,6 +118,23 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         document.body.classList.remove("stop-shine");
     }
+
+
+
+
+    
+// Mobile par auto OFF
+if (window.innerWidth <= 768 &&
+    localStorage.getItem("mobileDefaultApplied") !== "true") {
+
+    document.body.classList.add("stop-shine");
+    localStorage.setItem("shineStopped", "true");
+    localStorage.setItem("mobileDefaultApplied", "true");
+}
+
+
+
+
     const shineBtn = document.getElementById("shineBtn");
     if (shineBtn) {
         shineBtn.innerText = shineStopped ? "Shine ON" : "Shine OFF";
