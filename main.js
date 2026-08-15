@@ -137,7 +137,7 @@ function initPage1() {
     if(langDiv) {
         languages.forEach(lang => {
           let btn = document.createElement("button");
-          if(lang === "Python" || lang === "Java" || lang === "C++" || lang === "R" || lang === "go" || lang === "swift" || lang === "php" || lang === "dart" || lang === "rust" || lang === "JavaScript" || lang === "TypeScript" || lang === "Kotlin" || lang === "C#" || lang === "English"){  
+          if(lang === "Python" || lang === "Java" || lang === "C++" || lang === "R" || lang === "Go" || lang === "Swift" || lang === "PHP" || lang === "Dart" || lang === "Rust" || lang === "JavaS_t" || lang === "TypeS_t" || lang === "Kotlin" || lang === "C#" || lang === "English"){  
             btn.innerText = "⭐" + lang;
           } else {
             btn.innerText = lang;
