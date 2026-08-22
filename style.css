@@ -455,6 +455,7 @@ font-size: 30px;
 }
 
 #menuBox button {
+  box-shadow: none;
   padding: 5px 10px;
   border-radius: 10px;
   background:black /* linear-gradient(45deg, rgb(236, 9, 24), pink) */;
@@ -1172,6 +1173,13 @@ left:-150px;
   width: 100%;
   border-radius: 15px;
 } 
+
+/* Dark/Light Mode button sirf laptop/desktop par dikhe */
+@media (max-width: 768px) {
+    #darkBtn {
+        display: none !important;
+    }
+}
 /* .top-navbar{
   top: -22px;
   width: 22%;
