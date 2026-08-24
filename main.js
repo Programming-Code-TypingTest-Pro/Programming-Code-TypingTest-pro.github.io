@@ -175,11 +175,21 @@ function initPage1() {
     }
 }
 
+// ==========================================
+// 1. PAGE 1 SE PAGE 2 JAANE KE LIYE (Language Select)
+// ==========================================
 function selectLang(lang) {
-    // Save selected language to localStorage
+    // Sabse pehle language save karo (Yeh miss nahi hona chahiye)
     localStorage.setItem("selectedLanguage", lang);
-    // Redirect to Page 2
-    window.location.href = "page2.html";
+    
+    // Loader show karo
+    const loader = document.getElementById("globalLoader");
+    if(loader) loader.classList.remove("loader-hidden");
+
+    // 0.5 sec ka delay aur phir Page 2 par redirect
+    setTimeout(() => {
+        window.location.href = "page2.html";
+    }, 300);
 }
 
 // ==========================================
@@ -272,12 +282,22 @@ function initPage2() {
     projDiv.appendChild(p3);
 }
 
+// ==========================================
+// 2. PAGE 2 SE PAGE 3 JAANE KE LIYE (Project Select)
+// ==========================================
 function startTestRedirect(p) {
-    // Save project details to localStorage
+    // Sabse pehle Project ka Naam aur Asli Code save karo (Yahi Page 3 par dikhta hai)
     localStorage.setItem("currentProjectName", p.name);
-    localStorage.setItem("currentProjectCode", p.code);
-    // Redirect to Page 3
-    window.location.href = "page3.html";
+    localStorage.setItem("currentProjectCode", p.code); 
+    
+    // Loader show karo
+    const loader = document.getElementById("globalLoader");
+    if(loader) loader.classList.remove("loader-hidden");
+
+    // 0.5 sec ka delay aur phir Page 3 par redirect
+    setTimeout(() => {
+        window.location.href = "page3.html";
+    }, 300);
 }
 
 
@@ -901,3 +921,13 @@ function toggleShine() {
     }, 200);
   }
 
+// App open hone par Loader hatane ka logic
+window.addEventListener('load', () => {
+    const loader = document.getElementById("globalLoader");
+    if(loader) {
+        // App open hone ke baad 0.5 second tak loader dikhega
+        setTimeout(() => {
+            loader.classList.add("loader-hidden");
+        }, 500); 
+    }
+});
